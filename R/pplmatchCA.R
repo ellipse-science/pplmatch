@@ -1,21 +1,38 @@
-library(fuzzyjoin)
-library(dplyr)
-library(stringr)
-
-# Objets de connexion
-condwd <- tube::ellipse_connect("DEV", "datawarehouse")
-condwp <- tube::ellipse_connect("PROD", "datawarehouse")
-
-# charger la table des parlementaires
-MPs <- tube::ellipse_query(condwd, "dim-ca-parliament-members") |> 
-  dplyr::collect()
-
-# Charger les débats parlementaires
-debates <- tube::ellipse_query(condwp, "a-ca-parliament-debates") |> 
-  dplyr::filter(event_date >= "2005-01-01" & event_date <= "2008-01-01") |> 
-  dplyr::collect()
-
-# Fonction 
+#' Match Canadian Parliamentary Debate Speakers to Member Records
+#'
+#' This function performs fuzzy matching between speakers in parliamentary debates
+#' and official records of parliament members. It uses the Jaro-Winkler distance
+#' method to match names and filters matches by legislative period.
+#'
+#' @param Corpus A data frame containing parliamentary debates. Must include the
+#'   columns: `speaker` (speaker's name), `event_number` (a string that includes
+#'   a legislature number at the beginning).
+#' @param Names A data frame containing parliament member records. Must include the
+#'   columns: `id`, `full_name`, `other_names` (optional), `party_id`, `gender`, and
+#'   `legislature_id`.
+#' @param max_dist Maximum string distance allowed for a match (default: 0.15).
+#'   Lower values are more strict.
+#'
+#' @return A data frame of the original Corpus with additional columns:
+#'   `legislature_num`, `legislature_id`, `speaker_clean`, `matched_name`, `party_id`,
+#'   `gender`, and `name_source`.
+#'
+#' @import dplyr
+#' @import fuzzyjoin
+#' @import stringr
+#' @importFrom tidyr separate_rows
+#' 
+#' @examples
+#' \dontrun{
+#' # Assuming 'debates' and 'MPs' data frames are loaded:
+#' matched_debates <- pplmatchCA(debates, MPs, max_dist = 0.15)
+#' 
+#' # Check match rate
+#' match_rate <- sum(!is.na(matched_debates$matched_name)) / nrow(matched_debates)
+#' print(paste0("Match rate: ", round(match_rate * 100, 2), "%"))
+#' }
+#'
+#' @export
 pplmatchCA <- function(Corpus, Names, max_dist = 0.15) {
   # Étape 1 : ajouter legislature_id et speaker_clean au corpus
   Corpus <- Corpus %>%
@@ -24,7 +41,7 @@ pplmatchCA <- function(Corpus, Names, max_dist = 0.15) {
       legislature_id = paste0("CACOMMONS", legislature_num),
       speaker_clean = str_to_lower(str_replace_all(speaker, "[^[:alpha:] ]", ""))
     )
-
+  
   # Étape 2 : Préparer le full_name et les other_names
   Names_full <- Names %>%
     mutate(
@@ -58,7 +75,7 @@ pplmatchCA <- function(Corpus, Names, max_dist = 0.15) {
     distance_col = ".dist"
   ) %>%
     rename(
-      legislature_id = legislature_id.x 
+      legislature_id = legislature_id.x
     ) %>%
     group_by(speaker, legislature_id) %>%
     slice_min(.dist, n = 1, with_ties = FALSE) %>%
@@ -71,10 +88,3 @@ pplmatchCA <- function(Corpus, Names, max_dist = 0.15) {
   
   return(Corpus_matched)
 }
-
-
-Matched_data <- pplmatchCA(debates, MPs)
-
-
-
-

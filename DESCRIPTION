@@ -1,0 +1,14 @@
+Package: pplmatch
+Title: Match Parliamentary Debate Speakers to Member Records
+Version: 0.1.0
+Authors@R: 
+    person("Your", "Name", email = "your.email@example.com", role = c("aut", "cre"))
+Description: Tools for matching parliamentary debate speakers to official member records using fuzzy matching techniques.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Imports: 
+    dplyr,
+    stringr,
+    fuzzyjoin,
+    tidyr
+RoxygenNote: 7.3.2
