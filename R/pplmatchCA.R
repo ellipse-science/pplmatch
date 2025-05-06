@@ -84,7 +84,8 @@ pplmatchCA <- function(Corpus, Names, max_dist = 0.15) {
   
   # Étape 5 : merge avec le corpus original
   Corpus_matched <- Corpus %>%
-    left_join(Speaker_matches, by = c("speaker", "legislature_id"))
+    left_join(Speaker_matches, by = c("speaker", "legislature_id")) |> 
+    select(-c("legislature_num", "speaker_clean", "name_source"))
   
   return(Corpus_matched)
 }
