@@ -14,7 +14,7 @@ Copiez-collez ces commandes dans votre console RStudio.
 
 ### 1. Installer le package
 ```r
-remotes::install_github("clessn/pplmatch")
+remotes::install_github("ellipse-science/pplmatch")
 ```
 
 ### 2. Configurer Python (Important !)
@@ -53,13 +53,15 @@ resultats %>%
 
 ### Utilisation avancee
 
-Vous pouvez fournir votre propre table de deputes si besoin :
-
 ```r
-# Charger la table integree pour l'inspecter ou la modifier
-members <- qc_members()
+# Activer le web lookup (niveau 4) pour resoudre les cas ambigus via assnat.qc.ca
+resultats <- pplmatchQC(corpus, web_lookup = TRUE, verbose = TRUE)
 
-# Ou passer votre propre table (colonnes: full_name, party_id, gender, legislature_id)
+# Ajuster le seuil de correspondance floue (defaut : 85, entre 0 et 100)
+resultats <- pplmatchQC(corpus, fuzzy_threshold = 90, verbose = TRUE)
+
+# Fournir votre propre table de deputes (colonnes: full_name, party_id, gender, legislature_id)
+members <- qc_members()  # table integree, modifiable
 resultats <- pplmatchQC(corpus, members = mes_deputes, verbose = TRUE)
 ```
 
@@ -81,10 +83,15 @@ Voici ce que signifient les nouvelles colonnes ajoutees a vos donnees :
 
 *   **deterministic** : On est sur a 100%. Le nom est exact.
 *   **contextual** : On a utilise le contexte de la journee pour deviner (ex: distinguer deux "Tremblay").
+*   **web_contextual** : Resolu via assnat.qc.ca (uniquement si `web_lookup = TRUE`).
 *   **role_inferred** : On n'a pas le nom, mais le titre (ex: "Le Ministre") confirme que c'est le **Gouvernement**.
 *   **fuzzy** : Il y avait peut-etre une faute de frappe, mais on a trouve un nom tres proche.
 *   **ambiguous** : Il y a plusieurs deputes avec ce nom et on n'a pas pu trancher.
 *   **unmatched** : Impossible d'identifier la personne.
+
+### Changements de parti en cours de mandat
+
+Le package gere automatiquement les deputes qui ont quitte leur parti en cours de legislature (ex : passage a independant). La colonne `party_id` reflete le parti **au moment de l'intervention**, pas seulement le parti d'election.
 
 ---
 
@@ -101,4 +108,4 @@ R: Oui. `qc_members()` est un raccourci pour la table integree, mais vous pouvez
 
 ---
 
-*Developpe par le CLESSN.*
+*Developpe par le CLESSN / CAPP — ellipse-science/pplmatch*
