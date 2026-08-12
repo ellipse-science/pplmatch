@@ -279,6 +279,7 @@ def build_mandates(extdata, evenements, legislatures, persons):
                 "party_id": (r["party_id"] or "").upper(),
                 "date_start": deb, "date_end": fin,
                 "start_reason": "election", "end_reason": "dissolution",
+                "parliamentary_status": "group",
                 "source": "members_historic_qc", "confidence": "verified",
             })
 
@@ -314,6 +315,34 @@ def build_mandates(extdata, evenements, legislatures, persons):
                 "end_reason": "dissolution", "source": "assnat_index",
                 "confidence": "single_source",
             })
+
+    # ── Fusion ADQ -> CAQ (2012-02-14) ──────────────────────────────────────
+    # Le DGE confirme la fusion : « Le nouveau parti, la Coalition avenir
+    # Quebec, succede aux droits et obligations des partis fusionnes ». Ce
+    # n'est pas une defection individuelle mais une succession de personne
+    # morale : les elus adequistes deviennent caquistes sans avoir rien fait.
+    #
+    # Le meme jour, le president Chagnon tranche leur statut : « Ils siegeront
+    # comme independants. CEPENDANT, ils figureront comme deputes independants
+    # REPRESENTANT LA CAQ dans le Journal des debats [...] ». D'ou les deux
+    # attributs : party_id = CAQ (affiliation, ce que le Journal affiche) et
+    # parliamentary_status = independent (statut de siege). L'ANQ compte
+    # d'ailleurs « Coalition avenir Quebec, 9 » dans sa propre composition a la
+    # dissolution — elle ne les compte PAS comme independants.
+    FUSION_ADQ_CAQ = date(2012, 2, 14)
+    for m in list(mandats):
+        if m["party_id"] != "ADQ":
+            continue
+        if not (m["date_start"] <= FUSION_ADQ_CAQ <= m["date_end"]):
+            continue
+        fin_orig = m["date_end"]
+        m["date_end"], m["end_reason"] = FUSION_ADQ_CAQ - timedelta(days=1), "merger"
+        mandats.append({**m, "party_id": "CAQ",
+                        "parliamentary_status": "independent",
+                        "date_start": FUSION_ADQ_CAQ, "date_end": fin_orig,
+                        "start_reason": "merger", "end_reason": "dissolution",
+                        "source": "chrono102:fusion+decision-chagnon",
+                        "confidence": "verified"})
 
     for ev in sorted(evenements, key=lambda e: e["date"]):
         d, seat = ev["date"], ev["seat_id"]
@@ -570,7 +599,8 @@ def main():
     for nom, lignes, champs in (
         ("persons_qc.csv", persons, ["person_id", "full_name", "other_names", "assnat_url"]),
         ("seats_qc.csv", seats, ["seat_id", "name", "date_start", "date_end"]),
-        ("mandates_qc.csv", mandats, ["person_id", "seat_id", "party_id", "date_start",
+        ("mandates_qc.csv", mandats, ["person_id", "seat_id", "party_id",
+                                      "parliamentary_status", "date_start",
                                       "date_end", "start_reason", "end_reason",
                                       "source", "confidence"]),
     ):

@@ -201,6 +201,50 @@ nommé »**.
 
 ---
 
+## 5 bis. Affiliation ≠ statut parlementaire (le cas CAQ 2011-2012)
+
+Un siège peut porter **deux vérités simultanées**, et le modèle doit les
+séparer plutôt que d'en choisir une.
+
+Le 14 février 2012, deux décisions tombent le même jour. Le DGE confirme la
+fusion ADQ–CAQ : « Le nouveau parti, la Coalition avenir Québec, **succède aux
+droits et obligations** des partis fusionnés. » Et le président Chagnon tranche
+le statut des élu·es concerné·es :
+
+> « Ils siégeront comme indépendants. **Cependant, ils figureront comme députés
+> indépendants représentant la CAQ dans le *Journal des débats*, au Canal de
+> l'Assemblée et dans le site Internet de l'Assemblée nationale.** »
+
+Le *Journal des débats* **est notre corpus**. L'ANQ y étiquette donc elle-même
+ces personnes « représentant la CAQ ». Et sa composition à la dissolution
+compte « Coalition avenir Québec, **9** » — elle ne les range pas parmi les
+indépendants.
+
+Leur attribuer la CAQ n'est donc pas une interprétation de notre part : c'est
+reproduire ce que fait la source. D'où deux colonnes :
+
+| colonne | ce qu'elle porte | pour ce cas |
+|---|---|---|
+| `party_id` | l'**affiliation politique** — ce que le Journal affiche | `CAQ` |
+| `parliamentary_status` | le **statut de siège** — la décision du président | `independent` |
+
+La fusion se distingue d'une défection : personne n'a changé de camp, c'est la
+personne morale qui a été remplacée. D'où `start_reason=merger`.
+
+### Ce qui reste non prouvé, et pourquoi on n'invente pas
+
+L'ANQ compte 9 caquistes à la dissolution ; nous en établissons 8 — les
+adéquistes par la fusion, plus François Rebello, nommé explicitement
+(2012-01-10). Les autres sont d'ancien·nes péquistes passé·es à la CAQ après
+avoir siégé comme indépendant·es, **et la chronologie ne les nomme pas
+individuellement**.
+
+Les compter comme caquistes ferait tomber l'écart à zéro. On ne le fait pas :
+un compte agrégé n'identifie personne, et attribuer un parti à quelqu'un sur la
+foi d'une soustraction est exactement ce que ce modèle existe pour empêcher.
+Le corpus pourrait trancher — le Journal des débats les étiquette, par décision
+du président — mais `a-qc-parliament-debates` ne remonte qu'à 2016-09-20.
+
 ## 6 bis. La chronologie est une source RETARDÉE
 
 Constaté le 2026-08-12 : `chrono116.html` (2026) existe mais c'est un **gabarit
