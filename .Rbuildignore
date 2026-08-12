@@ -1,0 +1,5 @@
+^design$
+^\.venv$
+^\.github$
+^.*\.Rproj$
+^\.Rproj\.user$

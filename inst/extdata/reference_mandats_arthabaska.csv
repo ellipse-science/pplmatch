@@ -1,0 +1,6 @@
+person_id,seat_id,party_id,date_start,date_end,start_reason,end_reason,source,confidence
+17845,arthabaska,CAQ,2022-10-03,2024-04-15,election,defection,chrono114,verified
+17845,arthabaska,IND,2024-04-16,2025-03-18,defection,resignation,chrono114;chrono115,verified
+99001,arthabaska,PQ,2025-08-11,,byelection,,chrono115,verified
+17872,laporte,CAQ,2022-10-03,2025-11-03,election,defection,chrono115,verified
+17872,laporte,IND,2025-11-04,,defection,,chrono115,verified
