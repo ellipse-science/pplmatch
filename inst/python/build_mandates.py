@@ -118,28 +118,53 @@ def extract_partielle(texte):
     return out
 
 
+# Le siege peut etre nomme AVANT ou APRES le mot « demission », et sous
+# plusieurs formes. Motifs releves sur le texte reel (2026-08-12) :
+#   « Demission du depute de LaFontaine. »
+#   « Demission d'Andree Laforest, a titre de ministre [...] et de deputee de Chicoutimi. »
+#   « Demission d'Eric Lefebvre, depute independant d'Arthabaska. »
+#   « Jean-Pierre Belisle, depute liberal de Mille-Iles, annonce sa demission. »
+RE_DEMISSION_SIEGE = [
+    re.compile(r"demission[^.]{0,140}?deputee?\s+(?:liberal[e]?\s+|independant[e]?\s+)?"
+               r"(?:d[eu]s?\s+|d[’'])([^,.;]+)", re.I),
+    re.compile(r"deputee?\s+(?:liberal[e]?\s+|independant[e]?\s+)?(?:d[eu]s?\s+|d[’'])"
+               r"([^,.;]+)[^.]{0,90}demission", re.I),
+]
+
+
 def extract_demission(texte):
-    """Depart de l'ASSEMBLEE (pas du caucus, pas du cabinet). Rend district ou None."""
+    """Depart de l'ASSEMBLEE (pas du caucus, pas du seul cabinet)."""
     t = _norm(texte)
     if "demission" not in t:
         return None
     if "caucus" in t:            # c'est une defection, traitee ailleurs
         return None
-    # On demissionne aussi d'une FONCTION sans quitter l'Assemblee. Cas reel :
-    # « le depute de Chauveau, Sylvain Levesque, demissionne de son poste de
-    # deuxieme vice-president » (2024-10-06) — il siege toujours. Confondre les
-    # deux fermait son mandat et le faisait disparaitre du corpus.
-    FONCTIONS = ("de son poste", "de ses fonctions", "a titre de ministre",
-                 "comme ministre", "de son role", "de la presidence",
-                 "vice-president", "vice president", "de son siege au conseil",
-                 "cheffe", "chef du", "de la fonction")
-    if any(f in t for f in FONCTIONS):
-        return None
-    m = re.search(r"demission d[eu]\s+(?:la\s+)?deputee?\s+d[eu]s?\s+([^,.;]+)", t)
-    if not m:
-        m = re.search(r"deputee?\s+d[eu]s?\s+([^,.;]+)[^.]{0,80}demission", t)
+
+    m = None
+    for rx in RE_DEMISSION_SIEGE:
+        m = rx.search(t)
+        if m:
+            break
     if not m:
         return None
+
+    # On demissionne aussi d'une FONCTION sans quitter l'Assemblee — « le depute
+    # de Chauveau demissionne de son poste de deuxieme vice-president » (il siege
+    # toujours). Mais on peut demissionner des DEUX : « a titre de ministre [...]
+    # ET DE DEPUTEE DE Chicoutimi ». C'est donc la mention du SIEGE dans ce dont
+    # on demissionne qui tranche, pas la mention d'un ministere.
+    FONCTIONS = ("de son poste", "de ses fonctions", "de son role",
+                 "de la presidence", "vice-president", "vice president",
+                 "de son siege au conseil", "de la fonction")
+    quitte_le_siege = re.search(r"(?:et\s+)?(?:a titre\s+)?de\s+deputee?\s+d[eu]s?\s+", t) \
+        or re.search(r"demission du deputee?\s", t) \
+        or re.search(r"deputee?\s+independant[e]?\s+d[’'e]", t)
+    if not quitte_le_siege and any(fn in t for fn in FONCTIONS):
+        return None
+    # Une demission ministerielle seule ne vide pas le siege.
+    if not quitte_le_siege and ("a titre de ministre" in t or "comme ministre" in t):
+        return None
+
     return district_id(m.group(1).strip())
 
 

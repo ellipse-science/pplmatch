@@ -201,6 +201,40 @@ nommé »**.
 
 ---
 
+## 6 bis. La chronologie est une source RETARDÉE
+
+Constaté le 2026-08-12 : `chrono116.html` (2026) existe mais c'est un **gabarit
+vide** — « Date », « Texte ici. ». La Bibliothèque de l'ANQ compile la
+chronologie **rétrospectivement**, pas au fil de l'eau.
+
+Conséquence structurelle, et non accidentelle : **aucun événement de l'année en
+cours n'est disponible dans la source qui les date**. Au 2026-08-12, les quatre
+divergences restantes du générateur sont toutes de 2026 —
+
+| siège | ce que l'ANQ affiche aujourd'hui | événement |
+|---|---|---|
+| Chicoutimi | PQ | partielle après la démission d'Andrée Laforest (2025-09-04) |
+| Dubuc | IND | défection |
+| Orford | IND | défection |
+| Rimouski | PCQ | adhésion, après CAQ → IND le 2025-09-18 |
+
+Aucune n'est un défaut d'extraction. Elles se fermeront d'elles-mêmes quand
+l'ANQ publiera la chronologie 2026.
+
+**Ce que ça impose au modèle :** deux sources, deux rôles.
+
+- La **chronologie** date les événements — jusqu'à la fin de l'année précédente.
+- L'**index des députés** donne l'état du jour — sans aucune date.
+
+L'année en cours n'a donc que le second : on connaît le *quoi*, jamais le
+*quand*. Une transition déduite de l'index seul doit rester
+`confidence=single_source` et **ne peut pas** porter de date de changement
+crédible. La rattraper consiste à re-générer une fois la chronologie publiée,
+pas à deviner une date entre-temps.
+
+C'est aussi pourquoi le générateur ne doit jamais être lancé « une fois pour
+toutes » : il se relit chaque année.
+
 ## 7. Réserve
 
 « Exhaustif » n'est atteignable que pour ce que les sources **consignent**.
