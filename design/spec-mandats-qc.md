@@ -231,6 +231,40 @@ reproduire ce que fait la source. D'où deux colonnes :
 La fusion se distingue d'une défection : personne n'a changé de camp, c'est la
 personne morale qui a été remplacée. D'où `start_reason=merger`.
 
+### Les autres gisements Agora de l'infra (relevé du 2026-08-12)
+
+Le corpus des débats n'est pas seul. Inventaire fait :
+
+| table | couverture | utile ici ? |
+|---|---|---|
+| `a-qc-parliament-debates` (PROD) | 2016-09-20 → 2026-06-12, 462 618 lignes | ne remonte pas à 2012 |
+| idem (DEV) | même départ, 219 641 lignes | non |
+| `a-qc-parliamentary-commissions` | **2009**, puis **rien jusqu'en 2022** | le trou couvre 2012 |
+| `dim-qc-parliament-members` | 125 personnes, 43ᵉ législature | **oui** — 125 sièges contre 121 au référentiel |
+| `a-ca-parliament-debates`, `a-eu-parliament-debates` | autres corpus | hors sujet |
+
+`dim-qc-parliament-members` (DEV) est un **instantané**, pas une dimension à
+versions : `version` vaut 43 pour les 125 lignes, `start_date` = 2022-10-03
+partout, `end_date` vide. Elle porte des colonnes `wikidata_qid` et
+`wikipedia_url` — **vides (0/125)**. Le même objet côté PROD renvoie
+`COLUMN_NOT_FOUND` : schéma Glue non enregistré.
+
+### Wikidata : mesuré, pas supposé
+
+Test du 2026-08-12 sur deux cas de la formation de la CAQ, via la propriété
+P102 (« membre d'un parti politique ») et ses qualificatifs de dates :
+
+| personne | Wikidata | chronologie ANQ |
+|---|---|---|
+| Éric Caire | CAQ **depuis 2011-12-19** (date précise) | quitte l'ADQ en 2009, rien sur la CAQ |
+| François Rebello | PQ, Bloc québécois — **aucune CAQ** | « quitte le PQ, rejoint la CAQ » (2012-01-10) |
+
+Chaque source sait ce que l'autre ignore, et Wikidata laisse Caire « ADQ, en
+cours » — faux depuis 2009. C'est la démonstration concrète de la règle du § 6 :
+Wikidata est un **candidat**, jamais une vérité. Elle ajoute des points
+d'ancrage là où elle concorde, et signale un **désaccord à trancher** là où
+elle diverge. Aucune des deux ne domine.
+
 ### Ce qui reste non prouvé, et pourquoi on n'invente pas
 
 L'ANQ compte 9 caquistes à la dissolution ; nous en établissons 8 — les
