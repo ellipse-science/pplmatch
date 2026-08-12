@@ -85,6 +85,14 @@ PARTIS = [
     ("option nationale", "ON"),
     ("parti egalite", "EQ"),
     ("equality party", "EQ"),
+    # Formes ABREGEES, testees en dernier : « reintegre le caucus du Parti
+    # liberal » (sans « du Quebec ») est courant. L'ordre compte — place plus
+    # haut, « parti liberal » capturerait « Parti liberal du Quebec » avant que
+    # la forme longue ne soit testee, ce qui reste correct ici mais fragile.
+    ("parti liberal", "PLQ"),
+    ("coalition avenir", "CAQ"),
+    ("action democratique", "ADQ"),
+    ("parti conservateur", "PCQ"),
 ]
 
 # Un paragraphe qui contient un de ces mots PARLE d'allegeance. S'il n'est pas
@@ -182,8 +190,32 @@ DEPARTS = (
     "n'est plus membre du caucus", "nest plus membre du caucus",
     "expulse", "expulsee", "exclu", "exclue",
 )
-ARRIVEES = ("rejoint", "joint les rangs", "se joint au caucus",
-            "joint le caucus", "adhere a", "passe a")
+# « reintegre le caucus de X » est LA formulation du retour — elle manquait, et
+# c'est elle qui laissait Vaudreuil (Nichols, retour au PLQ le 2025-06-19)
+# indefiniment independante dans nos tables.
+ARRIVEES = ("rejoint", "reintegre", "reintegrera", "joint les rangs",
+            "se joint au caucus", "joint le caucus", "adhere a", "passe a")
+
+# Un retour peut etre annonce au FUTUR, avec sa vraie date dans la phrase :
+# « ne fait plus partie du caucus [...] Il le reintegrera le 1er decembre 2011 ».
+# Dater ce retour du paragraphe le placerait neuf jours trop tot.
+RE_DATE_INLINE = re.compile(
+    r"le\s+(\d{1,2})\s*(?:er|re|e)?\s+([a-zA-Zéû]+)\s+(\d{4})")
+
+
+def date_explicite(texte, mois_map):
+    """Rend la date citee DANS la phrase, ou None."""
+    m = RE_DATE_INLINE.search(_norm(texte))
+    if not m:
+        return None
+    mois = mois_map.get(m.group(2))
+    if not mois:
+        return None
+    try:
+        from datetime import date as _d
+        return _d(int(m.group(3)), mois, int(m.group(1)))
+    except ValueError:
+        return None
 
 # Les circonscriptions se nomment de plusieurs facons ; l'ordre va du plus
 # specifique au plus general pour ne pas couper un nom compose trop tot.
