@@ -61,7 +61,21 @@ RE_CIRCO_PARTIELLE = re.compile(
     r"|circonscriptions?\s+(?:d[eu]\s+|d[’'])"
     r"|elu[e]?s?\s+(?:respectivement\s+)?dans\s+(?:la\s+circonscription\s+(?:d[eu]\s+|d[’']))?"
     r"|dans\s+)"
-    r"([A-Z][\wÀ-ÿ\-–—’'\. ]{2,40})", re.U)
+    # Non gourmand, et borne au premier mot en MINUSCULE. La classe contient
+    # l'espace, donc sans borne le motif avalait la suite de la phrase d'un
+    # seul tenant : « ... elu dans Bourget ET NICOLE LEGER DANS
+    # Pointe-aux-Trembles » rendait la circonscription inexistante
+    # « bourgetetnicolelegerdanspointeauxt », de meme que « Beauce-Sud LORS DES
+    # elections partielles » ou « Levis A L'ISSUE D'UNE election partielle ».
+    #
+    # Enumerer les charnieres (et / ou / dans / lors / a l'issue / au cours...)
+    # laisse toujours passer la suivante. On s'appuie plutot sur une propriete
+    # des noms eux-memes : une circonscription quebecoise est faite de mots
+    # capitalises lies par des traits d'union ou des tirets cadratins, jamais
+    # par des espaces. Un mot en minuscule marque donc la fin du nom, quelle
+    # que soit la tournure — et le motif repart et trouve les circonscriptions
+    # SUIVANTES de la phrase au lieu d'une seule, fausse.
+    r"([A-Z][\wÀ-ÿ\-–—’'\. ]{2,40}?)(?=\s+[a-zà-ÿ]|[,.;)]|$)", re.U)
 
 # Ce qui MENTIONNE une partielle sans en etre le resultat.
 BRUIT_PARTIELLE = ("decret", "se retire", "retirent", "anniversaire",
@@ -148,21 +162,24 @@ def extract_demission(texte):
     if not m:
         return None
 
-    # On demissionne aussi d'une FONCTION sans quitter l'Assemblee — « le depute
-    # de Chauveau demissionne de son poste de deuxieme vice-president » (il siege
-    # toujours). Mais on peut demissionner des DEUX : « a titre de ministre [...]
-    # ET DE DEPUTEE DE Chicoutimi ». C'est donc la mention du SIEGE dans ce dont
-    # on demissionne qui tranche, pas la mention d'un ministere.
-    FONCTIONS = ("de son poste", "de ses fonctions", "de son role",
-                 "de la presidence", "vice-president", "vice president",
-                 "de son siege au conseil", "de la fonction")
-    quitte_le_siege = re.search(r"(?:et\s+)?(?:a titre\s+)?de\s+deputee?\s+d[eu]s?\s+", t) \
-        or re.search(r"demission du deputee?\s", t) \
-        or re.search(r"deputee?\s+independant[e]?\s+d[’'e]", t)
-    if not quitte_le_siege and any(fn in t for fn in FONCTIONS):
-        return None
-    # Une demission ministerielle seule ne vide pas le siege.
-    if not quitte_le_siege and ("a titre de ministre" in t or "comme ministre" in t):
+    # On demissionne aussi d'une FONCTION sans quitter l'Assemblee. Ce qui
+    # tranche, c'est ce dont on demissionne — donc le texte QUI SUIT le verbe,
+    # pas la facon dont la personne est presentee avant lui.
+    #
+    # La regle precedente (« le siege est nomme quelque part ») se declenchait
+    # sur la simple presentation : « Andre Boisclair, DEPUTE DE
+    # Pointe-aux-Trembles, quitte la direction du PQ et demissionne A TITRE DE
+    # CHEF » fermait son mandat six mois trop tot — alors qu'il a siege
+    # jusqu'au 15 novembre 2007. Un mandat clos trop tot fait disparaitre de la
+    # parole du corpus, en silence.
+    i = t.find("demission")
+    portee = t[i:] if i != -1 else t
+    ROLES = ("a titre de chef", "a titre de ministre", "comme ministre",
+             "de son poste", "de ses fonctions", "de son role",
+             "de la presidence", "vice-president", "vice president",
+             "a titre de cheffe", "de la fonction", "a titre de president")
+    quitte_le_siege = bool(re.search(r"deputee?s?\b", portee))
+    if not quitte_le_siege and any(r in portee for r in ROLES):
         return None
 
     return district_id(m.group(1).strip())
