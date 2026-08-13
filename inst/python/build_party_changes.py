@@ -142,15 +142,21 @@ def parse_entries(html):
     """Rend [(date, texte)] — la chronologie alterne <p><strong>DATE</strong></p>
     et <p>evenement</p>."""
     out, courante = [], None
-    for m in re.finditer(r"<p[^>]*>(.*?)</p>", html, re.S | re.I):
-        brut = m.group(1)
+    # DEUX balisages coexistent selon l'epoque, et n'en connaitre qu'un rend
+    # aveugle sans rien dire : les pages recentes datent avec
+    # <p><strong>12 septembre 2024</strong></p>, celles d'avant 2008 avec
+    # <h4>23 fevrier 2003</h4>. Ne lire que la premiere forme donnait ZERO
+    # entree sur chrono86 a chrono97 — 14 ans de defections invisibles.
+    for m in re.finditer(r"<(p|h[1-6])[^>]*>(.*?)</\1>", html, re.S | re.I):
+        balise, brut = m.group(1).lower(), m.group(2)
         texte = html_module.unescape(re.sub(r"<[^>]+>", " ", brut))
         texte = re.sub(r"\s+", " ", texte).strip()
         if not texte:
             continue
         d = _parse_date(texte)
-        # Une date SEULE est un en-tete ; une date au fil du texte n'en est pas un.
-        if d and len(texte) < 60 and "<strong>" in brut.lower():
+        # Une date SEULE est un en-tete ; une date au fil du texte n'en est pas
+        # un. L'en-tete est soit un <hN>, soit un <p> en gras.
+        if d and len(texte) < 60 and (balise.startswith("h") or "<strong>" in brut.lower()):
             courante = d
             continue
         if courante:
