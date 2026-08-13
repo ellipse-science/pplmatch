@@ -87,6 +87,43 @@ test_that("le nom de circonscription s'arrete au premier mot en minuscule", {
   }
 })
 
+test_that("le repli Wikipedia se tait des que l'ANQ a publie", {
+  skip_if_not(reticulate::py_available(), "Python not available")
+  bm <- charger_mandats()
+
+  # Le repli n'existe que pour combler l'annee que l'ANQ n'a pas encore
+  # compilee. Des que sa page porte de vrais paragraphes, elle reprend la main
+  # sans qu'on touche au code — et la fonction rend tout de suite, sans meme
+  # aller lire Wikipedia (donc sans reseau ici).
+  page_publiee <- paste0(
+    paste0("<p>", strrep("Texte reel de la chronologie parlementaire. ", 3),
+           "</p>", collapse = ""),
+    strrep(paste0("<p>", strrep("Un autre paragraphe bien rempli. ", 3), "</p>"), 6))
+
+  expect_length(
+    bm$evenements_de_repli(page_publiee, c(2026), "/inexistant", list()), 0L)
+})
+
+test_that("le repli ne rejoue jamais une annee deja couverte", {
+  skip_if_not(reticulate::py_available(), "Python not available")
+  bm <- charger_mandats()
+
+  # LA REGRESSION. Une premiere version derivait l'annee du numero de page
+  # (chrono86 = 1994, donc chronoN = N + 1908). La numerotation de l'ANQ ne
+  # suit pas, et chrono116 devenait 2024 : le repli rejouait deux annees deja
+  # publiees, et chaque evenement comptait double — Arthabaska se retrouvait
+  # avec trois mandats ouverts le meme jour. La borne porte donc sur les
+  # annees que la chronologie a REELLEMENT datees, pas sur un calcul de page.
+  #
+  # Ici on declare TOUTE la legislature couverte : le repli doit se taire,
+  # meme s'il lit Wikipedia et y trouve des evenements.
+  res <- tryCatch(
+    bm$evenements_de_repli("", as.integer(2022:2030), "inst/extdata", list()),
+    error = function(e) NULL)
+  skip_if(is.null(res), "Wikipedia inaccessible")
+  expect_length(res, 0L)
+})
+
 test_that("un decret annoncant la TENUE de partielles n'elit personne", {
   skip_if_not(reticulate::py_available(), "Python not available")
   bm <- charger_mandats()

@@ -372,7 +372,10 @@ def build_mandates(extdata, evenements, legislatures, persons):
             mandats.append({**m, "party_id": ev["party_after"], "date_start": d,
                             "date_end": fin_orig, "start_reason": "defection",
                             "end_reason": "dissolution", "source": ev["source"],
-                            "confidence": "verified"})
+                            # La chronologie de l'ANQ est faisante foi ; le repli
+                            # Wikipedia, non. L'evenement porte donc sa propre
+                            # confiance plutot que de l'heriter de son type.
+                            "confidence": ev.get("confidence", "verified")})
         elif ev["type"] == "byelection":
             if m:
                 m["date_end"], m["end_reason"] = d - timedelta(days=1), "resignation"
@@ -387,6 +390,90 @@ def build_mandates(extdata, evenements, legislatures, persons):
                 m["date_end"], m["end_reason"] = d, "resignation"
                 m["confidence"] = "disputed"   # cabinet ou Assemblee : a trancher
     return mandats
+
+
+# ── Repli Wikipedia pour l'annee courante ────────────────────────────────────
+
+def evenements_de_repli(html_derniere_page, annees_chrono, extdata, legislatures):
+    """Bouche le trou de l'annee en cours, et RIEN d'autre.
+
+    La Chronologie parlementaire est compilee retrospectivement : la page de
+    l'annee courante existe mais reste un gabarit vide. Sans repli, une
+    defection de janvier n'entre dans nos tables qu'un an plus tard — et d'ici
+    la, pplmatch attribue le mauvais parti a un depute en toute confiance.
+
+    Ce repli ne se declenche QUE si la page de l'ANQ est encore vide : des
+    qu'elle publie, elle reprend la main sans qu'on ait a toucher au code. Ses
+    evenements sortent en `confidence=single_source` et sont marques
+    `wikipedia:` dans `source`, pour rester repérables et re-generables.
+    Wikipedia est un candidat, jamais une verite (spec § 6).
+    """
+    from wikipedia_fallback import (chronologie_vide, evenements_wikipedia,
+                                    resoudre_siege, classer_transition)
+    if not chronologie_vide(html_derniere_page):
+        return []
+
+    # NE PAS deriver l'annee du numero de page. La tentation est forte
+    # (chrono86 = 1994, donc chronoN = N + 1908), mais elle est fausse des que
+    # la numerotation de l'ANQ saute un cran — et elle a effectivement produit
+    # 2024 pour chrono116. Consequence : le repli rejouait deux annees DEJA
+    # publiees par la chronologie, et chaque evenement comptait double
+    # (Arthabaska se retrouvait avec trois mandats ouverts le meme jour).
+    #
+    # On se fie donc a ce que la chronologie a REELLEMENT rendu : toute annee
+    # dont elle a date au moins une entree est a elle, et Wikipedia n'y touche
+    # pas. Le repli ne couvre que ce qui manque, quelle que soit la
+    # numerotation.
+    leg = legislature_for(date.today(), legislatures)
+    if not leg:
+        return []
+
+    # On resout le siege par PERSONNE, contre le releve du jour de l'ANQ : une
+    # phrase Wikipedia peut nommer la circonscription qu'une deputee BRIGUE
+    # plutot que celle qu'elle occupe (cf. wikipedia_fallback, le cas Rimouski
+    # / La Peltrie). Sans ce releve, on n'infere rien.
+    deputes = charger_deputes_courants(extdata)
+    if not deputes:
+        print(f"\nRepli Wikipedia : IMPOSSIBLE — deputes_courants_qc.csv absent, "
+              f"aucun siege ne peut etre resolu par personne.")
+        return []
+
+    print(f"\nRepli Wikipedia : chrono{LAST_PAGE} est un gabarit vide, "
+          f"lecture de « {leg}e legislature du Quebec »")
+    print(f"  annees deja couvertes par la chronologie : "
+          f"{min(annees_chrono, default='-')}..{max(annees_chrono, default='-')}")
+    try:
+        puces = evenements_wikipedia(leg)
+    except Exception as e:                                  # noqa: BLE001
+        print(f"  ECHEC de la lecture ({e}) — on continue sans le repli.")
+        return []
+
+    src = f"wikipedia:{leg}e-legislature"
+    out, non_resolus = [], []
+    puces = [(d, t) for d, t in puces if d.year not in annees_chrono]
+    for d, texte in puces:
+        classe = classer_transition(texte)
+        if not classe:
+            continue
+        typ, _, apres = classe
+        seat = resoudre_siege(texte, deputes)
+        if not seat:
+            non_resolus.append((d, texte[:70]))
+            continue
+        # « rejoint le PCQ » suit la meme mecanique qu'une defection : le
+        # mandat courant se ferme, un autre s'ouvre sous le nouveau parti.
+        out.append({"type": "byelection" if typ == "byelection" else "defection",
+                    "date": d, "seat_id": seat,
+                    "party_after": "IND" if typ == "defection" else apres,
+                    "source": src, "confidence": "single_source"})
+
+    print(f"  {len(puces)} puce(s) sur des annees non couvertes, "
+          f"{len(out)} evenement(s) retenu(s)")
+    for e in out:
+        print(f"    [{e['date']}] {e['type']:10} {e['seat_id']:20} -> {e['party_after']}")
+    for d, t in non_resolus:
+        print(f"    NON RESOLU [{d}] {t}...")
+    return out
 
 
 # ── Invariant 3 : reconciliation avec les compositions publiees par l'ANQ ────
@@ -514,6 +601,11 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--cache", default=None)
     ap.add_argument("--dry-run", action="store_true")
+    # Le repli est actif PAR DEFAUT : sans lui, l'annee en cours est un trou
+    # silencieux. L'option sert aux regenerations reproductibles, ou Wikipedia
+    # — qui bouge au fil de l'eau — introduirait une source non figee.
+    ap.add_argument("--sans-wikipedia", action="store_true",
+                    help="n'utilise pas le repli Wikipedia pour l'annee courante")
     args = ap.parse_args()
 
     ici = os.path.dirname(os.path.abspath(__file__))
@@ -523,12 +615,16 @@ def main():
     evenements, renommages = [], []
     releves, releves_indep = [], []
     print(f"Chronologie ANQ : chrono{FIRST_PAGE} a chrono{LAST_PAGE}")
+    html_derniere, annees_chrono = "", set()
     for n in range(FIRST_PAGE, LAST_PAGE + 1):
         html = fetch_page(n, args.cache)
+        if n == LAST_PAGE:
+            html_derniere = html or ""
         if not html:
             continue
         src = f"chrono{n}"
         for d, texte in parse_entries(html):
+            annees_chrono.add(d.year)
             for anc, nouv in extract_renommages(texte):
                 renommages.append((d, (anc, nouv)))
             t = _norm(texte)
@@ -551,6 +647,10 @@ def main():
             if dem:
                 evenements.append({"type": "resignation", "date": d, "seat_id": dem,
                                    "party_after": None, "source": src})
+
+    if not args.sans_wikipedia:
+        evenements += evenements_de_repli(html_derniere, annees_chrono,
+                                          extdata, legislatures)
 
     par_type = {}
     for e in evenements:

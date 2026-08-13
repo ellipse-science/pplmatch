@@ -313,6 +313,35 @@ pas à deviner une date entre-temps.
 C'est aussi pourquoi le générateur ne doit jamais être lancé « une fois pour
 toutes » : il se relit chaque année.
 
+### Le repli Wikipedia, branché le 2026-08-13
+
+Wikipedia tient la page de la législature **au fil de l'eau**, avec des
+événements datés. Elle donne donc ce qui manque à l'index : le *quand*.
+`evenements_de_repli()` la lit quand la page de l'ANQ est encore un gabarit, et
+ferme les quatre divergences du tableau ci-dessus — 124/125 sièges couverts →
+**125/125**, 4 divergences de parti → **1** (Bonaventure, antérieure et sans
+rapport).
+
+Trois garde-fous, parce que Wikipedia reste un candidat et jamais une vérité
+(§ 6) :
+
+1. **Le repli ne se déclenche que si l'ANQ n'a pas publié.** Le jour où elle
+   publie, elle reprend la main sans qu'on touche au code.
+2. **Il ne couvre que les années que la chronologie n'a pas datées.** La borne
+   porte sur les années réellement rendues par la chronologie, **jamais sur un
+   calcul à partir du numéro de page** — la tentation `chronoN = N + 1908` est
+   fausse (elle donne 2024 pour `chrono116`) et faisait rejouer deux années
+   déjà publiées, chaque événement comptant double.
+3. **Ses mandats sortent en `confidence=single_source`, avec `source`
+   préfixée `wikipedia:`.** Ils sont donc repérables et destinés à être
+   re-générés depuis l'ANQ.
+
+Le siège est résolu **par personne**, contre l'index du jour : une phrase
+Wikipedia peut nommer la circonscription qu'une députée *brigue* plutôt que
+celle qu'elle occupe. Sans l'index, on n'infère rien.
+
+`--sans-wikipedia` désactive le repli, pour les régénérations reproductibles.
+
 ## 7. Réserve
 
 « Exhaustif » n'est atteignable que pour ce que les sources **consignent**.
