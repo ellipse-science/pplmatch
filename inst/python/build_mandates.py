@@ -43,6 +43,7 @@ from build_party_changes import (  # noqa: E402
 )
 
 FIN_LOINTAINE = date(9999, 12, 31)
+PLAFOND_SIEGES = 125          # l'Assemblee nationale en compte 125 depuis 1989
 
 
 # ── Extracteurs supplementaires ──────────────────────────────────────────────
@@ -126,8 +127,14 @@ def extract_partielle(texte):
     for m in RE_CIRCO_PARTIELLE.finditer(texte):
         trouves.append((m.start(), m.group(1)))
         reste = texte[m.end():]
-        suite = re.match(r"((?:\s*,\s*[A-ZÀ-Þ][\wÀ-ÿ\-–—’'\.]*)+"
-                         r"(?:\s+et\s+[A-ZÀ-Þ][\wÀ-ÿ\-–—’'\.]*)?)", reste)
+        # Chaque element doit etre SUIVI d'une virgule, d'un « et », ou de la
+        # fin de phrase. Sans cette borne, l'enumeration avalait les PRENOMS :
+        # « elu dans Bourget, Sylvain Simard dans Vimont » rendait la
+        # circonscription « sylvain ». Un nom de personne est suivi de son
+        # patronyme, donc d'un mot capitalise — jamais d'une charniere de liste.
+        element = r"[A-ZÀ-Þ][\wÀ-ÿ\-–—’'\.]*(?=\s*,|\s+et\s|\s*[.;]|\s*$)"
+        suite = re.match(r"((?:\s*,\s*" + element + r")+"
+                         r"(?:\s+et\s+" + element + r")?)", reste)
         if not suite:
             continue
         pos = m.end()
@@ -368,6 +375,19 @@ def charger_depcir(extdata):
         return [r for r in csv.DictReader(f) if r.get("seat_id")]
 
 
+def cle_nom(nom):
+    """Clef d'identite d'une personne, insensible a la ponctuation.
+
+    Le referentiel ecrit « christine stpierre », l'ANQ « ST-PIERRE, Christine ».
+    Comparees telles quelles, ce sont deux personnes : `persons_qc` en portait
+    deux lignes, avec deux identifiants — l'un entier, l'autre chaine — et le
+    controle « cette personne a-t-elle deja un mandat ? » echouait donc DEUX
+    fois. Christine St-Pierre siegeait dans L'Acadie ET dans Acadie, et le
+    plafond de 125 sautait.
+    """
+    return re.sub(r"[^a-z0-9]", "", _norm(nom or ""))
+
+
 def _nom_depcir(brut):
     """« LEFEBVRE, Eric » -> « eric lefebvre », la graphie du referentiel."""
     brut = (brut or "").strip()
@@ -411,14 +431,14 @@ def build_persons(extdata):
     # boissonneault » : on retourne le nom pour parler la meme langue que le
     # reste de la table, sinon la personne est ajoutee EN DOUBLE sous une
     # graphie que l'appariement ne retrouvera jamais.
-    connus = {l["full_name"] for l in lignes}
+    connus = {cle_nom(l["full_name"]) for l in lignes}
     # L'historique par circonscription nomme aussi les elu.es que le
     # referentiel a manques — dont ceux encore en poste.
     for r in charger_depcir(extdata):
         nom = _nom_depcir(r.get("full_name"))
-        if not nom or nom in connus:
+        if not nom or cle_nom(nom) in connus:
             continue
-        connus.add(nom)
+        connus.add(cle_nom(nom))
         lignes.append({"person_id": r.get("person_id", ""), "full_name": nom,
                        "other_names": nom.split()[-1], "assnat_url": ""})
 
@@ -430,9 +450,9 @@ def build_persons(extdata):
             if "," in brut else brut
         nom = _norm(nom)
         nom = " ".join(nom.split())
-        if not nom or nom in connus:
+        if not nom or cle_nom(nom) in connus:
             continue
-        connus.add(nom)
+        connus.add(cle_nom(nom))
         lignes.append({"person_id": r.get("person_id", ""), "full_name": nom,
                        "other_names": nom.split()[-1] if nom.split() else "",
                        "assnat_url": r.get("assnat_url", "")})
@@ -462,7 +482,9 @@ def build_seats(extdata, renommages):
 
 def build_mandates(extdata, evenements, legislatures, persons):
     """Ouvre un mandat par election generale, puis applique les evenements dates."""
-    pid_par_nom = {p["full_name"]: p["person_id"] for p in persons}
+    # Indexe par CLEF et non par graphie, et en chaine : deux types
+    # differents pour le meme identifiant ne se comparent jamais egaux.
+    pid_par_nom = {cle_nom(p["full_name"]): str(p["person_id"]) for p in persons}
     bornes = {l["legislature"]: (date.fromisoformat(l["start_date"]),
                                  date.fromisoformat(l["end_date"])) for l in legislatures}
     mandats = []
@@ -495,7 +517,7 @@ def build_mandates(extdata, evenements, legislatures, persons):
             leg = r["_leg"]
             deb, fin = bornes[leg]
             mandats.append({
-                "person_id": pid_par_nom.get(r["full_name"], ""),
+                "person_id": pid_par_nom.get(cle_nom(r["full_name"]), ""),
                 # Le referentiel porte deux identifiants mal formes, avec un
                 # ESPACE : « bourassa sauve » et « la piniere ». Ils ne
                 # s'apparient a rien — ni au releve de l'ANQ, ni a l'historique
@@ -523,6 +545,15 @@ def build_mandates(extdata, evenements, legislatures, persons):
     deja_cle = {(m["seat_id"], leg) for m in mandats for leg, (d0, d1) in bornes.items()
                 if m["date_start"] <= d1 and d0 <= m["date_end"]}
     an_vers_leg = {d0.year: leg for leg, (d0, _) in bornes.items()}
+    # Le referentiel et l'ANQ n'orthographient pas toujours le siege pareil —
+    # « L'Acadie » contre « Acadie », « Laurier » contre « Laurier-Dorion ». La
+    # cle (siege x legislature) ne suffit donc pas a voir qu'il s'agit du meme
+    # mandat, et Yvan Bordeleau se retrouvait elu dans deux circonscriptions a
+    # la fois. Une PERSONNE n'occupe qu'un siege par legislature : c'est la
+    # cle qui resiste aux variantes de graphie.
+    deja_personne = {(m["person_id"], leg) for m in mandats if m["person_id"]
+                     for leg, (d0, d1) in bornes.items()
+                     if m["date_start"] <= d1 and d0 <= m["date_end"]}
     comblees = 0
     for r in charger_depcir(extdata):
         if r.get("partielle") == "1":
@@ -531,9 +562,12 @@ def build_mandates(extdata, evenements, legislatures, persons):
         if leg is None or (r["seat_id"], leg) in deja_cle:
             continue
         nom = _nom_depcir(r.get("full_name"))
+        pid = pid_par_nom.get(cle_nom(nom)) or str(r.get("person_id", "") or "")
+        if pid and (pid, leg) in deja_personne:
+            continue
         deb, fin = bornes[leg]
         mandats.append({
-            "person_id": pid_par_nom.get(nom, r.get("person_id", "")),
+            "person_id": pid,
             "seat_id": r["seat_id"], "party_id": (r.get("party_id") or "").upper(),
             "date_start": deb, "date_end": fin,
             "start_reason": "election", "end_reason": "dissolution",
@@ -541,6 +575,8 @@ def build_mandates(extdata, evenements, legislatures, persons):
             "source": "assnat_depcir", "confidence": "single_source",
         })
         deja_cle.add((r["seat_id"], leg))
+        if pid:
+            deja_personne.add((pid, leg))
         comblees += 1
     if comblees:
         print(f"Mandats combles depuis l'historique par circonscription : {comblees}")
@@ -956,6 +992,35 @@ def invariants(mandats):
     for m in mandats:
         if not m["source"]:
             pbs.append(f"SANS SOURCE : {m['seat_id']} {m['date_start']}")
+
+    # ── Invariant 2 : le plafond ────────────────────────────────────────────
+    # Il etait ECRIT dans la spec et jamais implemente. « 0 violation » ne
+    # portait donc que sur deux regles de cinq — un chiffre rassurant qui ne
+    # regardait pas la ou etait l'erreur. Un titre de circonscription non
+    # detecte faisait attribuer ses lignes a la precedente, le meme siege
+    # existait sous deux identifiants, et 137 mandats coexistaient en 2022. Le
+    # non-chevauchement ne pouvait pas le voir : deux identifiants differents
+    # ne se chevauchent jamais.
+    dates = sorted({m["date_start"] for m in mandats})
+    for d in dates:
+        n = sum(1 for m in mandats if m["date_start"] <= d <= m["date_end"])
+        if n > PLAFOND_SIEGES:
+            pbs.append(f"PLAFOND depasse au {d} : {n} mandats ouverts "
+                       f"(maximum {PLAFOND_SIEGES})")
+            break          # un seul suffit a signaler : ils se ressemblent tous
+
+    # ── Invariant 4 : la continuite ─────────────────────────────────────────
+    # Une defection ferme un mandat ET en ouvre un autre, pour la MEME personne
+    # et le meme siege, le lendemain. Sans ce controle, une defection peut
+    # fermer un mandat sans rien rouvrir : le depute disparait du corpus au
+    # lieu de changer de banniere.
+    for seat, ms in par_siege.items():
+        ouverts = {m["date_start"] for m in ms}
+        for m in ms:
+            if m["end_reason"] != "defection":
+                continue
+            if m["date_end"] + timedelta(days=1) not in ouverts:
+                pbs.append(f"DEFECTION SANS SUITE : {seat} {m['date_end']}")
     return pbs
 
 

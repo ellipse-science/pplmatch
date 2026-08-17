@@ -75,10 +75,10 @@ anjou,Anjou,2002,1,"THÉRIAULT, Lise",PLQ,1355,
 anjou,Anjou,2003,0,"THÉRIAULT, Lise",PLQ,1355,
 anjou,Anjou,2007,0,"THÉRIAULT, Lise",PLQ,1355,
 anjou,Anjou,2008,0,"THÉRIAULT, Lise",PLQ,1355,voir Anjou–Louis-Riel
-anjou,Anjou,2012,0,"THÉRIAULT, Lise",PLQ,1355,
-anjou,Anjou,2014,0,"THÉRIAULT, Lise",PLQ,1355,
-anjou,Anjou,2018,0,"THÉRIAULT, Lise",PLQ,1355,
-anjou,Anjou,2022,0,"BOIVIN ROY, Karine",CAQ,19255,
+anjoulouisriel,Anjou–Louis-Riel,2012,0,"THÉRIAULT, Lise",PLQ,1355,
+anjoulouisriel,Anjou–Louis-Riel,2014,0,"THÉRIAULT, Lise",PLQ,1355,
+anjoulouisriel,Anjou–Louis-Riel,2018,0,"THÉRIAULT, Lise",PLQ,1355,
+anjoulouisriel,Anjou–Louis-Riel,2022,0,"BOIVIN ROY, Karine",CAQ,19255,
 argenteuil,Argenteuil,1867,0,"BELLINGHAM, Sydney Robert",PC,1995,
 argenteuil,Argenteuil,1871,0,"BELLINGHAM, Sydney Robert",PC,1995,
 argenteuil,Argenteuil,1875,0,"BELLINGHAM, Sydney Robert",PC,1995,ne s'est pas représenté en 1878
@@ -738,10 +738,10 @@ charlevoix,Charlevoix,2003,0,"BERTRAND, Rosaire",PQ,2063,
 charlevoix,Charlevoix,2007,0,"BERTRAND, Rosaire",PQ,2063,démissionne le 14 août 2007
 charlevoix,Charlevoix,2007,1,"MAROIS, Pauline",PQ,79,
 charlevoix,Charlevoix,2008,0,"MAROIS, Pauline",PQ,79,voir Charlevoix–Côte-de-Beaupré
-charlevoix,Charlevoix,2012,0,"MAROIS, Pauline",PQ,79,défaite en 2014
-charlevoix,Charlevoix,2014,0,"SIMARD, Caroline",PLQ,15367,défaite en 2018
-charlevoix,Charlevoix,2018,0,"FOSTER, Émilie",CAQ,17861,
-charlevoix,Charlevoix,2022,0,"BOURASSA, Kariane",CAQ,19291,
+charlevoixcotedebeaupre,Charlevoix–Côte-De-Beaupré,2012,0,"MAROIS, Pauline",PQ,79,défaite en 2014
+charlevoixcotedebeaupre,Charlevoix–Côte-De-Beaupré,2014,0,"SIMARD, Caroline",PLQ,15367,défaite en 2018
+charlevoixcotedebeaupre,Charlevoix–Côte-De-Beaupré,2018,0,"FOSTER, Émilie",CAQ,17861,
+charlevoixcotedebeaupre,Charlevoix–Côte-De-Beaupré,2022,0,"BOURASSA, Kariane",CAQ,19291,
 charlevoixsaguenay,Charlevoix-Saguenay,1912,0,"D'AUTEUIL, Pierre",PC,2769,
 charlevoixsaguenay,Charlevoix-Saguenay,1916,0,"D'AUTEUIL, Pierre",PC,2769,défait en 1919
 charlevoixsaguenay,Charlevoix-Saguenay,1919,0,"DUFOUR, Philippe",PLQ,2995,
@@ -1070,10 +1070,10 @@ drummondarthabaska,Drummond-Arthabaska,1878,0,"WATTS, William John",PLQ,5745,
 drummondarthabaska,Drummond-Arthabaska,1881,0,"WATTS, William John",PLQ,5745,démissionne le 17-12-1885
 drummondarthabaska,Drummond-Arthabaska,1886,1,"GIROUARD, Joseph-Éna",PLQ,3441,
 drummondarthabaska,Drummond-Arthabaska,1886,0,"GIROUARD, Joseph-Éna",PLQ,3441,voir Arthabaska
-drummondarthabaska,Drummond-Arthabaska,2012,0,"SCHNEEBERGER, Sébastien",CAQ,5909,
-drummondarthabaska,Drummond-Arthabaska,2014,0,"SCHNEEBERGER, Sébastien",CAQ,5909,
-drummondarthabaska,Drummond-Arthabaska,2018,0,"SCHNEEBERGER, Sébastien",CAQ,5909,
-drummondarthabaska,Drummond-Arthabaska,2022,0,"SCHNEEBERGER, Sébastien",CAQ,5909,
+drummondboisfrancs,Drummond–Bois-Francs,2012,0,"SCHNEEBERGER, Sébastien",CAQ,5909,
+drummondboisfrancs,Drummond–Bois-Francs,2014,0,"SCHNEEBERGER, Sébastien",CAQ,5909,
+drummondboisfrancs,Drummond–Bois-Francs,2018,0,"SCHNEEBERGER, Sébastien",CAQ,5909,
+drummondboisfrancs,Drummond–Bois-Francs,2022,0,"SCHNEEBERGER, Sébastien",CAQ,5909,
 dubuc,Dubuc,1966,0,"BOIVIN, Roch",UN,2167,
 dubuc,Dubuc,1970,0,"BOIVIN, Roch",UN,2167,défait en 1973
 dubuc,Dubuc,1973,0,"HARVEY, Ghislain",PLQ,3607,défait en 1976
@@ -1527,13 +1527,13 @@ jeannemance,Jeanne-Mance,1985,0,"BISSONNET, Michel",PLQ,2095,
 jeannemance,Jeanne-Mance,1989,0,"BISSONNET, Michel",PLQ,2095,
 jeannemance,Jeanne-Mance,1994,0,"BISSONNET, Michel",PLQ,2095,
 jeannemance,Jeanne-Mance,1998,0,"BISSONNET, Michel",PLQ,2095,
-jeannemance,Jeanne-Mance,2003,0,"BISSONNET, Michel",PLQ,2095,
-jeannemance,Jeanne-Mance,2007,0,"BISSONNET, Michel",PLQ,2095,démissionne le 24-09-2008
-jeannemance,Jeanne-Mance,2008,0,"ROTIROTI, Filomena",PLQ,1171,
-jeannemance,Jeanne-Mance,2012,0,"ROTIROTI, Filomena",PLQ,1171,
-jeannemance,Jeanne-Mance,2014,0,"ROTIROTI, Filomena",PLQ,1171,
-jeannemance,Jeanne-Mance,2018,0,"ROTIROTI, Filomena",PLQ,1171,
-jeannemance,Jeanne-Mance,2022,0,"ROTIROTI, Filomena",PLQ,1171,
+jeannemanceviger,Jeanne-Mance _ Viger,2003,0,"BISSONNET, Michel",PLQ,2095,
+jeannemanceviger,Jeanne-Mance _ Viger,2007,0,"BISSONNET, Michel",PLQ,2095,démissionne le 24-09-2008
+jeannemanceviger,Jeanne-Mance _ Viger,2008,0,"ROTIROTI, Filomena",PLQ,1171,
+jeannemanceviger,Jeanne-Mance _ Viger,2012,0,"ROTIROTI, Filomena",PLQ,1171,
+jeannemanceviger,Jeanne-Mance _ Viger,2014,0,"ROTIROTI, Filomena",PLQ,1171,
+jeannemanceviger,Jeanne-Mance _ Viger,2018,0,"ROTIROTI, Filomena",PLQ,1171,
+jeannemanceviger,Jeanne-Mance _ Viger,2022,0,"ROTIROTI, Filomena",PLQ,1171,
 jeantalon,Jean-Talon,1966,0,"BEAUPRÉ, Henri",PLQ,1917,ne s'est pas représenté en 1970
 jeantalon,Jean-Talon,1970,0,"GARNEAU, Raymond",PLQ,3347,
 jeantalon,Jean-Talon,1973,0,"GARNEAU, Raymond",PLQ,3347,
@@ -1670,7 +1670,6 @@ kamouraska,Kamouraska,1931,0,"GAGNON, Pierre",PLQ,3327,
 kamouraska,Kamouraska,1935,0,"GAGNON, Pierre",PLQ,3327,défait en 1936
 kamouraska,Kamouraska,1936,0,"CHALOULT, René",UN,2491,voir Lotbinière
 kamouraska,Kamouraska,1939,0,(Voir Kamouraska __ Rivière-du-Loup ),,,
-kamouraska,Kamouraska,1939,0,"CASGRAIN, Léon",PLQ,2455,voir Rivière-du-Loup
 kamouraska,Kamouraska,1944,0,"LIZOTTE, Louis-Philippe",PLQ,4235,défait en 1948
 kamouraska,Kamouraska,1948,0,"PLOURDE, Alfred",UN,4917,
 kamouraska,Kamouraska,1952,0,"PLOURDE, Alfred",UN,4917,
@@ -1679,6 +1678,7 @@ kamouraska,Kamouraska,1960,0,"PLOURDE, Alfred",UN,4917,défait en 1962
 kamouraska,Kamouraska,1962,0,"DALLAIRE, Gérard",PLQ,2741,défait en 1966
 kamouraska,Kamouraska,1966,0,"D'ANJOU, Adélard",UN,2753,défait en 1970
 kamouraska,Kamouraska,1970,0,"PELLETIER, Jean-Marie",PLQ,4807,voir Kamouraska-Témiscouata
+kamouraskariviereduloup,Kamouraska __ Rivière-Du-Loup,1939,0,"CASGRAIN, Léon",PLQ,2455,voir Rivière-du-Loup
 kamouraskatemiscouata,Kamouraska-Témiscouata,1973,0,"PELLETIER, Jean-Marie",PLQ,4807,défait en 1976
 kamouraskatemiscouata,Kamouraska-Témiscouata,1976,0,"LÉVESQUE, Léonard",PQ,4217,
 kamouraskatemiscouata,Kamouraska-Témiscouata,1981,0,"LÉVESQUE, Léonard",PQ,4217,défait en 1985
@@ -1998,8 +1998,8 @@ laviolette,Laviolette,2007,0,"BOULET, Julie",PLQ,649,
 laviolette,Laviolette,2008,0,"BOULET, Julie",PLQ,649,
 laviolette,Laviolette,2012,0,"BOULET, Julie",PLQ,649,
 laviolette,Laviolette,2014,0,"BOULET, Julie",PLQ,649,Ne s'est pas représentée en 2018
-laviolette,Laviolette,2018,0,"TARDIF, Marie-Louise",CAQ,18071,
-laviolette,Laviolette,2022,0,"TARDIF, Marie-Louise",CAQ,18071,
+laviolettesaintmaurice,Laviolette–Saint-Maurice,2018,0,"TARDIF, Marie-Louise",CAQ,18071,
+laviolettesaintmaurice,Laviolette–Saint-Maurice,2022,0,"TARDIF, Marie-Louise",CAQ,18071,
 lesplaines,Les Plaines,2018,0,"LECOURS, Lucie",CAQ,17949,
 lesplaines,Les Plaines,2022,0,"LECOURS, Lucie",CAQ,17949,
 levis,Lévis,1867,0,"BLANCHET, Joseph-Godric",PC,2133,
@@ -2629,13 +2629,13 @@ montrealest,Montréal-Est,1886,0,"DAVID, Laurent-Olivier",PLQ,2775,ne s'est pas 
 montrealhochelaga,Montréal-Hochelaga,1912,0,"LÉTOURNEAU, Séverin",PLQ,4205,
 montrealhochelaga,Montréal-Hochelaga,1916,0,"LÉTOURNEAU, Séverin",PLQ,4205,ne s'est pas représenté en 1919
 montrealhochelaga,Montréal-Hochelaga,1919,0,"BÉDARD, Joseph-Hercule",PLQ,1931,défait en 1923
-montrealhochelaga,Montréal-Hochelaga,1939,0,"DUBREUIL, Joseph-Émile",PLQ,2973,
-montrealhochelaga,Montréal-Hochelaga,1944,0,"DUBREUIL, Joseph-Émile",PLQ,2973,défait en 1948
-montrealhochelaga,Montréal-Hochelaga,1948,0,"GUÉVREMONT, Georges",UN,3547,défait en 1952
-montrealhochelaga,Montréal-Hochelaga,1952,0,"NOËL, Jean-Paul",PLQ,4635,défait en 1956
-montrealhochelaga,Montréal-Hochelaga,1956,0,"CUSTEAU, Maurice-Tréflé",UN,2727,
-montrealhochelaga,Montréal-Hochelaga,1960,0,"CUSTEAU, Maurice-Tréflé",UN,2727,défait en 1962
-montrealhochelaga,Montréal-Hochelaga,1962,0,"BRISSON, Aimé",PLQ,2287,voir Jeanne-Mance
+montrealjeannemance,Montréal __ Jeanne-Mance,1939,0,"DUBREUIL, Joseph-Émile",PLQ,2973,
+montrealjeannemance,Montréal __ Jeanne-Mance,1944,0,"DUBREUIL, Joseph-Émile",PLQ,2973,défait en 1948
+montrealjeannemance,Montréal __ Jeanne-Mance,1948,0,"GUÉVREMONT, Georges",UN,3547,défait en 1952
+montrealjeannemance,Montréal __ Jeanne-Mance,1952,0,"NOËL, Jean-Paul",PLQ,4635,défait en 1956
+montrealjeannemance,Montréal __ Jeanne-Mance,1956,0,"CUSTEAU, Maurice-Tréflé",UN,2727,
+montrealjeannemance,Montréal __ Jeanne-Mance,1960,0,"CUSTEAU, Maurice-Tréflé",UN,2727,défait en 1962
+montrealjeannemance,Montréal __ Jeanne-Mance,1962,0,"BRISSON, Aimé",PLQ,2287,voir Jeanne-Mance
 montreallaurier,Montréal-Laurier,1912,0,"TURCOT, Napoléon",PLQ,5641,
 montreallaurier,Montréal-Laurier,1916,0,"TURCOT, Napoléon",PLQ,5641,défait en 1919
 montreallaurier,Montréal-Laurier,1919,0,"POULIN, Ernest",PLQ,4939,défait en 1923
@@ -2702,20 +2702,20 @@ montrealmercier,Montréal-Mercier,1931,0,"PLANTE, Anatole",PLQ,4905,
 montrealmercier,Montréal-Mercier,1935,0,"PLANTE, Anatole",PLQ,4905,ne s'est pas représenté en 1936
 montrealmercier,Montréal-Mercier,1936,0,"THIBEAULT, Gérard",UN,5559,défait en 1939
 montrealmercier,Montréal-Mercier,1939,0,"FRANCOEUR, Joseph-Achille",PLQ,3251,
-montrealmercier,Montréal-Mercier,1939,0,"MATHEWSON, James Arthur",PLQ,4393,
 montrealmercier,Montréal-Mercier,1944,0,"FRANCOEUR, Joseph-Achille",PLQ,3251,défait en 1948
-montrealmercier,Montréal-Mercier,1944,0,"MATHEWSON, James Arthur",PLQ,4393,ne s'est pas représenté en 1948
 montrealmercier,Montréal-Mercier,1948,0,"THIBEAULT, Gérard",UN,5559,
-montrealmercier,Montréal-Mercier,1948,0,"EARL, Paul",PLQ,3097,
 montrealmercier,Montréal-Mercier,1952,0,"THIBEAULT, Gérard",UN,5559,
-montrealmercier,Montréal-Mercier,1952,0,"EARL, Paul",PLQ,3097,
 montrealmercier,Montréal-Mercier,1956,0,"THIBEAULT, Gérard",UN,5559,
-montrealmercier,Montréal-Mercier,1956,0,"EARL, Paul",PLQ,3097,
 montrealmercier,Montréal-Mercier,1960,0,"THIBEAULT, Gérard",UN,5559,défait en 1962
-montrealmercier,Montréal-Mercier,1960,0,"EARL, Paul",PLQ,3097,
 montrealmercier,Montréal-Mercier,1962,0,"CRÉPEAU, Jean-Baptiste",PLQ,2715,nommé juge le 15-12-1965
-montrealmercier,Montréal-Mercier,1962,0,"EARL, Paul",PLQ,3097,décédé le 23-05-1963
-montrealmercier,Montréal-Mercier,1963,1,"KIERANS, Eric William",PLQ,3789,voir Notre-Dame-de-Grâce
+montrealnotredamedegrace,Montréal __ Notre-Dame-De-Grâce,1939,0,"MATHEWSON, James Arthur",PLQ,4393,
+montrealnotredamedegrace,Montréal __ Notre-Dame-De-Grâce,1944,0,"MATHEWSON, James Arthur",PLQ,4393,ne s'est pas représenté en 1948
+montrealnotredamedegrace,Montréal __ Notre-Dame-De-Grâce,1948,0,"EARL, Paul",PLQ,3097,
+montrealnotredamedegrace,Montréal __ Notre-Dame-De-Grâce,1952,0,"EARL, Paul",PLQ,3097,
+montrealnotredamedegrace,Montréal __ Notre-Dame-De-Grâce,1956,0,"EARL, Paul",PLQ,3097,
+montrealnotredamedegrace,Montréal __ Notre-Dame-De-Grâce,1960,0,"EARL, Paul",PLQ,3097,
+montrealnotredamedegrace,Montréal __ Notre-Dame-De-Grâce,1962,0,"EARL, Paul",PLQ,3097,décédé le 23-05-1963
+montrealnotredamedegrace,Montréal __ Notre-Dame-De-Grâce,1963,1,"KIERANS, Eric William",PLQ,3789,voir Notre-Dame-de-Grâce
 montrealouest,Montréal-Ouest,1867,0,"OGILVIE, Alexander Walker",PC,4653,ne s'est pas représenté en 1871
 montrealouest,Montréal-Ouest,1871,0,"CASSIDY, Francis",PC,2461,décédé le 14-06-1873
 montrealouest,Montréal-Ouest,1873,1,"McGAUVRAN, John Wait",PC,4435,
@@ -2723,109 +2723,109 @@ montrealouest,Montréal-Ouest,1875,0,"McGAUVRAN, John Wait",PC,4435,défait en 1
 montrealouest,Montréal-Ouest,1878,0,"McSHANE, James",PLQ,4451,
 montrealouest,Montréal-Ouest,1881,0,"McSHANE, James",PLQ,4451,voir Montréal-Centre
 montrealouest,Montréal-Ouest,1886,0,"HALL, John Smythe",PC,3573,voir Montréal no 5
-montrealoutremont,Montréal-Outremont,1912,0,"TANSEY, Denis",PC,5459,
-montrealoutremont,Montréal-Outremont,1912,0,"SÉGUIN, Napoléon",PLQ,5335,
-montrealoutremont,Montréal-Outremont,1912,0,"GAULT, Charles Ernest",PC,3365,
-montrealoutremont,Montréal-Outremont,1912,0,"ROBILLARD, Clément",PLQ,5131,
-montrealoutremont,Montréal-Outremont,1912,0,"FINNIE, John Thomas",PLQ,3153,
-montrealoutremont,Montréal-Outremont,1912,0,"LANGLOIS, Godfroy",PLQ,3955,nommé fonctionnaire le 01-07-1914
-montrealoutremont,Montréal-Outremont,1916,0,"TANSEY, Denis",PC,5459,ne s'est pas représenté en 1919
-montrealoutremont,Montréal-Outremont,1916,0,"SÉGUIN, Napoléon",PLQ,5335,
-montrealoutremont,Montréal-Outremont,1916,0,"GAULT, Charles Ernest",PC,3365,
-montrealoutremont,Montréal-Outremont,1916,0,"ROBILLARD, Clément",PLQ,5131,ne s'est pas représenté en 1919
-montrealoutremont,Montréal-Outremont,1916,0,"FINNIE, John Thomas",PLQ,3153,nommé fonctionnaire le 23-02-1918
-montrealoutremont,Montréal-Outremont,1916,0,"BERCOVITCH, Peter",PLQ,2007,
-montrealoutremont,Montréal-Outremont,1918,1,"MILES, Henry",PLQ,4503,
-montrealoutremont,Montréal-Outremont,1919,0,"CONROY, Bernard-Augustin",PLQ,2633,ne s'est pas représenté en 1923
-montrealoutremont,Montréal-Outremont,1919,0,"SÉGUIN, Napoléon",PLQ,5335,nommé fonctionnaire le 27-09-1921
-montrealoutremont,Montréal-Outremont,1919,0,"GAULT, Charles Ernest",PC,3365,
-montrealoutremont,Montréal-Outremont,1919,0,"VAUTRIN, Irénée",PLQ,5691,défait en 1923
-montrealoutremont,Montréal-Outremont,1919,0,"MILES, Henry",PLQ,4503,ne s'est pas représenté en 1923
-montrealoutremont,Montréal-Outremont,1919,0,"BERCOVITCH, Peter",PLQ,2007,
-montrealoutremont,Montréal-Outremont,1921,1,"GAUTHIER, Joseph",Ouvrier,3371,défait en 1923
-montrealoutremont,Montréal-Outremont,1923,0,"HUSHION, William James",PLQ,3689,démissionne le 04-08-1924
-montrealoutremont,Montréal-Outremont,1923,0,"HOUDE, Camillien",PC,3657,défait en 1927
-montrealoutremont,Montréal-Outremont,1923,0,"GAULT, Charles Ernest",PC,3365,
-montrealoutremont,Montréal-Outremont,1923,0,"BRAY, Joseph Allan",PC,2275,défait en 1927
-montrealoutremont,Montréal-Outremont,1923,0,"BEAUDOIN, Joseph-Ambroise-Eusèbe",PC,1891,défait en 1927
-montrealoutremont,Montréal-Outremont,1923,0,"SAYER, Ernest Walter",PC,5321,défait en 1927
-montrealoutremont,Montréal-Outremont,1923,0,"BERCOVITCH, Peter",PLQ,2007,
-montrealoutremont,Montréal-Outremont,1924,1,"DILLON, Joseph Henry",PLQ,2899,
-montrealoutremont,Montréal-Outremont,1927,0,"DILLON, Joseph Henry",PLQ,2899,
-montrealoutremont,Montréal-Outremont,1927,0,"GAUTHIER, Joseph",PLQ,3371,élection annulée le 12-12-1927
-montrealoutremont,Montréal-Outremont,1927,0,"GAULT, Charles Ernest",PC,3365,
-montrealoutremont,Montréal-Outremont,1927,0,"LEDUC, Alfred",PLQ,4097,ne s'est pas représenté en 1931
-montrealoutremont,Montréal-Outremont,1927,0,"VAUTRIN, Irénée",PLQ,5691,
-montrealoutremont,Montréal-Outremont,1927,0,"COHEN, Joseph",PLQ,2617,
-montrealoutremont,Montréal-Outremont,1927,0,"BERCOVITCH, Peter",PLQ,2007,
-montrealoutremont,Montréal-Outremont,1928,1,"HOUDE, Camillien",PC,3657,défait en 1931
-montrealoutremont,Montréal-Outremont,1931,0,"DILLON, Joseph Henry",PLQ,2899,démissionne le 02-10-1935
-montrealoutremont,Montréal-Outremont,1931,0,"FAUTEUX, Gaspard",PLQ,3137,défait en 1935
-montrealoutremont,Montréal-Outremont,1931,0,"GAULT, Charles Ernest",PC,3365,
-montrealoutremont,Montréal-Outremont,1931,0,"GABIAS, Joseph-Maurice",PLQ,3287,décédé le 15-05-1935
-montrealoutremont,Montréal-Outremont,1931,0,"VAUTRIN, Irénée",PLQ,5691,défait en 1935
-montrealoutremont,Montréal-Outremont,1931,0,"COHEN, Joseph",PLQ,2617,
-montrealoutremont,Montréal-Outremont,1931,0,"BERCOVITCH, Peter",PLQ,2007,
-montrealoutremont,Montréal-Outremont,1935,0,"CONNORS, Francis Lawrence",PLQ,2631,
-montrealoutremont,Montréal-Outremont,1935,0,"ROCHEFORT, Candide",PLQ,5149,
-montrealoutremont,Montréal-Outremont,1935,0,"GAULT, Charles Ernest",PC,3365,défait en 1936
-montrealoutremont,Montréal-Outremont,1935,0,"LAURIAULT, Wilfrid-Eldège",PLQ,4027,défait en 1936
-montrealoutremont,Montréal-Outremont,1935,0,"AUGER, Henry Lemaître",PC,1791,
-montrealoutremont,Montréal-Outremont,1935,0,"COHEN, Joseph",PLQ,2617,élection annulée le 30-06-1936
-montrealoutremont,Montréal-Outremont,1935,0,"BERCOVITCH, Peter",PLQ,2007,
-montrealoutremont,Montréal-Outremont,1936,0,"CONNORS, Francis Lawrence",PLQ,2631,
-montrealoutremont,Montréal-Outremont,1936,0,"ROCHEFORT, Candide",UN,5149,défait en 1939
-montrealoutremont,Montréal-Outremont,1936,0,"LAYTON, Gilbert",UN,4049,défait en 1939
-montrealoutremont,Montréal-Outremont,1936,0,"LABELLE, René",UN,3821,ne s'est pas représenté en 1939
-montrealoutremont,Montréal-Outremont,1936,0,"AUGER, Henry Lemaître",UN,1791,défait en 1939
-montrealoutremont,Montréal-Outremont,1936,0,"COONAN, Thomas Joseph",UN,2641,défait en 1939
-montrealoutremont,Montréal-Outremont,1936,0,"BERCOVITCH, Peter",PLQ,2007,démissionne le 04-10-1938
-montrealoutremont,Montréal-Outremont,1938,1,"FITCH, Louis",UN,3163,défait en 1939
 montrealoutremont,Montréal-Outremont,1939,0,"GROULX, Henri",PLQ,3531,
-montrealoutremont,Montréal-Outremont,1939,0,"CONNORS, Francis Lawrence",PLQ,2631,nommé conseiller législatif le 14-01-1942
-montrealoutremont,Montréal-Outremont,1939,0,"HOUDE, Camillien",IND,3657,ne s'est pas représenté en 1944
-montrealoutremont,Montréal-Outremont,1939,0,"BOUCHER, Émile",PLQ,2197,défait en 1944
-montrealoutremont,Montréal-Outremont,1939,0,"TOUPIN, Joseph-Roméo",PLQ,5575,décédé le 02-08-1941
-montrealoutremont,Montréal-Outremont,1939,0,"HARTT, Maurice",PLQ,3601,
-montrealoutremont,Montréal-Outremont,1942,1,"GUERIN, Thomas",PLQ,3541,
-montrealoutremont,Montréal-Outremont,1942,1,"JODOIN, Claude",PLQ,3715,défait en 1944
 montrealoutremont,Montréal-Outremont,1944,0,"GROULX, Henri",PLQ,3531,
-montrealoutremont,Montréal-Outremont,1944,0,"GUERIN, Thomas",PLQ,3541,défait en 1948
-montrealoutremont,Montréal-Outremont,1944,0,"CÔTÉ, Camille",UN,2659,ne s'est pas représenté en 1948
-montrealoutremont,Montréal-Outremont,1944,0,"DELISLE, Joseph-Hormisdas",UN,2819,
-montrealoutremont,Montréal-Outremont,1944,0,"COTÉ, Omer",UN,2673,
-montrealoutremont,Montréal-Outremont,1944,0,"HARTT, Maurice",PLQ,3601,démissionne le 18-03-1947
 montrealoutremont,Montréal-Outremont,1948,0,"GROULX, Henri",PLQ,3531,
-montrealoutremont,Montréal-Outremont,1948,0,"HANLEY, Frank",IND,3593,
-montrealoutremont,Montréal-Outremont,1948,0,"GENDRON, Aimé",UN,3393,défait en 1952
-montrealoutremont,Montréal-Outremont,1948,0,"DELISLE, Joseph-Hormisdas",UN,2819,défait en 1952
-montrealoutremont,Montréal-Outremont,1948,0,"COTÉ, Omer",UN,2673,
-montrealoutremont,Montréal-Outremont,1948,0,"ROCHON, Dave",PLQ,5163,
 montrealoutremont,Montréal-Outremont,1952,0,"GROULX, Henri",PLQ,3531,décédé le 16-07-1952
-montrealoutremont,Montréal-Outremont,1952,0,"HANLEY, Frank",IND,3593,
-montrealoutremont,Montréal-Outremont,1952,0,"DUPUIS, Yvon",PLQ,3077,défait en 1956
-montrealoutremont,Montréal-Outremont,1952,0,"LALONDE, Philippe",PLQ,3917,
-montrealoutremont,Montréal-Outremont,1952,0,"COTÉ, Omer",UN,2673,nommé juge le 14-03-1956
-montrealoutremont,Montréal-Outremont,1952,0,"ROCHON, Dave",PLQ,5163,
 montrealoutremont,Montréal-Outremont,1953,1,"LAPALME, Georges-Émile",PLQ,3965,
 montrealoutremont,Montréal-Outremont,1956,0,"LAPALME, Georges-Émile",PLQ,3965,
-montrealoutremont,Montréal-Outremont,1956,0,"HANLEY, Frank",IND,3593,
-montrealoutremont,Montréal-Outremont,1956,0,"CHARBONNEAU, Edgar",UN,2511,
-montrealoutremont,Montréal-Outremont,1956,0,"LALONDE, Philippe",PLQ,3917,
-montrealoutremont,Montréal-Outremont,1956,0,"DOZOIS, Paul",UN,2943,
-montrealoutremont,Montréal-Outremont,1956,0,"ROCHON, Dave",PLQ,5163,défait en 1960
 montrealoutremont,Montréal-Outremont,1960,0,"LAPALME, Georges-Émile",PLQ,3965,
-montrealoutremont,Montréal-Outremont,1960,0,"HANLEY, Frank",IND,3593,
-montrealoutremont,Montréal-Outremont,1960,0,"CHARBONNEAU, Edgar",UN,2511,
-montrealoutremont,Montréal-Outremont,1960,0,"LALONDE, Philippe",PLQ,3917,
-montrealoutremont,Montréal-Outremont,1960,0,"DOZOIS, Paul",UN,2943,
-montrealoutremont,Montréal-Outremont,1960,0,"BLANK, Harry",PLQ,2141,
 montrealoutremont,Montréal-Outremont,1962,0,"LAPALME, Georges-Émile",PLQ,3965,ne s'est pas représenté en 1966
-montrealoutremont,Montréal-Outremont,1962,0,"HANLEY, Frank",IND,3593,voir Sainte-Anne
-montrealoutremont,Montréal-Outremont,1962,0,"CHARBONNEAU, Edgar",UN,2511,voir Sainte-Marie
-montrealoutremont,Montréal-Outremont,1962,0,"LALONDE, Philippe",PLQ,3917,défait en 1966
-montrealoutremont,Montréal-Outremont,1962,0,"DOZOIS, Paul",UN,2943,voir Saint-Jacques
-montrealoutremont,Montréal-Outremont,1962,0,"BLANK, Harry",PLQ,2141,voir Saint-Louis
+montrealsainteanne,Montréal __ Sainte-Anne,1912,0,"TANSEY, Denis",PC,5459,
+montrealsainteanne,Montréal __ Sainte-Anne,1916,0,"TANSEY, Denis",PC,5459,ne s'est pas représenté en 1919
+montrealsainteanne,Montréal __ Sainte-Anne,1919,0,"CONROY, Bernard-Augustin",PLQ,2633,ne s'est pas représenté en 1923
+montrealsainteanne,Montréal __ Sainte-Anne,1923,0,"HUSHION, William James",PLQ,3689,démissionne le 04-08-1924
+montrealsainteanne,Montréal __ Sainte-Anne,1924,1,"DILLON, Joseph Henry",PLQ,2899,
+montrealsainteanne,Montréal __ Sainte-Anne,1927,0,"DILLON, Joseph Henry",PLQ,2899,
+montrealsainteanne,Montréal __ Sainte-Anne,1931,0,"DILLON, Joseph Henry",PLQ,2899,démissionne le 02-10-1935
+montrealsainteanne,Montréal __ Sainte-Anne,1935,0,"CONNORS, Francis Lawrence",PLQ,2631,
+montrealsainteanne,Montréal __ Sainte-Anne,1936,0,"CONNORS, Francis Lawrence",PLQ,2631,
+montrealsainteanne,Montréal __ Sainte-Anne,1939,0,"CONNORS, Francis Lawrence",PLQ,2631,nommé conseiller législatif le 14-01-1942
+montrealsainteanne,Montréal __ Sainte-Anne,1942,1,"GUERIN, Thomas",PLQ,3541,
+montrealsainteanne,Montréal __ Sainte-Anne,1944,0,"GUERIN, Thomas",PLQ,3541,défait en 1948
+montrealsainteanne,Montréal __ Sainte-Anne,1948,0,"HANLEY, Frank",IND,3593,
+montrealsainteanne,Montréal __ Sainte-Anne,1952,0,"HANLEY, Frank",IND,3593,
+montrealsainteanne,Montréal __ Sainte-Anne,1956,0,"HANLEY, Frank",IND,3593,
+montrealsainteanne,Montréal __ Sainte-Anne,1960,0,"HANLEY, Frank",IND,3593,
+montrealsainteanne,Montréal __ Sainte-Anne,1962,0,"HANLEY, Frank",IND,3593,voir Sainte-Anne
+montrealsaintemarie,Montréal __ Sainte-Marie,1912,0,"SÉGUIN, Napoléon",PLQ,5335,
+montrealsaintemarie,Montréal __ Sainte-Marie,1916,0,"SÉGUIN, Napoléon",PLQ,5335,
+montrealsaintemarie,Montréal __ Sainte-Marie,1919,0,"SÉGUIN, Napoléon",PLQ,5335,nommé fonctionnaire le 27-09-1921
+montrealsaintemarie,Montréal __ Sainte-Marie,1921,1,"GAUTHIER, Joseph",Ouvrier,3371,défait en 1923
+montrealsaintemarie,Montréal __ Sainte-Marie,1923,0,"HOUDE, Camillien",PC,3657,défait en 1927
+montrealsaintemarie,Montréal __ Sainte-Marie,1927,0,"GAUTHIER, Joseph",PLQ,3371,élection annulée le 12-12-1927
+montrealsaintemarie,Montréal __ Sainte-Marie,1928,1,"HOUDE, Camillien",PC,3657,défait en 1931
+montrealsaintemarie,Montréal __ Sainte-Marie,1931,0,"FAUTEUX, Gaspard",PLQ,3137,défait en 1935
+montrealsaintemarie,Montréal __ Sainte-Marie,1935,0,"ROCHEFORT, Candide",PLQ,5149,
+montrealsaintemarie,Montréal __ Sainte-Marie,1936,0,"ROCHEFORT, Candide",UN,5149,défait en 1939
+montrealsaintemarie,Montréal __ Sainte-Marie,1939,0,"HOUDE, Camillien",IND,3657,ne s'est pas représenté en 1944
+montrealsaintemarie,Montréal __ Sainte-Marie,1944,0,"CÔTÉ, Camille",UN,2659,ne s'est pas représenté en 1948
+montrealsaintemarie,Montréal __ Sainte-Marie,1948,0,"GENDRON, Aimé",UN,3393,défait en 1952
+montrealsaintemarie,Montréal __ Sainte-Marie,1952,0,"DUPUIS, Yvon",PLQ,3077,défait en 1956
+montrealsaintemarie,Montréal __ Sainte-Marie,1956,0,"CHARBONNEAU, Edgar",UN,2511,
+montrealsaintemarie,Montréal __ Sainte-Marie,1960,0,"CHARBONNEAU, Edgar",UN,2511,
+montrealsaintemarie,Montréal __ Sainte-Marie,1962,0,"CHARBONNEAU, Edgar",UN,2511,voir Sainte-Marie
+montrealsaintgeorges,Montréal __ Saint-Georges,1912,0,"GAULT, Charles Ernest",PC,3365,
+montrealsaintgeorges,Montréal __ Saint-Georges,1916,0,"GAULT, Charles Ernest",PC,3365,
+montrealsaintgeorges,Montréal __ Saint-Georges,1919,0,"GAULT, Charles Ernest",PC,3365,
+montrealsaintgeorges,Montréal __ Saint-Georges,1923,0,"GAULT, Charles Ernest",PC,3365,
+montrealsaintgeorges,Montréal __ Saint-Georges,1927,0,"GAULT, Charles Ernest",PC,3365,
+montrealsaintgeorges,Montréal __ Saint-Georges,1931,0,"GAULT, Charles Ernest",PC,3365,
+montrealsaintgeorges,Montréal __ Saint-Georges,1935,0,"GAULT, Charles Ernest",PC,3365,défait en 1936
+montrealsaintgeorges,Montréal __ Saint-Georges,1936,0,"LAYTON, Gilbert",UN,4049,défait en 1939
+montrealsainthenri,Montréal __ Saint-Henri,1923,0,"BRAY, Joseph Allan",PC,2275,défait en 1927
+montrealsainthenri,Montréal __ Saint-Henri,1927,0,"LEDUC, Alfred",PLQ,4097,ne s'est pas représenté en 1931
+montrealsainthenri,Montréal __ Saint-Henri,1931,0,"GABIAS, Joseph-Maurice",PLQ,3287,décédé le 15-05-1935
+montrealsainthenri,Montréal __ Saint-Henri,1935,0,"LAURIAULT, Wilfrid-Eldège",PLQ,4027,défait en 1936
+montrealsainthenri,Montréal __ Saint-Henri,1936,0,"LABELLE, René",UN,3821,ne s'est pas représenté en 1939
+montrealsainthenri,Montréal __ Saint-Henri,1939,0,"BOUCHER, Émile",PLQ,2197,défait en 1944
+montrealsainthenri,Montréal __ Saint-Henri,1944,0,"DELISLE, Joseph-Hormisdas",UN,2819,
+montrealsainthenri,Montréal __ Saint-Henri,1948,0,"DELISLE, Joseph-Hormisdas",UN,2819,défait en 1952
+montrealsainthenri,Montréal __ Saint-Henri,1952,0,"LALONDE, Philippe",PLQ,3917,
+montrealsainthenri,Montréal __ Saint-Henri,1956,0,"LALONDE, Philippe",PLQ,3917,
+montrealsainthenri,Montréal __ Saint-Henri,1960,0,"LALONDE, Philippe",PLQ,3917,
+montrealsainthenri,Montréal __ Saint-Henri,1962,0,"LALONDE, Philippe",PLQ,3917,défait en 1966
+montrealsaintjacques,Montréal __ Saint-Jacques,1912,0,"ROBILLARD, Clément",PLQ,5131,
+montrealsaintjacques,Montréal __ Saint-Jacques,1916,0,"ROBILLARD, Clément",PLQ,5131,ne s'est pas représenté en 1919
+montrealsaintjacques,Montréal __ Saint-Jacques,1919,0,"VAUTRIN, Irénée",PLQ,5691,défait en 1923
+montrealsaintjacques,Montréal __ Saint-Jacques,1923,0,"BEAUDOIN, Joseph-Ambroise-Eusèbe",PC,1891,défait en 1927
+montrealsaintjacques,Montréal __ Saint-Jacques,1927,0,"VAUTRIN, Irénée",PLQ,5691,
+montrealsaintjacques,Montréal __ Saint-Jacques,1931,0,"VAUTRIN, Irénée",PLQ,5691,défait en 1935
+montrealsaintjacques,Montréal __ Saint-Jacques,1935,0,"AUGER, Henry Lemaître",PC,1791,
+montrealsaintjacques,Montréal __ Saint-Jacques,1936,0,"AUGER, Henry Lemaître",UN,1791,défait en 1939
+montrealsaintjacques,Montréal __ Saint-Jacques,1939,0,"TOUPIN, Joseph-Roméo",PLQ,5575,décédé le 02-08-1941
+montrealsaintjacques,Montréal __ Saint-Jacques,1942,1,"JODOIN, Claude",PLQ,3715,défait en 1944
+montrealsaintjacques,Montréal __ Saint-Jacques,1944,0,"COTÉ, Omer",UN,2673,
+montrealsaintjacques,Montréal __ Saint-Jacques,1948,0,"COTÉ, Omer",UN,2673,
+montrealsaintjacques,Montréal __ Saint-Jacques,1952,0,"COTÉ, Omer",UN,2673,nommé juge le 14-03-1956
+montrealsaintjacques,Montréal __ Saint-Jacques,1956,0,"DOZOIS, Paul",UN,2943,
+montrealsaintjacques,Montréal __ Saint-Jacques,1960,0,"DOZOIS, Paul",UN,2943,
+montrealsaintjacques,Montréal __ Saint-Jacques,1962,0,"DOZOIS, Paul",UN,2943,voir Saint-Jacques
+montrealsaintlaurent,Montréal __ Saint-Laurent,1912,0,"FINNIE, John Thomas",PLQ,3153,
+montrealsaintlaurent,Montréal __ Saint-Laurent,1916,0,"FINNIE, John Thomas",PLQ,3153,nommé fonctionnaire le 23-02-1918
+montrealsaintlaurent,Montréal __ Saint-Laurent,1918,1,"MILES, Henry",PLQ,4503,
+montrealsaintlaurent,Montréal __ Saint-Laurent,1919,0,"MILES, Henry",PLQ,4503,ne s'est pas représenté en 1923
+montrealsaintlaurent,Montréal __ Saint-Laurent,1923,0,"SAYER, Ernest Walter",PC,5321,défait en 1927
+montrealsaintlaurent,Montréal __ Saint-Laurent,1927,0,"COHEN, Joseph",PLQ,2617,
+montrealsaintlaurent,Montréal __ Saint-Laurent,1931,0,"COHEN, Joseph",PLQ,2617,
+montrealsaintlaurent,Montréal __ Saint-Laurent,1935,0,"COHEN, Joseph",PLQ,2617,élection annulée le 30-06-1936
+montrealsaintlaurent,Montréal __ Saint-Laurent,1936,0,"COONAN, Thomas Joseph",UN,2641,défait en 1939
+montrealsaintlouis,Montréal __ Saint-Louis,1912,0,"LANGLOIS, Godfroy",PLQ,3955,nommé fonctionnaire le 01-07-1914
+montrealsaintlouis,Montréal __ Saint-Louis,1916,0,"BERCOVITCH, Peter",PLQ,2007,
+montrealsaintlouis,Montréal __ Saint-Louis,1919,0,"BERCOVITCH, Peter",PLQ,2007,
+montrealsaintlouis,Montréal __ Saint-Louis,1923,0,"BERCOVITCH, Peter",PLQ,2007,
+montrealsaintlouis,Montréal __ Saint-Louis,1927,0,"BERCOVITCH, Peter",PLQ,2007,
+montrealsaintlouis,Montréal __ Saint-Louis,1931,0,"BERCOVITCH, Peter",PLQ,2007,
+montrealsaintlouis,Montréal __ Saint-Louis,1935,0,"BERCOVITCH, Peter",PLQ,2007,
+montrealsaintlouis,Montréal __ Saint-Louis,1936,0,"BERCOVITCH, Peter",PLQ,2007,démissionne le 04-10-1938
+montrealsaintlouis,Montréal __ Saint-Louis,1938,1,"FITCH, Louis",UN,3163,défait en 1939
+montrealsaintlouis,Montréal __ Saint-Louis,1939,0,"HARTT, Maurice",PLQ,3601,
+montrealsaintlouis,Montréal __ Saint-Louis,1944,0,"HARTT, Maurice",PLQ,3601,démissionne le 18-03-1947
+montrealsaintlouis,Montréal __ Saint-Louis,1948,0,"ROCHON, Dave",PLQ,5163,
+montrealsaintlouis,Montréal __ Saint-Louis,1952,0,"ROCHON, Dave",PLQ,5163,
+montrealsaintlouis,Montréal __ Saint-Louis,1956,0,"ROCHON, Dave",PLQ,5163,défait en 1960
+montrealsaintlouis,Montréal __ Saint-Louis,1960,0,"BLANK, Harry",PLQ,2141,
+montrealsaintlouis,Montréal __ Saint-Louis,1962,0,"BLANK, Harry",PLQ,2141,voir Saint-Louis
 montrealverdun,Montréal-Verdun,1923,0,"LAFLEUR, Pierre-Auguste",PC,3871,
 montrealverdun,Montréal-Verdun,1927,0,"LAFLEUR, Pierre-Auguste",PC,3871,
 montrealverdun,Montréal-Verdun,1931,0,"LAFLEUR, Pierre-Auguste",PC,3871,
@@ -2851,8 +2851,8 @@ montroyal,Mont-Royal,2007,0,"ARCAND, Pierre",PLQ,421,
 montroyal,Mont-Royal,2008,0,"ARCAND, Pierre",PLQ,421,
 montroyal,Mont-Royal,2012,0,"ARCAND, Pierre",PLQ,421,
 montroyal,Mont-Royal,2014,0,"ARCAND, Pierre",PLQ,421,voir Mont-Royal–Outremont
-montroyal,Mont-Royal,2018,0,"ARCAND, Pierre",PLQ,421,
-montroyal,Mont-Royal,2022,0,"SETLAKWE, Michelle",PLQ,19285,
+montroyaloutremont,Mont-Royal–Outremont,2018,0,"ARCAND, Pierre",PLQ,421,
+montroyaloutremont,Mont-Royal–Outremont,2022,0,"SETLAKWE, Michelle",PLQ,19285,
 napierville,Napierville,1867,0,"BENOIT, Pierre",PLQ,1999,décédé le 26-08-1870
 napierville,Napierville,1870,1,"LAFONTAINE, Laurent-David",PLQ,3881,
 napierville,Napierville,1871,0,"LAFONTAINE, Laurent-David",PLQ,3881,
@@ -3169,66 +3169,66 @@ portneuf,Portneuf,2022,0,"CARON, Vincent",CAQ,17849,
 prevost,Prévost,2018,0,"BLAIS, Marguerite",CAQ,1263,
 prevost,Prévost,2022,0,"BÉLANGER, Sonia",CAQ,19281,
 quebeccentre,Québec-Centre,1867,0,"SIMARD, Georges-Honoré",PC,5367,ne s'est pas représenté en 1871
-quebeccentre,Québec-Centre,1867,0,"CHAUVEAU, Pierre-Joseph-Olivier",PC,2539,
 quebeccentre,Québec-Centre,1871,0,"LANGEVIN, Hector-Louis",PC,3949,démissionne le 21-01-1874
-quebeccentre,Québec-Centre,1871,0,"CHAUVEAU, Pierre-Joseph-Olivier",PC,2539,démissionne le 25-02-1873
-quebeccentre,Québec-Centre,1873,1,"GARNEAU, Pierre",PC,3345,nommé ministre le 22-09-1874
 quebeccentre,Québec-Centre,1874,1,"RINFRET, Rémi-Ferdinand",PC,5089,
-quebeccentre,Québec-Centre,1874,1,"GARNEAU, Pierre",PC,3345,
 quebeccentre,Québec-Centre,1875,0,"RINFRET, Rémi-Ferdinand",PLQ,5089,
-quebeccentre,Québec-Centre,1875,0,"GARNEAU, Pierre",PC,3345,défait en 1878
 quebeccentre,Québec-Centre,1878,0,"RINFRET, Rémi-Ferdinand",PLQ,5089,
-quebeccentre,Québec-Centre,1878,0,"ROSS, David Alexander",PLQ,5177,ne s'est pas représenté en 1881
 quebeccentre,Québec-Centre,1881,0,"RINFRET, Rémi-Ferdinand",PLQ,5089,
-quebeccentre,Québec-Centre,1881,0,"GARNEAU, Pierre",PC,3345,défait en 1886
 quebeccentre,Québec-Centre,1886,0,"RINFRET, Rémi-Ferdinand",PLQ,5089,
-quebeccentre,Québec-Centre,1886,0,"CASGRAIN, Thomas Chase",PC,2459,ne s'est pas représenté en 1890. Voir Montmorency
 quebeccentre,Québec-Centre,1890,0,"RINFRET, Rémi-Ferdinand",PLQ,5089,défait en 1892
-quebeccentre,Québec-Centre,1890,0,"FITZPATRICK, Charles",PLQ,3165,
 quebeccentre,Québec-Centre,1892,0,"CHÂTEAUVERT, Victor",PC,2533,défait en 1897
-quebeccentre,Québec-Centre,1892,0,"FITZPATRICK, Charles",PLQ,3165,démissionne le 11-06-1896
 quebeccentre,Québec-Centre,1897,0,"ROBITAILLE, Amédée",PLQ,5139,
-quebeccentre,Québec-Centre,1897,0,"GARNEAU, Némèse",PLQ,3343,
 quebeccentre,Québec-Centre,1900,0,"ROBITAILLE, Amédée",PLQ,5139,nommé ministre le 30-06-1902
-quebeccentre,Québec-Centre,1900,0,"GARNEAU, Némèse",PLQ,3343,nommé conseiller législatif le 05-06-1901
-quebeccentre,Québec-Centre,1901,1,"DELÂGE, Cyrille Fraser",PLQ,2805,
 quebeccentre,Québec-Centre,1902,1,"ROBITAILLE, Amédée",PLQ,5139,
 quebeccentre,Québec-Centre,1904,0,"ROBITAILLE, Amédée",PLQ,5139,
-quebeccentre,Québec-Centre,1904,0,"DELÂGE, Cyrille Fraser",PLQ,2805,
 quebeccentre,Québec-Centre,1908,0,"ROBITAILLE, Amédée",PLQ,5139,nommé protonotaire le 09-12-1908
 quebeccentre,Québec-Centre,1908,1,"LECLERC, Eugène",PLQ,4089,
-quebeccentre,Québec-Centre,1908,0,"DELÂGE, Cyrille Fraser",PLQ,2805,
 quebeccentre,Québec-Centre,1912,0,"LECLERC, Eugène",PLQ,4089,ne s'est pas représenté en 1916
-quebeccentre,Québec-Centre,1912,0,"DELÂGE, Cyrille Fraser",PLQ,2805,nommé fonctionnaire le 13-04-1916
 quebeccentre,Québec-Centre,1916,0,"CANNON, Lawrence Arthur",PLQ,2369,
-quebeccentre,Québec-Centre,1916,0,"LECLERC, Aurèle",PLQ,4087,
 quebeccentre,Québec-Centre,1919,0,"CANNON, Lawrence Arthur",PLQ,2369,défait en 1923
-quebeccentre,Québec-Centre,1919,0,"LECLERC, Aurèle",PLQ,4087,
 quebeccentre,Québec-Centre,1923,0,"FAUCHER, Pierre-Vincent",PC,3133,ne s'est pas représenté en 1927
-quebeccentre,Québec-Centre,1923,0,"LECLERC, Aurèle",PLQ,4087,nommé fonctionnaire le 05-10-1923
-quebeccentre,Québec-Centre,1924,1,"BASTIEN, Ludger",PC,1865,défait en 1927
 quebeccentre,Québec-Centre,1927,0,"SAMSON, Joseph (Québec-Centre)",PLQ,,
-quebeccentre,Québec-Centre,1927,0,"BÉDARD, Joseph-Éphraïm",PLQ,1929,
 quebeccentre,Québec-Centre,1931,0,"SAMSON, Joseph (Québec-Centre)",PLQ,,défait en 1935
-quebeccentre,Québec-Centre,1931,0,"BÉDARD, Joseph-Éphraïm",PLQ,1929,nommé fonctionnaire le 08-05-1934
 quebeccentre,Québec-Centre,1935,0,"HAMEL, Philippe",PLQ,3583,
-quebeccentre,Québec-Centre,1935,0,"BYRNE, Francis",PLQ,2343,défait en 1936
 quebeccentre,Québec-Centre,1936,0,"HAMEL, Philippe",UN,3583,ne s'est pas représenté en 1939
-quebeccentre,Québec-Centre,1936,0,"MARCOUX, Adolphe",UN,4335,ne s'est pas représenté en 1939
 quebeccentre,Québec-Centre,1939,0,"MORIN, Joseph-William",PLQ,4571,
-quebeccentre,Québec-Centre,1939,0,"BOUCHARD, François-Xavier",PLQ,2189,ne s'est pas représenté en 1944
 quebeccentre,Québec-Centre,1944,0,"MORIN, Joseph-William",PLQ,4571,défait en 1948
-quebeccentre,Québec-Centre,1944,0,"CHALOULT, René",IND,2491,
 quebeccentre,Québec-Centre,1948,0,"GUAY, Gérard",UN,3535,ne s'est pas représenté en 1952
-quebeccentre,Québec-Centre,1948,0,"CHALOULT, René",IND,2491,défait en 1952
 quebeccentre,Québec-Centre,1952,0,"CLOUTIER, Maurice",UN,2607,
-quebeccentre,Québec-Centre,1952,0,"BÉDARD, Jean-Jacques",PLQ,1927,défait en 1956
 quebeccentre,Québec-Centre,1956,0,"CLOUTIER, Maurice",UN,2607,
-quebeccentre,Québec-Centre,1956,0,"ROCHETTE, Émilien",UN,5159,défait en 1960
 quebeccentre,Québec-Centre,1960,0,"CLOUTIER, Maurice",UN,2607,défait en 1962
-quebeccentre,Québec-Centre,1960,0,"BÉDARD, Jean-Jacques",PLQ,1927,
 quebeccentre,Québec-Centre,1962,0,"BEAUPRÉ, Henri",PLQ,1917,voir Jean-Talon
-quebeccentre,Québec-Centre,1962,0,"BÉDARD, Jean-Jacques",PLQ,1927,défait en 1966
+quebeccomtedequebec,Québec (Comté De Québec),1867,0,"CHAUVEAU, Pierre-Joseph-Olivier",PC,2539,
+quebeccomtedequebec,Québec (Comté De Québec),1871,0,"CHAUVEAU, Pierre-Joseph-Olivier",PC,2539,démissionne le 25-02-1873
+quebeccomtedequebec,Québec (Comté De Québec),1873,1,"GARNEAU, Pierre",PC,3345,nommé ministre le 22-09-1874
+quebeccomtedequebec,Québec (Comté De Québec),1874,1,"GARNEAU, Pierre",PC,3345,
+quebeccomtedequebec,Québec (Comté De Québec),1875,0,"GARNEAU, Pierre",PC,3345,défait en 1878
+quebeccomtedequebec,Québec (Comté De Québec),1878,0,"ROSS, David Alexander",PLQ,5177,ne s'est pas représenté en 1881
+quebeccomtedequebec,Québec (Comté De Québec),1881,0,"GARNEAU, Pierre",PC,3345,défait en 1886
+quebeccomtedequebec,Québec (Comté De Québec),1886,0,"CASGRAIN, Thomas Chase",PC,2459,ne s'est pas représenté en 1890. Voir Montmorency
+quebeccomtedequebec,Québec (Comté De Québec),1890,0,"FITZPATRICK, Charles",PLQ,3165,
+quebeccomtedequebec,Québec (Comté De Québec),1892,0,"FITZPATRICK, Charles",PLQ,3165,démissionne le 11-06-1896
+quebeccomtedequebec,Québec (Comté De Québec),1897,0,"GARNEAU, Némèse",PLQ,3343,
+quebeccomtedequebec,Québec (Comté De Québec),1900,0,"GARNEAU, Némèse",PLQ,3343,nommé conseiller législatif le 05-06-1901
+quebeccomtedequebec,Québec (Comté De Québec),1901,1,"DELÂGE, Cyrille Fraser",PLQ,2805,
+quebeccomtedequebec,Québec (Comté De Québec),1904,0,"DELÂGE, Cyrille Fraser",PLQ,2805,
+quebeccomtedequebec,Québec (Comté De Québec),1908,0,"DELÂGE, Cyrille Fraser",PLQ,2805,
+quebeccomtedequebec,Québec (Comté De Québec),1912,0,"DELÂGE, Cyrille Fraser",PLQ,2805,nommé fonctionnaire le 13-04-1916
+quebeccomtedequebec,Québec (Comté De Québec),1916,0,"LECLERC, Aurèle",PLQ,4087,
+quebeccomtedequebec,Québec (Comté De Québec),1919,0,"LECLERC, Aurèle",PLQ,4087,
+quebeccomtedequebec,Québec (Comté De Québec),1923,0,"LECLERC, Aurèle",PLQ,4087,nommé fonctionnaire le 05-10-1923
+quebeccomtedequebec,Québec (Comté De Québec),1924,1,"BASTIEN, Ludger",PC,1865,défait en 1927
+quebeccomtedequebec,Québec (Comté De Québec),1927,0,"BÉDARD, Joseph-Éphraïm",PLQ,1929,
+quebeccomtedequebec,Québec (Comté De Québec),1931,0,"BÉDARD, Joseph-Éphraïm",PLQ,1929,nommé fonctionnaire le 08-05-1934
+quebeccomtedequebec,Québec (Comté De Québec),1935,0,"BYRNE, Francis",PLQ,2343,défait en 1936
+quebeccomtedequebec,Québec (Comté De Québec),1936,0,"MARCOUX, Adolphe",UN,4335,ne s'est pas représenté en 1939
+quebeccomtedequebec,Québec (Comté De Québec),1939,0,"BOUCHARD, François-Xavier",PLQ,2189,ne s'est pas représenté en 1944
+quebeccomtedequebec,Québec (Comté De Québec),1944,0,"CHALOULT, René",IND,2491,
+quebeccomtedequebec,Québec (Comté De Québec),1948,0,"CHALOULT, René",IND,2491,défait en 1952
+quebeccomtedequebec,Québec (Comté De Québec),1952,0,"BÉDARD, Jean-Jacques",PLQ,1927,défait en 1956
+quebeccomtedequebec,Québec (Comté De Québec),1956,0,"ROCHETTE, Émilien",UN,5159,défait en 1960
+quebeccomtedequebec,Québec (Comté De Québec),1960,0,"BÉDARD, Jean-Jacques",PLQ,1927,
+quebeccomtedequebec,Québec (Comté De Québec),1962,0,"BÉDARD, Jean-Jacques",PLQ,1927,défait en 1966
 quebecest,Québec-Est,1867,0,"RHÉAUME, Jacques-Philippe",PC,5067,
 quebecest,Québec-Est,1871,0,"RHÉAUME, Jacques-Philippe",PC,5067,démissionne le 05-02-1873
 quebecest,Québec-Est,1873,1,"PELLETIER, Charles-Alphonse-Pantaléon",PLQ,4803,démissionne le 20-01-1874
@@ -3465,10 +3465,10 @@ riviereduloup,Rivière-Du-Loup,2003,0,"DUMONT, Mario",ADQ,3041,
 riviereduloup,Rivière-Du-Loup,2007,0,"DUMONT, Mario",ADQ,3041,
 riviereduloup,Rivière-Du-Loup,2008,0,"DUMONT, Mario",ADQ,3041,démissionne le 06-03-2009
 riviereduloup,Rivière-Du-Loup,2009,1,"D'AMOUR, Jean",PLQ,1623,voir Rivière-du-Loup–Témiscouata
-riviereduloup,Rivière-Du-Loup,2012,0,"D'AMOUR, Jean",PLQ,1623,
-riviereduloup,Rivière-Du-Loup,2014,0,"D'AMOUR, Jean",PLQ,1623,défait en 2018
-riviereduloup,Rivière-Du-Loup,2018,0,"TARDIF, Denis",CAQ,17863,
-riviereduloup,Rivière-Du-Loup,2022,0,"DIONNE, Amélie",CAQ,19273,
+rivieredulouptemiscouata,Rivière-Du-Loup–Témiscouata,2012,0,"D'AMOUR, Jean",PLQ,1623,
+rivieredulouptemiscouata,Rivière-Du-Loup–Témiscouata,2014,0,"D'AMOUR, Jean",PLQ,1623,défait en 2018
+rivieredulouptemiscouata,Rivière-Du-Loup–Témiscouata,2018,0,"TARDIF, Denis",CAQ,17863,
+rivieredulouptemiscouata,Rivière-Du-Loup–Témiscouata,2022,0,"DIONNE, Amélie",CAQ,19273,
 robertbaldwin,Robert-Baldwin,1966,0,"SÉGUIN, Arthur-Ewen",IND,5333,
 robertbaldwin,Robert-Baldwin,1970,0,"SÉGUIN, Arthur-Ewen",PLQ,5333,voir Pointe-Claire
 robertbaldwin,Robert-Baldwin,1973,0,"COURNOYER, Jean",PLQ,2695,défait en 1976
@@ -3583,18 +3583,18 @@ rouynnoranda,Rouyn-Noranda,1966,0,"FLAMAND, Antonio",UN,3167,ne s'est pas repré
 rouynnoranda,Rouyn-Noranda,1970,0,"SAMSON, Camil",RC,5279,
 rouynnoranda,Rouyn-Noranda,1973,0,"SAMSON, Camil",Parti créditiste,5279,
 rouynnoranda,Rouyn-Noranda,1976,0,"SAMSON, Camil",RC,5279,défait en 1981
-rouynnoranda,Rouyn-Noranda,1981,0,"BARIL, Gilles (PQ)",PQ,,défait en 1985
-rouynnoranda,Rouyn-Noranda,1985,0,"BARIL, Gilles (L)",PLQ,,défait en 1989
-rouynnoranda,Rouyn-Noranda,1989,0,"TRUDEL, Rémy",PQ,5635,
-rouynnoranda,Rouyn-Noranda,1994,0,"TRUDEL, Rémy",PQ,5635,
-rouynnoranda,Rouyn-Noranda,1998,0,"TRUDEL, Rémy",PQ,5635,défait en 2003
-rouynnoranda,Rouyn-Noranda,2003,0,"BERNARD, Daniel",PLQ,13,défait en 2007
-rouynnoranda,Rouyn-Noranda,2007,0,"MORASSE, Johanne",PQ,5897,défaite en 2008
-rouynnoranda,Rouyn-Noranda,2008,0,"BERNARD, Daniel",PLQ,13,ne s'est pas représenté en 2012
-rouynnoranda,Rouyn-Noranda,2012,0,"CHAPADEAU, Gilles",PQ,12177,défait en 2014
-rouynnoranda,Rouyn-Noranda,2014,0,"BLANCHETTE, Luc",PLQ,15413,défait en 2018
-rouynnoranda,Rouyn-Noranda,2018,0,"LESSARD-THERRIEN, Émilise",QS,17871,
-rouynnoranda,Rouyn-Noranda,2022,0,"BERNARD, Daniel",CAQ,13,
+rouynnorandatemiscamingue,Rouyn-Noranda __ Témiscamingue,1981,0,"BARIL, Gilles (PQ)",PQ,,défait en 1985
+rouynnorandatemiscamingue,Rouyn-Noranda __ Témiscamingue,1985,0,"BARIL, Gilles (L)",PLQ,,défait en 1989
+rouynnorandatemiscamingue,Rouyn-Noranda __ Témiscamingue,1989,0,"TRUDEL, Rémy",PQ,5635,
+rouynnorandatemiscamingue,Rouyn-Noranda __ Témiscamingue,1994,0,"TRUDEL, Rémy",PQ,5635,
+rouynnorandatemiscamingue,Rouyn-Noranda __ Témiscamingue,1998,0,"TRUDEL, Rémy",PQ,5635,défait en 2003
+rouynnorandatemiscamingue,Rouyn-Noranda __ Témiscamingue,2003,0,"BERNARD, Daniel",PLQ,13,défait en 2007
+rouynnorandatemiscamingue,Rouyn-Noranda __ Témiscamingue,2007,0,"MORASSE, Johanne",PQ,5897,défaite en 2008
+rouynnorandatemiscamingue,Rouyn-Noranda __ Témiscamingue,2008,0,"BERNARD, Daniel",PLQ,13,ne s'est pas représenté en 2012
+rouynnorandatemiscamingue,Rouyn-Noranda __ Témiscamingue,2012,0,"CHAPADEAU, Gilles",PQ,12177,défait en 2014
+rouynnorandatemiscamingue,Rouyn-Noranda __ Témiscamingue,2014,0,"BLANCHETTE, Luc",PLQ,15413,défait en 2018
+rouynnorandatemiscamingue,Rouyn-Noranda __ Témiscamingue,2018,0,"LESSARD-THERRIEN, Émilise",QS,17871,
+rouynnorandatemiscamingue,Rouyn-Noranda __ Témiscamingue,2022,0,"BERNARD, Daniel",CAQ,13,
 saguenay,Saguenay,1948,0,"OUELLET, Pierre",UN,4681,
 saguenay,Saguenay,1952,0,"OUELLET, Pierre",UN,4681,
 saguenay,Saguenay,1956,0,"OUELLET, Pierre",UN,4681,ne s'est pas représenté en 1960
@@ -3626,17 +3626,17 @@ saintemarie,Sainte-Marie,1973,0,"MALÉPART, Jean-Claude",PLQ,4299,défait en 197
 saintemarie,Sainte-Marie,1976,0,"BISAILLON, Guy",PQ,2089,
 saintemarie,Sainte-Marie,1981,0,"BISAILLON, Guy",PQ,2089,ne s'est pas représenté en 1985
 saintemarie,Sainte-Marie,1985,0,"LAPORTE, Michel",PLQ,3981,défait en 1989. Voir Sainte-Marie __ Saint-Jacques
-saintemarie,Sainte-Marie,1989,0,"BOULERICE, André",PQ,2223,
-saintemarie,Sainte-Marie,1994,0,"BOULERICE, André",PQ,2223,
-saintemarie,Sainte-Marie,1998,0,"BOULERICE, André",PQ,2223,
-saintemarie,Sainte-Marie,2003,0,"BOULERICE, André",PQ,2223,démissionne le 14-09-2005
-saintemarie,Sainte-Marie,2006,1,"LEMAY, Martin",PQ,47,
-saintemarie,Sainte-Marie,2007,0,"LEMAY, Martin",PQ,47,
-saintemarie,Sainte-Marie,2008,0,"LEMAY, Martin",PQ,47,ne s'est pas représenté en 2012
-saintemarie,Sainte-Marie,2012,0,"BRETON, Daniel",PQ,12225,défait en 2014
-saintemarie,Sainte-Marie,2014,0,"MASSÉ, Manon",QS,15421,
-saintemarie,Sainte-Marie,2018,0,"MASSÉ, Manon",QS,15421,
-saintemarie,Sainte-Marie,2022,0,"MASSÉ, Manon",QS,15421,
+saintemariesaintjacques,Sainte-Marie __ Saint-Jacques,1989,0,"BOULERICE, André",PQ,2223,
+saintemariesaintjacques,Sainte-Marie __ Saint-Jacques,1994,0,"BOULERICE, André",PQ,2223,
+saintemariesaintjacques,Sainte-Marie __ Saint-Jacques,1998,0,"BOULERICE, André",PQ,2223,
+saintemariesaintjacques,Sainte-Marie __ Saint-Jacques,2003,0,"BOULERICE, André",PQ,2223,démissionne le 14-09-2005
+saintemariesaintjacques,Sainte-Marie __ Saint-Jacques,2006,1,"LEMAY, Martin",PQ,47,
+saintemariesaintjacques,Sainte-Marie __ Saint-Jacques,2007,0,"LEMAY, Martin",PQ,47,
+saintemariesaintjacques,Sainte-Marie __ Saint-Jacques,2008,0,"LEMAY, Martin",PQ,47,ne s'est pas représenté en 2012
+saintemariesaintjacques,Sainte-Marie __ Saint-Jacques,2012,0,"BRETON, Daniel",PQ,12225,défait en 2014
+saintemariesaintjacques,Sainte-Marie __ Saint-Jacques,2014,0,"MASSÉ, Manon",QS,15421,
+saintemariesaintjacques,Sainte-Marie __ Saint-Jacques,2018,0,"MASSÉ, Manon",QS,15421,
+saintemariesaintjacques,Sainte-Marie __ Saint-Jacques,2022,0,"MASSÉ, Manon",QS,15421,
 sainterose,Sainte-Rose,2012,0,"PROULX, Suzanne",PQ,12235,défaite en 2014
 sainterose,Sainte-Rose,2014,0,"HABEL, Jean",PLQ,15425,défait en 2018
 sainterose,Sainte-Rose,2018,0,"SKEETE, Christopher",CAQ,17873,
@@ -3662,17 +3662,17 @@ sainthenri,Saint-Henri,1976,0,"COUTURE, Jacques",PQ,2703,démissionne le 30-01-1
 sainthenri,Saint-Henri,1981,0,"HAINS, Roma",PLQ,3569,
 sainthenri,Saint-Henri,1985,0,"HAINS, Roma",PLQ,3569,ne s'est pas représenté en 1989
 sainthenri,Saint-Henri,1989,0,"LOISELLE, Nicole",PLQ,4239,Voir Saint-Henri __ Sainte-Anne
-sainthenri,Saint-Henri,1994,0,"LOISELLE, Nicole",PLQ,4239,
-sainthenri,Saint-Henri,1998,0,"LOISELLE, Nicole",PLQ,4239,
-sainthenri,Saint-Henri,2003,0,"LOISELLE, Nicole",PLQ,4239,ne s'est pas représentée en 2007
-sainthenri,Saint-Henri,2007,0,"BLAIS, Marguerite",PLQ,1263,
-sainthenri,Saint-Henri,2008,0,"BLAIS, Marguerite",PLQ,1263,
-sainthenri,Saint-Henri,2012,0,"BLAIS, Marguerite",PLQ,1263,
-sainthenri,Saint-Henri,2014,0,"BLAIS, Marguerite",PLQ,1263,démissionne le 15-09-2015. Voir Prévost
-sainthenri,Saint-Henri,2015,1,"ANGLADE, Dominique",PLQ,16499,
-sainthenri,Saint-Henri,2018,0,"ANGLADE, Dominique",PLQ,16499,
-sainthenri,Saint-Henri,2022,0,"ANGLADE, Dominique",PLQ,16499,
-sainthenri,Saint-Henri,2023,1,"CLICHE-RIVARD, Guillaume",QS,19593,
+sainthenrisainteanne,Saint-Henri __ Sainte-Anne,1994,0,"LOISELLE, Nicole",PLQ,4239,
+sainthenrisainteanne,Saint-Henri __ Sainte-Anne,1998,0,"LOISELLE, Nicole",PLQ,4239,
+sainthenrisainteanne,Saint-Henri __ Sainte-Anne,2003,0,"LOISELLE, Nicole",PLQ,4239,ne s'est pas représentée en 2007
+sainthenrisainteanne,Saint-Henri __ Sainte-Anne,2007,0,"BLAIS, Marguerite",PLQ,1263,
+sainthenrisainteanne,Saint-Henri __ Sainte-Anne,2008,0,"BLAIS, Marguerite",PLQ,1263,
+sainthenrisainteanne,Saint-Henri __ Sainte-Anne,2012,0,"BLAIS, Marguerite",PLQ,1263,
+sainthenrisainteanne,Saint-Henri __ Sainte-Anne,2014,0,"BLAIS, Marguerite",PLQ,1263,démissionne le 15-09-2015. Voir Prévost
+sainthenrisainteanne,Saint-Henri __ Sainte-Anne,2015,1,"ANGLADE, Dominique",PLQ,16499,
+sainthenrisainteanne,Saint-Henri __ Sainte-Anne,2018,0,"ANGLADE, Dominique",PLQ,16499,
+sainthenrisainteanne,Saint-Henri __ Sainte-Anne,2022,0,"ANGLADE, Dominique",PLQ,16499,
+sainthenrisainteanne,Saint-Henri __ Sainte-Anne,2023,1,"CLICHE-RIVARD, Guillaume",QS,19593,
 sainthyacinthe,Saint-Hyacinthe,1867,0,"BACHAND, Pierre",PLQ,1801,
 sainthyacinthe,Saint-Hyacinthe,1871,0,"BACHAND, Pierre",PLQ,1801,
 sainthyacinthe,Saint-Hyacinthe,1875,0,"BACHAND, Pierre",PLQ,1801,
@@ -3751,8 +3751,6 @@ saintjean,Saint-Jean,1927,0,"BOUTHILLIER, Alexis",PLQ,2249,
 saintjean,Saint-Jean,1931,0,"BOUTHILLIER, Alexis",PLQ,2249,
 saintjean,Saint-Jean,1935,0,"BOUTHILLIER, Alexis",PLQ,2249,
 saintjean,Saint-Jean,1936,0,"BOUTHILLIER, Alexis",PLQ,2249,voir Saint-Jean __ Napierville
-saintjean,Saint-Jean,1939,0,"BOUTHILLIER, Alexis",PLQ,2249,décédé le 04-12-1940
-saintjean,Saint-Jean,1941,1,"BEAULIEU, J.-Paul",UN,1903,voir Saint-Jean
 saintjean,Saint-Jean,1944,0,"BEAULIEU, J.-Paul",UN,1903,
 saintjean,Saint-Jean,1948,0,"BEAULIEU, J.-Paul",UN,1903,
 saintjean,Saint-Jean,1952,0,"BEAULIEU, J.-Paul",UN,1903,
@@ -3775,6 +3773,8 @@ saintjean,Saint-Jean,2012,0,"TURCOTTE, Dave",PQ,1407,
 saintjean,Saint-Jean,2014,0,"TURCOTTE, Dave",PQ,1407,défait en 2018
 saintjean,Saint-Jean,2018,0,"LEMIEUX, Louis",CAQ,17879,
 saintjean,Saint-Jean,2022,0,"LEMIEUX, Louis",CAQ,17879,
+saintjeannapierville,Saint-Jean __ Napierville,1939,0,"BOUTHILLIER, Alexis",PLQ,2249,décédé le 04-12-1940
+saintjeannapierville,Saint-Jean __ Napierville,1941,1,"BEAULIEU, J.-Paul",UN,1903,voir Saint-Jean
 saintjerome,Saint-Jérôme,2012,0,"DUCHESNEAU, Jacques",CAQ,12193,ne s'est pas représenté en 2014
 saintjerome,Saint-Jérôme,2014,0,"PÉLADEAU, Pierre Karl",PQ,15419,démissionne le 02-05-2016
 saintjerome,Saint-Jérôme,2016,1,"BOURCIER, Marc",PQ,16773,défait en 2018
@@ -4412,15 +4412,6 @@ westmount,Westmount,1927,0,"SMART, Charles Allan",PC,5391,
 westmount,Westmount,1931,0,"SMART, Charles Allan",PC,5391,
 westmount,Westmount,1935,0,"SMART, Charles Allan",PC,5391,ne s'est pas représenté en 1936
 westmount,Westmount,1936,0,"BULLOCH, William Ross",UN,2325,défait en 1939
-westmount,Westmount,1939,0,"HYDE, George Gordon",PLQ,3693,nommé conseiller législatif le 14-01-1942
-westmount,Westmount,1942,1,"MARLER, George Carlyle",PLQ,4347,
-westmount,Westmount,1944,0,"MARLER, George Carlyle",PLQ,4347,
-westmount,Westmount,1948,0,"MARLER, George Carlyle",PLQ,4347,
-westmount,Westmount,1952,0,"MARLER, George Carlyle",PLQ,4347,démissionne le 30-06-1954
-westmount,Westmount,1955,1,"HYDE, John Richard",PLQ,3695,
-westmount,Westmount,1956,0,"HYDE, John Richard",PLQ,3695,
-westmount,Westmount,1960,0,"HYDE, John Richard",PLQ,3695,
-westmount,Westmount,1962,0,"HYDE, John Richard",PLQ,3695,voir Westmount
 westmount,Westmount,1966,0,"HYDE, John Richard",PLQ,3695,ne s'est pas représenté en 1970
 westmount,Westmount,1970,0,"DRUMMOND, Thomas Kevin",PLQ,2963,
 westmount,Westmount,1973,0,"DRUMMOND, Thomas Kevin",PLQ,2963,ne s'est pas représenté en 1976
@@ -4428,14 +4419,23 @@ westmount,Westmount,1976,0,"SPRINGATE, George",PLQ,5405,ne s'est pas représent�
 westmount,Westmount,1981,0,"FRENCH, Richard",PLQ,3277,
 westmount,Westmount,1985,0,"FRENCH, Richard",PLQ,3277,ne s'est pas représenté en 1989
 westmount,Westmount,1989,0,"HOLDEN, Richard B.",Parti Égalité,3647,défait dans Verdun en 1994
-westmount,Westmount,1994,0,"CHAGNON, Jacques",PLQ,353,
-westmount,Westmount,1998,0,"CHAGNON, Jacques",PLQ,353,
-westmount,Westmount,2003,0,"CHAGNON, Jacques",PLQ,353,
-westmount,Westmount,2007,0,"CHAGNON, Jacques",PLQ,353,
-westmount,Westmount,2008,0,"CHAGNON, Jacques",PLQ,353,
-westmount,Westmount,2012,0,"CHAGNON, Jacques",PLQ,353,
-westmount,Westmount,2014,0,"CHAGNON, Jacques",PLQ,353,ne s'est pas représenté en 2018
-westmount,Westmount,2018,0,"MACCARONE, Jennifer",PLQ,17911,
+westmountsaintgeorges,Westmount __ Saint-Georges,1939,0,"HYDE, George Gordon",PLQ,3693,nommé conseiller législatif le 14-01-1942
+westmountsaintgeorges,Westmount __ Saint-Georges,1942,1,"MARLER, George Carlyle",PLQ,4347,
+westmountsaintgeorges,Westmount __ Saint-Georges,1944,0,"MARLER, George Carlyle",PLQ,4347,
+westmountsaintgeorges,Westmount __ Saint-Georges,1948,0,"MARLER, George Carlyle",PLQ,4347,
+westmountsaintgeorges,Westmount __ Saint-Georges,1952,0,"MARLER, George Carlyle",PLQ,4347,démissionne le 30-06-1954
+westmountsaintgeorges,Westmount __ Saint-Georges,1955,1,"HYDE, John Richard",PLQ,3695,
+westmountsaintgeorges,Westmount __ Saint-Georges,1956,0,"HYDE, John Richard",PLQ,3695,
+westmountsaintgeorges,Westmount __ Saint-Georges,1960,0,"HYDE, John Richard",PLQ,3695,
+westmountsaintgeorges,Westmount __ Saint-Georges,1962,0,"HYDE, John Richard",PLQ,3695,voir Westmount
+westmountsaintlouis,Westmount __ Saint-Louis,1994,0,"CHAGNON, Jacques",PLQ,353,
+westmountsaintlouis,Westmount __ Saint-Louis,1998,0,"CHAGNON, Jacques",PLQ,353,
+westmountsaintlouis,Westmount __ Saint-Louis,2003,0,"CHAGNON, Jacques",PLQ,353,
+westmountsaintlouis,Westmount __ Saint-Louis,2007,0,"CHAGNON, Jacques",PLQ,353,
+westmountsaintlouis,Westmount __ Saint-Louis,2008,0,"CHAGNON, Jacques",PLQ,353,
+westmountsaintlouis,Westmount __ Saint-Louis,2012,0,"CHAGNON, Jacques",PLQ,353,
+westmountsaintlouis,Westmount __ Saint-Louis,2014,0,"CHAGNON, Jacques",PLQ,353,ne s'est pas représenté en 2018
+westmountsaintlouis,Westmount __ Saint-Louis,2018,0,"MACCARONE, Jennifer",PLQ,17911,
 wolfe,Wolfe,1890,0,"PICARD, Jacques",PC,4875,ne s'est pas représenté en 1892
 wolfe,Wolfe,1892,0,"CHICOYNE, Jérôme-Adolphe",PC,2557,
 wolfe,Wolfe,1897,0,"CHICOYNE, Jérôme-Adolphe",PC,2557,

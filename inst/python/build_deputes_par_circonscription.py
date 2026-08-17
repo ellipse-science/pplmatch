@@ -115,19 +115,39 @@ def fetch(page, cache=None):
 # Le nom de la circonscription est un titre EN MAJUSCULES qui precede sa table.
 # On decoupe donc la page a chaque titre plutot que de se fier a une ancre, dont
 # la forme varie d'une page a l'autre.
-RE_TITRE = re.compile(
-    r"<(h[1-6]|p|div|td)[^>]*>\s*(?:<[^>]+>\s*)*([A-ZÉÈÀÂÎÔÛÇ][A-ZÉÈÀÂÎÔÛÇ'’\-\s\.]{3,60})"
-    r"\s*(?:<[^>]+>\s*)*</\1>")
+# Le titre d'une circonscription porte du BALISAGE A L'INTERIEUR : l'ANQ encode
+# le tiret cadratin des noms fusionnes par « <sup>__</sup> », comme dans
+# « SAINT-HENRI<sup>__</sup>SAINTE-ANNE ». Exiger un contenu sans balise faisait
+# echouer le motif sur ces titres — donc la circonscription n'etait pas
+# detectee du tout, et ses lignes etaient attribuees a la PRECEDENTE. Effet
+# mesure : `sainthenri` heritait des mandats de Saint-Henri-Sainte-Anne, le
+# meme siege physique existait sous deux identifiants, et le plafond de 125
+# montait a 137.
+#
+# On capture donc le contenu brut du titre et on le nettoie ensuite, plutot que
+# d'exiger qu'il soit deja propre.
+RE_TITRE = re.compile(r"<(h[1-6])[^>]*>(.*?)</\1>", re.S | re.I)
+
+
+def _titres(html):
+    """Positions et noms des circonscriptions, dans l'ordre de la page."""
+    out = []
+    for m in RE_TITRE.finditer(html):
+        t = _texte(m.group(2))
+        # Un titre de circonscription est en MAJUSCULES et sans chiffre.
+        if len(t) > 3 and not re.search(r"\d", t) and t == t.upper() \
+                and "ASSEMBL" not in t:
+            out.append((m.start(), t))
+    return out
+
+
 RE_ANNEE = re.compile(r"^(\d{4})\b")
 
 
 def releve_page(html):
     """Rend [{seat, seat_id, annee, partielle, nom, parti, person_id, remarque}]."""
     # Positions des titres de circonscription, puis des lignes de tableau.
-    titres = [(m.start(), _texte(m.group(2))) for m in RE_TITRE.finditer(html)]
-    titres = [(p, t) for p, t in titres
-              if t and not re.search(r"\d", t) and len(t) > 3
-              and t.upper() == t and "ASSEMBL" not in t]
+    titres = _titres(html)
 
     lignes = []
     for m in re.finditer(r"<tr[^>]*>(.*?)</tr>", html, re.S | re.I):
