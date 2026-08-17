@@ -34,10 +34,16 @@ args <- commandArgs(trailingOnly = TRUE)
 env <- if ("--env" %in% args) args[which(args == "--env") + 1L] else "DEV"
 go <- "--go" %in% args
 
-DATAMART <- "pplmatch"
-TABLES <- c(mandates_qc = "Mandats dates : une personne x un siege x un intervalle.",
-            persons_qc  = "Identites des parlementaires et variantes de graphie.",
-            seats_qc    = "Sieges et leurs noms successifs dans le temps.")
+# Le nom calque la convention des dimensions de l'entrepot —
+# `dim-qc-parliament-members`, `dim-ca-parliament-members`, `dim-medias` — en
+# gardant les tirets bas que la couche datamart emploie. Le nom complet d'une
+# table est `<datamart>-<table>`, donc on lit `dim_qc_parliament-mandates` :
+# une dimension, du Quebec, du parlement, des mandats. « pplmatch » ne disait
+# que le nom de l'outil qui l'a produite, pas ce que la table contient.
+DATAMART <- "dim_qc_parliament"
+TABLES <- c(mandates = "Mandats dates : une personne x un siege x un intervalle ferme (SCD-2).",
+            persons  = "Identites des parlementaires quebecois et variantes de graphie.",
+            seats    = "Circonscriptions et leurs noms successifs dans le temps.")
 
 msg <- function(...) cat(..., "\n", sep = "")
 
@@ -121,8 +127,8 @@ con <- tube::ellipse_connect(env, "datamarts")
 on.exit(try(tube::ellipse_disconnect(con), silent = TRUE), add = TRUE)
 
 for (nom in names(TABLES)) {
-  df <- get(switch(nom, mandates_qc = "mandats", persons_qc = "personnes",
-                   seats_qc = "sieges"))
+  df <- get(switch(nom, mandates = "mandats", persons = "personnes",
+                   seats = "sieges"))
   msg("publication de ", nom, " (", nrow(df), " lignes) vers ", env, "...")
   tube::ellipse_publish(
     con = con,
