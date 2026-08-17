@@ -399,7 +399,15 @@ def build_mandates(extdata, evenements, legislatures, persons):
         for seat, r in sorted(courants.items()):
             if seat in deja:
                 continue
-            debut = partielles.get(seat, deb_leg)
+            # Si la chronologie connait une partielle pour ce siege, elle
+            # ouvrira elle-meme le mandat, a la bonne date et avec sa source.
+            # En ouvrir un ici EN PLUS produisait deux mandats au meme jour,
+            # dont l'un se faisait refermer la veille de sa propre ouverture
+            # (« 2025-08-11..2025-08-10 »). Le nom du titulaire, lui, est
+            # rattache plus bas depuis le releve du jour.
+            if seat in partielles:
+                continue
+            debut = deb_leg
             mandats.append({
                 "person_id": r.get("person_id", ""), "seat_id": seat,
                 "party_id": r.get("party_id", ""), "date_start": debut,
@@ -409,6 +417,65 @@ def build_mandates(extdata, evenements, legislatures, persons):
                 "confidence": "single_source",
             })
 
+    # Un meme evenement peut etre annonce DEUX fois — la chronologie le repete
+    # d'une page a l'autre, et le repli Wikipedia peut le redire. Applique deux
+    # fois, une partielle ouvre un mandat puis le referme le lendemain de sa
+    # propre ouverture : Arthabaska portait « 2025-08-11..2025-08-10 », un
+    # intervalle a duree negative que les invariants comptaient comme un
+    # chevauchement sans dire pourquoi.
+    hors_bornes = []
+    vus, uniques = set(), []
+    for ev in sorted(evenements, key=lambda e: e["date"]):
+        cle = (ev["type"], ev["date"], ev["seat_id"], ev.get("party_after"))
+        if cle in vus:
+            continue
+        vus.add(cle)
+        uniques.append(ev)
+
+    for ev in uniques:
+        d, seat = ev["date"], ev["seat_id"]
+        m = ouvert(seat, d)
+        if ev["type"] == "defection":
+            if not m:
+                continue
+            fin_orig = m["date_end"]
+            m["date_end"], m["end_reason"] = d - timedelta(days=1), "defection"
+            mandats.append({**m, "party_id": ev["party_after"], "date_start": d,
+                            "date_end": fin_orig, "start_reason": "defection",
+                            "end_reason": "dissolution", "source": ev["source"],
+                            # La chronologie de l'ANQ est faisante foi ; le repli
+                            # Wikipedia, non. L'evenement porte donc sa propre
+                            # confiance plutot que de l'heriter de son type.
+                            "confidence": ev.get("confidence", "verified")})
+        elif ev["type"] == "byelection":
+            # Hors de toute legislature connue, on n'ouvre RIEN. Le referentiel
+            # commence a la 35e (1994-09-12) ; deux partielles de fevrier 1994
+            # la precedent. Faute de legislature, leur mandat prenait pour fin
+            # FIN_LOINTAINE et courait jusqu'en 9999 — il chevauchait donc TOUS
+            # les mandats suivants de son siege, et produisait a lui seul la
+            # majorite des violations d'invariant. Modeliser la 34e legislature
+            # serait la vraie reponse ; inventer une borne n'en est pas une.
+            leg_ev = legislature_for(d, legislatures)
+            if leg_ev is None:
+                hors_bornes.append((d, ev["seat_id"]))
+                continue
+            if m:
+                m["date_end"], m["end_reason"] = d - timedelta(days=1), "resignation"
+            _, fin = bornes[leg_ev]
+            mandats.append({"person_id": "", "seat_id": seat,
+                            "party_id": ev["party_after"], "date_start": d,
+                            "date_end": fin, "start_reason": "byelection",
+                            "end_reason": "dissolution", "source": ev["source"],
+                            "confidence": "single_source"})
+        elif ev["type"] == "resignation":
+            if m:
+                m["date_end"], m["end_reason"] = d, "resignation"
+                m["confidence"] = "disputed"   # cabinet ou Assemblee : a trancher
+    # La fusion s'applique EN DERNIER, une fois tous les mandats ouverts.
+    # Placee avant la boucle d'evenements, elle ne voyait pas les mandats que
+    # les partielles allaient creer : celui de Riviere-du-Loup (partielle du
+    # 2009-06-22) courait jusqu'a la dissolution et chevauchait le mandat CAQ
+    # ouvert par la fusion. C'etait la derniere violation d'invariant.
     # ── Fusion ADQ -> CAQ (2012-02-14) ──────────────────────────────────────
     # Le DGE confirme la fusion : « Le nouveau parti, la Coalition avenir
     # Quebec, succede aux droits et obligations des partis fusionnes ». Ce
@@ -437,34 +504,26 @@ def build_mandates(extdata, evenements, legislatures, persons):
                         "source": "chrono102:fusion+decision-chagnon",
                         "confidence": "verified"})
 
-    for ev in sorted(evenements, key=lambda e: e["date"]):
-        d, seat = ev["date"], ev["seat_id"]
-        m = ouvert(seat, d)
-        if ev["type"] == "defection":
-            if not m:
+
+    # ── Qui occupe le siege ? ───────────────────────────────────────────────
+    # Une partielle ouvre un mandat sans savoir QUI l'a gagnee : la chronologie
+    # donne le parti, pas toujours un nom exploitable. Un mandat sans personne
+    # est pourtant inutilisable en aval — pplmatch apparie des NOMS, et un siege
+    # sans nom reste `unmatched`, donc jete.
+    #
+    # Le releve du jour de l'ANQ nomme les 125 titulaires ACTUELS. On ne s'en
+    # sert que pour les mandats qui couvrent aujourd'hui : c'est un instantane,
+    # il ne dit rien du passe et on ne lui fait rien dire de plus.
+    courants = charger_deputes_courants(extdata)
+    if courants:
+        aujourdhui = date.today()
+        for m in mandats:
+            if m["person_id"] or m["date_start"] > aujourdhui or m["date_end"] < aujourdhui:
                 continue
-            fin_orig = m["date_end"]
-            m["date_end"], m["end_reason"] = d - timedelta(days=1), "defection"
-            mandats.append({**m, "party_id": ev["party_after"], "date_start": d,
-                            "date_end": fin_orig, "start_reason": "defection",
-                            "end_reason": "dissolution", "source": ev["source"],
-                            # La chronologie de l'ANQ est faisante foi ; le repli
-                            # Wikipedia, non. L'evenement porte donc sa propre
-                            # confiance plutot que de l'heriter de son type.
-                            "confidence": ev.get("confidence", "verified")})
-        elif ev["type"] == "byelection":
-            if m:
-                m["date_end"], m["end_reason"] = d - timedelta(days=1), "resignation"
-            _, fin = bornes.get(legislature_for(d, legislatures), (d, FIN_LOINTAINE))
-            mandats.append({"person_id": "", "seat_id": seat,
-                            "party_id": ev["party_after"], "date_start": d,
-                            "date_end": fin, "start_reason": "byelection",
-                            "end_reason": "dissolution", "source": ev["source"],
-                            "confidence": "single_source"})
-        elif ev["type"] == "resignation":
-            if m:
-                m["date_end"], m["end_reason"] = d, "resignation"
-                m["confidence"] = "disputed"   # cabinet ou Assemblee : a trancher
+            r = courants.get(m["seat_id"])
+            if r and r.get("person_id"):
+                m["person_id"] = r["person_id"]
+
     return mandats
 
 
