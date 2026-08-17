@@ -201,6 +201,69 @@ test_that("le repli ne rejoue jamais une annee deja couverte", {
   expect_length(res, 0L)
 })
 
+test_that("le siege doit etre l'OBJET de la demission, pas l'appositif", {
+  skip_if_not(reticulate::py_available(), "Python not available")
+  bm <- charger_mandats()
+
+  # « Demission DU PRESIDENT DE L'ASSEMBLEE NATIONALE Yvon Vallieres, depute de
+  # Richmond » : il quitte la presidence et garde son siege dix-sept mois de
+  # plus. La regle precedente se contentait de trouver le mot « depute » apres
+  # le verbe, et fermait le mandat.
+  expect_length(sieges(bm, paste(
+    "Démission du président de l'Assemblée nationale Yvon Vallières,",
+    "député de Richmond.")), 0L)
+
+  # Mais sans fonction concurrente, l'appositif suffit : rien d'autre n'est
+  # nomme, donc c'est bien l'Assemblee qu'on quitte.
+  expect_equal(
+    sieges(bm, paste("Jean-Pierre Bélisle, député libéral de Mille-Îles,",
+                     "annonce sa démission en Chambre.")),
+    "milleiles")
+
+  # Et une fonction nommee n'exclut pas le siege quand celui-ci est OBJET.
+  expect_equal(
+    sieges(bm, paste("Lucien Bouchard annonce sa démission comme premier",
+                     "ministre du Québec, député de Jonquière et président",
+                     "du Parti québécois.")),
+    "jonquiere")
+})
+
+test_that("une ENUMERATION de circonscriptions est lue en entier", {
+  skip_if_not(reticulate::py_available(), "Python not available")
+  bm <- charger_mandats()
+
+  # Une seule circonscription suit « dans » ; les autres sont separees par des
+  # virgules, donc invisibles au motif. Deux partielles sur trois etaient
+  # perdues, et Saint-Henri-Sainte-Anne restait vide TROIS ANS.
+  res <- bm$extract_partielle(paste(
+    "Élections partielles : les libéraux Paul Busque, Monique Sauvé et",
+    "Dominique Anglade sont élus respectivement dans Beauce-Sud, Fabre et",
+    "Saint-Henri-Sainte-Anne. Le péquiste Martin Ouellet est élu dans",
+    "René-Lévesque."))
+  expect_equal(vapply(res, `[[`, character(1), 1L),
+               c("beaucesud", "fabre", "sainthenrisainteanne", "renelevesque"))
+  # Chaque circonscription garde le parti nomme le plus proche AVANT elle.
+  expect_equal(vapply(res, `[[`, character(1), 2L),
+               c("PLQ", "PLQ", "PLQ", "PQ"))
+})
+
+test_that("l'ANQ arbitre les demissions que la chronologie date mal", {
+  skip_if_not(reticulate::py_available(), "Python not available")
+  chemin <- system.file("extdata", "mandates_qc.csv", package = "pplmatch")
+  if (!nzchar(chemin)) chemin <- file.path("..", "..", "inst", "extdata", "mandates_qc.csv")
+  m <- utils::read.csv(chemin, stringsAsFactors = FALSE, colClasses = "character")
+
+  # La chronologie date l'ANNONCE, l'historique par circonscription date la
+  # VACANCE. Lucien Bouchard annonce son depart le 2001-01-11 et quitte le
+  # siege le 2001-03-08 : ce sont deux faits, et c'est le second qui borne un
+  # mandat. Le recoupement le tranche sans arbitrage humain.
+  j <- m[m$seat_id == "jonquiere" & m$date_start == "1998-11-30", ]
+  expect_equal(nrow(j), 1L)
+  expect_equal(j$date_end, "2001-03-08")
+  expect_equal(j$confidence, "verified")
+  expect_true(grepl("depcir", j$source))
+})
+
 test_that("un decret annoncant la TENUE de partielles n'elit personne", {
   skip_if_not(reticulate::py_available(), "Python not available")
   bm <- charger_mandats()

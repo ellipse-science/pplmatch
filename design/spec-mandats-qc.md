@@ -386,6 +386,58 @@ Effet mesuré sur les 1 220 mandats : **24 écarts, tous des corrections**,
 invariants et réconciliation inchangés. La file `disputed` monte de 31 à 42 —
 elle grossit parce qu'on détecte enfin des démissions qu'on manquait.
 
+## 6 quater. Arbitrer par recoupement, pas à la main
+
+43 mandats sortaient en `confidence=disputed` : la chronologie dit
+« démissionne », sans qu'on sache toujours si c'est le **siège** ou une
+**fonction** qu'on quitte. Les faire trancher un par un ne compose pas — la
+question se reposerait identique à la prochaine régénération.
+
+L'historique par circonscription de l'ANQ répond exactement à cette
+question. Sa colonne *Remarques* porte **219 démissions datées**
+(« démissionne le 08-03-2001 »), et un registre des titulaires par siège dit
+précisément quand un siège devient vacant.
+
+| | |
+|---|---|
+| **25** confirmées | les deux sources donnent la même date → `verified` |
+| **16** redatées | l'ANQ l'emporte |
+| **14** trouvées | démissions qu'on ne voyait pas du tout |
+| **14** restantes | l'ANQ ne les date pas |
+
+**La chronologie date l'annonce, l'ANQ date la vacance.** Lucien Bouchard
+annonce son départ le 2001-01-11 et quitte son siège le 2001-03-08. Ce sont
+deux faits distincts, et c'est le second qui borne un mandat. Le premier
+arbitrage ne savait que **raccourcir** un mandat — il cherchait le mandat
+couvrant la date de l'ANQ, et quand notre date était trop tôt, celle de l'ANQ
+tombait dans le vide laissé avant la partielle. Il corrige désormais dans les
+deux sens.
+
+Sur les 14 restantes, **13 sont corroborées indirectement** : une partielle
+suit dans un délai plausible. La seule qui ne l'est pas — Jacques Parizeau,
+L'Assomption, 1995-10-31 — porte la date de l'annonce, et aucune source dont
+nous disposons ne date son départ réel.
+
+### Trois défauts que l'arbitrage a révélés
+
+**Le siège doit être l'OBJET de la démission.** « Démission **du président de
+l'Assemblée nationale** Yvon Vallières, député de Richmond » : il quitte la
+présidence et garde son siège dix-sept mois. Trouver le mot « député » après le
+verbe ne suffit pas — encore faut-il qu'il soit introduit comme objet
+(« du député », « à titre de député »). Sans fonction concurrente, l'appositif
+suffit : « Jean-Pierre Bélisle, député libéral de Mille-Îles, annonce sa
+démission en Chambre » ne nomme rien d'autre.
+
+**Une énumération n'est lue qu'en entier.** « élus respectivement dans
+Beauce-Sud, Fabre et Saint-Henri-Sainte-Anne » : une seule circonscription suit
+« dans », les autres sont séparées par des virgules. Deux partielles sur trois
+étaient perdues, et Saint-Henri-Sainte-Anne restait vide **trois ans**.
+
+**Rejoindre le parti qu'on a déjà n'est pas un changement.** Monique Simard se
+retire du caucus du PQ puis le réintègre ; seule l'arrivée était vue, et elle
+scindait le mandat en deux moitiés identiques dont la seconde héritait de
+l'identité du **titulaire précédent**.
+
 ## 7. Réserve
 
 « Exhaustif » n'est atteignable que pour ce que les sources **consignent**.

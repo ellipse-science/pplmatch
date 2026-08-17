@@ -117,14 +117,33 @@ def extract_partielle(texte):
     if not partis:
         return []
 
-    out, vus = [], set()
+    # Une phrase peut annoncer une LISTE de circonscriptions dont une seule
+    # suit « dans » : « elus respectivement dans Beauce-Sud, Fabre et
+    # Saint-Henri-Sainte-Anne ». Les suivantes sont separees par des virgules,
+    # donc invisibles au motif — deux partielles sur trois etaient perdues, et
+    # le siege de Saint-Henri-Sainte-Anne restait vide trois ans.
+    trouves = []
     for m in RE_CIRCO_PARTIELLE.finditer(texte):
-        brut = m.group(1).strip()
+        trouves.append((m.start(), m.group(1)))
+        reste = texte[m.end():]
+        suite = re.match(r"((?:\s*,\s*[A-ZÀ-Þ][\wÀ-ÿ\-–—’'\.]*)+"
+                         r"(?:\s+et\s+[A-ZÀ-Þ][\wÀ-ÿ\-–—’'\.]*)?)", reste)
+        if not suite:
+            continue
+        pos = m.end()
+        for element in re.split(r"\s*,\s*|\s+et\s+", suite.group(1)):
+            element = element.strip()
+            if element:
+                trouves.append((pos, element))
+
+    out, vus = [], set()
+    for depart, capture in trouves:
+        brut = capture.strip()
         brut = re.sub(r"\s+(et|ou|a l|de la|du)\s*$", "", brut, flags=re.I).strip()
         did = district_id(brut)
         if not did or len(did) < 3 or did in vus:
             continue
-        pos = m.start()
+        pos = depart
         avant = [c for p, c in partis if p < pos]
         parti = avant[-1] if avant else partis[0][1]
         vus.add(did)
@@ -212,8 +231,27 @@ def extract_demission(texte):
              "de son poste", "de ses fonctions", "de son role",
              "de la presidence", "vice-president", "vice president",
              "a titre de cheffe", "de la fonction", "a titre de president")
-    quitte_le_siege = bool(re.search(r"deputee?s?\b|membres?\s+de\s+l[’']assemblee", portee))
-    if not quitte_le_siege and any(r in portee for r in ROLES):
+    # Le siege doit etre l'OBJET de la demission, pas l'appositif qui presente
+    # la personne. « Demission DU PRESIDENT DE L'ASSEMBLEE NATIONALE Yvon
+    # Vallieres, depute de Richmond » : il quitte la presidence et garde son
+    # siege — dix-sept mois de plus. La simple presence du mot « depute » apres
+    # le verbe suffisait a fermer le mandat.
+    #
+    # On demande donc que « depute » soit introduit comme objet (« du depute »,
+    # « a titre de depute », « comme depute ») des lors qu'une FONCTION est
+    # nommee. Sans fonction concurrente, l'appositif suffit : « Jean-Pierre
+    # Belisle, depute liberal de Mille-Iles, annonce sa demission en Chambre »
+    # ne nomme rien d'autre, et reste un depart de l'Assemblee.
+    objet_siege = bool(re.search(
+        r"(?:d[eu]s?|a titre de|comme|en tant que)\s+(?:liberal[e]?s?\s+|independant[e]?s?\s+)?"
+        r"deputee?s?\b", portee))
+    mention_siege = bool(re.search(r"deputee?s?\b|membres?\s+de\s+l[’']assemblee", portee))
+    role_nomme = any(r in portee for r in ROLES) or re.search(
+        r"demission\s+d[eu]s?\s+(?:president|presidente|ministre|chef|cheffe|leader|"
+        r"vice-president|whip)", portee)
+    if role_nomme and not objet_siege:
+        return []
+    if not mention_siege and role_nomme:
         return []
 
     out = []
@@ -284,6 +322,36 @@ def charger_deputes_courants(extdata):
         return {}
     with open(chemin, encoding="utf-8") as f:
         return {r["seat_id"]: r for r in csv.DictReader(f) if r["seat_id"]}
+
+
+# « demissionne le 08-03-2001 » dans la colonne Remarques de l'ANQ.
+RE_DEM_DEPCIR = re.compile(r"demission\w*\s*(?:le\s+)?(\d{1,2})-(\d{1,2})-(\d{4})")
+
+
+def demissions_depcir(extdata):
+    """Rend {seat_id: [date, ...]} — les demissions DATEES par l'ANQ elle-meme.
+
+    C'est l'arbitre des mandats classes `disputed`. La question qui les rendait
+    litigieux — a-t-on quitte le SIEGE ou seulement une fonction ? — est
+    exactement celle a laquelle un historique des titulaires par circonscription
+    repond : s'il inscrit « demissionne le ... », le siege est devenu vacant ce
+    jour-la.
+
+    Et la ou la chronologie date l'ANNONCE, l'ANQ date la VACANCE. Lucien
+    Bouchard annonce son depart le 2001-01-11 et quitte le siege le 2001-03-08 :
+    ce sont deux faits distincts, et c'est le second qui borne un mandat.
+    """
+    out = {}
+    for r in charger_depcir(extdata):
+        m = RE_DEM_DEPCIR.search(_norm(r.get("remarque", "")))
+        if not m:
+            continue
+        try:
+            d = date(int(m.group(3)), int(m.group(2)), int(m.group(1)))
+        except ValueError:
+            continue
+        out.setdefault(r["seat_id"], []).append(d)
+    return out
 
 
 def charger_depcir(extdata):
@@ -539,6 +607,15 @@ def build_mandates(extdata, evenements, legislatures, persons):
         if ev["type"] == "defection":
             if not m:
                 continue
+            # Rejoindre le parti qu'on a DEJA n'est pas un changement. Le cas
+            # reel : Monique Simard se retire du caucus du PQ en avril 1996 —
+            # que la chronologie n'annonce que comme une INTENTION, donc non
+            # retenue — puis « est acquittee » et le reintegre le 1996-09-25.
+            # Seule l'arrivee etait vue, et elle scindait le mandat en deux
+            # moities identiques dont la seconde heritait de l'identite du
+            # titulaire PRECEDENT. Un evenement sans effet ne doit rien couper.
+            if ev["party_after"] == m["party_id"]:
+                continue
             fin_orig = m["date_end"]
             m["date_end"], m["end_reason"] = d - timedelta(days=1), "defection"
             mandats.append({**m, "party_id": ev["party_after"], "date_start": d,
@@ -605,6 +682,55 @@ def build_mandates(extdata, evenements, legislatures, persons):
                         "source": "chrono102:fusion+decision-chagnon",
                         "confidence": "verified"})
 
+
+    # ── Arbitrage des demissions par l'ANQ ─────────────────────────────────
+    # Deux sources independantes valent mieux qu'un jugement a la main : la ou
+    # la chronologie et l'historique par circonscription concordent, le mandat
+    # cesse d'etre `disputed` sans que personne n'ait a trancher ; la ou ils
+    # divergent, l'ANQ l'emporte, parce que la question porte sur l'occupation
+    # d'un siege et que c'est precisement ce dont cette page tient le registre.
+    arbitrees = {"accord": 0, "corrigees": 0, "trouvees": 0}
+    for seat, dates in demissions_depcir(extdata).items():
+        for d in dates:
+            m = ouvert(seat, d)
+            if not m:
+                # Notre date peut etre TROP TOT — c'est meme le cas le plus
+                # frequent, puisque la chronologie date l'annonce. La date de
+                # l'ANQ tombe alors dans le vide laisse entre la fin qu'on a
+                # posee et la partielle suivante : Lucien Bouchard annonce le
+                # 2001-01-11 et quitte le 2001-03-08. Chercher seulement « le
+                # mandat qui couvre cette date » ne savait donc que RACCOURCIR
+                # un mandat, jamais corriger vers l'avant.
+                candidats = [x for x in mandats if x["seat_id"] == seat
+                             and x["end_reason"] == "resignation"
+                             and 0 < (d - x["date_end"]).days <= 400]
+                if not candidats:
+                    continue
+                m = max(candidats, key=lambda x: x["date_end"])
+            elif m["date_end"] < d:
+                continue
+            # Ne pas empieter sur le mandat suivant : si quelqu'un occupe deja
+            # le siege apres cette date, notre modele en sait plus que la
+            # remarque, et on ne touche a rien.
+            # On ne marche jamais sur le mandat suivant : si quelqu'un occupe
+            # deja le siege a cette date, notre modele en sait plus que la
+            # remarque, et on ne touche a rien.
+            if any(x["seat_id"] == seat and x is not m and x["date_start"] <= d
+                   and x["date_start"] > m["date_start"] for x in mandats):
+                continue
+            if m["date_end"] == d and m["end_reason"] == "resignation":
+                arbitrees["accord"] += 1
+            elif m["end_reason"] == "resignation":
+                arbitrees["corrigees"] += 1
+            else:
+                arbitrees["trouvees"] += 1
+            m["date_end"], m["end_reason"] = d, "resignation"
+            m["confidence"] = "verified"
+            m["source"] = (m["source"] + "+assnat_depcir") if "depcir" not in m["source"] \
+                else m["source"]
+    if any(arbitrees.values()):
+        print(f"Demissions arbitrees par l'ANQ : {arbitrees['accord']} confirmees, "
+              f"{arbitrees['corrigees']} redatees, {arbitrees['trouvees']} trouvees")
 
     # ── Qui occupe le siege ? ───────────────────────────────────────────────
     # Une partielle ouvre un mandat sans savoir QUI l'a gagnee : la chronologie
