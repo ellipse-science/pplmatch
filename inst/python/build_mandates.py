@@ -400,6 +400,49 @@ def pid_par_nom_et_siege(extdata):
     return out
 
 
+def index_noms(persons):
+    """{« prenom nom » normalise: person_id} — pour lire un nom dans une phrase.
+
+    On ne fait pas d'analyse grammaticale : on cherche dans le texte les
+    personnes qu'on CONNAIT DEJA. L'appariement se valide ainsi lui-meme, et un
+    nom qu'on ne connait pas ne peut pas produire de fausse identite. Mesure
+    sur la chronologie : 60 phrases de demission sur 64 nomment une personne de
+    la table.
+    """
+    idx = {}
+    for p in persons:
+        n = " ".join(_norm(p["full_name"]).split())
+        if len(n.split()) >= 2:
+            idx.setdefault(n, str(p["person_id"]))
+    return idx
+
+
+def personne_nommee(texte, idx):
+    """Rend le person_id nomme dans la phrase, ou None si ce n'est pas net.
+
+    On ne rend un nom que s'il n'y en a qu'UN. Deux noms, c'est un paragraphe
+    a plusieurs departs, et les apparier au bon siege demanderait de deviner —
+    on s'abstient plutot que de risquer d'attribuer un mandat a la mauvaise
+    personne, qui est exactement l'erreur qu'on repare ici.
+    """
+    plat = " ".join(_norm(texte).split())
+    trouves = {v for k, v in idx.items() if k in plat}
+    return next(iter(trouves)) if len(trouves) == 1 else None
+
+
+def meme_personne(a, b, noms):
+    """Deux identifiants designent-ils la meme personne ecrite autrement ?
+
+    « regent beaudet » et « regent l. beaudet » sont un doublon de graphie, pas
+    une contradiction : les mots de l'un sont inclus dans ceux de l'autre.
+    """
+    if a == b:
+        return True
+    ta = set(_norm(noms.get(a, "")).replace(".", " ").split())
+    tb = set(_norm(noms.get(b, "")).replace(".", " ").split())
+    return bool(ta) and bool(tb) and (ta <= tb or tb <= ta)
+
+
 def cle_nom(nom):
     """Clef d'identite d'une personne, insensible a la ponctuation.
 
@@ -528,6 +571,7 @@ def build_mandates(extdata, evenements, legislatures, persons):
     # differents pour le meme identifiant ne se comparent jamais egaux.
     pid_par_nom = {cle_nom(p["full_name"]): str(p["person_id"]) for p in persons}
     pid_siege = pid_par_nom_et_siege(extdata)
+    noms_par_id = {str(p["person_id"]): p["full_name"] for p in persons}
     bornes = {l["legislature"]: (date.fromisoformat(l["start_date"]),
                                  date.fromisoformat(l["end_date"])) for l in legislatures}
     mandats = []
@@ -728,8 +772,33 @@ def build_mandates(extdata, evenements, legislatures, persons):
                             "confidence": "single_source"})
         elif ev["type"] == "resignation":
             if m:
+                # La phrase de demission NOMME souvent la personne qui part. Si
+                # ce n'est pas celle que porte le mandat, c'est le mandat qui a
+                # tort : le referentiel inscrit parfois le gagnant d'une
+                # PARTIELLE comme elu de la generale. Terrebonne portait ainsi
+                # Catherine Gentilcore, elue en 2025, pour un mandat ouvert en
+                # 2022 qui etait celui de Pierre Fitzgibbon — mauvaise personne
+                # ET mauvais parti pour deux ans de parole.
+                nomme = ev.get("person_id")
+                if nomme and m["person_id"] and not meme_personne(
+                        nomme, m["person_id"], noms_par_id):
+                    ancien = [x for x in mandats
+                              if x["seat_id"] == m["seat_id"] and x["person_id"] == nomme
+                              and x["date_end"] < m["date_start"]]
+                    m["person_id"] = nomme
+                    if ancien:
+                        # Le parti n'est pas atteste pour CETTE legislature : on
+                        # reprend celui du mandat precedent de la meme personne
+                        # sur le meme siege, et on le dit en `single_source`.
+                        m["party_id"] = max(
+                            ancien, key=lambda x: x["date_end"])["party_id"]
+                    m["source"] += "+chrono-titulaire"
+                    m["confidence"] = "single_source"
+                    print(f"  TITULAIRE CORRIGE {m['seat_id']:18} {m['date_start']} "
+                          f"-> {noms_par_id.get(nomme, nomme)}")
                 m["date_end"], m["end_reason"] = d, "resignation"
-                m["confidence"] = "disputed"   # cabinet ou Assemblee : a trancher
+                if m["confidence"] != "single_source":
+                    m["confidence"] = "disputed"   # cabinet ou Assemblee : a trancher
     # La fusion s'applique EN DERNIER, une fois tous les mandats ouverts.
     # Placee avant la boucle d'evenements, elle ne voyait pas les mandats que
     # les partielles allaient creer : celui de Riviere-du-Loup (partielle du
@@ -1165,6 +1234,7 @@ def main():
     evenements, renommages = [], []
     releves, releves_indep = [], []
     print(f"Chronologie ANQ : chrono{FIRST_PAGE} a chrono{LAST_PAGE}")
+    idx_noms = index_noms(build_persons(extdata))
     html_derniere, annees_chrono = "", set()
     for n in range(FIRST_PAGE, LAST_PAGE + 1):
         html = fetch_page(n, args.cache)
@@ -1193,10 +1263,14 @@ def main():
             indep = extract_independants_nommes(texte)
             if indep:
                 releves_indep.append((d, indep, src))
-            for dem in extract_demission(texte):
+            sieges_dem = extract_demission(texte)
+            # Un seul siege ET un seul nom : sinon on ne saurait pas les
+            # apparier, et on prefere ne rien dire.
+            qui = personne_nommee(texte, idx_noms) if len(sieges_dem) == 1 else None
+            for dem in sieges_dem:
                 evenements.append({"type": "resignation",
                                    "date": date_effet(texte, d),
-                                   "seat_id": dem,
+                                   "seat_id": dem, "person_id": qui,
                                    "party_after": None, "source": src})
 
     if not args.sans_wikipedia:

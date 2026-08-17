@@ -174,3 +174,40 @@ test_that("Parizeau quitte son siege quand l'ANQ le dit, pas a l'annonce", {
   expect_equal(r$date_end, "1996-01-29")
   expect_equal(r$confidence, "verified")
 })
+
+test_that("un faux titulaire est corrige par le nom que porte la chronologie", {
+  skip_if_not(reticulate::py_available(), "Python not available")
+
+  # `members_historic_qc.csv` inscrit Catherine Gentilcore comme elue de la
+  # GENERALE de 2022 dans Terrebonne, alors qu'elle a gagne la partielle du
+  # 2025-03-17. Le siege etait celui de Pierre Fitzgibbon, CAQ : deux ans de
+  # parole partaient a la mauvaise personne ET au mauvais parti.
+  #
+  # La phrase de demission le nomme — « Demission de Pierre Fitzgibbon [...] et
+  # de depute de Terrebonne » — et c'est cette mention qui tranche.
+  r <- pplmatchQC(data.frame(
+    speaker = c("Pierre Fitzgibbon", "Catherine Gentilcore"),
+    event_date = c("2023-05-01", "2025-06-01"), stringsAsFactors = FALSE))
+
+  expect_equal(r$district_id, c("terrebonne", "terrebonne"))
+  expect_equal(r$party_id, c("CAQ", "PQ"))
+  expect_false(any(r$match_level == "unmatched"))
+})
+
+test_that("personne ne gagne sa propre partielle", {
+  chemin <- system.file("extdata", "mandates_qc.csv", package = "pplmatch")
+  if (!nzchar(chemin)) chemin <- file.path("..", "..", "inst", "extdata", "mandates_qc.csv")
+  m <- utils::read.csv(chemin, stringsAsFactors = FALSE, colClasses = "character")
+
+  # Si une personne ouvre un mandat par PARTIELLE sur un siege, elle ne peut
+  # pas etre aussi la gagnante de la generale du meme siege dans la meme
+  # legislature : la partielle n'aurait pas eu lieu.
+  faute <- character(0)
+  for (s in unique(m$seat_id)) {
+    ms <- m[m$seat_id == s, ]
+    part <- ms$person_id[ms$start_reason == "byelection" & nzchar(ms$person_id)]
+    gen  <- ms$person_id[ms$start_reason == "election" & nzchar(ms$person_id)]
+    faute <- c(faute, intersect(part, gen))
+  }
+  expect_equal(faute, character(0))
+})

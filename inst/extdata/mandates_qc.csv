@@ -1098,7 +1098,7 @@ person_id,seat_id,party_id,parliamentary_status,date_start,date_end,start_reason
 19317,jonquiere,CAQ,group,2022-10-03,2026-10-05,election,dissolution,members_historic_qc,verified
 19271,robertbaldwin,PLQ,group,2022-10-03,2026-10-05,election,dissolution,members_historic_qc,verified
 19293,chateauguay,CAQ,group,2022-10-03,2026-10-05,election,dissolution,members_historic_qc,verified
-20131,terrebonne,PQ,group,2022-10-03,2024-09-05,election,resignation,members_historic_qc,disputed
+17897,terrebonne,CAQ,group,2022-10-03,2024-09-05,election,resignation,members_historic_qc+chrono-titulaire,single_source
 19267,taschereau,QS,group,2022-10-03,2026-10-05,election,dissolution,members_historic_qc,verified
 19309,lavaldesrapides,CAQ,group,2022-10-03,2026-10-05,election,dissolution,members_historic_qc,verified
 19295,chomedey,PLQ,group,2022-10-03,2025-12-03,election,defection,members_historic_qc,verified
