@@ -308,6 +308,33 @@ def build_persons(extdata):
             pid, url = synth, ""
         lignes.append({"person_id": pid, "full_name": nom,
                        "other_names": autres[nom], "assnat_url": url})
+
+    # ── Les personnes que SEUL le releve du jour connait ────────────────────
+    # `members_historic_qc.csv` s'arrete au 2025-03-17. Les elu.es arrive.es
+    # depuis — vainqueurs de partielles surtout — n'existaient donc dans aucune
+    # table de personnes, et un mandat sans personne est inutilisable : pplmatch
+    # apparie des NOMS. Arthabaska et Joliette restaient `unmatched`, donc
+    # jetes, alors meme que leur mandat etait correctement date.
+    #
+    # L'ANQ ecrit « Boissonneault, Alex » la ou le referentiel ecrit « alex
+    # boissonneault » : on retourne le nom pour parler la meme langue que le
+    # reste de la table, sinon la personne est ajoutee EN DOUBLE sous une
+    # graphie que l'appariement ne retrouvera jamais.
+    connus = {l["full_name"] for l in lignes}
+    for r in charger_deputes_courants(extdata).values():
+        brut = (r.get("full_name") or "").strip()
+        if not brut:
+            continue
+        nom = " ".join(p.strip() for p in reversed(brut.split(","))).strip() \
+            if "," in brut else brut
+        nom = _norm(nom)
+        nom = " ".join(nom.split())
+        if not nom or nom in connus:
+            continue
+        connus.add(nom)
+        lignes.append({"person_id": r.get("person_id", ""), "full_name": nom,
+                       "other_names": nom.split()[-1] if nom.split() else "",
+                       "assnat_url": r.get("assnat_url", "")})
     return lignes
 
 

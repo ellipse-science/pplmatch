@@ -259,10 +259,44 @@ def date_explicite(texte, mois_map):
 # specifique au plus general pour ne pas couper un nom compose trop tot.
 # NB : l'elision (« depute d'Abitibi-Est ») et le libelle fautif du site
 # (« la deputee DES Rimouski ») sont frequents — les motifs les absorbent.
+# `depute[e]?s?` : le pluriel n'etait pas capte, donc « LES DEPUTES de Joliette
+# et de Berthier quittent le caucus » ne rendait AUCUNE circonscription — la
+# forme meme qu'emploie la chronologie pour les departs groupes, ceux qui
+# comptent le plus.
 RE_DISTRICTS = [
-    re.compile(r"depute[e]?\s+de\s+la\s+circonscription\s+(?:d[eu]\s+|d[’'])([^,.;]+)", re.I),
-    re.compile(r"depute[e]?\s+(?:liberal[e]?\s+|independant[e]?\s+)?(?:d[eu]s?\s+|d[’'])([^,.;]+)", re.I),
+    re.compile(r"depute[e]?s?\s+de\s+la\s+circonscription\s+(?:d[eu]\s+|d[’'])([^,.;]+)", re.I),
+    re.compile(r"depute[e]?s?\s+(?:liberal[e]?s?\s+|independant[e]?s?\s+)?(?:d[eu]s?\s+|d[’'])([^,.;]+)", re.I),
 ]
+
+
+def _borner_circonscription(nom):
+    """Coupe ce qui suit le nom de la circonscription.
+
+    `([^,.;]+)` s'arrete a la ponctuation, donc une phrase sans virgule fait
+    avaler le verbe et sa suite : « le depute de Rimouski QUITTE LE CAUCUS DU
+    PARTI QUEBECOIS » rendait la circonscription
+    « rimouskiquittelecaucusdupartiquebecois ». Aucun mandat ne porte ce
+    siege, donc la defection etait ecartee — sans un mot.
+
+    Le texte est ici normalise, donc en minuscules : la borne « premier mot
+    capitalise » qui protege les partielles ne s'applique pas. On coupe au
+    premier VERBE connu, en reutilisant les listes qui definissent deja ce
+    qu'est un depart ou une arrivee — ainsi un verbe ajoute a l'une profite
+    aussitot a la borne.
+    """
+    coupures = [v for v in list(DEPARTS) + list(ARRIVEES)]
+    coupures += [" et ", " ainsi que ", " qui ", " annonce ", " devient ",
+                 " sera ", " est ", " a ete "]
+    pos = len(nom)
+    for c in coupures:
+        i = nom.find(c.strip() if nom.startswith(c.strip()) else c)
+        if i > 0:
+            pos = min(pos, i)
+    nom = nom[:pos].strip()
+    # « depute de LA CIRCONSCRIPTION DE Groulx » : le motif general capture
+    # aussi la periphrase, qui doublonnait le siege sous un identifiant faux.
+    nom = re.sub(r"^la\s+circonscription\s+(?:d[eu]\s+|d[’'])", "", nom).strip()
+    return re.sub(r"\s+(et|ainsi que|de|du|la|le)\s*$", "", nom).strip()
 
 
 def _districts(texte_norm):
@@ -272,8 +306,7 @@ def _districts(texte_norm):
     trouves, vus = [], set()
     for rx in RE_DISTRICTS:
         for m in rx.finditer(texte_norm):
-            nom = m.group(1).strip()
-            nom = re.sub(r"\s+(et|ainsi que)\s*$", "", nom).strip()
+            nom = _borner_circonscription(m.group(1).strip())
             if not nom or len(nom) > 60:
                 continue
             did = district_id(nom)

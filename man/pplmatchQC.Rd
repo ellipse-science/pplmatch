@@ -9,6 +9,7 @@ pplmatchQC(
   members = NULL,
   fuzzy_threshold = 85,
   legislatures = 35:43,
+  web_lookup = FALSE,
   verbose = FALSE
 )
 }
@@ -48,6 +49,14 @@ Defaut : 35:43 (1994 a aujourd'hui). Les lignes du corpus dont la date
 tombe hors de ces legislatures recoivent un \code{match_level} de
 \code{"unmatched"} et un \code{legislature} de \code{NA}.}
 
+\item{web_lookup}{Logique. Si \code{TRUE}, tente de resoudre les cas
+\code{"ambiguous"} restants apres la resolution contextuelle en
+consultant les pages d'interventions des deputes sur le site de
+l'Assemblee nationale (\url{https://www.assnat.qc.ca}). Pour chaque cas
+ambigu, interroge le site pour verifier si exactement un des candidats
+a des interventions enregistrees a cette date. Necessite une connexion
+internet. Defaut : \code{FALSE}.}
+
 \item{verbose}{Logique. Si \code{TRUE}, affiche la progression et un resume
 des resultats a la fin. Defaut : \code{FALSE}.}
 }
@@ -72,6 +81,9 @@ Un tibble contenant toutes les colonnes du corpus original, plus
     \item{match_level}{Niveau de l'appariement :
       \code{"deterministic"} (correspondance exacte),
       \code{"fuzzy"} (similarite au-dessus du seuil),
+      \code{"contextual"} (resolu par le roster journalier),
+      \code{"web_contextual"} (resolu via assnat.qc.ca, uniquement si
+        \code{web_lookup = TRUE}),
       \code{"ambiguous"} (plusieurs deputes possibles),
       \code{"unmatched"} (aucune correspondance),
       \code{"role"}, \code{"crowd"}, \code{"empty"}.}
@@ -103,6 +115,13 @@ pour installer les dependances Python (rapidfuzz).
   \item **Niveau 2 (fuzzy)** : si le niveau 1 echoue, comparaison par
     similarite avec rapidfuzz. Score pondere different pour les noms
     complets vs noms de famille seuls.
+  \item **Niveau 3 (contextuel)** : pour les cas ambigus, verifie si
+    exactement un des candidats figure dans le roster journalier (c.-a-d.
+    a deja ete apparie deterministe ou fuzzy ce jour-la).
+  \item **Niveau 4 (web, optionnel)** : si \code{web_lookup = TRUE}, pour
+    les cas encore ambigus, consulte les pages d'interventions de
+    l'Assemblee nationale pour chaque candidat et verifie si un seul
+    a des interventions enregistrees a cette date precise.
 }
 }
 
