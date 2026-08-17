@@ -19,4 +19,4 @@ jobs:
           # est le selecteur pak valide pour Depends, Imports et Suggests.
           dependencies: '"all"'
       - name: Test package
-        run: Rscript -e 'devtools::test(stop_on_failure = TRUE)'
+        run: Rscript -e 'testthat::test_local(stop_on_failure = TRUE)'
