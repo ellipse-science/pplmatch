@@ -164,6 +164,23 @@ pplmatchQC <- function(corpus, members = NULL,
 
   if (is.null(members)) {
     members <- qc_members()
+
+    # Le repertoire historique s'arrete au 2025-03-17 et ignore 4 des 125
+    # sieges de la 43e legislature. Un siege absent n'est pas mal apparie : il
+    # est `unmatched`, donc jete en aval, et sa parole disparait. On le
+    # complete depuis les mandats, sans jamais ecraser une ligne existante.
+    #
+    # UNIQUEMENT sur le repertoire livre. Un appelant qui fournit son propre
+    # `members` decrit exactement la population qu'il veut apparier : y
+    # injecter des centaines de personnes changerait ses resultats sous lui —
+    # et le faisait, en rendant nos graphies normalisees la ou il attendait les
+    # siennes.
+    legs <- jsonlite::fromJSON(file.path(.find_extdata_dir(), "legislatures_qc.json"))
+    bornes <- data.frame(legislature = legs$legislature,
+                         start_date = as.Date(legs$start_date),
+                         end_date = as.Date(legs$end_date),
+                         stringsAsFactors = FALSE)
+    members <- .completer_membres(members, bornes)
   }
 
   # Load Python matcher
@@ -202,6 +219,10 @@ pplmatchQC <- function(corpus, members = NULL,
   leg_path            <- file.path(.find_extdata_dir(), "legislatures_qc.json")
   session_path        <- file.path(.find_extdata_dir(), "sessions_qc.json")
   party_changes_path  <- file.path(.find_extdata_dir(), "party_changes_qc.csv")
+  # Le modele DATE prend la main des qu'il est present : un mandat est un
+  # intervalle FERME, donc une defection ne peut plus etre heritee par le
+  # successeur du transfuge.
+  mandates_path       <- file.path(.find_extdata_dir(), "mandates_qc.csv")
 
   # Call Python matcher
   results <- matcher$match_corpus(
@@ -211,6 +232,7 @@ pplmatchQC <- function(corpus, members = NULL,
     legislatures_path   = leg_path,
     sessions_path       = session_path,
     party_changes_path  = party_changes_path,
+    mandates_path       = if (file.exists(mandates_path)) mandates_path else NULL,
     web_lookup          = isTRUE(web_lookup),
     verbose             = verbose
   )

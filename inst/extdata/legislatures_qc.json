@@ -1,11 +1,52 @@
 [
-  {"legislature": 35, "start_date": "1994-09-12", "end_date": "1998-11-25"},
-  {"legislature": 36, "start_date": "1998-11-30", "end_date": "2003-03-12"},
-  {"legislature": 37, "start_date": "2003-04-14", "end_date": "2007-02-21"},
-  {"legislature": 38, "start_date": "2007-03-26", "end_date": "2008-11-05"},
-  {"legislature": 39, "start_date": "2008-12-08", "end_date": "2012-08-01"},
-  {"legislature": 40, "start_date": "2012-09-04", "end_date": "2014-03-05"},
-  {"legislature": 41, "start_date": "2014-04-07", "end_date": "2018-08-23"},
-  {"legislature": 42, "start_date": "2018-10-01", "end_date": "2022-08-28"},
-  {"legislature": 43, "start_date": "2022-10-03", "end_date": "2026-10-05"}
+  {
+    "legislature": 34,
+    "start_date": "1989-09-25",
+    "end_date": "1994-07-24"
+  },
+  {
+    "legislature": 35,
+    "start_date": "1994-09-12",
+    "end_date": "1998-11-25"
+  },
+  {
+    "legislature": 36,
+    "start_date": "1998-11-30",
+    "end_date": "2003-03-12"
+  },
+  {
+    "legislature": 37,
+    "start_date": "2003-04-14",
+    "end_date": "2007-02-21"
+  },
+  {
+    "legislature": 38,
+    "start_date": "2007-03-26",
+    "end_date": "2008-11-05"
+  },
+  {
+    "legislature": 39,
+    "start_date": "2008-12-08",
+    "end_date": "2012-08-01"
+  },
+  {
+    "legislature": 40,
+    "start_date": "2012-09-04",
+    "end_date": "2014-03-05"
+  },
+  {
+    "legislature": 41,
+    "start_date": "2014-04-07",
+    "end_date": "2018-08-23"
+  },
+  {
+    "legislature": 42,
+    "start_date": "2018-10-01",
+    "end_date": "2022-08-28"
+  },
+  {
+    "legislature": 43,
+    "start_date": "2022-10-03",
+    "end_date": "2026-10-05"
+  }
 ]

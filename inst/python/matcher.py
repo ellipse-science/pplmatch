@@ -7,7 +7,8 @@ Level 3: Contextual (inference based on session roster)
 
 import csv as _csv
 import os as _os
-from datetime import date as _date
+import warnings as _warnings
+from datetime import date as _date, timedelta as _timedelta
 
 from rapidfuzz import fuzz
 from normalizer import (
@@ -34,21 +35,132 @@ def _load_party_changes(path):
     return changes
 
 
-def _resolve_party(district_id, legislature, event_date, party_changes):
-    """Return the correct party_id for a member on event_date, or None if not tracked."""
-    key = (district_id, str(legislature))
-    if key not in party_changes:
+_FIN_OUVERTE = _date(9999, 12, 31)
+
+
+def _load_mandates(path):
+    """Charge mandates_qc.csv en {seat_id: [mandat, ...]} tries par date.
+
+    C'est le REMPLACANT de party_changes_qc.csv, et la difference tient en un
+    mot : une BORNE DE FIN. Un changement de parti sans date de fin s'applique
+    indefiniment, donc au SUCCESSEUR du transfuge — la defection d'Eric Lefebvre
+    (Arthabaska, 2024-04-16) etait heritee par Alex Boissonneault, elu peequiste
+    a la partielle de 2025. Un mandat, lui, est un intervalle ferme : il ne peut
+    pas deborder sur celui d'apres.
+    """
+    if not path or not _os.path.exists(path):
+        return {}
+    par_siege = {}
+    with open(path, newline="", encoding="utf-8") as f:
+        for numero, row in enumerate(_csv.DictReader(f), start=2):
+            try:
+                debut = _date.fromisoformat(row["date_start"])
+            except (ValueError, TypeError, KeyError):
+                raise ValueError(
+                    f"mandates_qc.csv:{numero}: date_start illisible "
+                    f"({row.get('date_start')!r})"
+                ) from None
+            fin = row.get("date_end") or ""
+            try:
+                fin = _date.fromisoformat(fin) if fin else _FIN_OUVERTE
+            except (ValueError, TypeError):
+                raise ValueError(
+                    f"mandates_qc.csv:{numero}: date_end illisible "
+                    f"({row.get('date_end')!r})"
+                ) from None
+            if fin < debut:
+                raise ValueError(
+                    f"mandates_qc.csv:{numero}: date_end precede date_start"
+                )
+            par_siege.setdefault(row["seat_id"], []).append({
+                "person_id": row.get("person_id", ""),
+                "party_id": row.get("party_id", ""),
+                "date_start": debut, "date_end": fin,
+            })
+    for v in par_siege.values():
+        v.sort(key=lambda m: m["date_start"])
+    return par_siege
+
+
+def _borne_fin_referentiel(mandates):
+    """Derniere date couverte par le referentiel, hors bornes ouvertes."""
+    fins = [m["date_end"] for ms in mandates.values() for m in ms
+            if m["date_end"] != _FIN_OUVERTE]
+    return max(fins) if fins else None
+
+
+def _statut_referentiel_mandat(seat_id, event_date, mandates):
+    """Distingue un siege inconnu, une vacance et un referentiel perime."""
+    if isinstance(event_date, str):
+        try:
+            event_date = _date.fromisoformat(event_date[:10])
+        except (ValueError, TypeError):
+            return "date_invalide"
+    if not isinstance(event_date, _date):
+        return "date_invalide"
+    if not seat_id or seat_id not in mandates:
+        return "siege_inconnu"
+    if _mandat_en_vigueur(seat_id, event_date, mandates):
+        return "couvert"
+    borne_fin = _borne_fin_referentiel(mandates)
+    if borne_fin and event_date > borne_fin:
+        return "referentiel_perime"
+    return "hors_mandat"
+
+
+def _mandats_depuis_party_changes(party_changes):
+    """Adapte l'ancien format en intervalles, pour n'avoir qu'UN resolveur.
+
+    Garder deux chemins de resolution, c'est garantir qu'ils divergent. On
+    convertit donc l'ancien fichier plutot que de le resoudre autrement : chaque
+    changement ferme le precedent la veille, et le dernier reste ouvert.
+
+    La conversion ne repare rien — un changement sans date de fin devient un
+    intervalle qui court jusqu'a la fin des temps, et deborde donc toujours sur
+    le successeur. C'est le defaut meme du format, rendu ici visible.
+    """
+    par_siege = {}
+    for (seat, _leg), changements in party_changes.items():
+        ch = sorted(changements, key=lambda x: x["change_date"])
+        bornes = [{"person_id": "", "party_id": ch[0]["party_before"],
+                   "date_start": _date(1867, 7, 1),
+                   "date_end": ch[0]["change_date"] - _timedelta(days=1)}]
+        for i, c in enumerate(ch):
+            suivant = ch[i + 1]["change_date"] - _timedelta(days=1) if i + 1 < len(ch) else _FIN_OUVERTE
+            bornes.append({"person_id": "", "party_id": c["party_after"],
+                           "date_start": c["change_date"], "date_end": suivant})
+        par_siege.setdefault(seat, []).extend(bornes)
+    for v in par_siege.values():
+        v.sort(key=lambda m: m["date_start"])
+    return par_siege
+
+
+def _mandat_en_vigueur(seat_id, event_date, mandates):
+    """Rend le mandat qui couvre `event_date` pour ce siege, ou None."""
+    if not mandates or not seat_id:
         return None
     if isinstance(event_date, str):
         try:
-            event_date = _date.fromisoformat(event_date)
+            event_date = _date.fromisoformat(event_date[:10])
         except (ValueError, TypeError):
             return None
-    resolved = party_changes[key][0]["party_before"]
-    for ch in sorted(party_changes[key], key=lambda x: x["change_date"]):
-        if event_date >= ch["change_date"]:
-            resolved = ch["party_after"]
-    return resolved
+    if not isinstance(event_date, _date):
+        return None
+    for m in mandates.get(seat_id, ()):
+        if m["date_start"] <= event_date <= m["date_end"]:
+            return m
+    return None
+
+
+def _resolve_party(district_id, event_date, mandates):
+    """Rend le parti en vigueur pour ce siege a cette date, ou None.
+
+    On ne rend RIEN plutot qu'un parti approximatif : une date hors de tout
+    mandat connu (siege vacant, lacune du referentiel) doit laisser le parti
+    issu de l'appariement, pas en inventer un.
+    """
+    m = _mandat_en_vigueur(district_id, event_date, mandates)
+    return m["party_id"] if m and m["party_id"] else None
 
 
 def _build_lookup(members, legislature):
@@ -228,10 +340,17 @@ def match_speaker_atomic(speaker_norm, lookup, fuzzy_threshold=85, speaker_distr
 
 def match_corpus(corpus_rows, members, fuzzy_threshold=85,
                  legislatures_path=None, sessions_path=None,
-                 party_changes_path=None,
+                 party_changes_path=None, mandates_path=None,
                  web_lookup=False, verbose=False):
     legislatures = load_legislatures(legislatures_path)
-    party_changes = _load_party_changes(party_changes_path)
+    # Le modele DATE remplace party_changes_qc.csv des qu'il est fourni ; on
+    # garde l'ancien chemin en repli pour ne pas casser un appelant qui ne le
+    # passe pas encore.
+    mandates = _load_mandates(mandates_path)
+    party_changes = {} if mandates else _load_party_changes(party_changes_path)
+    if party_changes:
+        mandates = _mandats_depuis_party_changes(party_changes)
+    dates_hors_couverture = []
     lookup_cache = {}
     grouped_results = {}
     n = len(corpus_rows)
@@ -258,10 +377,13 @@ def match_corpus(corpus_rows, members, fuzzy_threshold=85,
                 lookup_cache[leg] = _build_lookup(members, leg)
             match_res, candidates = match_speaker_atomic(speaker_norm, lookup_cache[leg], fuzzy_threshold, speaker_dist)
             result.update(match_res)
-            if party_changes and result.get("district_id") and leg is not None:
-                resolved = _resolve_party(result["district_id"], leg, event_date, party_changes)
+            if mandates and result.get("district_id"):
+                resolved = _resolve_party(result["district_id"], event_date, mandates)
                 if resolved is not None:
                     result["party_id"] = resolved
+                elif _statut_referentiel_mandat(
+                        result["district_id"], event_date, mandates) == "referentiel_perime":
+                    dates_hors_couverture.append(str(event_date)[:10])
         else:
             result["match_level"] = category if category != "person" else "unmatched"
 
@@ -281,11 +403,13 @@ def match_corpus(corpus_rows, members, fuzzy_threshold=85,
                     best = matches_in_roster[0]
                     res.update({"matched_name": best["full_name"], "party_id": best["party_id"], "gender": best["gender"],
                                 "district_id": best["district_id"], "match_level": "contextual", "match_score": 99.0})
-                    if party_changes and res.get("district_id"):
-                        leg = res.get("legislature")
-                        resolved = _resolve_party(res["district_id"], leg, res.get("event_date", ""), party_changes)
+                    if mandates and res.get("district_id"):
+                        resolved = _resolve_party(res["district_id"], date_str, mandates)
                         if resolved is not None:
                             res["party_id"] = resolved
+                        elif _statut_referentiel_mandat(
+                                res["district_id"], date_str, mandates) == "referentiel_perime":
+                            dates_hors_couverture.append(str(date_str)[:10])
             final_results_sorted[item["index"]] = res
 
     # --- Level 4: Web-based disambiguation (optional, requires network) ---
@@ -314,5 +438,16 @@ def match_corpus(corpus_rows, members, fuzzy_threshold=85,
                  ["deterministic", "fuzzy", "contextual", "web_contextual", "ambiguous", "role", "crowd", "unmatched"]}
         print(f"  Done. Det: {stats['deterministic']}, Fuzzy: {stats['fuzzy']}, Ctx: {stats['contextual']}, "
               f"Web: {stats['web_contextual']}, Amb: {stats['ambiguous']}, Roles: {stats['role']}, Unm: {stats['unmatched']}")
+
+    if dates_hors_couverture:
+        debut, fin = min(dates_hors_couverture), max(dates_hors_couverture)
+        _warnings.warn(
+            f"Referentiel de mandats perime : {len(dates_hors_couverture)} "
+            f"appariement(s) date(s) de {debut} a {fin} depassent sa derniere "
+            f"borne connue ({_borne_fin_referentiel(mandates).isoformat()}). Regenerer mandates_qc.csv "
+            f"avant de publier ces resultats.",
+            RuntimeWarning,
+            stacklevel=2,
+        )
 
     return final_results_sorted
