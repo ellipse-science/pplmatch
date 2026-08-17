@@ -130,6 +130,41 @@ test_that("le resolveur ne rend rien plutot qu'un parti approximatif", {
   expect_null(m$`_resolve_party`("rimouski", "1850-01-01", mand))
   expect_null(m$`_resolve_party`("siege-inexistant", "2021-06-01", mand))
   expect_null(m$`_resolve_party`("rimouski", "pas-une-date", mand))
+  expect_equal(m$`_statut_referentiel_mandat`("rimouski", "2021-06-01", mand),
+               "couvert")
+  expect_equal(m$`_statut_referentiel_mandat`("rimouski", "2026-10-06", mand),
+               "referentiel_perime")
+  expect_equal(m$`_statut_referentiel_mandat`("siege-inexistant", "2026-10-06", mand),
+               "siege_inconnu")
+})
+
+test_that("un mandat mal date ne disparait jamais en silence", {
+  skip_if_not(reticulate::py_available(), "Python not available")
+  py <- file.path("..", "..", "inst", "python")
+  if (!dir.exists(py)) py <- system.file("python", package = "pplmatch")
+  m <- reticulate::import_from_path("matcher", path = py)
+  mauvais <- tempfile(fileext = ".csv")
+  writeLines(c("person_id,seat_id,party_id,date_start,date_end",
+               "1,test,PQ,pas-une-date,2026-10-05"), mauvais)
+  expect_error(m$`_load_mandates`(mauvais), "date_start illisible")
+})
+
+test_that("le repli Wikipedia exige une reference exploitable", {
+  skip_if_not(reticulate::py_available(), "Python not available")
+  py <- file.path("..", "..", "inst", "python")
+  if (!dir.exists(py)) py <- system.file("python", package = "pplmatch")
+  wiki <- reticulate::import_from_path("wikipedia_fallback", path = py)
+  expect_true(wiki$`_a_une_reference_verifiable`("Texte <ref>Source primaire</ref>"))
+  expect_false(wiki$`_a_une_reference_verifiable`("Texte sans reference"))
+})
+
+test_that("aucun mandat Wikipedia n'est livre sans la provenance promise", {
+  chemin <- system.file("extdata", "mandates_qc.csv", package = "pplmatch")
+  if (!nzchar(chemin)) chemin <- file.path("..", "..", "inst", "extdata", "mandates_qc.csv")
+  m <- utils::read.csv(chemin, stringsAsFactors = FALSE, colClasses = "character")
+  wiki <- m[grepl("wikipedia:|wp\\+ref:", m$source), ]
+  expect_false(any(grepl("^wikipedia:", wiki$source)))
+  expect_true(all(grepl("^wp\\+ref:", wiki$source)))
 })
 
 test_that("deux deputes homonymes restent deux personnes", {

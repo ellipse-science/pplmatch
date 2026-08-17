@@ -7,6 +7,7 @@ Level 3: Contextual (inference based on session roster)
 
 import csv as _csv
 import os as _os
+import warnings as _warnings
 from datetime import date as _date, timedelta as _timedelta
 
 from rapidfuzz import fuzz
@@ -51,16 +52,26 @@ def _load_mandates(path):
         return {}
     par_siege = {}
     with open(path, newline="", encoding="utf-8") as f:
-        for row in _csv.DictReader(f):
+        for numero, row in enumerate(_csv.DictReader(f), start=2):
             try:
                 debut = _date.fromisoformat(row["date_start"])
             except (ValueError, TypeError, KeyError):
-                continue
+                raise ValueError(
+                    f"mandates_qc.csv:{numero}: date_start illisible "
+                    f"({row.get('date_start')!r})"
+                ) from None
             fin = row.get("date_end") or ""
             try:
                 fin = _date.fromisoformat(fin) if fin else _FIN_OUVERTE
-            except ValueError:
-                fin = _FIN_OUVERTE
+            except (ValueError, TypeError):
+                raise ValueError(
+                    f"mandates_qc.csv:{numero}: date_end illisible "
+                    f"({row.get('date_end')!r})"
+                ) from None
+            if fin < debut:
+                raise ValueError(
+                    f"mandates_qc.csv:{numero}: date_end precede date_start"
+                )
             par_siege.setdefault(row["seat_id"], []).append({
                 "person_id": row.get("person_id", ""),
                 "party_id": row.get("party_id", ""),
@@ -69,6 +80,32 @@ def _load_mandates(path):
     for v in par_siege.values():
         v.sort(key=lambda m: m["date_start"])
     return par_siege
+
+
+def _borne_fin_referentiel(mandates):
+    """Derniere date couverte par le referentiel, hors bornes ouvertes."""
+    fins = [m["date_end"] for ms in mandates.values() for m in ms
+            if m["date_end"] != _FIN_OUVERTE]
+    return max(fins) if fins else None
+
+
+def _statut_referentiel_mandat(seat_id, event_date, mandates):
+    """Distingue un siege inconnu, une vacance et un referentiel perime."""
+    if isinstance(event_date, str):
+        try:
+            event_date = _date.fromisoformat(event_date[:10])
+        except (ValueError, TypeError):
+            return "date_invalide"
+    if not isinstance(event_date, _date):
+        return "date_invalide"
+    if not seat_id or seat_id not in mandates:
+        return "siege_inconnu"
+    if _mandat_en_vigueur(seat_id, event_date, mandates):
+        return "couvert"
+    borne_fin = _borne_fin_referentiel(mandates)
+    if borne_fin and event_date > borne_fin:
+        return "referentiel_perime"
+    return "hors_mandat"
 
 
 def _mandats_depuis_party_changes(party_changes):
@@ -313,6 +350,7 @@ def match_corpus(corpus_rows, members, fuzzy_threshold=85,
     party_changes = {} if mandates else _load_party_changes(party_changes_path)
     if party_changes:
         mandates = _mandats_depuis_party_changes(party_changes)
+    dates_hors_couverture = []
     lookup_cache = {}
     grouped_results = {}
     n = len(corpus_rows)
@@ -343,6 +381,9 @@ def match_corpus(corpus_rows, members, fuzzy_threshold=85,
                 resolved = _resolve_party(result["district_id"], event_date, mandates)
                 if resolved is not None:
                     result["party_id"] = resolved
+                elif _statut_referentiel_mandat(
+                        result["district_id"], event_date, mandates) == "referentiel_perime":
+                    dates_hors_couverture.append(str(event_date)[:10])
         else:
             result["match_level"] = category if category != "person" else "unmatched"
 
@@ -366,6 +407,9 @@ def match_corpus(corpus_rows, members, fuzzy_threshold=85,
                         resolved = _resolve_party(res["district_id"], date_str, mandates)
                         if resolved is not None:
                             res["party_id"] = resolved
+                        elif _statut_referentiel_mandat(
+                                res["district_id"], date_str, mandates) == "referentiel_perime":
+                            dates_hors_couverture.append(str(date_str)[:10])
             final_results_sorted[item["index"]] = res
 
     # --- Level 4: Web-based disambiguation (optional, requires network) ---
@@ -394,5 +438,16 @@ def match_corpus(corpus_rows, members, fuzzy_threshold=85,
                  ["deterministic", "fuzzy", "contextual", "web_contextual", "ambiguous", "role", "crowd", "unmatched"]}
         print(f"  Done. Det: {stats['deterministic']}, Fuzzy: {stats['fuzzy']}, Ctx: {stats['contextual']}, "
               f"Web: {stats['web_contextual']}, Amb: {stats['ambiguous']}, Roles: {stats['role']}, Unm: {stats['unmatched']}")
+
+    if dates_hors_couverture:
+        debut, fin = min(dates_hors_couverture), max(dates_hors_couverture)
+        _warnings.warn(
+            f"Referentiel de mandats perime : {len(dates_hors_couverture)} "
+            f"appariement(s) date(s) de {debut} a {fin} depassent sa derniere "
+            f"borne connue ({_borne_fin_referentiel(mandates).isoformat()}). Regenerer mandates_qc.csv "
+            f"avant de publier ces resultats.",
+            RuntimeWarning,
+            stacklevel=2,
+        )
 
     return final_results_sorted

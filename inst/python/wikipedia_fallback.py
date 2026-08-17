@@ -81,7 +81,7 @@ def _api(params):
 
 
 def evenements_wikipedia(legislature, annee_min=None):
-    """Rend [(date, texte)] depuis « <N>e legislature du Quebec ».
+    """Rend [(date, texte, ref_verifiable)] depuis « <N>e legislature du Quebec ».
 
     La page organise les evenements en listes a puces sous un titre d'annee :
     le jour et le mois sont dans la puce, l'annee dans le titre.
@@ -102,7 +102,12 @@ def evenements_wikipedia(legislature, annee_min=None):
             continue
         if annee_min and annee < annee_min:
             continue
-        texte = _nettoyer_wiki(t.lstrip("* ").strip())
+        brut = t.lstrip("* ").strip()
+        # Une puce Wikipedia ne devient jamais une donnee de reference sans
+        # source exploitable. On garde cette information AVANT de nettoyer les
+        # balises, puisque le texte nettoye sert seulement a classifier.
+        ref_verifiable = _a_une_reference_verifiable(brut)
+        texte = _nettoyer_wiki(brut)
         m = re.match(r"^(\d{1,2})\s*(?:er|re)?\s+([a-zA-Zéûî]+)\s*(?:\d{4})?\s*:\s*(.+)$", texte)
         if not m:
             continue
@@ -113,8 +118,20 @@ def evenements_wikipedia(legislature, annee_min=None):
             quand = date(annee, mois, int(m.group(1)))
         except ValueError:
             continue
-        out.append((quand, m.group(3).strip()))
+        out.append((quand, m.group(3).strip(), ref_verifiable))
     return out
+
+
+def _a_une_reference_verifiable(wikitexte):
+    """Vrai si une puce contient au moins une reference non vide.
+
+    Un simple ``<ref name=\"x\"/>`` est accepte : MediaWiki resolvra ce nom
+    vers sa definition ailleurs dans la page. Une balise vide ne l'est pas.
+    """
+    if re.search(r"<ref\b[^>]*/\s*>", wikitexte, re.I):
+        return True
+    return bool(re.search(r"<ref\b[^>]*>\s*[^<\s].*?</ref>",
+                          wikitexte, re.I | re.S))
 
 
 def _nettoyer_wiki(s):

@@ -964,7 +964,7 @@ def evenements_de_repli(html_derniere_page, annees_chrono, extdata, legislatures
     Ce repli ne se declenche QUE si la page de l'ANQ est encore vide : des
     qu'elle publie, elle reprend la main sans qu'on ait a toucher au code. Ses
     evenements sortent en `confidence=single_source` et sont marques
-    `wikipedia:` dans `source`, pour rester repérables et re-generables.
+    `wp+ref:` dans `source`, pour rester repérables et re-generables.
     Wikipedia est un candidat, jamais une verite (spec § 6).
     """
     from wikipedia_fallback import (chronologie_vide, evenements_wikipedia,
@@ -1007,10 +1007,13 @@ def evenements_de_repli(html_derniere_page, annees_chrono, extdata, legislatures
         print(f"  ECHEC de la lecture ({e}) — on continue sans le repli.")
         return []
 
-    src = f"wikipedia:{leg}e-legislature"
+    src = f"wp+ref:{leg}e-legislature"
     out, non_resolus = [], []
-    puces = [(d, t) for d, t in puces if d.year not in annees_chrono]
-    for d, texte in puces:
+    puces = [(d, t, ref) for d, t, ref in puces
+             if d.year not in annees_chrono]
+    puces_avec_ref = [(d, t) for d, t, ref in puces if ref]
+    sans_ref = len(puces) - len(puces_avec_ref)
+    for d, texte in puces_avec_ref:
         classe = classer_transition(texte)
         if not classe:
             continue
@@ -1027,7 +1030,7 @@ def evenements_de_repli(html_derniere_page, annees_chrono, extdata, legislatures
                     "source": src, "confidence": "single_source"})
 
     print(f"  {len(puces)} puce(s) sur des annees non couvertes, "
-          f"{len(out)} evenement(s) retenu(s)")
+          f"{sans_ref} ecartee(s) sans <ref>, {len(out)} evenement(s) retenu(s)")
     for e in out:
         print(f"    [{e['date']}] {e['type']:10} {e['seat_id']:20} -> {e['party_after']}")
     for d, t in non_resolus:

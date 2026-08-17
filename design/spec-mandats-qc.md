@@ -332,9 +332,9 @@ Trois garde-fous, parce que Wikipedia reste un candidat et jamais une vérité
    calcul à partir du numéro de page** — la tentation `chronoN = N + 1908` est
    fausse (elle donne 2024 pour `chrono116`) et faisait rejouer deux années
    déjà publiées, chaque événement comptant double.
-3. **Ses mandats sortent en `confidence=single_source`, avec `source`
-   préfixée `wikipedia:`.** Ils sont donc repérables et destinés à être
-   re-générés depuis l'ANQ.
+3. **Une puce sans `<ref>` vérifiable est écartée.** Les mandats retenus
+   sortent en `confidence=single_source`, avec `source` préfixée `wp+ref:`.
+   Ils sont donc repérables et destinés à être re-générés depuis l'ANQ.
 
 Le siège est résolu **par personne**, contre l'index du jour : une phrase
 Wikipedia peut nommer la circonscription qu'une députée *brigue* plutôt que

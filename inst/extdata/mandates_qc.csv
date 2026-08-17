@@ -1339,10 +1339,9 @@ person_id,seat_id,party_id,parliamentary_status,date_start,date_end,start_reason
 17883,saintlaurent,IND,group,2025-11-18,2026-10-05,defection,dissolution,chrono115,verified
 17867,rosemont,IND,group,2025-11-22,2026-10-05,defection,dissolution,chrono115,verified
 19295,chomedey,IND,group,2025-12-04,2026-10-05,defection,dissolution,chrono115,verified
-17917,dubuc,IND,group,2026-01-09,2026-10-05,defection,dissolution,wikipedia:43e-legislature,single_source
-20193,chicoutimi,PQ,,2026-02-23,2026-10-05,byelection,dissolution,wikipedia:43e-legislature,single_source
-19275,rimouski,PCQ,group,2026-03-24,2026-10-05,defection,dissolution,wikipedia:43e-legislature,single_source
-17925,orford,IND,group,2026-04-22,2026-10-05,defection,dissolution,wikipedia:43e-legislature,single_source
+17917,dubuc,IND,group,2026-01-09,2026-10-05,defection,dissolution,wp+ref:43e-legislature,single_source
+20193,chicoutimi,PQ,,2026-02-23,2026-10-05,byelection,dissolution,wp+ref:43e-legislature,single_source
+19275,rimouski,PCQ,group,2026-03-24,2026-10-05,defection,dissolution,wp+ref:43e-legislature,single_source
 11,shefford,CAQ,independent,2012-02-14,2012-08-01,merger,dissolution,chrono102:fusion+decision-chagnon,verified
 17,chauveau,CAQ,independent,2012-02-14,2012-08-01,merger,dissolution,chrono102:fusion+decision-chagnon,verified
 1337,beaucenord,CAQ,independent,2012-02-14,2012-08-01,merger,dissolution,chrono102:fusion+decision-chagnon,verified
