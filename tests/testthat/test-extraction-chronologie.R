@@ -15,6 +15,9 @@ charger_mandats <- function() {
   reticulate::import_from_path("build_mandates", path = chemin)
 }
 
+# `extract_demission` rend une LISTE de sieges ; reticulate en fait une liste R.
+sieges <- function(bm, txt) as.character(unlist(bm$extract_demission(txt)))
+
 test_that("une demission de FONCTION ne ferme pas le mandat (cas Boisclair)", {
   skip_if_not(reticulate::py_available(), "Python not available")
   bm <- charger_mandats()
@@ -24,26 +27,100 @@ test_that("une demission de FONCTION ne ferme pas le mandat (cas Boisclair)", {
   # n'importe ou dans la phrase, et se declenchait donc sur l'appositif qui
   # PRESENTE la personne. Resultat : mandat clos six mois trop tot, et la
   # parole de Boisclair disparaissait du corpus sans que rien ne le signale.
-  expect_null(bm$extract_demission(paste(
+  expect_length(sieges(bm, paste(
     "André Boisclair , député de Pointe-aux-Trembles, quitte la direction",
-    "du Parti québécois et démissionne à titre de chef du Parti québécois.")))
+    "du Parti québécois et démissionne à titre de chef du Parti québécois.")), 0L)
 
   # La vraie demission de siege, elle, doit toujours etre vue.
   expect_equal(
-    bm$extract_demission("André Boisclair démissionne à titre de député de Pointe-aux-Trembles."),
+    sieges(bm, "André Boisclair démissionne à titre de député de Pointe-aux-Trembles."),
     "pointeauxtrembles")
 
   # On peut demissionner des DEUX : le siege l'emporte sur la fonction.
   expect_equal(
-    bm$extract_demission(paste(
+    sieges(bm, paste(
       "Démission d’Andrée Laforest, à titre de ministre des Affaires",
       "municipales et de députée de Chicoutimi.")),
     "chicoutimi")
 
   # Fonction seule, sans siege nomme apres le verbe : le depute siege toujours.
-  expect_null(bm$extract_demission(paste(
+  expect_length(sieges(bm, paste(
     "Le député de Chauveau, Sylvain Lévesque, démissionne de son poste",
-    "de deuxième vice-président.")))
+    "de deuxième vice-président.")), 0L)
+})
+
+test_that("une demission RECLAMEE n'est pas une demission (cas Charest)", {
+  skip_if_not(reticulate::py_available(), "Python not available")
+  bm <- charger_mandats()
+
+  # Le cas le plus couteux trouve a ce jour. La chronologie rapporte les
+  # PETITIONS dans les memes mots que les departs ; les lire comme des
+  # demissions fermait le siege de Sherbrooke le 2011-02-16, alors que Jean
+  # Charest y a siege jusqu'en septembre 2012 — 19 mois de parole d'un premier
+  # ministre EN EXERCICE effaces du corpus, sans un signe.
+  expect_length(sieges(bm, paste(
+    "Le député de Mercier, Amir Khadir, dépose l'extrait d'une pétition signée",
+    "par 247 379 citoyens. Les signataires demandent la démission du député de",
+    "Sherbrooke, Jean Charest, en tant que chef du gouvernement.")), 0L)
+
+  # A Anjou, la phrase dit meme que la petition est REFUSEE.
+  expect_length(sieges(bm, paste(
+    "Le président de l'Assemblée nationale refuse une pétition de plus de",
+    "3 000 signatures exigeant la démission du député libéral d'Anjou,",
+    "Jean-Sébastien Lamoureux.")), 0L)
+})
+
+test_that("une phrase peut annoncer PLUSIEURS departs", {
+  skip_if_not(reticulate::py_available(), "Python not available")
+  bm <- charger_mandats()
+
+  # Bourassa etait perdu : seul le premier siege sortait. Meme classe que les
+  # partielles multiples — un paragraphe parle de plus d'une personne bien plus
+  # souvent qu'on ne le suppose.
+  expect_equal(
+    sieges(bm, paste(
+      "La députée de Kamouraska-Témiscouata, France Dionne, et le député de",
+      "Bourassa, Yvon Charbonneau, démissionnent comme membres de l'Assemblée",
+      "nationale.")),
+    c("kamouraskatemiscouata", "bourassa"))
+
+  # Mais « depute de X ET DE chef de parti », c'est UN siege et une fonction.
+  # La capture avalait la fonction et forgeait
+  # « riviereduloupetdechefdelactiondemocratique » : un siege introuvable, donc
+  # une demission jamais enregistree — silencieusement, puisqu'une demission ne
+  # fait que MODIFIER un mandat existant.
+  expect_equal(
+    sieges(bm, paste(
+      "Démission de Mario Dumont à titre de député de Rivière-du-Loup et de",
+      "chef de l'Action démocratique.")),
+    "riviereduloup")
+  expect_equal(
+    sieges(bm, paste(
+      "Guy Chevrette, député de Joliette et ministre des Transports, Jacques",
+      "Brassard, député de Lac-Saint-Jean, démissionnent.")),
+    c("joliette", "lacsaintjean"))
+})
+
+test_that("la date d'EFFET l'emporte sur la date d'annonce", {
+  skip_if_not(reticulate::py_available(), "Python not available")
+  bm <- charger_mandats()
+
+  d <- function(x) as.Date(reticulate::py_to_r(x))
+  # « annonce sa demission [...] Celle-ci sera effective le 15 avril » : fermer
+  # au jour de l'annonce retire cinq semaines a quelqu'un qui siege encore.
+  expect_equal(d(bm$date_effet(
+    "Gérald Tremblay annonce sa démission comme député. Celle-ci sera effective le 15 avril.",
+    reticulate::r_to_py(as.Date("1996-03-14")))), as.Date("1996-04-15"))
+
+  # Sans date d'effet, on garde l'annonce.
+  expect_equal(d(bm$date_effet(
+    "Démission du député libéral d'Argenteuil, Régent L. Beaudet.",
+    reticulate::r_to_py(as.Date("1997-12-18")))), as.Date("1997-12-18"))
+
+  # Annonce en decembre, effet en janvier : l'annee bascule.
+  expect_equal(d(bm$date_effet(
+    "X annonce sa démission, effective le 5 janvier.",
+    reticulate::r_to_py(as.Date("2010-12-20")))), as.Date("2011-01-05"))
 })
 
 test_that("une phrase annoncant DEUX partielles rend DEUX circonscriptions", {

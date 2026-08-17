@@ -342,6 +342,50 @@ celle qu'elle occupe. Sans l'index, on n'infère rien.
 
 `--sans-wikipedia` désactive le repli, pour les régénérations reproductibles.
 
+## 6 ter. Quatre pièges du texte, tous silencieux
+
+Trouvés en relisant à la main les 31 mandats classés `disputed`. Aucun ne levait
+d'exception, ne violait un invariant, ni ne rendait une table suspecte. Ils sont
+consignés ici parce que **la classe se reforme** dès qu'on ajoute un motif.
+
+**A. Une démission réclamée n'est pas une démission.** La chronologie rapporte
+les pétitions dans les mêmes mots que les départs. « *Les signataires demandent
+la démission du député de Sherbrooke, Jean Charest* » (2011-02-16) fermait son
+siège — Charest y a siégé jusqu'en septembre 2012. **19 mois de parole d'un
+premier ministre en exercice, effacés.** À Anjou, la phrase dit même que le
+président *refuse* la pétition.
+
+**B. La chronologie date l'annonce, la phrase porte l'effet.** « *annonce sa
+démission comme député. Celle-ci sera effective le 15 avril* », entrée datée du
+14 mars. Trois à cinq semaines retirées à quelqu'un qui siège encore.
+
+**C. Un paragraphe parle souvent de plus d'une personne.** « *La députée de
+Kamouraska-Témiscouata, France Dionne, **et le député de Bourassa**, Yvon
+Charbonneau, démissionnent* » — Bourassa était perdu. Même classe que les
+partielles multiples ; on ne l'avait pas cherchée du côté des démissions.
+
+**D. Une date en tête de paragraphe fait foi.** L'ANQ fusionne parfois la date
+et l'événement dans un même `<p>` : l'entrée héritait alors du dernier en-tête
+vu, **et tout ce qui suivait sur la page aussi**. Sur 1 377 paragraphes, 16
+commencent par une date complète et **14 contredisent l'en-tête** — dont une
+partielle à trois sièges datée du 14 octobre au lieu du 9 novembre 2015.
+
+### La règle qui se dégage des quatre
+
+Deux d'entre eux venaient d'une capture trop large qui avalait la suite de la
+phrase (`député de Rivière-du-Loup **et de chef de l'ADQ**` → un siège
+inexistant, donc une démission **jamais enregistrée** — une démission ne fait
+que *modifier* un mandat, et un siège introuvable n'est simplement pas modifié).
+
+Énumérer les charnières ne marche pas : corriger « et » laisse passer « lors
+de », puis « à l'issue de ». **Il faut une propriété du nom lui-même**, pas une
+liste de tournures — une circonscription est faite de mots capitalisés liés par
+des traits d'union, et ne contient jamais « et ».
+
+Effet mesuré sur les 1 220 mandats : **24 écarts, tous des corrections**,
+invariants et réconciliation inchangés. La file `disputed` monte de 31 à 42 —
+elle grossit parce qu'on détecte enfin des démissions qu'on manquait.
+
 ## 7. Réserve
 
 « Exhaustif » n'est atteignable que pour ce que les sources **consignent**.

@@ -153,6 +153,18 @@ def parse_entries(html):
         texte = re.sub(r"\s+", " ", texte).strip()
         if not texte:
             continue
+        # (D) L'ANQ fusionne parfois la date et l'evenement dans le MEME
+        # paragraphe : « 22 octobre 2015 Demission de Stephane Bedard [...] ».
+        # Cette date n'etant pas reconnue comme en-tete, l'entree heritait du
+        # dernier en-tete vu — et tout ce qui suivait sur la page aussi. Mesure
+        # sur les 1377 paragraphes : 16 commencent par une date complete, dont
+        # 14 CONTREDISENT l'en-tete. Une partielle a trois sieges se retrouvait
+        # datee du 14 octobre au lieu du 9 novembre 2015. Une date en tete de
+        # paragraphe fait donc foi, et devient l'en-tete courant.
+        d_prefixe, reste = _date_prefixe(texte)
+        if d_prefixe:
+            courante, texte = d_prefixe, reste
+
         d = _parse_date(texte)
         # Une date SEULE est un en-tete ; une date au fil du texte n'en est pas
         # un. L'en-tete est soit un <hN>, soit un <p> en gras.
@@ -162,6 +174,26 @@ def parse_entries(html):
         if courante:
             out.append((courante, texte))
     return out
+
+
+MOIS_RE = ("janvier|fevrier|mars|avril|mai|juin|juillet|aout|septembre|"
+           "octobre|novembre|decembre")
+RE_DATE_PREFIXE = re.compile(r"^(\d{1,2})(?:er)?\s+(" + MOIS_RE + r")\s+(\d{4})\s+(?=\S)",
+                             re.I)
+
+
+def _date_prefixe(texte):
+    """« 22 octobre 2015 Demission de X » -> (date, « Demission de X »).
+
+    Rend (None, texte) si le paragraphe ne commence pas par une date SUIVIE
+    d'un contenu — un paragraphe qui ne contient QUE la date est un en-tete, et
+    reste traite comme tel plus bas.
+    """
+    m = RE_DATE_PREFIXE.match(_norm(texte))
+    if not m:
+        return None, texte
+    d = _parse_date(f"{m.group(1)} {m.group(2)} {m.group(3)}")
+    return (d, texte[m.end():].strip()) if d else (None, texte)
 
 
 def _parse_date(texte):

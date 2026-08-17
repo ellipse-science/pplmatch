@@ -141,26 +141,60 @@ def extract_partielle(texte):
 RE_DEMISSION_SIEGE = [
     re.compile(r"demission[^.]{0,140}?deputee?\s+(?:liberal[e]?\s+|independant[e]?\s+)?"
                r"(?:d[eu]s?\s+|d[’'])([^,.;]+)", re.I),
+    # Le « demission » qui suit est en REGARD (lookahead) et non consomme :
+    # sinon le premier siege avale la phrase entiere et le second devient
+    # introuvable — « la deputee de Kamouraska-Temiscouata [...] et le depute de
+    # Bourassa [...] demissionnent » ne rendait que Kamouraska.
     re.compile(r"deputee?\s+(?:liberal[e]?\s+|independant[e]?\s+)?(?:d[eu]s?\s+|d[’'])"
-               r"([^,.;]+)[^.]{0,90}demission", re.I),
+               r"([^,.;]+)(?=[^.]{0,90}demission)", re.I),
 ]
+
+# Le texte est normalise, donc en MINUSCULES : la borne « premier mot en
+# minuscule » qui protege les circonscriptions des partielles est inutilisable
+# ici. On coupe donc aux charnieres qui enchainent sur une FONCTION, seule
+# forme observee : « depute de Riviere-du-Loup ET DE CHEF de l'Action
+# democratique » forgeait « riviereduloupetdechefdelactiondemocratique » — un
+# siege inexistant, donc une demission jamais enregistree. En silence, une fois
+# de plus : une resignation ne fait que MODIFIER un mandat existant, et un
+# siege introuvable n'est simplement pas modifie.
+# Enumerer les formes (« et de chef », « et ministre », « et de la
+# presidence »...) laisse toujours passer la suivante — la lecon des
+# partielles. Aucune circonscription quebecoise ne contient « et » ou « ou », et
+# la capture s'arrete deja aux virgules : couper a la conjonction, quelle que
+# soit la suite, est donc a la fois plus simple et plus sur.
+RE_CHARNIERE_FONCTION = re.compile(
+    r"\s+(?:et|ou)\s+|\s+a\s+titre\s+de\s+|\s+en\s+tant\s+que\s+")
+
+
+# (A) Une demission RECLAMEE n'est pas une demission. La chronologie rapporte
+# aussi les petitions et les mises en demeure, dans les memes mots — et les
+# lire comme des departs ferme des mandats qui n'ont jamais pris fin. Le cas
+# le plus couteux : « Les signataires demandent la demission du depute de
+# Sherbrooke, Jean Charest » (2011-02-16). Charest a siege jusqu'en septembre
+# 2012 ; on effacait 19 mois de parole d'un premier ministre en exercice. A
+# Anjou, la phrase dit meme que le president REFUSE la petition.
+RE_DEMISSION_RECLAMEE = re.compile(
+    r"(demand|exig|reclam|petition|souhait|reclamation)\w*[^.]{0,60}?demission")
 
 
 def extract_demission(texte):
-    """Depart de l'ASSEMBLEE (pas du caucus, pas du seul cabinet)."""
+    """Rend la LISTE des sieges quittes — l'Assemblee, pas le caucus ni le seul
+    cabinet.
+
+    (C) Une seule phrase peut annoncer PLUSIEURS departs : « La deputee de
+    Kamouraska-Temiscouata, France Dionne, ET LE DEPUTE DE BOURASSA, Yvon
+    Charbonneau, demissionnent comme membres de l'Assemblee nationale ». Ne
+    rendre qu'un siege en perdait un, sans rien signaler. D'ou une liste, comme
+    `extract_partielle` — un paragraphe est un evenement de plus d'une personne
+    bien plus souvent qu'on ne le suppose.
+    """
     t = _norm(texte)
     if "demission" not in t:
-        return None
+        return []
     if "caucus" in t:            # c'est une defection, traitee ailleurs
-        return None
-
-    m = None
-    for rx in RE_DEMISSION_SIEGE:
-        m = rx.search(t)
-        if m:
-            break
-    if not m:
-        return None
+        return []
+    if RE_DEMISSION_RECLAMEE.search(t):
+        return []
 
     # On demissionne aussi d'une FONCTION sans quitter l'Assemblee. Ce qui
     # tranche, c'est ce dont on demissionne — donc le texte QUI SUIT le verbe,
@@ -178,11 +212,53 @@ def extract_demission(texte):
              "de son poste", "de ses fonctions", "de son role",
              "de la presidence", "vice-president", "vice president",
              "a titre de cheffe", "de la fonction", "a titre de president")
-    quitte_le_siege = bool(re.search(r"deputee?s?\b", portee))
+    quitte_le_siege = bool(re.search(r"deputee?s?\b|membres?\s+de\s+l[’']assemblee", portee))
     if not quitte_le_siege and any(r in portee for r in ROLES):
-        return None
+        return []
 
-    return district_id(m.group(1).strip())
+    out = []
+    for rx in RE_DEMISSION_SIEGE:
+        for m in rx.finditer(t):
+            brut = RE_CHARNIERE_FONCTION.split(m.group(1).strip())[0]
+            did = district_id(brut)
+            if did and len(did) >= 3 and did not in out:
+                out.append(did)
+        if out:
+            break
+    return out
+
+
+# (B) La chronologie date l'ANNONCE ; la phrase, elle, porte parfois la date
+# d'EFFET — « annonce sa demission comme depute. Celle-ci sera effective le 15
+# avril » (annonce le 14 mars). Fermer au jour de l'annonce retire trois a cinq
+# semaines de parole a quelqu'un qui siege encore.
+RE_DATE_EFFET = re.compile(
+    r"(?:effectives?|en vigueur|a compter d[ue])[^.]{0,30}?\b(\d{1,2})(?:er)?\s+"
+    r"(janvier|fevrier|mars|avril|mai|juin|juillet|aout|septembre|octobre|"
+    r"novembre|decembre)(?:\s+(\d{4}))?")
+MOIS_NUM = {m: i for i, m in enumerate(
+    ["janvier", "fevrier", "mars", "avril", "mai", "juin", "juillet", "aout",
+     "septembre", "octobre", "novembre", "decembre"], start=1)}
+
+
+def date_effet(texte, date_annonce):
+    """Rend la date d'effet annoncee dans la phrase, ou `date_annonce`."""
+    m = RE_DATE_EFFET.search(_norm(texte))
+    if not m:
+        return date_annonce
+    mois = MOIS_NUM[m.group(2)]
+    # Sans annee explicite, c'est celle de l'annonce — sauf si le mois est
+    # DEJA passe, auquel cas l'effet tombe l'annee suivante (annonce en
+    # decembre, effet en janvier).
+    annee = int(m.group(3)) if m.group(3) else date_annonce.year + (
+        1 if mois < date_annonce.month else 0)
+    try:
+        d = date(annee, mois, int(m.group(1)))
+    except ValueError:
+        return date_annonce
+    # Une date d'effet ANTERIEURE a l'annonce est une lecture ratee, pas un
+    # fait : on garde l'annonce plutot que d'inventer un recul.
+    return d if d >= date_annonce else date_annonce
 
 
 RE_RENOMMAGE = re.compile(r"([A-ZÉÈÀ][\w\-–—’' ]+?)\s+est remplac[ée]+e? par\s+([A-ZÉÈÀ][\w\-–—’' ]+)")
@@ -643,9 +719,10 @@ def main():
             indep = extract_independants_nommes(texte)
             if indep:
                 releves_indep.append((d, indep, src))
-            dem = extract_demission(texte)
-            if dem:
-                evenements.append({"type": "resignation", "date": d, "seat_id": dem,
+            for dem in extract_demission(texte):
+                evenements.append({"type": "resignation",
+                                   "date": date_effet(texte, d),
+                                   "seat_id": dem,
                                    "party_after": None, "source": src})
 
     if not args.sans_wikipedia:
