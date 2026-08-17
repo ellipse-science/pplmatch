@@ -286,6 +286,29 @@ def charger_deputes_courants(extdata):
         return {r["seat_id"]: r for r in csv.DictReader(f) if r["seat_id"]}
 
 
+def charger_depcir(extdata):
+    """Historique par circonscription (ANQ). Liste vide si le fichier manque.
+
+    Complete le referentiel la ou il s'arrete. Il ne le remplace pas : la page
+    de l'ANQ est elle-meme figee pour 14 des 125 circonscriptions, qui en
+    restent a 2018.
+    """
+    chemin = os.path.join(extdata, "deputes_par_circonscription_qc.csv")
+    if not os.path.exists(chemin):
+        return []
+    with open(chemin, encoding="utf-8") as f:
+        return [r for r in csv.DictReader(f) if r.get("seat_id")]
+
+
+def _nom_depcir(brut):
+    """« LEFEBVRE, Eric » -> « eric lefebvre », la graphie du referentiel."""
+    brut = (brut or "").strip()
+    if not brut:
+        return ""
+    nom = " ".join(p.strip() for p in reversed(brut.split(","))) if "," in brut else brut
+    return " ".join(_norm(nom).split())
+
+
 # ── Construction ─────────────────────────────────────────────────────────────
 
 def build_persons(extdata):
@@ -321,6 +344,16 @@ def build_persons(extdata):
     # reste de la table, sinon la personne est ajoutee EN DOUBLE sous une
     # graphie que l'appariement ne retrouvera jamais.
     connus = {l["full_name"] for l in lignes}
+    # L'historique par circonscription nomme aussi les elu.es que le
+    # referentiel a manques — dont ceux encore en poste.
+    for r in charger_depcir(extdata):
+        nom = _nom_depcir(r.get("full_name"))
+        if not nom or nom in connus:
+            continue
+        connus.add(nom)
+        lignes.append({"person_id": r.get("person_id", ""), "full_name": nom,
+                       "other_names": nom.split()[-1], "assnat_url": ""})
+
     for r in charger_deputes_courants(extdata).values():
         brut = (r.get("full_name") or "").strip()
         if not brut:
@@ -343,7 +376,7 @@ def build_seats(extdata, renommages):
     with open(os.path.join(extdata, "members_historic_qc.csv"), encoding="utf-8") as f:
         for r in csv.DictReader(f):
             if r["district_id"]:
-                districts.add(r["district_id"])
+                districts.add(district_id(r["district_id"]))
     lignes = []
     ren = {district_id(a): (b, d) for d, (a, b) in renommages}
     for sid in sorted(districts):
@@ -395,13 +428,54 @@ def build_mandates(extdata, evenements, legislatures, persons):
             deb, fin = bornes[leg]
             mandats.append({
                 "person_id": pid_par_nom.get(r["full_name"], ""),
-                "seat_id": r["district_id"],
+                # Le referentiel porte deux identifiants mal formes, avec un
+                # ESPACE : « bourassa sauve » et « la piniere ». Ils ne
+                # s'apparient a rien — ni au releve de l'ANQ, ni a l'historique
+                # par circonscription — et creaient donc un siege fantome en
+                # doublon du vrai, invisible aux invariants puisque ceux-ci
+                # comparent des identifiants et que les deux different.
+                "seat_id": district_id(r["district_id"]),
                 "party_id": (r["party_id"] or "").upper(),
                 "date_start": deb, "date_end": fin,
                 "start_reason": "election", "end_reason": "dissolution",
                 "parliamentary_status": "group",
                 "source": "members_historic_qc", "confidence": "verified",
             })
+
+    # ── Combler les (siege x legislature) que le referentiel a manques ──────
+    # `members_historic_qc.csv` s'arrete en cours de 43e : Eric Lefebvre y
+    # figure pour la 41e et la 42e, pas pour la 43e, alors qu'il a ete reelu
+    # dans Arthabaska en 2022. Sans mandat, sa defection du 2024-04-16 tombait
+    # dans le vide et sa parole sortait `unmatched`, donc jetee.
+    #
+    # L'historique par circonscription de l'ANQ donne l'ANNEE, pas la date : on
+    # borne donc le mandat a la legislature dont la generale porte cette annee,
+    # et on ne touche QUE les couples absents. Les partielles sont laissees a
+    # la chronologie, qui les date au jour pres.
+    deja_cle = {(m["seat_id"], leg) for m in mandats for leg, (d0, d1) in bornes.items()
+                if m["date_start"] <= d1 and d0 <= m["date_end"]}
+    an_vers_leg = {d0.year: leg for leg, (d0, _) in bornes.items()}
+    comblees = 0
+    for r in charger_depcir(extdata):
+        if r.get("partielle") == "1":
+            continue
+        leg = an_vers_leg.get(int(r["annee"]) if r["annee"].isdigit() else 0)
+        if leg is None or (r["seat_id"], leg) in deja_cle:
+            continue
+        nom = _nom_depcir(r.get("full_name"))
+        deb, fin = bornes[leg]
+        mandats.append({
+            "person_id": pid_par_nom.get(nom, r.get("person_id", "")),
+            "seat_id": r["seat_id"], "party_id": (r.get("party_id") or "").upper(),
+            "date_start": deb, "date_end": fin,
+            "start_reason": "election", "end_reason": "dissolution",
+            "parliamentary_status": "group",
+            "source": "assnat_depcir", "confidence": "single_source",
+        })
+        deja_cle.add((r["seat_id"], leg))
+        comblees += 1
+    if comblees:
+        print(f"Mandats combles depuis l'historique par circonscription : {comblees}")
 
     def ouvert(seat, quand):
         for m in mandats:

@@ -77,6 +77,44 @@ test_that("les sieges absents du referentiel sont desormais apparies", {
   expect_false(any(r$match_level == "unmatched"))
 })
 
+test_that("un depute absent du referentiel traverse sa propre defection", {
+  skip_if_not(reticulate::py_available(), "Python not available")
+
+  # LE CAS QUI A MOTIVE LE RELEVE PAR CIRCONSCRIPTION. Eric Lefebvre ne figure
+  # dans `members_historic_qc.csv` que pour la 41e et la 42e — pas pour la 43e,
+  # alors qu'il a ete reelu dans Arthabaska en 2022. Aucun mandat n'existait
+  # donc sur cette periode, et l'echec se propageait :
+  #
+  #   sa parole sortait `unmatched`, donc jetee par le raffineur ;
+  #   sa defection du 2024-04-16 tombait sur un siege sans mandat ouvert,
+  #     et etait ECARTEE en silence ;
+  #   sa demission du 2025-03-18 aussi.
+  #
+  # Les quatre dates ci-dessous couvrent la chaine entiere : avant la
+  # defection, apres, avant la demission, puis le successeur.
+  r <- pplmatchQC(data.frame(
+    speaker = c("Eric Lefebvre", "Eric Lefebvre", "Eric Lefebvre",
+                "Alex Boissonneault"),
+    event_date = c("2023-05-10", "2024-06-01", "2025-01-15", "2025-09-15"),
+    stringsAsFactors = FALSE))
+
+  expect_equal(r$district_id, rep("arthabaska", 4))
+  expect_equal(r$party_id, c("CAQ", "IND", "IND", "PQ"))
+  expect_false(any(r$match_level == "unmatched"))
+})
+
+test_that("aucun identifiant de circonscription n'est mal forme", {
+  chemin <- system.file("extdata", "mandates_qc.csv", package = "pplmatch")
+  if (!nzchar(chemin)) chemin <- file.path("..", "..", "inst", "extdata", "mandates_qc.csv")
+  m <- utils::read.csv(chemin, stringsAsFactors = FALSE, colClasses = "character")
+
+  # Un identifiant doit etre alphanumerique : le referentiel en portait deux
+  # avec un ESPACE (« bourassa sauve », « la piniere ») qui ne s'appariaient a
+  # rien et doublonnaient le vrai siege — sans declencher d'invariant, puisque
+  # les invariants comparent des identifiants et que les deux different.
+  expect_equal(grep("[^a-z0-9]", m$seat_id, value = TRUE), character(0))
+})
+
 test_that("le resolveur ne rend rien plutot qu'un parti approximatif", {
   skip_if_not(reticulate::py_available(), "Python not available")
   chemin <- system.file("extdata", "mandates_qc.csv", package = "pplmatch")
