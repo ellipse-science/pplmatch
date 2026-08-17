@@ -131,3 +131,46 @@ test_that("le resolveur ne rend rien plutot qu'un parti approximatif", {
   expect_null(m$`_resolve_party`("siege-inexistant", "2021-06-01", mand))
   expect_null(m$`_resolve_party`("rimouski", "pas-une-date", mand))
 })
+
+test_that("deux deputes homonymes restent deux personnes", {
+  chemin <- system.file("extdata", "mandates_qc.csv", package = "pplmatch")
+  if (!nzchar(chemin)) chemin <- file.path("..", "..", "inst", "extdata", "mandates_qc.csv")
+  m <- utils::read.csv(chemin, stringsAsFactors = FALSE, colClasses = "character")
+
+  # `assnat_ids_qc.json` est indexe par NOM : il donnait donc 17957 aux DEUX
+  # Eric Girard, et une seule personne semblait occuper Groulx ET
+  # Lac-Saint-Jean en meme temps. L'historique par circonscription desambigue
+  # ce que le nom ne peut pas.
+  g <- m[m$seat_id == "groulx" & m$date_start == "2022-10-03", ]
+  l <- m[m$seat_id == "lacsaintjean" & m$date_start == "2022-10-03", ]
+  expect_equal(g$person_id, "17929")
+  expect_equal(l$person_id, "17957")
+})
+
+test_that("aucun mandat ne pointe vers une personne inexistante", {
+  lire <- function(f) {
+    p <- system.file("extdata", f, package = "pplmatch")
+    if (!nzchar(p)) p <- file.path("..", "..", "inst", "extdata", f)
+    utils::read.csv(p, stringsAsFactors = FALSE, colClasses = "character")
+  }
+  m <- lire("mandates_qc.csv"); p <- lire("persons_qc.csv")
+
+  # Un mandat sans personne est un depute SANS NOM : pplmatch apparie des noms,
+  # donc la ligne est inutilisable et sa parole se perd, en silence.
+  orphelins <- setdiff(m$person_id[nzchar(m$person_id)], p$person_id)
+  expect_equal(orphelins, character(0))
+})
+
+test_that("Parizeau quitte son siege quand l'ANQ le dit, pas a l'annonce", {
+  chemin <- system.file("extdata", "mandates_qc.csv", package = "pplmatch")
+  if (!nzchar(chemin)) chemin <- file.path("..", "..", "inst", "extdata", "mandates_qc.csv")
+  m <- utils::read.csv(chemin, stringsAsFactors = FALSE, colClasses = "character")
+
+  # Il annonce sa demission le 1995-10-31, au lendemain du referendum, et
+  # quitte le siege le 1996-01-29 — le jour ou Lucien Bouchard est assermente.
+  # L'ANQ l'ecrit « demissionne le 29-01-96 » : une annee a DEUX chiffres, que
+  # le motif d'arbitrage ecartait.
+  r <- m[m$seat_id == "lassomption" & m$date_start == "1994-09-12", ]
+  expect_equal(r$date_end, "1996-01-29")
+  expect_equal(r$confidence, "verified")
+})

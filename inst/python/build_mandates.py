@@ -332,7 +332,11 @@ def charger_deputes_courants(extdata):
 
 
 # « demissionne le 08-03-2001 » dans la colonne Remarques de l'ANQ.
-RE_DEM_DEPCIR = re.compile(r"demission\w*\s*(?:le\s+)?(\d{1,2})-(\d{1,2})-(\d{4})")
+# L'ANQ ecrit tantot « 08-03-2001 », tantot « 29-01-96 ». Exiger quatre
+# chiffres ecartait les deux seules remarques a annee courte — celles de
+# Jacques Parizeau et de Liza Frulla, precisement deux des cas qu'on n'arrivait
+# pas a arbitrer.
+RE_DEM_DEPCIR = re.compile(r"demission\w*\s*(?:le\s+)?(\d{1,2})-(\d{1,2})-(\d{2,4})")
 
 
 def demissions_depcir(extdata):
@@ -353,8 +357,11 @@ def demissions_depcir(extdata):
         m = RE_DEM_DEPCIR.search(_norm(r.get("remarque", "")))
         if not m:
             continue
+        an = int(m.group(3))
+        if an < 100:                       # « 96 » -> 1996, « 05 » -> 2005
+            an += 1900 if an >= 50 else 2000
         try:
-            d = date(int(m.group(3)), int(m.group(2)), int(m.group(1)))
+            d = date(an, int(m.group(2)), int(m.group(1)))
         except ValueError:
             continue
         out.setdefault(r["seat_id"], []).append(d)
@@ -375,6 +382,24 @@ def charger_depcir(extdata):
         return [r for r in csv.DictReader(f) if r.get("seat_id")]
 
 
+def pid_par_nom_et_siege(extdata):
+    """{(clef_nom, seat_id): person_id} depuis l'historique de l'ANQ.
+
+    Deux deputes peuvent porter le meme nom. `assnat_ids_qc.json` etant indexe
+    par NOM, il ne peut pas les separer : les deux Eric Girard — Groulx et
+    Lac-Saint-Jean — recevaient le meme identifiant 17957, et une seule personne
+    semblait donc occuper deux sieges a la fois. L'historique par
+    circonscription, lui, est indexe par SIEGE : il donne 17929 pour Groulx et
+    17957 pour Lac-Saint-Jean. Le siege desambigue ce que le nom ne peut pas.
+    """
+    out = {}
+    for r in charger_depcir(extdata):
+        pid = (r.get("person_id") or "").strip()
+        if pid:
+            out.setdefault((cle_nom(_nom_depcir(r.get("full_name"))), r["seat_id"]), pid)
+    return out
+
+
 def cle_nom(nom):
     """Clef d'identite d'une personne, insensible a la ponctuation.
 
@@ -385,7 +410,11 @@ def cle_nom(nom):
     fois. Christine St-Pierre siegeait dans L'Acadie ET dans Acadie, et le
     plafond de 125 sautait.
     """
-    return re.sub(r"[^a-z0-9]", "", _norm(nom or ""))
+    # Le referentiel desambigue ses homonymes par un SUFFIXE numerique
+    # (« eric girard2 ») ; l'ANQ ne le fait pas. On retire donc le suffixe pour
+    # que les deux graphies se rencontrent, et c'est le siege qui tranche
+    # ensuite laquelle des deux personnes est visee.
+    return re.sub(r"\d+$", "", re.sub(r"[^a-z0-9]", "", _norm(nom or "")))
 
 
 def _nom_depcir(brut):
@@ -432,14 +461,27 @@ def build_persons(extdata):
     # reste de la table, sinon la personne est ajoutee EN DOUBLE sous une
     # graphie que l'appariement ne retrouvera jamais.
     connus = {cle_nom(l["full_name"]) for l in lignes}
+    # Dedoublonner aussi par IDENTIFIANT, pas seulement par nom : deux personnes
+    # peuvent porter le meme. Ecarter le second Eric Girard parce que le nom
+    # etait « deja connu » laissait l'identifiant 17929 present dans les
+    # mandats et absent de la table des personnes — une clef etrangere qui ne
+    # pointe nulle part, donc un depute sans nom en aval.
+    ids_connus = {str(l["person_id"]) for l in lignes if l["person_id"]}
     # L'historique par circonscription nomme aussi les elu.es que le
     # referentiel a manques — dont ceux encore en poste.
     for r in charger_depcir(extdata):
         nom = _nom_depcir(r.get("full_name"))
-        if not nom or cle_nom(nom) in connus:
+        pid = str(r.get("person_id") or "")
+        if not nom:
+            continue
+        if cle_nom(nom) in connus and (not pid or pid in ids_connus):
+            continue
+        if pid and pid in ids_connus:
             continue
         connus.add(cle_nom(nom))
-        lignes.append({"person_id": r.get("person_id", ""), "full_name": nom,
+        if pid:
+            ids_connus.add(pid)
+        lignes.append({"person_id": pid, "full_name": nom,
                        "other_names": nom.split()[-1], "assnat_url": ""})
 
     for r in charger_deputes_courants(extdata).values():
@@ -485,6 +527,7 @@ def build_mandates(extdata, evenements, legislatures, persons):
     # Indexe par CLEF et non par graphie, et en chaine : deux types
     # differents pour le meme identifiant ne se comparent jamais egaux.
     pid_par_nom = {cle_nom(p["full_name"]): str(p["person_id"]) for p in persons}
+    pid_siege = pid_par_nom_et_siege(extdata)
     bornes = {l["legislature"]: (date.fromisoformat(l["start_date"]),
                                  date.fromisoformat(l["end_date"])) for l in legislatures}
     mandats = []
@@ -517,7 +560,9 @@ def build_mandates(extdata, evenements, legislatures, persons):
             leg = r["_leg"]
             deb, fin = bornes[leg]
             mandats.append({
-                "person_id": pid_par_nom.get(cle_nom(r["full_name"]), ""),
+                "person_id": pid_siege.get((cle_nom(r["full_name"]),
+                                            district_id(r["district_id"]))) \
+                or pid_par_nom.get(cle_nom(r["full_name"]), ""),
                 # Le referentiel porte deux identifiants mal formes, avec un
                 # ESPACE : « bourassa sauve » et « la piniere ». Ils ne
                 # s'apparient a rien — ni au releve de l'ANQ, ni a l'historique
@@ -562,7 +607,7 @@ def build_mandates(extdata, evenements, legislatures, persons):
         if leg is None or (r["seat_id"], leg) in deja_cle:
             continue
         nom = _nom_depcir(r.get("full_name"))
-        pid = pid_par_nom.get(cle_nom(nom)) or str(r.get("person_id", "") or "")
+        pid = str(r.get("person_id", "") or "") or pid_par_nom.get(cle_nom(nom), "")
         if pid and (pid, leg) in deja_personne:
             continue
         deb, fin = bornes[leg]
@@ -976,8 +1021,22 @@ def reconcilier(mandats, releves):
 
 # ── Invariants (spec § 5) ────────────────────────────────────────────────────
 
-def invariants(mandats):
+def invariants(mandats, persons=None):
     pbs = []
+
+    # ── Clefs etrangeres ────────────────────────────────────────────────────
+    # Un mandat qui pointe vers une personne inexistante est un depute SANS
+    # NOM : pplmatch apparie des noms, donc la ligne est inutilisable et sa
+    # parole se perd. C'est arrive en desambiguisant les deux Eric Girard —
+    # l'identifiant 17929 est entre dans les mandats avant d'exister dans la
+    # table des personnes.
+    if persons is not None:
+        connus = {str(p["person_id"]) for p in persons if p.get("person_id")}
+        manquants = {m["person_id"] for m in mandats
+                     if m["person_id"] and str(m["person_id"]) not in connus}
+        for pid in sorted(manquants):
+            pbs.append(f"PERSONNE INCONNUE : person_id={pid}")
+
     par_siege = {}
     for m in mandats:
         par_siege.setdefault(m["seat_id"], []).append(m)
@@ -1097,7 +1156,7 @@ def main():
         conf[m["confidence"]] = conf.get(m["confidence"], 0) + 1
     print(f"  par confiance : {conf}")
 
-    pbs = invariants(mandats)
+    pbs = invariants(mandats, persons)
     print(f"\nINVARIANTS : {len(pbs)} violation(s)")
     for p in pbs[:12]:
         print(f"  {p}")
