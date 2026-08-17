@@ -813,6 +813,53 @@ def build_mandates(extdata, evenements, legislatures, persons):
         print(f"Demissions arbitrees par l'ANQ : {arbitrees['accord']} confirmees, "
               f"{arbitrees['corrigees']} redatees, {arbitrees['trouvees']} trouvees")
 
+    # ── Arbitrage par les NOTICES individuelles de l'ANQ ────────────────────
+    # Troisieme source, et reellement independante : la notice est redigee par
+    # la Bibliotheque a partir du dossier du membre, pas du Journal des debats.
+    # Deux sources qui concordent ne prouvent rien si elles se recopient ;
+    # celles-ci ne se recopient pas.
+    #
+    # Elle tranche aussi un cas que les deux autres manquaient : quand nous
+    # ignorons la date d'un depart, le mandat se ferme la veille de la
+    # partielle, donc des MOIS trop tard. Catherine Fournier quitte
+    # Marie-Victorin le 2021-11-13 pour la mairie de Longueuil ; nous la
+    # faisions sieger jusqu'au 2022-04-10.
+    chemin_fiches = os.path.join(extdata, "demissions_fiches_qc.csv")
+    if os.path.exists(chemin_fiches):
+        stat = {"accord": 0, "corrigees": 0, "conflit": 0}
+        with open(chemin_fiches, encoding="utf-8") as f:
+            for r in csv.DictReader(f):
+                try:
+                    d = date.fromisoformat(r["date_demission"])
+                except ValueError:
+                    continue
+                for m in mandats:
+                    if m["person_id"] != r["person_id"] or m["seat_id"] != r["seat_id"]:
+                        continue
+                    if not (m["date_start"] <= d <= m["date_end"]):
+                        continue
+                    if m["date_end"] == d:
+                        stat["accord"] += 1
+                        m["confidence"] = "verified"
+                    elif "depcir" in m["source"]:
+                        # Deux sources de l'ANQ qui se contredisent : on ne
+                        # choisit pas en silence, on le signale et on laisse la
+                        # ligne en litige.
+                        stat["conflit"] += 1
+                        m["confidence"] = "disputed"
+                        print(f"  CONFLIT {m['seat_id']:20} depcir {m['date_end']} "
+                              f"vs fiche {d}")
+                    else:
+                        stat["corrigees"] += 1
+                        m["date_end"], m["end_reason"] = d, "resignation"
+                        m["confidence"] = "verified"
+                    if "fiche" not in m["source"]:
+                        m["source"] += "+assnat_fiche"
+                    break
+        if any(stat.values()):
+            print(f"Demissions arbitrees par les notices : {stat['accord']} confirmees, "
+                  f"{stat['corrigees']} redatees, {stat['conflit']} en conflit")
+
     # ── Qui occupe le siege ? ───────────────────────────────────────────────
     # Une partielle ouvre un mandat sans savoir QUI l'a gagnee : la chronologie
     # donne le parti, pas toujours un nom exploitable. Un mandat sans personne
@@ -1080,6 +1127,23 @@ def invariants(mandats, persons=None):
                 continue
             if m["date_end"] + timedelta(days=1) not in ouverts:
                 pbs.append(f"DEFECTION SANS SUITE : {seat} {m['date_end']}")
+    # ── Invariant 6 : on ne gagne pas sa propre partielle ───────────────────
+    # Si une personne ouvre un mandat par PARTIELLE sur un siege, elle ne peut
+    # pas etre aussi la gagnante de la GENERALE du meme siege dans la meme
+    # legislature : la partielle n'aurait pas eu lieu.
+    #
+    # Cas reel, et couteux : le referentiel inscrit Catherine Gentilcore comme
+    # elue de la generale de 2022 dans Terrebonne (`type=election`), alors
+    # qu'elle a gagne la partielle du 2025-03-17. Le siege appartenait a Pierre
+    # Fitzgibbon, CAQ. La parole de 2022 a 2024 partait donc a la mauvaise
+    # personne ET au mauvais parti — sans qu'aucun autre controle bronche.
+    for seat, ms in par_siege.items():
+        partielles = {m["person_id"] for m in ms
+                      if m["start_reason"] == "byelection" and m["person_id"]}
+        for m in ms:
+            if m["start_reason"] == "election" and m["person_id"] in partielles:
+                pbs.append(f"GAGNANT DE SA PROPRE PARTIELLE : {seat} "
+                           f"{m['date_start']} person_id={m['person_id']}")
     return pbs
 
 

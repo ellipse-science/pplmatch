@@ -39,7 +39,7 @@ person_id,seat_id,party_id,parliamentary_status,date_start,date_end,start_reason
 663,sauve,PLQ,group,1998-11-30,2003-03-12,election,dissolution,members_historic_qc,verified
 663,bourassasauve,PLQ,group,2003-04-14,2007-02-21,election,dissolution,members_historic_qc,verified
 663,bourassasauve,PLQ,group,2007-03-26,2008-11-05,election,dissolution,members_historic_qc,verified
-663,bourassasauve,PLQ,group,2008-12-08,2012-05-14,election,resignation,members_historic_qc+assnat_depcir,verified
+663,bourassasauve,PLQ,group,2008-12-08,2012-05-14,election,resignation,members_historic_qc+assnat_depcir+assnat_fiche,verified
 900018,argenteuil,PLQ,group,1994-09-12,1997-12-18,election,resignation,members_historic_qc+assnat_depcir,verified
 727,mirabel,PQ,group,2003-04-14,2007-02-21,election,dissolution,members_historic_qc,verified
 727,mirabel,PQ,group,2008-12-08,2012-08-01,election,dissolution,members_historic_qc,verified
@@ -55,7 +55,7 @@ person_id,seat_id,party_id,parliamentary_status,date_start,date_end,start_reason
 887,kamouraskatemiscouata,PLQ,group,1998-11-30,2003-03-12,election,dissolution,members_historic_qc,verified
 887,kamouraskatemiscouata,PLQ,group,2003-04-14,2007-02-21,election,dissolution,members_historic_qc,verified
 887,kamouraskatemiscouata,PLQ,group,2007-03-26,2008-11-05,election,dissolution,members_historic_qc,verified
-887,kamouraskatemiscouata,PLQ,group,2008-12-08,2010-09-03,election,resignation,members_historic_qc+assnat_depcir,verified
+887,kamouraskatemiscouata,PLQ,group,2008-12-08,2010-09-03,election,resignation,members_historic_qc+assnat_depcir+assnat_fiche,verified
 1457,chicoutimi,PQ,group,1998-11-30,2003-03-12,election,dissolution,members_historic_qc,verified
 1457,chicoutimi,PQ,group,2003-04-14,2007-02-21,election,dissolution,members_historic_qc,verified
 1457,chicoutimi,PQ,group,2007-03-26,2008-11-05,election,dissolution,members_historic_qc,verified
@@ -112,14 +112,14 @@ person_id,seat_id,party_id,parliamentary_status,date_start,date_end,start_reason
 2095,jeannemance,PLQ,group,1994-09-12,1998-11-25,election,dissolution,members_historic_qc,verified
 2095,jeannemance,PLQ,group,1998-11-30,2003-03-12,election,dissolution,members_historic_qc,verified
 2095,jeannemanceviger,PLQ,group,2003-04-14,2007-02-21,election,dissolution,members_historic_qc,verified
-2095,jeannemanceviger,PLQ,group,2007-03-26,2008-09-24,election,resignation,members_historic_qc+assnat_depcir,verified
+2095,jeannemanceviger,PLQ,group,2007-03-26,2008-09-24,election,resignation,members_historic_qc+assnat_depcir+assnat_fiche,verified
 2113,chicoutimi,PQ,group,1994-09-12,1998-11-25,election,dissolution,members_historic_qc,verified
 5801,roberval,PLQ,group,2003-04-14,2007-02-21,election,dissolution,members_historic_qc,verified
 15365,charlesbourg,PLQ,group,2014-04-07,2018-08-23,election,dissolution,members_historic_qc,verified
 1263,sainthenrisainteanne,PLQ,group,2007-03-26,2008-11-05,election,dissolution,members_historic_qc,verified
 1263,sainthenrisainteanne,PLQ,group,2008-12-08,2012-08-01,election,dissolution,members_historic_qc,verified
 1263,sainthenrisainteanne,PLQ,group,2012-09-04,2014-03-05,election,dissolution,members_historic_qc,verified
-1263,sainthenrisainteanne,PLQ,group,2014-04-07,2015-09-15,election,resignation,members_historic_qc+assnat_depcir,verified
+1263,sainthenrisainteanne,PLQ,group,2014-04-07,2015-09-15,election,resignation,members_historic_qc+assnat_depcir+assnat_fiche,verified
 1263,prevost,CAQ,group,2018-10-01,2022-08-28,election,dissolution,members_historic_qc,verified
 17825,abitibiouest,CAQ,group,2018-10-01,2022-08-28,election,dissolution,members_historic_qc,verified
 17825,abitibiouest,CAQ,group,2022-10-03,2026-10-05,election,dissolution,members_historic_qc,verified
@@ -150,7 +150,7 @@ person_id,seat_id,party_id,parliamentary_status,date_start,date_end,start_reason
 93,vachon,PQ,group,2007-03-26,2008-11-05,election,dissolution,members_historic_qc,verified
 93,vachon,PQ,group,2008-12-08,2010-07-04,election,resignation,members_historic_qc,verified
 5805,meganticcompton,PLQ,group,2003-04-14,2004-03-15,election,defection,members_historic_qc,verified
-2191,jonquiere,PQ,group,1998-11-30,2001-03-08,election,resignation,members_historic_qc+assnat_depcir,verified
+2191,jonquiere,PQ,group,1998-11-30,2001-03-08,election,resignation,members_historic_qc+assnat_depcir+assnat_fiche,verified
 2195,johnson,PQ,group,1994-09-12,1998-11-25,election,dissolution,members_historic_qc,verified
 2195,johnson,PQ,group,1998-11-30,2003-03-12,election,dissolution,members_historic_qc,verified
 2195,johnson,PQ,group,2003-04-14,2007-02-21,election,dissolution,members_historic_qc,verified
@@ -160,7 +160,7 @@ person_id,seat_id,party_id,parliamentary_status,date_start,date_end,start_reason
 155,iberville,PQ,group,2012-09-04,2014-03-05,election,dissolution,members_historic_qc,verified
 2223,saintemariesaintjacques,PQ,group,1994-09-12,1998-11-25,election,dissolution,members_historic_qc,verified
 2223,saintemariesaintjacques,PQ,group,1998-11-30,2003-03-12,election,dissolution,members_historic_qc,verified
-2223,saintemariesaintjacques,PQ,group,2003-04-14,2005-09-14,election,resignation,members_historic_qc+assnat_depcir,verified
+2223,saintemariesaintjacques,PQ,group,2003-04-14,2005-09-14,election,resignation,members_historic_qc+assnat_depcir+assnat_fiche,verified
 17899,troisrivieres,CAQ,group,2018-10-01,2022-08-28,election,dissolution,members_historic_qc,verified
 17899,troisrivieres,CAQ,group,2022-10-03,2026-10-05,election,dissolution,members_historic_qc,verified
 649,laviolette,PLQ,group,2003-04-14,2007-02-21,election,dissolution,members_historic_qc,verified
@@ -174,7 +174,7 @@ person_id,seat_id,party_id,parliamentary_status,date_start,date_end,start_reason
 5803,berthier,PQ,group,2003-04-14,2007-02-21,election,dissolution,members_historic_qc,verified
 2241,pointeauxtrembles,PQ,group,1994-09-12,1998-11-25,election,dissolution,members_historic_qc,verified
 15353,abitibiest,PLQ,group,2014-04-07,2018-08-23,election,dissolution,members_historic_qc,verified
-18561,jeantalon,CAQ,group,2022-10-03,2023-10-01,election,resignation,members_historic_qc,verified
+18561,jeantalon,CAQ,group,2022-10-03,2023-07-31,election,resignation,members_historic_qc+assnat_fiche,verified
 2271,lacsaintjean,PQ,group,1994-09-12,1998-11-25,election,dissolution,members_historic_qc,verified
 2271,lacsaintjean,PQ,group,1998-11-30,2002-01-29,election,resignation,members_historic_qc+assnat_depcir,verified
 12225,saintemariesaintjacques,PQ,group,2012-09-04,2014-03-05,election,dissolution,members_historic_qc,verified
@@ -225,8 +225,8 @@ person_id,seat_id,party_id,parliamentary_status,date_start,date_end,start_reason
 635,milleiles,PLQ,group,2018-10-01,2022-08-28,election,dissolution,members_historic_qc,verified
 2513,borduas,PQ,group,1994-09-12,1998-11-25,election,dissolution,members_historic_qc,verified
 2513,borduas,PQ,group,1998-11-30,2003-03-12,election,dissolution,members_historic_qc,verified
-2513,borduas,PQ,group,2003-04-14,2006-11-15,election,resignation,members_historic_qc+assnat_depcir,verified
-2519,bourassa,PLQ,group,1994-09-12,1997-05-02,election,resignation,members_historic_qc+assnat_depcir,verified
+2513,borduas,PQ,group,2003-04-14,2006-11-15,election,resignation,members_historic_qc+assnat_depcir+assnat_fiche,verified
+2519,bourassa,PLQ,group,1994-09-12,1997-05-02,election,resignation,members_historic_qc+assnat_depcir+assnat_fiche,verified
 525,sherbrooke,PLQ,group,1998-11-30,2003-03-12,election,dissolution,members_historic_qc,verified
 525,sherbrooke,PLQ,group,2003-04-14,2007-02-21,election,dissolution,members_historic_qc,verified
 525,sherbrooke,PLQ,group,2007-03-26,2008-11-05,election,dissolution,members_historic_qc,verified
@@ -257,7 +257,7 @@ person_id,seat_id,party_id,parliamentary_status,date_start,date_end,start_reason
 2555,joliette,PQ,group,1998-11-30,2002-01-29,election,resignation,members_historic_qc+assnat_depcir,verified
 2563,hull,PLQ,group,1998-11-30,2003-03-12,election,dissolution,members_historic_qc,verified
 2563,hull,PLQ,group,2003-04-14,2007-02-21,election,dissolution,members_historic_qc,verified
-2563,hull,PLQ,group,2007-03-26,2008-04-09,election,resignation,members_historic_qc,disputed
+2563,hull,PLQ,group,2007-03-26,2008-04-09,election,resignation,members_historic_qc+assnat_fiche,verified
 2577,montroyal,PLQ,group,1994-09-12,1998-11-25,election,dissolution,members_historic_qc,verified
 17943,marquette,PLQ,group,2018-10-01,2022-08-28,election,dissolution,members_historic_qc,verified
 17943,marquette,PLQ,group,2022-10-03,2026-10-05,election,dissolution,members_historic_qc,verified
@@ -274,7 +274,7 @@ person_id,seat_id,party_id,parliamentary_status,date_start,date_end,start_reason
 2643,notredamedegrace,PLQ,group,1994-09-12,1998-11-25,election,dissolution,members_historic_qc,verified
 2643,notredamedegrace,PLQ,group,1998-11-30,2003-03-12,election,dissolution,members_historic_qc,verified
 2643,notredamedegrace,PLQ,group,2003-04-14,2007-02-21,election,dissolution,members_historic_qc,verified
-2643,notredamedegrace,PLQ,group,2007-03-26,2008-10-22,election,resignation,members_historic_qc+assnat_depcir,verified
+2643,notredamedegrace,PLQ,group,2007-03-26,2008-10-22,election,resignation,members_historic_qc+assnat_depcir+assnat_fiche,verified
 1107,abitibiest,PLQ,group,2003-04-14,2007-02-21,election,dissolution,members_historic_qc,verified
 1107,abitibiest,PLQ,group,2008-12-08,2012-08-01,election,dissolution,members_historic_qc,verified
 2667,dubuc,PQ,group,1998-11-30,2003-03-12,election,dissolution,members_historic_qc,verified
@@ -285,7 +285,7 @@ person_id,seat_id,party_id,parliamentary_status,date_start,date_end,start_reason
 5811,montroyal,PLQ,group,2003-04-14,2007-02-21,election,dissolution,members_historic_qc,verified
 5811,jeantalon,PLQ,group,2007-03-26,2008-06-25,election,resignation,members_historic_qc+assnat_depcir,verified
 5811,roberval,PLQ,group,2014-04-07,2018-08-23,election,dissolution,members_historic_qc,verified
-5811,roberval,PLQ,group,2018-10-01,2018-10-09,election,resignation,members_historic_qc+assnat_depcir,verified
+5811,roberval,PLQ,group,2018-10-01,2018-10-09,election,resignation,members_historic_qc+assnat_depcir+assnat_fiche,verified
 859,fabre,PLQ,group,2003-04-14,2007-02-21,election,dissolution,members_historic_qc,verified
 859,fabre,PLQ,group,2007-03-26,2008-11-05,election,dissolution,members_historic_qc,verified
 859,fabre,PLQ,group,2008-12-08,2012-08-01,election,dissolution,members_historic_qc,verified
@@ -308,9 +308,9 @@ person_id,seat_id,party_id,parliamentary_status,date_start,date_end,start_reason
 5859,maskinonge,ADQ,group,2007-03-26,2008-11-05,election,dissolution,members_historic_qc,verified
 12201,groulx,CAQ,group,2012-09-04,2014-03-05,election,dissolution,members_historic_qc,verified
 17907,vercheres,CAQ,group,2018-10-01,2022-08-28,election,dissolution,members_historic_qc,verified
-15441,verdun,PLQ,group,2014-04-07,2016-08-19,election,resignation,members_historic_qc+assnat_depcir,verified
+15441,verdun,PLQ,group,2014-04-07,2016-08-19,election,resignation,members_historic_qc+assnat_depcir+assnat_fiche,verified
 12205,gouin,QS,group,2012-09-04,2014-03-05,election,dissolution,members_historic_qc,verified
-12205,gouin,QS,group,2014-04-07,2017-01-19,election,resignation,members_historic_qc+assnat_depcir,verified
+12205,gouin,QS,group,2014-04-07,2017-01-19,election,resignation,members_historic_qc+assnat_depcir+assnat_fiche,verified
 15379,outremont,PLQ,group,2014-04-07,2018-08-23,election,dissolution,members_historic_qc,verified
 15379,margueritebourgeoys,PLQ,group,2018-10-01,2022-08-28,election,dissolution,members_historic_qc,verified
 12221,cremazie,PQ,group,2012-09-04,2014-03-05,election,dissolution,members_historic_qc,verified
@@ -342,7 +342,7 @@ person_id,seat_id,party_id,parliamentary_status,date_start,date_end,start_reason
 2901,sainthyacinthe,PQ,group,1994-09-12,1998-11-25,election,dissolution,members_historic_qc,verified
 2901,sainthyacinthe,PQ,group,1998-11-30,2003-03-12,election,dissolution,members_historic_qc,verified
 2901,sainthyacinthe,PQ,group,2003-04-14,2007-02-21,election,dissolution,members_historic_qc,verified
-2911,kamouraskatemiscouata,PLQ,group,1994-09-12,1997-05-02,election,resignation,members_historic_qc+assnat_depcir,verified
+2911,kamouraskatemiscouata,PLQ,group,1994-09-12,1997-05-02,election,resignation,members_historic_qc+assnat_depcir+assnat_fiche,verified
 2915,rosemont,PQ,group,1994-09-12,1998-11-25,election,dissolution,members_historic_qc,verified
 2915,rosemont,PQ,group,1998-11-30,2003-03-12,election,dissolution,members_historic_qc,verified
 2915,rosemont,PQ,group,2003-04-14,2007-02-21,election,dissolution,members_historic_qc,verified
@@ -369,11 +369,11 @@ person_id,seat_id,party_id,parliamentary_status,date_start,date_end,start_reason
 12223,laprairie,CAQ,group,2022-10-03,2025-09-17,election,defection,members_historic_qc,verified
 363,viau,PLQ,group,2007-03-26,2008-11-05,election,dissolution,members_historic_qc,verified
 363,viau,PLQ,group,2008-12-08,2012-08-01,election,dissolution,members_historic_qc,verified
-363,viau,PLQ,group,2012-09-04,2013-08-09,election,resignation,members_historic_qc,disputed
+363,viau,PLQ,group,2012-09-04,2013-08-09,election,resignation,members_historic_qc+assnat_fiche,verified
 5815,laprairie,PLQ,group,2003-04-14,2007-02-21,election,dissolution,members_historic_qc,verified
 12239,borduas,PQ,group,2012-09-04,2014-03-05,election,dissolution,members_historic_qc,verified
 12193,saintjerome,CAQ,group,2012-09-04,2014-03-05,election,dissolution,members_historic_qc,verified
-2991,jonquiere,PQ,group,1994-09-12,1996-01-15,election,resignation,members_historic_qc+assnat_depcir,verified
+2991,jonquiere,PQ,group,1994-09-12,1996-01-15,election,resignation,members_historic_qc+assnat_depcir+assnat_fiche,verified
 423,renelevesque,PQ,group,2003-04-14,2007-02-21,election,dissolution,members_historic_qc,verified
 423,renelevesque,PQ,group,2007-03-26,2008-11-05,election,dissolution,members_historic_qc,verified
 423,renelevesque,PQ,group,2008-12-08,2012-08-01,election,dissolution,members_historic_qc,verified
@@ -393,7 +393,7 @@ person_id,seat_id,party_id,parliamentary_status,date_start,date_end,start_reason
 900010,saintlaurent,PLQ,group,2008-12-08,2012-08-01,election,dissolution,members_historic_qc,verified
 641,beaucesud,PLQ,group,2008-12-08,2012-08-01,election,dissolution,members_historic_qc,verified
 641,beaucesud,PLQ,group,2012-09-04,2014-03-05,election,dissolution,members_historic_qc,verified
-641,beaucesud,PLQ,group,2014-04-07,2015-09-26,election,resignation,members_historic_qc,disputed
+641,beaucesud,PLQ,group,2014-04-07,2015-09-26,election,resignation,members_historic_qc+assnat_fiche,verified
 17857,richelieu,CAQ,group,2018-10-01,2022-08-28,election,dissolution,members_historic_qc,verified
 17857,richelieu,CAQ,group,2022-10-03,2026-10-05,election,dissolution,members_historic_qc,verified
 3119,fabre,PQ,group,1994-09-12,1998-11-25,election,dissolution,members_historic_qc,verified
@@ -423,7 +423,7 @@ person_id,seat_id,party_id,parliamentary_status,date_start,date_end,start_reason
 5817,troisrivieres,PLQ,group,2003-04-14,2007-02-21,election,dissolution,members_historic_qc,verified
 900006,masson,PQ,group,2012-09-04,2014-03-05,election,dissolution,members_historic_qc,verified
 3317,saguenay,PQ,group,1994-09-12,1998-11-25,election,dissolution,members_historic_qc,verified
-3317,saguenay,PQ,group,1998-11-30,2001-09-16,election,resignation,members_historic_qc+assnat_depcir,verified
+3317,saguenay,PQ,group,1998-11-30,2001-09-16,election,resignation,members_historic_qc+assnat_depcir+assnat_fiche,verified
 725,saintfrancois,PLQ,group,1994-09-12,1998-11-25,election,dissolution,members_historic_qc,verified
 725,saintfrancois,PLQ,group,1998-11-30,2003-03-12,election,dissolution,members_historic_qc,verified
 725,saintfrancois,PLQ,group,2003-04-14,2007-02-21,election,dissolution,members_historic_qc,verified
@@ -492,7 +492,7 @@ person_id,seat_id,party_id,parliamentary_status,date_start,date_end,start_reason
 1273,louishebert,PLQ,group,2007-03-26,2008-11-05,election,dissolution,members_historic_qc,verified
 1273,louishebert,PLQ,group,2008-12-08,2012-08-01,election,dissolution,members_historic_qc,verified
 1273,louishebert,PLQ,group,2012-09-04,2014-03-05,election,dissolution,members_historic_qc,verified
-1273,louishebert,PLQ,group,2014-04-07,2017-04-27,election,resignation,members_historic_qc+assnat_depcir,verified
+1273,louishebert,PLQ,group,2014-04-07,2017-04-27,election,resignation,members_historic_qc+assnat_depcir+assnat_fiche,verified
 5821,lapeltrie,PLQ,group,2003-04-14,2007-02-21,election,dissolution,members_historic_qc,verified
 15415,saintfrancois,PLQ,group,2014-04-07,2018-08-23,election,dissolution,members_historic_qc,verified
 3597,hochelagamaisonneuve,PQ,group,1994-09-12,1998-11-25,election,dissolution,members_historic_qc,verified
@@ -569,7 +569,7 @@ person_id,seat_id,party_id,parliamentary_status,date_start,date_end,start_reason
 17927,papineau,CAQ,group,2018-10-01,2022-08-28,election,dissolution,members_historic_qc,verified
 17927,papineau,CAQ,group,2022-10-03,2026-10-05,election,dissolution,members_historic_qc,verified
 17913,chicoutimi,CAQ,group,2018-10-01,2022-08-28,election,dissolution,members_historic_qc,verified
-17913,chicoutimi,CAQ,group,2022-10-03,2025-09-04,election,resignation,members_historic_qc,disputed
+17913,chicoutimi,CAQ,group,2022-10-03,2025-09-04,election,resignation,members_historic_qc+assnat_fiche,verified
 15357,blainville,CAQ,group,2014-04-07,2018-08-23,election,dissolution,members_historic_qc,verified
 15357,blainville,CAQ,group,2018-10-01,2022-08-28,election,dissolution,members_historic_qc,verified
 15357,blainville,CAQ,group,2022-10-03,2026-10-05,election,dissolution,members_historic_qc,verified
@@ -584,7 +584,7 @@ person_id,seat_id,party_id,parliamentary_status,date_start,date_end,start_reason
 15401,johnson,CAQ,group,2022-10-03,2026-10-05,election,dissolution,members_historic_qc,verified
 17901,ungava,CAQ,group,2018-10-01,2022-08-28,election,dissolution,members_historic_qc,verified
 17901,ungava,CAQ,group,2022-10-03,2026-10-05,election,dissolution,members_historic_qc,verified
-3929,anjou,PLQ,group,1998-11-30,2001-09-25,election,resignation,members_historic_qc+assnat_depcir,verified
+3929,anjou,PLQ,group,1998-11-30,2001-09-25,election,resignation,members_historic_qc+assnat_depcir+assnat_fiche,verified
 3933,bourassa,PLQ,group,1998-11-30,2003-03-12,election,dissolution,members_historic_qc,verified
 3933,cremazie,PLQ,group,2003-04-14,2007-02-21,election,dissolution,members_historic_qc,verified
 3937,vercheres,PQ,group,1994-09-12,1998-11-25,election,dissolution,members_historic_qc,verified
@@ -602,7 +602,7 @@ person_id,seat_id,party_id,parliamentary_status,date_start,date_end,start_reason
 4031,bourget,PQ,group,1994-09-12,1998-11-25,election,dissolution,members_historic_qc,verified
 15389,repentigny,CAQ,group,2014-04-07,2018-08-23,election,dissolution,members_historic_qc,verified
 15389,repentigny,CAQ,group,2018-10-01,2022-08-28,election,dissolution,members_historic_qc,verified
-4051,laprairie,PQ,group,1994-09-12,1996-01-08,election,resignation,members_historic_qc+assnat_depcir,verified
+4051,laprairie,PQ,group,1994-09-12,1996-01-08,election,resignation,members_historic_qc+assnat_depcir+assnat_fiche,verified
 12269,laprairie,CAQ,group,2012-09-04,2014-03-05,election,dissolution,members_historic_qc,verified
 4063,iberville,PQ,group,1994-09-12,1998-11-25,election,dissolution,members_historic_qc,verified
 15479,rimouski,PQ,group,2014-04-07,2018-08-23,election,dissolution,members_historic_qc,verified
@@ -631,7 +631,7 @@ person_id,seat_id,party_id,parliamentary_status,date_start,date_end,start_reason
 16777,arthabaska,CAQ,group,2018-10-01,2022-08-28,election,dissolution,members_historic_qc,verified
 4125,frontenac,PLQ,group,1994-09-12,1998-11-25,election,dissolution,members_historic_qc,verified
 5843,vanier,ADQ,group,2007-03-26,2008-11-05,election,dissolution,members_historic_qc,verified
-5823,chambly,PLQ,group,2003-04-14,2006-11-15,election,resignation,members_historic_qc+assnat_depcir,verified
+5823,chambly,PLQ,group,2003-04-14,2006-11-15,election,resignation,members_historic_qc+assnat_depcir+assnat_fiche,verified
 4131,rousseau,PQ,group,1998-11-30,2003-03-12,election,dissolution,members_historic_qc,verified
 4131,rousseau,PQ,group,2003-04-14,2007-02-21,election,dissolution,members_historic_qc,verified
 4131,rousseau,PQ,group,2007-03-26,2008-11-05,election,dissolution,members_historic_qc,verified
@@ -662,11 +662,11 @@ person_id,seat_id,party_id,parliamentary_status,date_start,date_end,start_reason
 15403,masson,CAQ,group,2022-10-03,2026-10-05,election,dissolution,members_historic_qc,verified
 4157,bourget,PQ,group,1998-11-30,2003-03-12,election,dissolution,members_historic_qc,verified
 4157,bourget,PQ,group,2003-04-14,2007-02-21,election,dissolution,members_historic_qc,verified
-4157,bourget,PQ,group,2007-03-26,2007-10-17,election,resignation,members_historic_qc,disputed
+4157,bourget,PQ,group,2007-03-26,2007-10-17,election,resignation,members_historic_qc+assnat_fiche,verified
 17879,saintjean,CAQ,group,2018-10-01,2022-08-28,election,dissolution,members_historic_qc,verified
 17879,saintjean,CAQ,group,2022-10-03,2026-10-05,election,dissolution,members_historic_qc,verified
 4175,labelle,PQ,group,1994-09-12,1998-11-25,election,dissolution,members_historic_qc,verified
-4175,labelle,PQ,group,1998-11-30,2001-03-08,election,resignation,members_historic_qc+assnat_depcir,verified
+4175,labelle,PQ,group,1998-11-30,2001-03-08,election,resignation,members_historic_qc+assnat_depcir+assnat_fiche,verified
 4183,hull,PLQ,group,1994-09-12,1998-11-25,election,dissolution,members_historic_qc,verified
 5921,frontenac,PLQ,group,2003-04-14,2007-02-21,election,dissolution,members_historic_qc,verified
 5921,frontenac,PLQ,group,2007-03-26,2008-11-05,election,dissolution,members_historic_qc,verified
@@ -690,7 +690,7 @@ person_id,seat_id,party_id,parliamentary_status,date_start,date_end,start_reason
 17911,westmountsaintlouis,PLQ,group,2018-10-01,2022-08-28,election,dissolution,members_historic_qc,verified
 17911,westmountsaintlouis,PLQ,group,2022-10-03,2026-10-05,election,dissolution,members_historic_qc,verified
 4273,viger,PLQ,group,1994-09-12,1998-11-25,election,dissolution,members_historic_qc,verified
-4273,viger,PLQ,group,1998-11-30,2002-04-14,election,resignation,members_historic_qc,verified
+4273,viger,PLQ,group,1998-11-30,2001-11-13,election,resignation,members_historic_qc+assnat_fiche,verified
 67,papineau,PLQ,group,1994-09-12,1998-11-25,election,dissolution,members_historic_qc,verified
 67,papineau,PLQ,group,1998-11-30,2003-03-12,election,dissolution,members_historic_qc,verified
 67,papineau,PLQ,group,2003-04-14,2007-02-21,election,dissolution,members_historic_qc,verified
@@ -718,7 +718,7 @@ person_id,seat_id,party_id,parliamentary_status,date_start,date_end,start_reason
 17867,rosemont,QS,group,2022-10-03,2025-11-21,election,defection,members_historic_qc,verified
 79,taillon,PQ,group,1994-09-12,1998-11-25,election,dissolution,members_historic_qc,verified
 79,taillon,PQ,group,1998-11-30,2003-03-12,election,dissolution,members_historic_qc,verified
-79,taillon,PQ,group,2003-04-14,2006-03-20,election,resignation,members_historic_qc,disputed
+79,taillon,PQ,group,2003-04-14,2006-03-20,election,resignation,members_historic_qc+assnat_fiche,verified
 79,charlevoix,PQ,group,2008-12-08,2012-08-01,election,dissolution,members_historic_qc,verified
 79,charlevoixcotedebeaupre,PQ,group,2012-09-04,2014-03-05,election,dissolution,members_historic_qc,verified
 59,robertbaldwin,PLQ,group,1994-09-12,1998-11-25,election,dissolution,members_historic_qc,verified
@@ -804,7 +804,7 @@ person_id,seat_id,party_id,parliamentary_status,date_start,date_end,start_reason
 987,labelle,PQ,group,2008-12-08,2012-08-01,election,dissolution,members_historic_qc,verified
 987,labelle,PQ,group,2012-09-04,2014-03-05,election,dissolution,members_historic_qc,verified
 987,labelle,PQ,group,2014-04-07,2018-08-23,election,dissolution,members_historic_qc,verified
-4699,prevost,PQ,group,1994-09-12,1997-04-27,election,resignation,members_historic_qc,verified
+4699,prevost,PQ,group,1994-09-12,1996-11-19,election,resignation,members_historic_qc+assnat_fiche,verified
 4733,prevost,PQ,group,1998-11-30,2003-03-12,election,dissolution,members_historic_qc,verified
 4733,prevost,PQ,group,2003-04-14,2007-02-21,election,dissolution,members_historic_qc,verified
 651,lavaldesrapides,PLQ,group,2003-04-14,2007-02-21,election,dissolution,members_historic_qc,verified
@@ -824,7 +824,7 @@ person_id,seat_id,party_id,parliamentary_status,date_start,date_end,start_reason
 4761,lotbiniere,PQ,group,1994-09-12,1998-11-25,election,dissolution,members_historic_qc,verified
 4761,lotbiniere,PQ,group,1998-11-30,2003-03-12,election,dissolution,members_historic_qc,verified
 4773,sauve,PLQ,group,1994-09-12,1998-11-25,election,dissolution,members_historic_qc,verified
-4781,lassomption,PQ,group,1994-09-12,1996-01-29,election,resignation,members_historic_qc+assnat_depcir,verified
+4781,lassomption,PQ,group,1994-09-12,1996-01-29,election,resignation,members_historic_qc+assnat_depcir+assnat_fiche,verified
 4791,vachon,PQ,group,1994-09-12,1998-11-25,election,dissolution,members_historic_qc,verified
 4791,vachon,PQ,group,1998-11-30,2003-03-12,election,dissolution,members_historic_qc,verified
 900017,saintjerome,PQ,group,2014-04-07,2016-05-02,election,resignation,members_historic_qc+assnat_depcir,verified
@@ -898,7 +898,7 @@ person_id,seat_id,party_id,parliamentary_status,date_start,date_end,start_reason
 5901,iberville,ADQ,group,2007-03-26,2008-11-05,election,dissolution,members_historic_qc,verified
 5831,iberville,PLQ,group,2003-04-14,2007-02-21,election,dissolution,members_historic_qc,verified
 5093,matane,PQ,group,1994-09-12,1998-11-25,election,dissolution,members_historic_qc,verified
-5093,matane,PQ,group,1998-11-30,2003-03-05,election,resignation,members_historic_qc+assnat_depcir,verified
+5093,matane,PQ,group,1998-11-30,2003-03-05,election,resignation,members_historic_qc+assnat_depcir+assnat_fiche,verified
 5103,limoilou,PQ,group,1994-09-12,1998-11-25,election,dissolution,members_historic_qc,verified
 17883,saintlaurent,PLQ,group,2018-10-01,2022-08-28,election,dissolution,members_historic_qc,verified
 17883,saintlaurent,PLQ,group,2022-10-03,2025-11-17,election,defection,members_historic_qc,verified
@@ -945,9 +945,9 @@ person_id,seat_id,party_id,parliamentary_status,date_start,date_end,start_reason
 5909,drummondboisfrancs,CAQ,group,2014-04-07,2018-08-23,election,dissolution,members_historic_qc,verified
 5909,drummondboisfrancs,CAQ,group,2018-10-01,2022-08-28,election,dissolution,members_historic_qc,verified
 5909,drummondboisfrancs,CAQ,group,2022-10-03,2026-10-05,election,dissolution,members_historic_qc,verified
-5337,outremont,PLQ,group,2003-04-14,2005-05-25,election,resignation,members_historic_qc+assnat_depcir,verified
+5337,outremont,PLQ,group,2003-04-14,2005-05-25,election,resignation,members_historic_qc+assnat_depcir+assnat_fiche,verified
 5363,blainville,PQ,group,1994-09-12,1998-11-25,election,dissolution,members_historic_qc,verified
-5363,blainville,PQ,group,1998-11-30,2001-09-18,election,resignation,members_historic_qc,verified
+5363,blainville,PQ,group,1998-11-30,2001-06-27,election,resignation,members_historic_qc+assnat_fiche,verified
 15367,charlevoixcotedebeaupre,PLQ,group,2014-04-07,2018-08-23,election,dissolution,members_historic_qc,verified
 5369,montmorency,PQ,group,1998-11-30,2003-03-12,election,dissolution,members_historic_qc,verified
 5369,montmorency,PQ,group,2018-10-01,2022-08-28,election,dissolution,members_historic_qc,verified
@@ -1068,7 +1068,7 @@ person_id,seat_id,party_id,parliamentary_status,date_start,date_end,start_reason
 65,argenteuil,PLQ,group,2008-12-08,2011-12-16,election,resignation,members_historic_qc+assnat_depcir,verified
 5759,nelligan,PLQ,group,1994-09-12,1998-11-25,election,dissolution,members_historic_qc,verified
 5759,nelligan,PLQ,group,1998-11-30,2003-03-12,election,dissolution,members_historic_qc,verified
-5759,nelligan,PLQ,group,2003-04-14,2004-03-09,election,resignation,members_historic_qc+assnat_depcir,verified
+5759,nelligan,PLQ,group,2003-04-14,2004-03-09,election,resignation,members_historic_qc+assnat_depcir+assnat_fiche,verified
 12197,richelieu,PQ,group,2012-09-04,2014-03-05,election,dissolution,members_historic_qc,verified
 12197,richelieu,PQ,group,2014-04-07,2014-09-29,election,resignation,members_historic_qc+assnat_depcir,verified
 17955,jeanlesage,QS,group,2018-10-01,2022-08-28,election,dissolution,members_historic_qc,verified
@@ -1319,7 +1319,7 @@ person_id,seat_id,party_id,parliamentary_status,date_start,date_end,start_reason
 ,gouin,QS,,2017-05-29,2018-08-23,byelection,dissolution,chrono107,single_source
 ,louishebert,CAQ,,2017-10-02,2018-08-23,byelection,dissolution,chrono107,single_source
 ,roberval,CAQ,,2018-12-10,2022-08-28,byelection,dissolution,chrono108,single_source
-16775,marievictorin,IND,group,2019-03-11,2022-04-10,defection,resignation,chrono109,verified
+16775,marievictorin,IND,group,2019-03-11,2021-11-13,defection,resignation,chrono109+assnat_fiche,verified
 ,jeantalon,CAQ,,2019-12-02,2022-08-28,byelection,dissolution,chrono109,single_source
 15479,rimouski,IND,group,2020-12-15,2022-08-28,defection,dissolution,chrono110,verified
 18073,rousseau,IND,group,2021-03-30,2021-09-13,defection,defection,chrono111,verified
@@ -1328,7 +1328,7 @@ person_id,seat_id,party_id,parliamentary_status,date_start,date_end,start_reason
 ,marievictorin,CAQ,,2022-04-11,2022-08-28,byelection,dissolution,chrono112,single_source
 19593,sainthenrisainteanne,QS,,2023-03-13,2026-10-05,byelection,dissolution,chrono113,single_source
 19999,jeantalon,PQ,,2023-10-02,2026-10-05,byelection,dissolution,chrono113,single_source
-16777,arthabaska,IND,group,2024-04-16,2025-03-18,defection,resignation,chrono114,disputed
+16777,arthabaska,IND,group,2024-04-16,2025-03-18,defection,resignation,chrono114+assnat_fiche,verified
 20131,terrebonne,PQ,,2025-03-17,2026-10-05,byelection,dissolution,chrono115,single_source
 15439,vaudreuil,PLQ,group,2025-06-19,2026-10-05,defection,dissolution,chrono115,verified
 20141,arthabaska,PQ,,2025-08-11,2026-10-05,byelection,dissolution,chrono115,single_source
