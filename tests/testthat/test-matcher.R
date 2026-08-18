@@ -124,3 +124,44 @@ test_that("Python matcher handles honorifics", {
   expect_true(res[[1]]$match_level %in% c("deterministic", "fuzzy"))
   expect_equal(res[[1]]$matched_name, "Pascal Bérubé")
 })
+
+test_that("un alias en collision n'ecrase pas silencieusement un homonyme", {
+  skip_if_not(reticulate::py_available(), "Python not available")
+  matcher <- .load_matcher()
+
+  # Trouve en revue de PR (aws-refiners#352) : deux personnes de la meme
+  # legislature peuvent enregistrer le meme alias (leur seul nom de famille).
+  # other_names_index etait un simple dict — le DERNIER traite ecrasait le
+  # PREMIER en silence, produisant un match `deterministic` a 100% pour la
+  # mauvaise moitie du temps. Mesure sur le referentiel augmente : 9 collisions
+  # reelles (Blackburn, Cote, Paradis, Tremblay, Baril, Pelletier), toutes
+  # anterieures a cette session.
+  #
+  # Le correctif retire l'alias en collision plutot que de choisir : la
+  # recherche retombe alors sur last_name_index, qui SAIT declarer une
+  # ambiguite au lieu d'en cacher une.
+  members <- list(
+    list(full_name = "Jeannel Blackburn", party_id = "PQ", gender = "f",
+         legislature_id = "34", other_names = "Blackburn"),
+    list(full_name = "Gaston Blackburn", party_id = "PLQ", gender = "m",
+         legislature_id = "34", other_names = "Blackburn")
+  )
+  leg_path <- file.path(.find_extdata_dir(), "legislatures_qc.json")
+  corpus <- list(list(speaker = "Blackburn", event_date = "1990-01-01"))
+  res <- matcher$match_corpus(corpus, members, 85L, leg_path, FALSE)
+
+  expect_equal(res[[1]]$match_level, "ambiguous")
+  expect_null(res[[1]]$district_id)
+
+  # Un alias qui ne colle qu'a une seule personne reste, lui, deterministe —
+  # le correctif ne doit pas rendre tout alias suspect, seulement ceux qui
+  # collisionnent reellement.
+  members_sans_collision <- list(
+    list(full_name = "Sylvain Levesque", party_id = "CAQ", gender = "m",
+         legislature_id = "43", other_names = "Levesque")
+  )
+  corpus2 <- list(list(speaker = "Levesque", event_date = "2023-05-01"))
+  res2 <- matcher$match_corpus(corpus2, members_sans_collision, 85L, leg_path, FALSE)
+  expect_equal(res2[[1]]$match_level, "deterministic")
+  expect_equal(res2[[1]]$matched_name, "Sylvain Levesque")
+})
