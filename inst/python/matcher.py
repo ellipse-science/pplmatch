@@ -195,14 +195,31 @@ def _build_lookup(members, legislature):
 
         full_name_index[full_norm] = info
 
-        # Index other_names (semicolon-separated)
+        # Index other_names (semicolon-separated). Un alias, contrairement a
+        # full_name_index, n'est PAS garanti unique : deux homonymes peuvent
+        # tous deux enregistrer leur seul nom de famille comme alias (mesure
+        # sur le referentiel augmente : 9 collisions reelles, dont deux
+        # Blackburn et deux Cote a la 34e legislature). Une simple ecriture de
+        # dict laisse le DERNIER traite ecraser silencieusement le premier —
+        # un match `deterministic` a 100%, mais faux la moitie du temps. On
+        # marque donc un alias en collision avec un `None` sentinelle plutot
+        # que de choisir : plus bas, un alias qui vaut None est retire de
+        # l'index, ce qui fait retomber la recherche sur last_name_index
+        # (Etape 3), qui SAIT declarer une ambiguite au lieu d'en inventer une
+        # fausse certitude.
         other_names_raw = m.get("other_names", None)
         if other_names_raw and str(other_names_raw).strip():
             for alt in str(other_names_raw).split(";"):
                 alt = alt.strip()
                 if alt:
                     alt_norm = normalize_member_name(alt)
-                    other_names_index[alt_norm] = info
+                    deja = other_names_index.get(alt_norm)
+                    if deja is None and alt_norm in other_names_index:
+                        pass  # deja marque en collision : reste en collision
+                    elif deja is not None and deja["full_name_norm"] != full_norm:
+                        other_names_index[alt_norm] = None
+                    else:
+                        other_names_index[alt_norm] = info
 
         # Last name index
         if last not in last_name_index:
@@ -293,8 +310,9 @@ def match_speaker_atomic(speaker_norm, lookup, fuzzy_threshold=85, speaker_distr
     if speaker_norm in lookup["full_name_index"]:
         return _make_result(lookup["full_name_index"][speaker_norm], "deterministic", 100.0), None
 
-    if speaker_norm in lookup["other_names_index"]:
-        return _make_result(lookup["other_names_index"][speaker_norm], "deterministic", 100.0), None
+    alias_hit = lookup["other_names_index"].get(speaker_norm)
+    if alias_hit is not None:
+        return _make_result(alias_hit, "deterministic", 100.0), None
 
     # 3. Last name matches
     speaker_tokens = speaker_norm.split()
