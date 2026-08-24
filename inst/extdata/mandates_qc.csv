@@ -1083,7 +1083,7 @@ person_id,seat_id,party_id,parliamentary_status,date_start,date_end,start_reason
 19325,iberville,CAQ,group,2022-10-03,2026-10-05,election,dissolution,members_historic_qc,verified
 19255,anjoulouisriel,CAQ,group,2022-10-03,2026-10-05,election,dissolution,members_historic_qc,verified
 19305,mauricerichard,QS,group,2022-10-03,2026-10-05,election,dissolution,members_historic_qc,verified
-900011,charlevoixcotedebeaupre,CAQ,group,2022-10-03,2026-10-05,election,dissolution,members_historic_qc,verified
+19291,charlevoixcotedebeaupre,CAQ,group,2022-10-03,2026-10-05,election,dissolution,members_historic_qc,verified
 19261,bourassasauve,PLQ,group,2022-10-03,2026-10-05,election,dissolution,members_historic_qc,verified
 19313,lapiniere,PLQ,group,2022-10-03,2026-10-05,election,dissolution,members_historic_qc,verified
 17849,portneuf,CAQ,group,2022-10-03,2026-10-05,election,dissolution,members_historic_qc,verified
@@ -1112,7 +1112,7 @@ person_id,seat_id,party_id,parliamentary_status,date_start,date_end,start_reason
 19265,vercheres,CAQ,group,2022-10-03,2026-10-05,election,dissolution,members_historic_qc,verified
 19319,gaspe,CAQ,group,2022-10-03,2026-10-05,election,dissolution,members_historic_qc,verified
 19259,vimont,CAQ,group,2022-10-03,2026-10-05,election,dissolution,members_historic_qc,verified
-900021,montroyaloutremont,PLQ,group,2022-10-03,2026-10-05,election,dissolution,members_historic_qc,verified
+19285,montroyaloutremont,PLQ,group,2022-10-03,2026-10-05,election,dissolution,members_historic_qc,verified
 19289,camillelaurin,PQ,group,2022-10-03,2026-10-05,election,dissolution,members_historic_qc,verified
 19323,hull,CAQ,group,2022-10-03,2026-10-05,election,dissolution,members_historic_qc,verified
 19263,verdun,QS,group,2022-10-03,2026-10-05,election,dissolution,members_historic_qc,verified
