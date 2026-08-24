@@ -471,6 +471,16 @@ def _nom_depcir(brut):
 
 # ── Construction ─────────────────────────────────────────────────────────────
 
+# Le référentiel historique contient deux graphies fautives qui ne rencontrent
+# pas les fiches ANQ stables. Sans cette réconciliation, build_persons leur
+# invente un identifiant 9000xx et build_mandates propage cet identifiant dans
+# toute la 43e législature. Garder la graphie historique comme clé permet de
+# conserver ses alias tout en publiant le vrai nom et le vrai person_id.
+PERSON_RECONCILIATIONS = {
+    "karianabourassa": {"person_id": "19291", "full_name": "kariane bourassa"},
+    "valeriesetlakwe": {"person_id": "19285", "full_name": "michelle setlakwe"},
+}
+
 def build_persons(extdata):
     idx = json.load(open(os.path.join(extdata, "assnat_ids_qc.json"), encoding="utf-8"))
     par_nom = {e["full_name"]: e for e in idx}
@@ -480,16 +490,25 @@ def build_persons(extdata):
             autres.setdefault(r["full_name"], r.get("other_names", ""))
     lignes, synth = [], 900000
     for nom in sorted(autres):
+        reconciliation = PERSON_RECONCILIATIONS.get(cle_nom(nom))
         e = par_nom.get(nom)
-        if e:
+        if reconciliation:
+            # Réserver le rang synthétique historique garde les 19 autres
+            # identifiants 9000xx stables à travers une régénération.
+            synth += 1
+            pid, url = reconciliation["person_id"], ""
+            full_name = reconciliation["full_name"]
+        elif e:
             pid, url = e["assnat_id"], e.get("assnat_url", "")
+            full_name = nom
         else:
             # 21 personnes n'ont pas d'identifiant ANQ (accents, homonymes en
             # « nom2 »). Un identifiant synthetique >= 900000 les rend citables
             # sans pretendre qu'ils viennent de l'ANQ.
             synth += 1
             pid, url = synth, ""
-        lignes.append({"person_id": pid, "full_name": nom,
+            full_name = nom
+        lignes.append({"person_id": pid, "full_name": full_name,
                        "other_names": autres[nom], "assnat_url": url})
 
     # ── Les personnes que SEUL le releve du jour connait ────────────────────
@@ -570,6 +589,13 @@ def build_mandates(extdata, evenements, legislatures, persons):
     # Indexe par CLEF et non par graphie, et en chaine : deux types
     # differents pour le meme identifiant ne se comparent jamais egaux.
     pid_par_nom = {cle_nom(p["full_name"]): str(p["person_id"]) for p in persons}
+    # Les lignes historiques gardent les deux mauvaises graphies. Elles doivent
+    # pointer vers la même fiche stable que build_persons, faute de quoi les
+    # mandats recréeraient les identifiants temporaires à la régénération.
+    pid_par_nom.update({
+        cle_nom(legacy_name): correction["person_id"]
+        for legacy_name, correction in PERSON_RECONCILIATIONS.items()
+    })
     pid_siege = pid_par_nom_et_siege(extdata)
     noms_par_id = {str(p["person_id"]): p["full_name"] for p in persons}
     bornes = {l["legislature"]: (date.fromisoformat(l["start_date"]),

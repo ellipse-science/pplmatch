@@ -196,6 +196,39 @@ test_that("aucun mandat ne pointe vers une personne inexistante", {
   expect_equal(orphelins, character(0))
 })
 
+test_that("les mandats de Bourassa et Setlakwe pointent vers les fiches ANQ stables", {
+  lire <- function(f) {
+    p <- system.file("extdata", f, package = "pplmatch")
+    if (!nzchar(p)) p <- file.path("..", "..", "inst", "extdata", f)
+    utils::read.csv(p, stringsAsFactors = FALSE, colClasses = "character")
+  }
+  m <- lire("mandates_qc.csv")
+  p <- lire("persons_qc.csv")
+
+  bourassa <- m[m$seat_id == "charlevoixcotedebeaupre" & m$date_start == "2022-10-03", ]
+  setlakwe <- m[m$seat_id == "montroyaloutremont" & m$date_start == "2022-10-03", ]
+
+  expect_equal(bourassa$person_id, "19291")
+  expect_equal(setlakwe$person_id, "19285")
+  expect_false(any(p$person_id %in% c("900011", "900021")))
+  expect_match(p$other_names[p$person_id == "19291"], "mme bourassa", fixed = TRUE)
+  expect_match(p$other_names[p$person_id == "19285"], "mme setlakwe", fixed = TRUE)
+})
+
+test_that("les alias historiques retrouvent les fiches stables en 43e législature", {
+  skip_if_not(reticulate::py_available(), "Python not available")
+
+  r <- pplmatchQC(data.frame(
+    speaker = c("Mme Bourassa", "Mme Setlakwe"),
+    event_date = as.Date(c("2026-05-12", "2026-05-12")),
+    stringsAsFactors = FALSE
+  ))
+
+  expect_equal(r$matched_name, c("kariane bourassa", "michelle setlakwe"))
+  expect_equal(r$district_id, c("charlevoixcotedebeaupre", "montroyaloutremont"))
+  expect_equal(r$match_level, c("deterministic", "deterministic"))
+})
+
 test_that("Parizeau quitte son siege quand l'ANQ le dit, pas a l'annonce", {
   chemin <- system.file("extdata", "mandates_qc.csv", package = "pplmatch")
   if (!nzchar(chemin)) chemin <- file.path("..", "..", "inst", "extdata", "mandates_qc.csv")

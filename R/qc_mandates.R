@@ -69,6 +69,19 @@ qc_persons <- function() {
   personnes <- tryCatch(qc_persons(), error = function(e) NULL)
   if (is.null(mandats) || is.null(personnes) || !nrow(mandats)) return(members)
 
+  # Deux noms fautifs sont inscrits dans le repertoire historique de la 43e
+  # legislature. Les corriger avant de completer le repertoire evite de garder
+  # a la fois l'ancienne graphie et la fiche ANQ stable comme candidates.
+  # Les alias historiques restent portes par la ligne corrigee.
+  reconciliations <- c(
+    "43\rkariana bourassa" = "kariane bourassa",
+    "43\rvalerie setlakwe" = "michelle setlakwe"
+  )
+  cles_membres <- paste(members$legislature_id, tolower(members$full_name), sep = "\r")
+  a_corriger <- match(cles_membres, names(reconciliations))
+  trouve <- !is.na(a_corriger)
+  members$full_name[trouve] <- unname(reconciliations[a_corriger[trouve]])
+
   # `match()` plutot que `[[` : un identifiant absent rend NA, la ou `[[` leve
   # « subscript out of bounds ». Les mandats en portent — les partielles
   # anciennes n'ont pas de titulaire connu.

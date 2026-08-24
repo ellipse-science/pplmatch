@@ -274,7 +274,6 @@ person_id,full_name,other_names,assnat_url
 5841,jonathan valois,valois,/fr/deputes/valois-jonathan-5841/index.html
 3119,joseph facal,facal,/fr/deputes/facal-joseph-3119/index.html
 649,julie boulet,boulet,/fr/deputes/boulet-julie-649/index.html
-900011,kariana bourassa,bourassa ; mme bourassa,
 19255,karine boivin roy,boivin roy mme boivin roy,/fr/deputes/boivin-roy-karine-19255/index.html
 12173,karine vallieres,vallieres,/fr/deputes/vallieres-karine-12173/index.html
 5801,karl blackburn,blackburn,/fr/deputes/blackburn-karl-5801/index.html
@@ -510,7 +509,6 @@ person_id,full_name,other_names,assnat_url
 900020,thomas mulcair,mulcair,
 1317,tony tomassi,tomassi,/fr/deputes/tomassi-tony-1317/index.html
 19259,valerie schmaltz,schmaltz ; mme schmaltz,/fr/deputes/schmaltz-valerie-19259/index.html
-900021,valerie setlakwe,setlakwe ; mme setlakwe,
 27,veronique hivon,hivon,/fr/deputes/hivon-veronique-27/index.html
 16403,veronyque tremblay,tremblay,/fr/deputes/tremblay-veronyque-16403/index.html
 471,vincent auclair,auclair,/fr/deputes/auclair-vincent-471/index.html
@@ -752,7 +750,7 @@ person_id,full_name,other_names,assnat_url
 4085,arthur leclerc,leclerc,
 4291,raymond mailloux,mailloux,
 2269,daniel bradet,bradet,
-19291,kariane bourassa,bourassa,
+19291,kariane bourassa,bourassa ; mme bourassa,
 2995,philippe dufour,dufour,
 5157,edgar rochette,rochette,
 3827,edouard laberge,laberge,
@@ -1383,7 +1381,7 @@ person_id,full_name,other_names,assnat_url
 5187,lionel-alfred ross,ross,
 4671,george o'reilly,o'reilly,
 5729,claude wagner,wagner,
-19285,michelle setlakwe,setlakwe,
+19285,michelle setlakwe,setlakwe ; mme setlakwe,
 1999,pierre benoit,benoit,
 3881,laurent-david lafontaine,lafontaine,
 4755,francois-xavier paradis,paradis,
