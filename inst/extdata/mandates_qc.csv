@@ -66,6 +66,7 @@ person_id,seat_id,party_id,parliamentary_status,date_start,date_end,start_reason
 1951,louishebert,PQ,group,1998-11-30,2002-10-27,election,defection,members_historic_qc,verified
 17925,orford,CAQ,group,2018-10-01,2022-08-28,election,dissolution,members_historic_qc,verified
 17925,orford,CAQ,group,2022-10-03,2026-04-21,election,defection,members_historic_qc,verified
+17925,orford,IND,group,2026-04-22,2026-10-05,defection,dissolution,assnat_fiche+deputes_courants,single_source
 1973,meganticcompton,PLQ,group,1994-09-12,1998-11-25,election,dissolution,members_historic_qc,verified
 1973,meganticcompton,PLQ,group,1998-11-30,2003-03-12,election,dissolution,members_historic_qc,verified
 1977,anjou,PQ,group,1994-09-12,1998-11-25,election,dissolution,members_historic_qc,verified

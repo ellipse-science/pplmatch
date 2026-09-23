@@ -34,3 +34,25 @@ test_that("Eric Girard (Groulx) a sa fiche", {
   P <- lire("persons_qc.csv")
   expect_equal(P$assnat_url[P$person_id == "17929"], "/fr/deputes/girard-eric-17929/index.html")
 })
+
+test_that("Gilles Belanger (Orford) : independant apres le 21 avril 2026, sans trou", {
+  expect_equal(parti_le("17925", "2026-04-21"), "CAQ")
+  expect_equal(parti_le("17925", "2026-04-22"), "IND")
+  expect_equal(parti_le("17925", "2026-08-27"), "IND")
+})
+
+test_that("aucun elu de la 43e n'a de trou entre deux mandats du meme siege", {
+  m <- M[M$date_start >= "2022-10-03" & nzchar(M$person_id), ]
+  m <- m[order(m$person_id, m$date_start), ]
+  trous <- character(0)
+  for (pid in unique(m$person_id)) {
+    x <- m[m$person_id == pid, ]
+    if (nrow(x) < 2) next
+    for (i in 2:nrow(x)) {
+      if (x$seat_id[i] == x$seat_id[i - 1] && x$end_reason[i - 1] == "defection" &&
+          as.Date(x$date_start[i]) != as.Date(x$date_end[i - 1]) + 1) trous <- c(trous, pid)
+    }
+    if (tail(x$end_reason, 1) == "defection") trous <- c(trous, pid)
+  }
+  expect_equal(unique(trous), character(0))
+})
