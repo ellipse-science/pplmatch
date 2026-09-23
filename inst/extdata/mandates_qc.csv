@@ -246,7 +246,8 @@ person_id,seat_id,party_id,parliamentary_status,date_start,date_end,start_reason
 1017,soulanges,PLQ,group,2014-04-07,2018-08-23,election,dissolution,members_historic_qc,verified
 17865,chateauguay,CAQ,group,2018-10-01,2022-08-28,election,dissolution,members_historic_qc,verified
 17881,saintjerome,CAQ,group,2018-10-01,2022-08-28,election,dissolution,members_historic_qc,verified
-17881,saintjerome,IND,group,2022-10-03,2026-10-05,election,dissolution,members_historic_qc,verified
+17881,saintjerome,CAQ,group,2022-10-03,2024-09-11,election,defection,members_historic_qc,verified
+17881,saintjerome,IND,group,2024-09-12,2026-10-05,defection,dissolution,chrono114,verified
 2541,beauharnoishuntingdon,PLQ,group,1994-09-12,1998-11-25,election,dissolution,members_historic_qc,verified
 2541,beauharnoishuntingdon,PLQ,group,1998-11-30,2003-03-12,election,dissolution,members_historic_qc,verified
 2541,huntingdon,PLQ,group,2003-04-14,2007-02-21,election,dissolution,members_historic_qc,verified
@@ -777,7 +778,8 @@ person_id,seat_id,party_id,parliamentary_status,date_start,date_end,start_reason
 16827,gouin,QS,group,2022-10-03,2026-10-05,election,dissolution,members_historic_qc,verified
 15439,vaudreuil,PLQ,group,2014-04-07,2018-08-23,election,dissolution,members_historic_qc,verified
 15439,vaudreuil,PLQ,group,2018-10-01,2022-08-28,election,dissolution,members_historic_qc,verified
-15439,vaudreuil,IND,group,2022-10-03,2025-06-18,election,defection,members_historic_qc,verified
+15439,vaudreuil,PLQ,group,2022-10-03,2022-10-26,election,defection,members_historic_qc,verified
+15439,vaudreuil,IND,group,2022-10-27,2025-06-18,defection,defection,chrono112,verified
 1063,bonaventure,PLQ,group,1998-11-30,2003-03-12,election,dissolution,members_historic_qc,verified
 1063,bonaventure,PLQ,group,2003-04-14,2007-02-21,election,dissolution,members_historic_qc,verified
 1063,bonaventure,PLQ,group,2007-03-26,2008-11-05,election,dissolution,members_historic_qc,verified
@@ -1223,7 +1225,7 @@ person_id,seat_id,party_id,parliamentary_status,date_start,date_end,start_reason
 2223,saintemariesaintjacques,PQ,group,1989-09-25,1994-07-24,election,dissolution,assnat_depcir,single_source
 725,saintfrancois,PLQ,group,1989-09-25,1994-07-24,election,dissolution,assnat_depcir,single_source
 4239,sainthenri,PLQ,group,1989-09-25,1994-07-24,election,dissolution,assnat_depcir,single_source
-16499,sainthenrisainteanne,PLQ,group,2022-10-03,2023-03-12,election,resignation,assnat_depcir,single_source
+16499,sainthenrisainteanne,PLQ,group,2022-10-03,2022-12-01,election,resignation,assnat_fiche,single_source
 4481,sainthyacinthe,PLQ,group,1989-09-25,1994-07-24,election,dissolution,assnat_depcir,single_source
 2517,saintjean,PLQ,group,1989-09-25,1994-07-24,election,dissolution,assnat_depcir,single_source
 2231,saintlaurent,PLQ,group,1989-09-25,1994-07-24,election,dissolution,assnat_depcir,single_source
