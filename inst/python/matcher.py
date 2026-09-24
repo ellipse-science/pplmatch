@@ -10,11 +10,15 @@ import os as _os
 import warnings as _warnings
 from datetime import date as _date, timedelta as _timedelta
 
+import re as _re
+
 from rapidfuzz import fuzz
 from normalizer import (
     normalize_speaker,
     normalize_member_name,
     extract_last_name,
+    strip_accents,
+    LEADING_NUMS_RE,
 )
 from legislature import load_legislatures, date_to_legislature
 
@@ -161,6 +165,76 @@ def _resolve_party(district_id, event_date, mandates):
     """
     m = _mandat_en_vigueur(district_id, event_date, mandates)
     return m["party_id"] if m and m["party_id"] else None
+
+
+# PRESIDENCE DE L'ASSEMBLEE (aws-refiners#547). Au fauteuil, le Journal des
+# debats n'ecrit que « La Presidente » / « Le President », sans nom : ces
+# interventions sortaient en `role`, sans personne, et le raffineur agora les
+# jetait. Pour la 43e legislature, 13 891 interventions de Nathalie Roy.
+# Les vice-presidents, eux, sont etiquetes par leur nom et deja apparies.
+#
+# On attribue l'etiquette NUE (bruit numerique toléré : « 12 187 La
+# Presidente », « La Presidente: 485 ») a la personne qui detient la fonction
+# « President(e) de l'Assemblee nationale » a cette date, lue dans
+# functions_qc.csv (function_code PAN). Garde-fous, sinon on laisse `role` :
+#   - une seule personne en fonction a cette date ;
+#   - le genre de l'etiquette concorde avec celui de la personne (« Le
+#     President » un jour ou la presidente est une femme reste non attribue) ;
+#   - la personne a un mandat et une fiche de membre ce jour-la.
+# Couverture : les legislatures presentes dans functions_qc.csv (43e).
+_PRESIDENCE_RE = _re.compile(r"^(la presidente|le president)\s*(:[\s\d]*)?$")
+
+
+def _load_presidences(path):
+    """[(person_id, debut, fin)] de la fonction PAN, ou [] sans fichier."""
+    if not path or not _os.path.exists(path):
+        return []
+    out = []
+    with open(path, newline="", encoding="utf-8") as f:
+        for row in _csv.DictReader(f):
+            if row.get("function_code") != "PAN":
+                continue
+            fin = row.get("date_end") or ""
+            out.append((row["person_id"], _date.fromisoformat(row["date_start"]),
+                        _date.fromisoformat(fin) if fin else _FIN_OUVERTE))
+    return out
+
+
+def _etiquette_presidence(speaker_raw):
+    """'f' / 'm' si le locuteur est l'etiquette nue du fauteuil, sinon None."""
+    t = LEADING_NUMS_RE.sub("", str(speaker_raw or "")).strip()
+    m = _PRESIDENCE_RE.match(strip_accents(t.lower()))
+    if not m:
+        return None
+    return "f" if m.group(1) == "la presidente" else "m"
+
+
+def _resoudre_presidence(speaker_raw, event_date, leg, presidences, mandates, members):
+    """Champs d'appariement de la personne au fauteuil, ou None."""
+    genre = _etiquette_presidence(speaker_raw)
+    if genre is None or not presidences or not mandates or leg is None:
+        return None
+    try:
+        jour = _date.fromisoformat(str(event_date)[:10])
+    except (ValueError, TypeError):
+        return None
+    en_fonction = {pid for pid, debut, fin in presidences if debut <= jour <= fin}
+    if len(en_fonction) != 1:
+        return None
+    pid = en_fonction.pop()
+    sieges = [s for s, ms in mandates.items()
+              if any(m["person_id"] == pid and m["date_start"] <= jour <= m["date_end"] for m in ms)]
+    if len(sieges) != 1:
+        return None
+    siege = sieges[0]
+    fiches = [m for m in members
+              if str(m.get("legislature_id")) == str(leg) and m.get("district_id") == siege]
+    if len(fiches) != 1 or fiches[0].get("gender") != genre:
+        return None
+    fiche = fiches[0]
+    return {"matched_name": fiche["full_name"], "gender": fiche["gender"], "district_id": siege,
+            "party_id": _resolve_party(siege, jour, mandates) or fiche.get("party_id"),
+            "match_level": "presiding_officer", "match_score": 100.0}
 
 
 def _build_lookup(members, legislature):
@@ -359,7 +433,7 @@ def match_speaker_atomic(speaker_norm, lookup, fuzzy_threshold=85, speaker_distr
 def match_corpus(corpus_rows, members, fuzzy_threshold=85,
                  legislatures_path=None, sessions_path=None,
                  party_changes_path=None, mandates_path=None,
-                 web_lookup=False, verbose=False):
+                 functions_path=None, web_lookup=False, verbose=False):
     legislatures = load_legislatures(legislatures_path)
     # Le modele DATE remplace party_changes_qc.csv des qu'il est fourni ; on
     # garde l'ancien chemin en repli pour ne pas casser un appelant qui ne le
@@ -368,6 +442,7 @@ def match_corpus(corpus_rows, members, fuzzy_threshold=85,
     party_changes = {} if mandates else _load_party_changes(party_changes_path)
     if party_changes:
         mandates = _mandats_depuis_party_changes(party_changes)
+    presidences = _load_presidences(functions_path)
     dates_hors_couverture = []
     lookup_cache = {}
     grouped_results = {}
@@ -404,6 +479,10 @@ def match_corpus(corpus_rows, members, fuzzy_threshold=85,
                     dates_hors_couverture.append(str(event_date)[:10])
         else:
             result["match_level"] = category if category != "person" else "unmatched"
+            if category == "role":
+                au_fauteuil = _resoudre_presidence(speaker_raw, event_date, leg, presidences, mandates, members)
+                if au_fauteuil:
+                    result.update(au_fauteuil)
 
         if date_str not in grouped_results:
             grouped_results[date_str] = []

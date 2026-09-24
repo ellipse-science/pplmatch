@@ -74,6 +74,9 @@
 #'       \code{"contextual"} (resolu par le roster journalier),
 #'       \code{"web_contextual"} (resolu via assnat.qc.ca, uniquement si
 #'         \code{web_lookup = TRUE}),
+#'       \code{"presiding_officer"} (etiquette nue « La Presidente » /
+#'         « Le President » attribuee a la personne qui detient la
+#'         presidence de l'Assemblee ce jour-la, d'apres functions_qc.csv),
 #'       \code{"ambiguous"} (plusieurs deputes possibles),
 #'       \code{"unmatched"} (aucune correspondance),
 #'       \code{"role"}, \code{"crowd"}, \code{"empty"}.}
@@ -223,6 +226,9 @@ pplmatchQC <- function(corpus, members = NULL,
   # intervalle FERME, donc une defection ne peut plus etre heritee par le
   # successeur du transfuge.
   mandates_path       <- file.path(.find_extdata_dir(), "mandates_qc.csv")
+  # Fonctions datees : la presidence de l'Assemblee (PAN) sert a attribuer
+  # l'etiquette nue « La Presidente » a la personne au fauteuil ce jour-la.
+  functions_path      <- file.path(.find_extdata_dir(), "functions_qc.csv")
 
   # Call Python matcher
   results <- matcher$match_corpus(
@@ -233,6 +239,7 @@ pplmatchQC <- function(corpus, members = NULL,
     sessions_path       = session_path,
     party_changes_path  = party_changes_path,
     mandates_path       = if (file.exists(mandates_path)) mandates_path else NULL,
+    functions_path      = if (file.exists(functions_path)) functions_path else NULL,
     web_lookup          = isTRUE(web_lookup),
     verbose             = verbose
   )
