@@ -47,6 +47,10 @@ MOIS = {"janvier": 1, "fevrier": 2, "mars": 3, "avril": 4, "mai": 5, "juin": 6,
         "novembre": 11, "decembre": 12}
 _M = "|".join(MOIS)
 
+# « 1er » s'ecrit avec l'ordinal en exposant (<sup>er</sup>) : une fois les
+# balises retirees, il devient « 1 er », avec une espace. Le motif doit
+# l'accepter, sinon toute demission datee d'un premier du mois est perdue
+# (Dominique Anglade, « le 1 er decembre 2022 », manquait ainsi).
 # Trois tournures observees, et pas une de plus : on ne devine pas de formes
 # qu'on n'a pas vues, sinon le motif attrape ce qu'il ne comprend pas.
 # Le role, s'il est nomme, doit etre le SIEGE. Une notice raconte toute une
@@ -57,12 +61,12 @@ _M = "|".join(MOIS)
 RE_DEMISSION = [
     # « Demissionna le 26 septembre 2015 » — aucun role nomme.
     re.compile(r"demissionn\w*\s+le\s+"
-               r"(\d{1,2})(?:er)?\s+(" + _M + r")\s+(\d{4})"),
+               r"(\d{1,2})\s*(?:er)?\s+(" + _M + r")\s+(\d{4})"),
     # « Demissionna comme deputee le 20 mars 2006 » — le role est le siege.
     re.compile(r"demissionn\w*\s+(?:comme|a titre de)\s+deputee?\s+le\s+"
-               r"(\d{1,2})(?:er)?\s+(" + _M + r")\s+(\d{4})"),
+               r"(\d{1,2})\s*(?:er)?\s+(" + _M + r")\s+(\d{4})"),
     # « ... au 4 septembre 2025, date de sa demission comme deputee »
-    re.compile(r"\bau\s+(\d{1,2})(?:er)?\s+(" + _M + r")\s+(\d{4})\s*,\s*"
+    re.compile(r"\bau\s+(\d{1,2})\s*(?:er)?\s+(" + _M + r")\s+(\d{4})\s*,\s*"
                r"date de sa demission\s+comme\s+deputee?"),
 ]
 
