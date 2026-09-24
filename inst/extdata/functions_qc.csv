@@ -1,0 +1,1332 @@
+person_id,title,function_code,scale_category,scale_pct,date_start,date_end,source,confidence
+11,Ministre des Transports,M,ministre,75,2018-10-18,2022-10-20,assnat_fiche,verified
+11,Ministre responsable de la région de l’Estrie,M,ministre,75,2018-10-18,2022-10-20,assnat_fiche,verified
+11,Vice-président du Comité ministériel des services aux citoyens,,,0,2018-10-31,2022-10-20,assnat_fiche,verified
+11,Membre du Comité ministériel des services aux citoyens,,,0,2022-10-20,2024-09-11,assnat_fiche,verified
+11,Ministre de la Sécurité publique,M,ministre,75,2022-10-20,2025-09-10,assnat_fiche,verified
+11,Ministre responsable de la région de l’Estrie,M,ministre,75,2022-10-20,2025-09-10,assnat_fiche,verified
+11,Vice-président du Comité ministériel des services aux citoyens,,,0,2024-09-11,2025-09-10,assnat_fiche,verified
+11,Leader parlementaire adjoint du gouvernement,LP,leader_adjoint_gouvernement,25,2025-03-18,2025-09-10,assnat_fiche,verified
+11,Membre de la Commission de l’Assemblée nationale,,,0,2025-03-18,2025-09-10,assnat_fiche,verified
+11,Membre de la Sous-commission de la réforme parlementaire,,,0,2025-03-18,2025-09-10,assnat_fiche,verified
+11,"Vice-président de la Commission de l’agriculture, des pêcheries, de l’énergie et des ressources naturelles",VC,vice_presidence_commission_permanente,20,2025-09-22,2026-04-21,assnat_fiche,verified
+11,Leader parlementaire du gouvernement,M,ministre,75,2026-04-21,2026-08-27,assnat_fiche,verified
+11,Membre de la Commission de l’Assemblée nationale,,,0,2026-04-21,2026-08-27,assnat_fiche,verified
+11,Membre de la Sous-commission de la réforme parlementaire,,,0,2026-04-21,2026-08-27,assnat_fiche,verified
+11,Membre du Comité ministériel des services aux citoyens,,,0,2026-04-21,,assnat_fiche,verified
+11,"Ministre de l’Immigration, de la Francisation et de l’Intégration",M,ministre,75,2026-04-21,,assnat_fiche,verified
+11,Membre du Comité de législation,,,0,2026-04-29,,assnat_fiche,verified
+13,"Membre de la Commission de l’agriculture, des pêcheries, de l’énergie et des ressources naturelles",,,0,2022-12-02,2026-04-21,assnat_fiche,verified
+13,Président de séance,PS,presidence_seance,15,2022-12-02,2026-04-21,assnat_fiche,verified
+13,Membre de la Commission des transports et de l’environnement,,,0,2024-09-06,2025-09-22,assnat_fiche,verified
+13,Membre de la Commission de la santé et des services sociaux,,,0,2025-09-22,2026-04-21,assnat_fiche,verified
+13,Membre du Comité ministériel de l’économie et de l’environnement,,,0,2026-04-21,,assnat_fiche,verified
+13,Ministre délégué à l’Économie et aux Petites et Moyennes Entreprises,M,ministre,75,2026-04-21,,assnat_fiche,verified
+195,Ministre de l’Environnement et de la Lutte contre les changements climatiques,M,ministre,75,2019-01-08,2022-10-20,assnat_fiche,verified
+195,Membre du Comité ministériel de l’économie et de l’environnement,,,0,2019-01-16,2022-10-20,assnat_fiche,verified
+195,Ministre responsable de la région de Laval,M,ministre,75,2020-08-20,2022-10-20,assnat_fiche,verified
+195,Ministre responsable de la Lutte contre le racisme,M,ministre,75,2021-02-24,2022-10-20,assnat_fiche,verified
+195,Membre du Comité ministériel de l’économie et de l’environnement,,,0,2022-10-20,2025-09-10,assnat_fiche,verified
+195,"Ministre de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs",M,ministre,75,2022-10-20,2025-09-10,assnat_fiche,verified
+195,Ministre responsable de la région des Laurentides,M,ministre,75,2022-10-20,2025-01-28,assnat_fiche,verified
+195,Membre du Comité de législation,,,0,2025-09-10,2026-04-21,assnat_fiche,verified
+195,Membre du Conseil du trésor,,,0,2025-09-10,2026-04-21,assnat_fiche,verified
+195,Ministre responsable des Infrastructures,M,ministre,75,2025-09-10,2026-04-21,assnat_fiche,verified
+195,Président du Comité ministériel des services aux citoyens,,,0,2025-09-10,2026-01-28,assnat_fiche,verified
+195,"Ministre de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs",M,ministre,75,2026-01-26,2026-04-21,assnat_fiche,verified
+195,Membre du Comité ministériel de l’économie et de l’environnement,,,0,2026-01-28,,assnat_fiche,verified
+195,Ministre des Transports et de la Mobilité durable,M,ministre,75,2026-04-21,,assnat_fiche,verified
+209,Membre du Comité ministériel des services aux citoyens,,,0,2022-10-20,2025-09-10,assnat_fiche,verified
+209,Ministre de l’Éducation,M,ministre,75,2022-10-20,2025-09-10,assnat_fiche,verified
+209,Ministre responsable de la région de la Chaudière-Appalaches,M,ministre,75,2022-10-20,2026-01-26,assnat_fiche,verified
+209,Membre du Comité ministériel de l’économie et de l’environnement,,,0,2025-09-10,2026-01-26,assnat_fiche,verified
+209,"Ministre de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs",M,ministre,75,2025-09-10,2026-01-26,assnat_fiche,verified
+209,Ministre responsable de la Stratégie maritime,M,ministre,75,2025-09-10,2026-01-26,assnat_fiche,verified
+209,Membre du Comité ministériel de l’économie et de l’environnement,,,0,2026-04-21,,assnat_fiche,verified
+209,"Ministre de l’Économie, de l’Innovation et de l’Énergie",M,ministre,75,2026-04-21,,assnat_fiche,verified
+209,Ministre responsable de la Stratégie maritime,M,ministre,75,2026-04-21,,assnat_fiche,verified
+485,Membre du Comité ministériel de l’économie et de l’environnement,,,0,2020-06-22,2022-10-20,assnat_fiche,verified
+485,Ministre responsable de l’Accès à l’information et de la Protection des renseignements personnels,M,ministre,75,2021-01-21,2022-10-20,assnat_fiche,verified
+485,Ministre de la Cybersécurité et du Numérique,M,ministre,75,2022-01-01,2022-10-20,assnat_fiche,verified
+485,Leader parlementaire adjoint du gouvernement,LP,leader_adjoint_gouvernement,25,2022-10-20,2025-02-27,assnat_fiche,verified
+485,Membre du Comité ministériel des services aux citoyens,,,0,2022-10-20,2025-02-27,assnat_fiche,verified
+485,Ministre de la Cybersécurité et du Numérique,M,ministre,75,2022-10-20,2025-02-27,assnat_fiche,verified
+485,Membre de la Commission de l’Assemblée nationale,,,0,2022-11-29,2025-02-27,assnat_fiche,verified
+485,Membre de la Sous-commission de la réforme parlementaire,,,0,2022-11-29,2025-02-27,assnat_fiche,verified
+485,Adjoint parlementaire du ministre de la Sécurité publique (volet sécurité civile),AP,adjoint_parlementaire,20,2025-03-12,2025-09-24,assnat_fiche,verified
+485,Adjoint parlementaire du ministre de la Cybersécurité et du Numérique,AP,adjoint_parlementaire,20,2025-09-24,2026-04-29,assnat_fiche,verified
+485,Adjoint parlementaire du ministre de la Sécurité intérieure (volet sécurité civile),AP,adjoint_parlementaire,20,2026-04-29,2026-08-27,assnat_fiche,verified
+991,Vice-président de la Délégation de l’Assemblée nationale pour les relations avec le Shandong (DANRS),,,0,2016-08-08,2025-09-16,assnat_fiche,verified
+991,Porte-parole du troisième groupe d’opposition en matière de culture et de communications,PP,,0,2022-11-29,2025-03-24,assnat_fiche,verified
+991,Porte-parole du troisième groupe d’opposition en matière de développement économique régional,PP,,0,2022-11-29,2025-03-24,assnat_fiche,verified
+991,Porte-parole du troisième groupe d’opposition en matière de jeunesse,PP,,0,2022-11-29,2025-03-24,assnat_fiche,verified
+991,Porte-parole du troisième groupe d’opposition en matière de langue française,PP,,0,2022-11-29,2026-08-27,assnat_fiche,verified
+991,Porte-parole du troisième groupe d’opposition en matière de laïcité,PP,,0,2022-11-29,2026-08-27,assnat_fiche,verified
+991,Porte-parole du troisième groupe d’opposition en matière de relations avec les Québécois d’expression anglaise,PP,,0,2022-11-29,2023-10-17,assnat_fiche,verified
+991,Porte-parole du troisième groupe d’opposition en matière de ressources naturelles et de forêts,PP,,0,2022-11-29,2025-09-17,assnat_fiche,verified
+991,"Porte-parole du troisième groupe d’opposition en matière de sports, de loisirs et de plein air",PP,,0,2022-11-29,2025-03-24,assnat_fiche,verified
+991,Porte-parole du troisième groupe d’opposition en matière de tourisme,PP,,0,2022-11-29,2025-09-17,assnat_fiche,verified
+991,Porte-parole du troisième groupe d’opposition en matière d’accès à l’information et de protection des renseignements personnels,PP,,0,2022-11-29,2025-09-17,assnat_fiche,verified
+991,Porte-parole du troisième groupe d’opposition en matière d’agriculture et d’alimentation,PP,,0,2022-11-29,2025-09-17,assnat_fiche,verified
+991,"Porte-parole du troisième groupe d’opposition en matière d’immigration, de francisation et d’intégration",PP,,0,2022-11-29,2024-09-10,assnat_fiche,verified
+991,Porte-parole du troisième groupe d’opposition en matière d’institutions démocratiques,PP,,0,2022-11-29,2025-03-24,assnat_fiche,verified
+991,Porte-parole du troisième groupe d’opposition en matière d’éducation et d’enseignement supérieur,PP,,0,2022-11-29,2025-03-24,assnat_fiche,verified
+991,Porte-parole du troisième groupe d’opposition pour la communauté LGBTQ+,PP,,0,2022-11-29,2023-10-17,assnat_fiche,verified
+991,Membre de la Commission de la culture et de l’éducation,,,0,2023-01-30,2023-06-12,assnat_fiche,verified
+991,Vice-président de la Délégation de l’Assemblée nationale pour les relations avec le Sénat français,,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+991,Membre de la Commission des relations avec les citoyens,,,0,2023-06-12,2026-08-27,assnat_fiche,verified
+991,Membre de la Commission spéciale sur les impacts des écrans et des réseaux sociaux sur la santé et le développement des jeunes,,,0,2024-06-06,2025-05-29,assnat_fiche,verified
+991,Porte-parole du troisième groupe d’opposition en matière de faune et de parcs,PP,,0,2024-09-10,2026-08-27,assnat_fiche,verified
+991,Porte-parole du troisième groupe d’opposition en matière de francisation,PP,,0,2024-09-10,2025-03-24,assnat_fiche,verified
+991,Porte-parole du troisième groupe d’opposition en matière de développement régional,PP,,0,2025-03-24,2025-09-17,assnat_fiche,verified
+991,Porte-parole du troisième groupe d’opposition en matière de réforme des institutions démocratiques,PP,,0,2025-03-24,2025-09-17,assnat_fiche,verified
+991,Porte-parole du troisième groupe d’opposition en matière d’éducation,PP,,0,2025-03-24,2026-08-27,assnat_fiche,verified
+991,"Porte-parole du troisième groupe d’opposition en matière de sports, de loisirs et de plein air",PP,,0,2025-09-17,2026-08-27,assnat_fiche,verified
+1171,Membre du comité consultatif de la diplomatie parlementaire,,,0,2022-10-12,2025-06-26,assnat_fiche,verified
+1171,Whip en chef de l’opposition officielle,W,whip_chef_opposition_officielle,30,2022-10-12,2025-06-26,assnat_fiche,verified
+1171,"Porte-parole de l’opposition officielle en matière d’immigration, de francisation et d’intégration",PP,,0,2022-10-27,2023-01-23,assnat_fiche,verified
+1171,Membre de la Commission de l’Assemblée nationale,,,0,2022-11-29,2025-06-26,assnat_fiche,verified
+1171,Membre de la Sous-commission de la réforme parlementaire,,,0,2022-11-29,2025-06-26,assnat_fiche,verified
+1171,Membre suppléante du Bureau de l’Assemblée nationale,,,0,2022-12-01,2025-10-01,assnat_fiche,verified
+1171,Porte-parole de l’opposition officielle pour la Métropole,PP,,0,2023-01-23,2026-08-27,assnat_fiche,verified
+1171,Porte-parole de l’opposition officielle en matière de développement économique régional,PP,,0,2024-01-16,2026-08-27,assnat_fiche,verified
+1171,Porte-parole de l’opposition officielle en matière d’infrastructures,PP,,0,2025-01-25,2026-08-27,assnat_fiche,verified
+1171,Présidente du caucus de l’opposition officielle,PCA,presidence_caucus_opposition_officielle,22.5,2025-06-26,2025-12-02,assnat_fiche,verified
+1171,Membre de la Commission de l’économie et du travail,,,0,2025-07-07,2026-08-27,assnat_fiche,verified
+1171,Membre de la Commission de l’Assemblée nationale,,,0,2025-12-03,2026-08-27,assnat_fiche,verified
+1171,Présidente de la Commission de la culture et de l’éducation,PC,presidence_commission_permanente,25,2025-12-03,2026-01-02,assnat_fiche,verified
+1171,Membre de la Sous-commission de la réforme parlementaire,,,0,2025-12-22,2026-02-14,assnat_fiche,verified
+1171,Membre du comité consultatif de la diplomatie parlementaire,,,0,2025-12-22,2026-02-14,assnat_fiche,verified
+1171,Whip en chef de l’opposition officielle,W,whip_chef_opposition_officielle,30,2025-12-22,2026-02-14,assnat_fiche,verified
+1171,Membre suppléante du Bureau de l’Assemblée nationale,,,0,2026-02-03,2026-08-27,assnat_fiche,verified
+1171,Porte-parole de l’opposition officielle en matière d’emploi,PP,,0,2026-02-14,2026-08-27,assnat_fiche,verified
+1171,Présidente de la Commission de la culture et de l’éducation,PC,presidence_commission_permanente,25,2026-02-16,2026-08-27,assnat_fiche,verified
+4131,Premier ministre,PM,premier_ministre,105,2018-10-18,2022-10-20,assnat_fiche,verified
+4131,Responsable des Relations avec les Québécois d’expression anglaise,,,0,2018-10-18,2022-10-20,assnat_fiche,verified
+4131,Responsable des dossiers jeunesse,,,0,2018-10-18,2022-10-20,assnat_fiche,verified
+4131,Responsable de l’Internet haute vitesse et des projets spéciaux de connectivité,,,0,2020-12-16,2022-10-20,assnat_fiche,verified
+4131,Premier ministre,PM,premier_ministre,105,2022-10-20,2026-04-15,assnat_fiche,verified
+4131,Responsable de la région de l’Abitibi-Témiscamingue,,,0,2025-09-10,2026-04-15,assnat_fiche,verified
+5369,Membre de la Commission de l’Assemblée nationale,,,0,2022-12-06,2025-09-10,assnat_fiche,verified
+5369,Président de la Commission des finances publiques,PC,presidence_commission_permanente,25,2022-12-06,2025-09-10,assnat_fiche,verified
+5369,Vice-président de la Délégation de l’Assemblée nationale pour les relations avec Kyoto,,,0,2023-02-20,2025-09-10,assnat_fiche,verified
+5369,Membre du Comité ministériel de l’économie et de l’environnement,,,0,2025-09-10,2026-04-21,assnat_fiche,verified
+5369,Ministre des Ressources naturelles et des Forêts,M,ministre,75,2025-09-10,2026-04-21,assnat_fiche,verified
+5369,Ministre responsable de la région de la Capitale-Nationale,M,ministre,75,2025-09-10,,assnat_fiche,verified
+5369,Membre du Comité ministériel des services aux citoyens,,,0,2026-04-21,,assnat_fiche,verified
+5369,Ministre de l’Emploi,M,ministre,75,2026-04-21,,assnat_fiche,verified
+5909,Membre de la Commission de l’Assemblée nationale,,,0,2022-12-06,2026-08-27,assnat_fiche,verified
+5909,Président de la Commission de l’aménagement du territoire,PC,presidence_commission_permanente,25,2022-12-06,2026-08-27,assnat_fiche,verified
+5909,Vice-président de la Délégation de l’Assemblée nationale pour les relations avec la Bavière,,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+5909,Vice-président de la Délégation de l’Assemblée nationale pour les relations avec le Jura,,,0,2025-07-03,2026-08-27,assnat_fiche,verified
+11789,Leader parlementaire de l’opposition officielle,LP,leader_opposition_officielle,35,2022-10-12,2022-11-14,assnat_fiche,verified
+11789,Porte-parole de l’opposition officielle en matière de relations canadiennes et de la francophonie canadienne,PP,,0,2022-10-27,2022-11-15,assnat_fiche,verified
+11789,Porte-parole de l’opposition officielle en matière de transports et de mobilité durable,PP,,0,2022-10-27,2022-11-15,assnat_fiche,verified
+11789,Porte-parole de l’opposition officielle en matière d’Accès à l’information et de Protection des renseignements personnels,PP,,0,2022-10-27,2022-11-15,assnat_fiche,verified
+11789,Porte-parole de l’opposition officielle en matière d’institutions démocratiques,PP,,0,2022-10-27,2022-11-15,assnat_fiche,verified
+11789,Porte-parole de l’opposition officielle en matière d’éthique,PP,,0,2022-10-27,2022-11-15,assnat_fiche,verified
+11789,Porte-parole de l’opposition officielle pour la Loi électorale,PP,,0,2022-10-27,2022-11-15,assnat_fiche,verified
+11789,Porte-parole de l’opposition officielle responsable de la région de la Capitale-Nationale,PP,,0,2022-10-27,2026-08-27,assnat_fiche,verified
+11789,Chef de l’opposition officielle,CO,chef_opposition_officielle,75,2022-11-10,2025-06-19,assnat_fiche,verified
+11789,Porte-parole de l’opposition officielle en matière de relations canadiennes et de la francophonie canadienne,PP,,0,2023-08-10,2025-06-26,assnat_fiche,verified
+11789,Porte-parole de l’opposition officielle en matière de santé,PP,,0,2025-06-26,2026-01-05,assnat_fiche,verified
+11789,Membre de la Commission de la santé et des services sociaux,,,0,2025-07-07,2026-02-03,assnat_fiche,verified
+11789,Membre de la Commission de l’Assemblée nationale,,,0,2025-07-07,2025-12-19,assnat_fiche,verified
+11789,Président de la Commission de la culture et de l’éducation,PC,presidence_commission_permanente,25,2025-07-07,2025-12-03,assnat_fiche,verified
+11789,Membre de la Sous-commission de la réforme parlementaire,,,0,2025-11-18,2025-12-19,assnat_fiche,verified
+11789,Membre du comité consultatif de la diplomatie parlementaire,,,0,2025-11-18,2025-12-19,assnat_fiche,verified
+11789,Whip en chef de l’opposition officielle,W,whip_chef_opposition_officielle,30,2025-11-18,2025-12-19,assnat_fiche,verified
+11789,Membre suppléant du Bureau de l’Assemblée nationale,,,0,2025-11-25,2026-02-03,assnat_fiche,verified
+11789,Chef de l’opposition officielle,CO,chef_opposition_officielle,75,2025-12-19,2026-02-14,assnat_fiche,verified
+11789,Porte-parole de l’opposition officielle en matière de relations canadiennes et de francophonie canadienne,PP,,0,2026-01-05,2026-08-27,assnat_fiche,verified
+11789,Leader parlementaire de l’opposition officielle,LP,leader_opposition_officielle,35,2026-02-14,2026-08-27,assnat_fiche,verified
+11789,Membre de la Sous-commission de la réforme parlementaire,,,0,2026-02-14,2026-08-27,assnat_fiche,verified
+11789,Porte-parole de l’opposition officielle en matière d’institutions démocratiques,PP,,0,2026-02-14,2026-08-27,assnat_fiche,verified
+11789,Porte-parole de l’opposition officielle en matière d’éthique,PP,,0,2026-02-14,2026-08-27,assnat_fiche,verified
+11789,Porte-parole de l’opposition officielle pour la Loi électorale,PP,,0,2026-02-14,2026-08-27,assnat_fiche,verified
+11789,Porte-parole de l’opposition officielle pour la famille,PP,,0,2026-02-14,2026-08-27,assnat_fiche,verified
+11789,Membre de la Commission de l’Assemblée nationale,,,0,2026-02-16,2026-08-27,assnat_fiche,verified
+11789,Membre de la Commission des relations avec les citoyens,,,0,2026-02-16,2026-08-27,assnat_fiche,verified
+12165,"Adjoint parlementaire de la ministre de l’Économie, de l’Innovation et de l’Énergie (volet zones d’innovation)",AP,adjoint_parlementaire,20,2022-11-09,2025-09-10,assnat_fiche,verified
+12165,Membre de la Commission de l’économie et du travail,,,0,2022-12-02,2025-09-10,assnat_fiche,verified
+12165,Membre du Comité ministériel de l’économie et de l’environnement,,,0,2025-09-10,,assnat_fiche,verified
+12165,"Ministre de l’Agriculture, des Pêcheries et de l’Alimentation",M,ministre,75,2025-09-10,,assnat_fiche,verified
+12165,Ministre responsable de la région du Centre-du-Québec,M,ministre,75,2025-09-10,2026-04-21,assnat_fiche,verified
+12165,Membre du Conseil du trésor,,,0,2026-01-28,2026-02-04,assnat_fiche,verified
+12187,Membre du Comité de législation,,,0,2018-10-18,2022-10-20,assnat_fiche,verified
+12187,Ministre de la Culture et des Communications,M,ministre,75,2018-10-18,2022-10-20,assnat_fiche,verified
+12187,Membre du Comité ministériel des services aux citoyens,,,0,2018-10-31,2022-10-20,assnat_fiche,verified
+12187,Présidente de la Commission de l’Assemblée nationale,,,0,2022-11-29,2026-08-27,assnat_fiche,verified
+12187,Présidente de la Sous-commission de la réforme parlementaire,,,0,2022-11-29,2026-08-27,assnat_fiche,verified
+12187,Présidente de l’Assemblée nationale,PAN,presidence_assemblee,75,2022-11-29,,assnat_fiche,verified
+12187,Présidente du Bureau de l’Assemblée nationale,,,0,2022-11-29,,assnat_fiche,verified
+12187,Présidente du comité consultatif de la diplomatie parlementaire,,,0,2022-11-29,,assnat_fiche,verified
+12213,Membre de la Commission de l’Assemblée nationale,,,0,2022-11-22,2024-11-06,assnat_fiche,verified
+12213,Deuxième vice-président de l’Assemblée nationale,VP,vice_presidence_assemblee,35,2022-11-29,2024-11-06,assnat_fiche,verified
+12213,Membre de la Sous-commission de la réforme parlementaire,,,0,2022-11-29,2024-11-06,assnat_fiche,verified
+12213,Président de séance,PS,presidence_seance,15,2024-11-26,2026-08-27,assnat_fiche,verified
+12213,Adjoint parlementaire du ministre responsable de la Laïcité,AP,adjoint_parlementaire,20,2025-03-12,2026-08-27,assnat_fiche,verified
+12213,Membre de la Commission de la culture et de l’éducation,,,0,2025-09-22,2026-08-27,assnat_fiche,verified
+12213,Vice-président de la Délégation de l’Assemblée nationale pour les relations avec le Massachusetts,,,0,2025-10-02,2026-08-27,assnat_fiche,verified
+12223,Membre du Comité ministériel des services aux citoyens,,,0,2018-10-31,2022-10-20,assnat_fiche,verified
+12223,Ministre de la Santé et des Services sociaux,M,ministre,75,2020-06-22,2022-10-20,assnat_fiche,verified
+12223,Membre du Comité ministériel des services aux citoyens,,,0,2022-10-20,2025-12-18,assnat_fiche,verified
+12223,Ministre de la Santé,M,ministre,75,2022-10-20,2025-12-18,assnat_fiche,verified
+15357,Président du caucus du gouvernement,PCA,presidence_caucus_gouvernement,25,2022-10-20,2024-04-17,assnat_fiche,verified
+15357,Membre du Bureau de l’Assemblée nationale,B,membre_bureau,15,2022-12-01,2025-10-01,assnat_fiche,verified
+15357,Membre de la Commission de l’Assemblée nationale,,,0,2024-04-17,2025-09-10,assnat_fiche,verified
+15357,Membre de la Sous-commission de la réforme parlementaire,,,0,2024-04-17,2025-09-10,assnat_fiche,verified
+15357,Membre du comité consultatif de la diplomatie parlementaire,,,0,2024-04-17,2025-09-10,assnat_fiche,verified
+15357,Whip en chef du gouvernement,W,whip_chef_gouvernement,35,2024-04-17,2025-09-10,assnat_fiche,verified
+15357,Membre de la Commission de l’Assemblée nationale,,,0,2025-09-22,2026-08-27,assnat_fiche,verified
+15357,Président de la Commission des finances publiques,PC,presidence_commission_permanente,25,2025-09-22,2026-08-27,assnat_fiche,verified
+15359,Ministre responsable de la Laïcité et de la Réforme parlementaire,M,ministre,75,2019-09-04,2022-10-20,assnat_fiche,verified
+15359,Membre du Comité ministériel des services aux citoyens,,,0,2020-06-22,2022-10-20,assnat_fiche,verified
+15359,Ministre de la Justice,M,ministre,75,2020-06-22,2022-10-20,assnat_fiche,verified
+15359,Président du Comité de législation,,,0,2020-06-22,2022-10-20,assnat_fiche,verified
+15359,Ministre responsable de la région de la Montérégie,M,ministre,75,2020-08-20,2022-10-20,assnat_fiche,verified
+15359,Ministre de la Langue française,M,ministre,75,2022-06-01,2022-10-20,assnat_fiche,verified
+15359,Leader parlementaire du gouvernement,M,ministre,75,2022-10-20,2026-04-06,assnat_fiche,verified
+15359,Membre du Comité ministériel de l’économie et de l’environnement,,,0,2022-10-20,,assnat_fiche,verified
+15359,Ministre de la Justice,M,ministre,75,2022-10-20,,assnat_fiche,verified
+15359,Président du Comité de législation,,,0,2022-10-20,,assnat_fiche,verified
+15359,Membre de la Commission de l’Assemblée nationale,,,0,2022-11-29,2026-04-06,assnat_fiche,verified
+15359,Membre de la Sous-commission de la réforme parlementaire,,,0,2022-11-29,2026-04-06,assnat_fiche,verified
+15359,Ministre responsable des Relations canadiennes,M,ministre,75,2025-01-28,2026-04-21,assnat_fiche,verified
+15359,Membre du Conseil du trésor,,,0,2026-04-21,,assnat_fiche,verified
+15359,Ministre responsable des Affaires constitutionnelles,M,ministre,75,2026-04-21,,assnat_fiche,verified
+15361,Membre du Comité ministériel des services aux citoyens,,,0,2018-10-31,2022-10-20,assnat_fiche,verified
+15361,Ministre de l’Éducation,M,ministre,75,2020-06-22,2022-10-20,assnat_fiche,verified
+15361,Ministre de la Langue française,M,ministre,75,2022-10-20,,assnat_fiche,verified
+15361,Ministre responsable de la Laïcité,M,ministre,75,2022-10-20,,assnat_fiche,verified
+15361,Ministre responsable de l’Accès à l’information et de la Protection des renseignements personnels,M,ministre,75,2022-10-20,,assnat_fiche,verified
+15361,Ministre responsable des Institutions démocratiques,M,ministre,75,2022-10-20,,assnat_fiche,verified
+15361,Ministre responsable des Relations canadiennes et de la Francophonie canadienne,M,ministre,75,2022-10-20,2025-01-28,assnat_fiche,verified
+15361,Président du Comité ministériel des services aux citoyens,,,0,2022-10-20,2024-09-11,assnat_fiche,verified
+15361,"Ministre de l’Immigration, de la Francisation et de l’Intégration",M,ministre,75,2024-09-05,2026-04-21,assnat_fiche,verified
+15361,Membre du Comité ministériel des services aux citoyens,,,0,2024-09-11,2026-04-21,assnat_fiche,verified
+15361,Ministre responsable de la Francophonie canadienne,M,ministre,75,2025-01-28,,assnat_fiche,verified
+15361,Ministre responsable de la région de la Montérégie,M,ministre,75,2026-02-03,2026-04-21,assnat_fiche,verified
+15361,Président du Comité ministériel des services aux citoyens,,,0,2026-04-21,,assnat_fiche,verified
+15361,Membre du Conseil du trésor,,,0,2026-04-29,,assnat_fiche,verified
+15383,Porte-parole de l’opposition officielle en matière de développement économique régional,PP,,0,2022-10-27,2023-08-10,assnat_fiche,verified
+15383,Porte-parole de l’opposition officielle en matière de forêts,PP,,0,2022-10-27,2026-08-27,assnat_fiche,verified
+15383,"Porte-parole de l’opposition officielle en matière d’agriculture, de pêcheries et d’alimentation",PP,,0,2022-10-27,2026-08-27,assnat_fiche,verified
+15383,Porte-parole de l’opposition officielle en matière d’innovation,PP,,0,2022-10-27,2022-11-15,assnat_fiche,verified
+15383,Porte-parole de l’opposition officielle en matière d’économie,PP,,0,2022-10-27,2022-11-15,assnat_fiche,verified
+15383,Porte-parole de l’opposition officielle en matière d’énergie,PP,,0,2022-10-27,2022-11-15,assnat_fiche,verified
+15383,Porte-parole de l’opposition officielle responsable de la région de l’Abitibi-Témiscamingue,PP,,0,2022-10-27,2026-08-27,assnat_fiche,verified
+15383,Porte-parole de l’opposition officielle responsable de la région de l’Outaouais,PP,,0,2022-10-27,2026-08-27,assnat_fiche,verified
+15383,Porte-parole de l’opposition officielle en matière de santé,PP,,0,2022-11-15,2025-06-26,assnat_fiche,verified
+15383,Membre de la Commission de la santé et des services sociaux,,,0,2022-12-02,2025-07-07,assnat_fiche,verified
+15383,"Membre de la Commission de l’agriculture, des pêcheries, de l’énergie et des ressources naturelles",,,0,2022-12-02,2026-08-27,assnat_fiche,verified
+15383,Membre de la Commission de l’Assemblée nationale,,,0,2022-12-06,2025-12-03,assnat_fiche,verified
+15383,Président de la Commission de la culture et de l’éducation,PC,presidence_commission_permanente,25,2022-12-06,2025-07-04,assnat_fiche,verified
+15383,Représentant de l’Assemblée nationale au Comité exécutif du Caucus Legislatif des Grand Lacs (CSG),,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+15383,Représentant de l’Assemblée nationale au Comité exécutif du Council of State Governments East (CSG East),,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+15383,Représentant de l’Assemblée nationale à la Commission des relations internationales du Council of State Governments (CGS),,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+15383,Représentant de l’Assemblée nationale à la Commission des transports du Council of State Governments East (CSG East),,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+15383,Vice-président de la Délégation de l’Assemblée nationale pour les relations avec le Nouveau-Brunswick,,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+15383,Vice-président de la Délégation de l’Assemblée nationale pour les relations avec les États-Unis,,,0,2023-02-20,2025-12-10,assnat_fiche,verified
+15383,Porte-parole de l’opposition officielle en matière de ressources naturelles,PP,,0,2024-09-21,2025-01-25,assnat_fiche,verified
+15383,Membre de la Sous-commission de la réforme parlementaire,,,0,2025-06-26,2025-12-03,assnat_fiche,verified
+15383,Membre du comité consultatif de la diplomatie parlementaire,,,0,2025-06-26,2025-11-18,assnat_fiche,verified
+15383,Porte-parole de l’opposition officielle en matière d’enseignement supérieur,PP,,0,2025-06-26,2025-11-27,assnat_fiche,verified
+15383,Whip en chef de l’opposition officielle,W,whip_chef_opposition_officielle,30,2025-06-26,2025-11-18,assnat_fiche,verified
+15383,Membre de la Commission de la culture et de l’éducation,,,0,2025-07-04,2025-12-03,assnat_fiche,verified
+15383,Membre suppléant du Bureau de l’Assemblée nationale,,,0,2025-10-01,2025-11-25,assnat_fiche,verified
+15383,Chef de l’opposition officielle,CO,chef_opposition_officielle,75,2025-11-18,2025-12-19,assnat_fiche,verified
+15383,Membre de la Commission de l’Assemblée nationale,,,0,2026-01-02,2026-02-16,assnat_fiche,verified
+15383,Président de la Commission de l’administration publique,PC,presidence_commission_permanente,25,2026-01-02,2026-02-16,assnat_fiche,verified
+15383,Porte-parole de l’opposition officielle en matière de santé,PP,,0,2026-01-05,2026-02-14,assnat_fiche,verified
+15383,Membre de la Commission de la santé et des services sociaux,,,0,2026-02-03,2026-02-16,assnat_fiche,verified
+15383,Chef de l’opposition officielle,CO,chef_opposition_officielle,75,2026-02-14,2026-08-27,assnat_fiche,verified
+15399,Membre de la Délégation de l’Assemblée nationale pour les relations avec le Shandong (DANRS),,,0,2016-08-09,2025-09-16,assnat_fiche,verified
+15399,Membre de la Commission de l’Assemblée nationale,,,0,2022-12-06,2026-08-27,assnat_fiche,verified
+15399,Membre de la Commission de l’économie et du travail,,,0,2022-12-06,2024-11-13,assnat_fiche,verified
+15399,Présidente de la Commission de l’économie et du travail,PC,presidence_commission_permanente,25,2022-12-06,2024-11-07,assnat_fiche,verified
+15399,Vice-présidente de la Délégation de l’Assemblée nationale pour les relations avec le Sénégal,,,0,2023-02-20,2024-11-21,assnat_fiche,verified
+15399,Deuxième vice-présidente de l’Assemblée nationale,VP,vice_presidence_assemblee,35,2024-11-07,,assnat_fiche,verified
+15399,Membre de la Sous-commission de la réforme parlementaire,,,0,2024-11-07,2026-08-27,assnat_fiche,verified
+15401,"Ministre de l’Agriculture, des Pêcheries et de l’Alimentation",M,ministre,75,2018-10-18,2022-10-20,assnat_fiche,verified
+15401,Ministre responsable de la région du Centre-du-Québec,M,ministre,75,2018-10-18,2022-10-20,assnat_fiche,verified
+15401,Membre du Comité ministériel de l’économie et de l’environnement,,,0,2018-10-31,2022-10-20,assnat_fiche,verified
+15401,Ministre responsable de la région de la Chaudière-Appalaches,M,ministre,75,2021-05-05,2022-10-20,assnat_fiche,verified
+15401,"Ministre de l’Agriculture, des Pêcheries et de l’Alimentation",M,ministre,75,2022-10-20,2025-09-10,assnat_fiche,verified
+15401,Ministre responsable de la région du Centre-du-Québec,M,ministre,75,2022-10-20,2025-09-10,assnat_fiche,verified
+15401,Président du Comité ministériel de l’économie et de l’environnement,,,0,2022-10-20,2025-09-10,assnat_fiche,verified
+15401,Vice-président du Conseil du trésor,,,0,2022-10-20,2025-09-10,assnat_fiche,verified
+15401,Président de séance,PS,presidence_seance,15,2025-09-22,2026-08-27,assnat_fiche,verified
+15403,"Adjoint parlementaire du ministre de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs (volet électrification)",AP,adjoint_parlementaire,20,2022-11-09,2025-09-17,assnat_fiche,verified
+15403,Membre de la Commission des transports et de l’environnement,,,0,2022-12-02,2026-08-27,assnat_fiche,verified
+15403,Représentant de l’Assemblée nationale au Groupe de travail sur l’approvisionnement énergétique de la National Conference of State Legislatures (NCSL),,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+15403,Représentant de l’Assemblée nationale comité exécutif de la National Conference of State Legislatures (NCSL),,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+15403,"Représentant de l’Assemblée nationale à la Commission du travail et du développement économique, National Conference of State Legislatures (NCSL)",,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+15403,Représentant de l’Assemblée nationale à l’Institut de la coopération internationale de la National Conference of State Legislatures (NCSL),,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+15403,Vice-président de la Délégation de l’Assemblée nationale pour les relations avec les États-Unis,,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+15403,Membre de la Commission des finances publiques,,,0,2025-02-18,2026-08-27,assnat_fiche,verified
+15403,Adjoint parlementaire du ministre des Relations internationales et de la Francophonie (volet relations internationales),AP,adjoint_parlementaire,20,2025-09-17,2026-04-29,assnat_fiche,verified
+15403,Adjoint parlementaire du ministre des Relations internationales et de la Francophonie,AP,adjoint_parlementaire,20,2026-04-29,2026-08-27,assnat_fiche,verified
+15417,Membre de la Délégation de l’Assemblée nationale pour les relations avec le Shandong (DANRS),,,0,2016-08-09,2025-09-16,assnat_fiche,verified
+15417,Deuxième vice-présidente de l’Assemblée nationale,VP,vice_presidence_assemblee,35,2018-11-27,2022-11-29,assnat_fiche,verified
+15417,Membre de la Commission de l’Assemblée nationale,,,0,2022-11-29,2026-08-27,assnat_fiche,verified
+15417,Membre de la Sous-commission de la réforme parlementaire,,,0,2022-11-29,2026-08-27,assnat_fiche,verified
+15417,Première vice-présidente de l’Assemblée nationale,VP,vice_presidence_assemblee,35,2022-11-29,,assnat_fiche,verified
+15417,Présidente et membre du Comité directeur du Réseau des femmes parlementaires de l’Assemblée parlementaire de la Francophonie,,,0,2023-02-20,2024-07-09,assnat_fiche,verified
+15417,Représentante de la Section du Québec au Réseau des femmes parlementaires de l’Assemblée parlementaire de la Francophonie,,,0,2024-07-09,,assnat_fiche,verified
+15421,Porte-parole du deuxième groupe d’opposition en matière de lutte contre l’itinérance,PP,,0,2022-10-27,2024-08-29,assnat_fiche,verified
+15421,Porte-parole du deuxième groupe d’opposition en matière de relations avec les Premières Nations et les Inuit,PP,,0,2022-10-27,2025-12-09,assnat_fiche,verified
+15421,Porte-parole du deuxième groupe d’opposition en matière de santé mentale,PP,,0,2022-10-27,2023-03-28,assnat_fiche,verified
+15421,Porte-parole du deuxième groupe d’opposition en matière de services sociaux en Déficience intellectuelle et TSA (DI-TSA),PP,,0,2022-10-27,2024-01-25,assnat_fiche,verified
+15421,Porte-parole du deuxième groupe d’opposition en matière de solidarité sociale et d’action communautaire,PP,,0,2022-10-27,2023-03-28,assnat_fiche,verified
+15421,Porte-parole du deuxième groupe d’opposition pour les communautés LGBTQ+,PP,,0,2022-10-27,2025-12-09,assnat_fiche,verified
+15421,Vice-présidente de la Commission des relations avec les citoyens,VC,vice_presidence_commission_permanente,20,2022-12-06,2024-01-24,assnat_fiche,verified
+15421,Porte-parole du deuxième groupe d’opposition responsable de la région de la Côte-Nord,PP,,0,2024-01-25,2026-08-27,assnat_fiche,verified
+15421,Porte-parole du deuxième groupe d’opposition responsable de la région du Nord-du-Québec,PP,,0,2024-01-25,2026-08-27,assnat_fiche,verified
+15421,Membre de la Commission des institutions,,,0,2025-01-29,2026-08-27,assnat_fiche,verified
+15421,Porte-parole du deuxième groupe d’opposition pour la communauté LGBTQIA2S+,PP,,0,2025-12-09,2026-08-27,assnat_fiche,verified
+15421,Porte-parole du deuxième groupe d’opposition pour la jeunesse,PP,,0,2025-12-09,2026-08-27,assnat_fiche,verified
+15421,Porte-parole du deuxième groupe d’opposition responsable de la région de la Gaspésie–Îles-de-la-Madeleine,PP,,0,2025-12-09,2026-08-27,assnat_fiche,verified
+15439,Vice-Présidente de la Délégation de l’Assemblée nationale pour les Relations avec le Shandong : Comité directeur (DANRS),,,0,2019-10-22,2025-09-16,assnat_fiche,verified
+15439,Membre de la Commission des institutions,,,0,2022-12-02,2025-06-19,assnat_fiche,verified
+15439,Porte-parole de l’opposition officielle en matière d’affaires municipales,PP,,0,2025-06-26,2026-08-27,assnat_fiche,verified
+15439,Membre de la Commission de l’Assemblée nationale,,,0,2025-07-07,2026-08-27,assnat_fiche,verified
+15439,Membre de la Commission de l’aménagement du territoire,,,0,2025-07-07,2026-08-27,assnat_fiche,verified
+15439,Présidente de la Commission des transports et de l’environnement,PC,presidence_commission_permanente,25,2025-07-07,2026-08-27,assnat_fiche,verified
+16499,Cheffe de l’opposition officielle,CO,chef_opposition_officielle,75,2022-10-12,2022-11-07,assnat_biographie,transcribed
+16777,Whip en chef du gouvernement,W,whip_chef_gouvernement,35,2022-10-20,2024-04-16,assnat_biographie,transcribed
+16827,Chef du deuxième groupe d’opposition,CO,chef_autre_groupe_opposition,35,2022-10-12,2025-03-20,assnat_fiche,verified
+16827,Porte-parole du deuxième groupe d’opposition en matière de lutte contre les changements climatiques,PP,,0,2022-10-27,2025-08-25,assnat_fiche,verified
+16827,Porte-parole du deuxième groupe d’opposition en matière d’éducation,PP,,0,2025-08-25,2026-08-27,assnat_fiche,verified
+16827,"Porte-parole du deuxième groupe d’opposition en matière de sports, de loisirs et de plein air",PP,,0,2025-12-09,2026-08-27,assnat_fiche,verified
+16885,Ministre de la Sécurité publique,M,ministre,75,2018-10-18,2022-10-20,assnat_fiche,verified
+16885,Ministre responsable de la région de la Capitale-Nationale,M,ministre,75,2018-10-18,2022-10-20,assnat_fiche,verified
+16885,Vice-première ministre,,,0,2018-10-18,2022-10-20,assnat_fiche,verified
+16885,Membre du Comité ministériel des services aux citoyens,,,0,2018-10-31,2022-10-20,assnat_fiche,verified
+16885,Membre du Comité ministériel des services aux citoyens,,,0,2022-10-20,2026-04-21,assnat_fiche,verified
+16885,Ministre des Transports et de la Mobilité durable,M,ministre,75,2022-10-20,2025-09-10,assnat_fiche,verified
+16885,Vice-première ministre,,,0,2022-10-20,2025-09-10,assnat_fiche,verified
+16885,Ministre des Affaires municipales,M,ministre,75,2025-09-10,2026-04-21,assnat_fiche,verified
+16885,Présidente de séance,PS,presidence_seance,15,2026-05-05,2026-08-27,assnat_fiche,verified
+17823,"Ministre des Forêts, de la Faune et des Parcs",M,ministre,75,2018-10-18,2022-10-20,assnat_fiche,verified
+17823,Ministre responsable de la région de l’Abitibi-Témiscamingue et de la région du Nord-du-Québec,M,ministre,75,2018-10-18,2022-10-20,assnat_fiche,verified
+17823,Membre du Comité ministériel de l’économie et de l’environnement,,,0,2018-10-31,2022-10-20,assnat_fiche,verified
+17823,"Adjoint parlementaire de la ministre de l’Économie, de l’Innovation et de l’Énergie (volet développement économique régional)",AP,adjoint_parlementaire,20,2022-11-09,2025-05-07,assnat_fiche,verified
+17823,Membre de la Commission de l’économie et du travail,,,0,2022-12-02,2025-09-05,assnat_fiche,verified
+17823,Vice-président de la Délégation de l’Assemblée nationale pour les relations avec Haïti,,,0,2023-02-20,2025-09-05,assnat_fiche,verified
+17823,Adjoint parlementaire de la ministre responsable du Développement économique régional,AP,adjoint_parlementaire,20,2025-05-07,2025-09-05,assnat_fiche,verified
+17825,Membre de la Commission des relations avec les citoyens,,,0,2022-12-02,2026-08-27,assnat_fiche,verified
+17825,Adjointe parlementaire de la ministre responsable de la Solidarité sociale et de l’Action communautaire (volet solidarité sociale),AP,adjoint_parlementaire,20,2022-12-07,2025-09-17,assnat_fiche,verified
+17825,Membre de la Commission de l’aménagement du territoire,,,0,2025-02-18,2026-08-27,assnat_fiche,verified
+17825,Adjointe parlementaire de la ministre responsable de l’Habitation,AP,adjoint_parlementaire,20,2025-09-17,2026-08-27,assnat_fiche,verified
+17827,Vice-Présidente de la Délégation de l’Assemblée nationale pour les Relations avec le Shandong : Comité directeur (DANRS),,,0,2019-10-22,2025-09-16,assnat_fiche,verified
+17827,"Adjointe parlementaire du ministre de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs (volets protection de l’eau et biodiversité)",AP,adjoint_parlementaire,20,2022-11-09,2025-09-17,assnat_fiche,verified
+17827,Membre de la Commission des transports et de l’environnement,,,0,2022-12-02,2025-09-22,assnat_fiche,verified
+17827,Membre de la Commission de la santé et des services sociaux,,,0,2024-09-06,2025-09-22,assnat_fiche,verified
+17827,Adjointe parlementaire du ministre des Affaires municipales,AP,adjoint_parlementaire,20,2025-09-17,2026-08-27,assnat_fiche,verified
+17827,Membre de la Commission de l’aménagement du territoire,,,0,2025-09-22,2026-08-27,assnat_fiche,verified
+17827,Membre de la Commission des institutions,,,0,2026-05-05,2026-08-27,assnat_fiche,verified
+17829,Membre de la Commission de l’Assemblée nationale,,,0,2022-12-06,2026-08-27,assnat_fiche,verified
+17829,Président de la Commission de la santé et des services sociaux,PC,presidence_commission_permanente,25,2022-12-06,2026-08-27,assnat_fiche,verified
+17829,Vice-président de la Délégation de l’Assemblée nationale pour les relations avec le Sénat français,,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+17831,Adjoint parlementaire du ministre de la Culture et des Communications,AP,adjoint_parlementaire,20,2022-11-09,2025-03-12,assnat_fiche,verified
+17831,Adjoint parlementaire du ministre responsable de la Jeunesse,AP,adjoint_parlementaire,20,2022-11-09,2025-03-12,assnat_fiche,verified
+17831,Membre de la Commission de la culture et de l’éducation,,,0,2022-12-02,2025-09-10,assnat_fiche,verified
+17831,"Membre de la Commission de l’agriculture, des pêcheries, de l’énergie et des ressources naturelles",,,0,2022-12-02,2024-04-22,assnat_fiche,verified
+17831,Vice-président de la Délégation de l’Assemblée nationale pour les relations avec le Maroc,,,0,2023-02-20,2025-09-10,assnat_fiche,verified
+17831,Membre de la Commission des finances publiques,,,0,2024-09-16,2025-09-10,assnat_fiche,verified
+17831,"Adjoint parlementaire de la ministre de l’Économie, de l’Innovation et de l’Énergie (volets économie et énergie)",AP,adjoint_parlementaire,20,2025-03-12,2025-09-10,assnat_fiche,verified
+17831,Membre du Comité ministériel de l’économie et de l’environnement,,,0,2025-09-10,2026-04-21,assnat_fiche,verified
+17831,Ministre délégué à l’Économie et aux Petites et Moyennes Entreprises,M,ministre,75,2025-09-10,2026-04-21,assnat_fiche,verified
+17831,Ministre responsable de la Jeunesse,M,ministre,75,2025-09-10,2026-04-21,assnat_fiche,verified
+17831,Ministre responsable de la région de la Chaudière-Appalaches,M,ministre,75,2026-02-03,2026-04-21,assnat_fiche,verified
+17831,Membre du Comité ministériel des services aux citoyens,,,0,2026-04-21,,assnat_fiche,verified
+17831,Ministre des Affaires municipales,M,ministre,75,2026-04-21,,assnat_fiche,verified
+17833,Whip adjoint du gouvernement,W,whip_adjoint_gouvernement,20,2022-10-20,2026-08-27,assnat_fiche,verified
+17833,Membre suppléant du Bureau de l’Assemblée nationale,,,0,2022-12-01,2026-08-27,assnat_fiche,verified
+17833,"Vice-président de la section québécoise, volet international de l’Association parlementaire du Commonwealth",,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+17833,Président de séance,PS,presidence_seance,15,2026-05-05,2026-08-27,assnat_fiche,verified
+17835,Adjointe parlementaire de la ministre responsable de l’Administration gouvernementale et présidente du Conseil du trésor (volets efficacité de l’État et gouvernance),AP,adjoint_parlementaire,20,2022-11-09,2025-09-17,assnat_fiche,verified
+17835,Membre de la Commission de la santé et des services sociaux,,,0,2022-12-02,2024-09-06,assnat_fiche,verified
+17835,Vice-présidente de la Délégation de l’Assemblée nationale pour les relations avec la Fédération Wallonie-Bruxelles,,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+17835,Membre de la Commission de l’administration publique,,,0,2024-09-06,2026-08-27,assnat_fiche,verified
+17835,Adjointe parlementaire de la ministre responsable de l’Administration gouvernementale et de l’efficacité de l’État et présidente du Conseil du trésor (volets efficacité de l’État et gouvernance),AP,adjoint_parlementaire,20,2025-09-17,2026-04-29,assnat_fiche,verified
+17835,Membre de la Commission de la santé et des services sociaux,,,0,2025-11-06,2026-05-05,assnat_fiche,verified
+17835,Leader parlementaire adjointe du gouvernement,LP,leader_adjoint_gouvernement,25,2026-04-21,2026-08-27,assnat_fiche,verified
+17835,Membre de la Commission de l’Assemblée nationale,,,0,2026-04-21,2026-08-27,assnat_fiche,verified
+17835,Membre de la Sous-commission de la réforme parlementaire,,,0,2026-04-21,2026-08-27,assnat_fiche,verified
+17835,Membre du Bureau de l’Assemblée nationale,B,membre_bureau,15,2026-05-06,2026-08-27,assnat_fiche,verified
+17837,Ministre du Tourisme,M,ministre,75,2018-10-18,2022-10-20,assnat_fiche,verified
+17837,Membre du Comité ministériel de l’économie et de l’environnement,,,0,2018-10-31,2022-10-20,assnat_fiche,verified
+17837,Ministre responsable de la région de Lanaudière,M,ministre,75,2020-08-20,2022-10-20,assnat_fiche,verified
+17837,Ministre responsable de la région du Bas-Saint-Laurent,M,ministre,75,2021-05-05,2022-10-20,assnat_fiche,verified
+17837,Membre du Conseil du trésor,,,0,2022-01-01,2022-10-20,assnat_fiche,verified
+17837,Ministre du Tourisme,M,ministre,75,2022-10-20,2025-09-10,assnat_fiche,verified
+17837,Ministre responsable de la région de Lanaudière,M,ministre,75,2022-10-20,2025-09-10,assnat_fiche,verified
+17837,Vice-présidente du Comité ministériel de l’économie et de l’environnement,,,0,2022-10-20,2025-09-10,assnat_fiche,verified
+17837,Ministre déléguée à la Santé,M,ministre,75,2025-09-10,2025-10-30,assnat_fiche,verified
+17837,Ministre responsable de la Condition féminine,M,ministre,75,2025-09-10,2026-04-21,assnat_fiche,verified
+17837,Ministre responsable des Aînés,M,ministre,75,2025-09-10,2025-10-30,assnat_fiche,verified
+17837,Vice-présidente du Comité ministériel des services aux citoyens,,,0,2025-09-10,2025-11-05,assnat_fiche,verified
+17837,Ministre responsable de l’Habitation,M,ministre,75,2025-10-30,2026-04-21,assnat_fiche,verified
+17837,Vice-présidente du Comité ministériel de l’économie et de l’environnement,,,0,2025-11-05,2026-04-21,assnat_fiche,verified
+17837,Adjointe parlementaire de la ministre responsable de la Condition féminine,AP,adjoint_parlementaire,20,2026-04-29,2026-08-27,assnat_fiche,verified
+17845,Ministre déléguée à l’Éducation,M,ministre,75,2018-10-18,2022-10-20,assnat_fiche,verified
+17845,Membre du Comité ministériel des services aux citoyens,,,0,2018-10-31,2022-10-20,assnat_fiche,verified
+17845,Ministre responsable de la Condition féminine,M,ministre,75,2019-02-05,2022-10-20,assnat_fiche,verified
+17845,Membre du Comité ministériel des services aux citoyens,,,0,2022-10-20,2026-01-14,assnat_fiche,verified
+17845,"Ministre responsable du Sport, du Loisir et du Plein air",M,ministre,75,2022-10-20,2026-04-21,assnat_fiche,verified
+17845,Ministre responsable de la région de l’Estrie,M,ministre,75,2025-09-10,2026-04-21,assnat_fiche,verified
+17845,Vice-présidente du Comité ministériel des services aux citoyens,,,0,2026-01-14,2026-04-21,assnat_fiche,verified
+17845,Adjointe parlementaire du ministre responsable des Relations canadiennes,AP,adjoint_parlementaire,20,2026-04-29,2026-08-27,assnat_fiche,verified
+17847,Ministre responsable des Relations canadiennes et de la Francophonie canadienne,M,ministre,75,2018-10-18,2022-10-20,assnat_fiche,verified
+17847,Membre du Comité ministériel des services aux citoyens,,,0,2020-06-22,2022-10-20,assnat_fiche,verified
+17847,Ministre responsable de l’Administration gouvernementale,M,ministre,75,2020-06-22,2022-10-20,assnat_fiche,verified
+17847,Présidente du Conseil du trésor,,,0,2020-06-22,2022-10-20,assnat_fiche,verified
+17847,Vice-présidente du Comité de législation,,,0,2020-06-22,2022-10-20,assnat_fiche,verified
+17847,Ministre responsable des Institutions démocratiques et de la Réforme électorale,M,ministre,75,2020-08-20,2022-10-20,assnat_fiche,verified
+17847,Membre du Comité ministériel de l’économie et de l’environnement,,,0,2022-10-20,2024-09-11,assnat_fiche,verified
+17847,Ministre responsable de l’Administration gouvernementale,M,ministre,75,2022-10-20,2025-09-10,assnat_fiche,verified
+17847,Présidente du Conseil du trésor,,,0,2022-10-20,2025-09-10,assnat_fiche,verified
+17847,Vice-présidente du Comité de législation,,,0,2022-10-20,2025-09-10,assnat_fiche,verified
+17847,Membre du Comité ministériel des services aux citoyens,,,0,2024-09-11,2026-01-28,assnat_fiche,verified
+17847,Membre du Comité de législation,,,0,2025-09-10,,assnat_fiche,verified
+17847,Ministre de l’Éducation,M,ministre,75,2025-09-10,,assnat_fiche,verified
+17847,Leader parlementaire adjointe du gouvernement,LP,leader_adjoint_gouvernement,25,2025-09-18,2026-08-27,assnat_fiche,verified
+17847,Membre de la Commission de l’Assemblée nationale,,,0,2025-09-18,2026-08-27,assnat_fiche,verified
+17847,Membre de la Sous-commission de la réforme parlementaire,,,0,2025-09-18,2026-08-27,assnat_fiche,verified
+17847,Présidente du Comité ministériel des services aux citoyens,,,0,2026-01-28,2026-04-21,assnat_fiche,verified
+17847,Membre du Comité ministériel des services aux citoyens,,,0,2026-04-21,,assnat_fiche,verified
+17849,Vice-président de la Commission de l’administration publique,VC,vice_presidence_commission_permanente,20,2022-12-06,2025-09-22,assnat_fiche,verified
+17849,Vice-président de la Délégation de l’Assemblée nationale pour les relations avec l’Assemblée nationale française,,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+17849,Membre de la Commission de l’économie et du travail,,,0,2025-04-17,2025-09-22,assnat_fiche,verified
+17849,Adjoint parlementaire de la ministre du Tourisme,AP,adjoint_parlementaire,20,2025-09-17,2026-08-27,assnat_fiche,verified
+17849,"Membre de la Commission de l’agriculture, des pêcheries, de l’énergie et des ressources naturelles",,,0,2025-09-22,2026-08-27,assnat_fiche,verified
+17849,Membre de la Commission de l’aménagement du territoire,,,0,2025-09-22,2026-08-27,assnat_fiche,verified
+17851,Leader parlementaire adjoint du gouvernement,LP,leader_adjoint_gouvernement,25,2022-10-20,2026-04-21,assnat_fiche,verified
+17851,Membre de la Commission de l’Assemblée nationale,,,0,2022-11-29,2026-04-21,assnat_fiche,verified
+17851,Membre de la Sous-commission de la réforme parlementaire,,,0,2022-11-29,2026-04-21,assnat_fiche,verified
+17851,Membre suppléant du Bureau de l’Assemblée nationale,,,0,2022-12-01,2025-10-01,assnat_fiche,verified
+17851,Président de la Commission de la démocratie et de la paix de la Confédération parlementaire des Amériques,,,0,2023-02-20,2026-04-21,assnat_fiche,verified
+17851,Vice-président de la Section du Québec de la Confédération parlementaire des Amériques,,,0,2023-02-20,2026-04-21,assnat_fiche,verified
+17851,Membre du Bureau de l’Assemblée nationale,B,membre_bureau,15,2025-10-01,2026-05-06,assnat_fiche,verified
+17851,Membre du Comité de législation,,,0,2026-04-21,,assnat_fiche,verified
+17851,Membre du Comité ministériel de l’économie et de l’environnement,,,0,2026-04-21,,assnat_fiche,verified
+17851,Ministre délégué aux Régions,M,ministre,75,2026-04-21,,assnat_fiche,verified
+17851,Ministre responsable de la Jeunesse,M,ministre,75,2026-04-21,,assnat_fiche,verified
+17855,Ministre de l’Énergie et des Ressources naturelles,M,ministre,75,2018-10-18,2022-10-20,assnat_fiche,verified
+17855,Ministre responsable de la région de la Côte-Nord,M,ministre,75,2018-10-18,2022-10-20,assnat_fiche,verified
+17855,Membre du Comité ministériel de l’économie et de l’environnement,,,0,2018-10-31,2022-10-20,assnat_fiche,verified
+17855,Ministre responsable de la région de la Gaspésie–Îles-de-la-Madeleine,M,ministre,75,2021-02-24,2022-10-20,assnat_fiche,verified
+17855,Vice-président du Conseil du trésor,,,0,2022-01-01,2022-10-20,assnat_fiche,verified
+17855,Membre du Comité de législation,,,0,2022-10-20,2025-09-10,assnat_fiche,verified
+17855,Membre du Comité ministériel de l’économie et de l’environnement,,,0,2022-10-20,2024-09-11,assnat_fiche,verified
+17855,Ministre responsable de la région de la Capitale-Nationale,M,ministre,75,2022-10-20,2025-09-10,assnat_fiche,verified
+17855,Ministre responsable des Infrastructures,M,ministre,75,2022-10-20,2025-09-10,assnat_fiche,verified
+17855,Membre du Comité ministériel des services aux citoyens,,,0,2024-09-11,2026-04-21,assnat_fiche,verified
+17855,Membre du Conseil du trésor,,,0,2024-09-11,2025-09-10,assnat_fiche,verified
+17855,Ministre des Transports et de la Mobilité durable,M,ministre,75,2025-09-10,2026-04-21,assnat_fiche,verified
+17855,"Vice-président de la Commission de l’agriculture, des pêcheries, de l’énergie et des ressources naturelles",VC,vice_presidence_commission_permanente,20,2026-05-05,2026-08-27,assnat_fiche,verified
+17857,"Adjoint parlementaire du ministre de l’Éducation (volets éducation préscolaire, primaire et secondaire et formation professionnelle)",AP,adjoint_parlementaire,20,2022-11-09,2025-09-17,assnat_fiche,verified
+17857,Membre de la Commission de la culture et de l’éducation,,,0,2022-12-02,2026-08-27,assnat_fiche,verified
+17857,Vice-président de la Délégation de l’Assemblée nationale pour les relations avec la Région wallonne,,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+17857,Membre de la Commission de l’aménagement du territoire,,,0,2024-09-06,2025-02-18,assnat_fiche,verified
+17857,Adjoint parlementaire du ministre responsable de la Stratégie maritime,AP,adjoint_parlementaire,20,2025-09-17,2026-08-27,assnat_fiche,verified
+17857,Membre de la Commission des transports et de l’environnement,,,0,2025-09-22,2026-08-27,assnat_fiche,verified
+17859,Membre de la Commission de l’Assemblée nationale,,,0,2022-12-06,2026-08-27,assnat_fiche,verified
+17859,Président de la Commission des institutions,PC,presidence_commission_permanente,25,2022-12-06,2026-08-27,assnat_fiche,verified
+17867,Porte-parole du deuxième groupe d’opposition en matière de santé,PP,,0,2022-10-27,2025-11-22,assnat_fiche,verified
+17867,"Porte-parole du deuxième groupe d’opposition en matière de sports, de loisirs et de plein air",PP,,0,2022-10-27,2025-11-22,assnat_fiche,verified
+17867,Porte-parole du deuxième groupe d’opposition en matière d’éthique,PP,,0,2022-10-27,2025-11-22,assnat_fiche,verified
+17867,Porte-parole du deuxième groupe d’opposition pour la Métropole,PP,,0,2022-10-27,2025-11-22,assnat_fiche,verified
+17867,Membre de la Commission de la santé et des services sociaux,,,0,2022-12-02,2025-02-13,assnat_fiche,verified
+17867,Porte-parole du deuxième groupe d’opposition responsable de la région de la Gaspésie–Îles-de-la-Madeleine,PP,,0,2024-01-25,2025-11-22,assnat_fiche,verified
+17867,Vice-président de la Commission de l’administration publique,VC,vice_presidence_commission_permanente,20,2024-08-21,2025-11-22,assnat_fiche,verified
+17867,Porte-parole du deuxième groupe d’opposition en matière d’administration gouvernementale et pour le Conseil du trésor,PP,,0,2024-08-29,2025-11-22,assnat_fiche,verified
+17873,Membre du Comité ministériel de l’économie et de l’environnement,,,0,2022-10-20,,assnat_fiche,verified
+17873,Ministre délégué à l’Économie,M,ministre,75,2022-10-20,2025-09-10,assnat_fiche,verified
+17873,Ministre responsable de la Lutte contre le racisme,M,ministre,75,2022-10-20,,assnat_fiche,verified
+17873,Ministre responsable de la région de Laval,M,ministre,75,2022-10-20,2026-04-21,assnat_fiche,verified
+17873,Ministre des Relations internationales et de la Francophonie,M,ministre,75,2025-09-10,,assnat_fiche,verified
+17873,Ministre responsable des Relations avec les Québécois d’expression anglaise,M,ministre,75,2025-09-10,,assnat_fiche,verified
+17873,Membre du Comité de législation,,,0,2026-04-21,2026-04-29,assnat_fiche,verified
+17877,Whip adjointe du gouvernement,W,whip_adjoint_gouvernement,20,2022-10-20,2025-09-17,assnat_fiche,verified
+17877,Membre suppléante du Bureau de l’Assemblée nationale,,,0,2022-12-01,2026-08-27,assnat_fiche,verified
+17877,Rapporteure de la Commission des affaires parlementaires de l’Assemblée parlementaire de la Francophonie,,,0,2023-03-20,2026-08-27,assnat_fiche,verified
+17877,Adjointe parlementaire du ministre délégué à l’Économie et aux Petites et Moyennes Entreprises (volet petites et moyennes entreprises),AP,adjoint_parlementaire,20,2025-09-17,2026-04-29,assnat_fiche,verified
+17877,Membre de la Commission de l’économie et du travail,,,0,2025-09-22,2026-08-27,assnat_fiche,verified
+17877,Adjointe parlementaire du ministre délégué à l’Économie et aux Petites et Moyennes Entreprises,AP,adjoint_parlementaire,20,2026-04-29,2026-08-27,assnat_fiche,verified
+17877,Membre de la Commission des finances publiques,,,0,2026-05-05,2026-08-27,assnat_fiche,verified
+17879,Adjoint parlementaire du ministre de la Langue française,AP,adjoint_parlementaire,20,2022-11-09,2026-08-27,assnat_fiche,verified
+17879,Adjoint parlementaire du ministre responsable des Relations canadiennes et de la Francophonie canadienne,AP,adjoint_parlementaire,20,2022-11-09,2025-01-29,assnat_fiche,verified
+17879,Membre de la Commission des institutions,,,0,2022-12-02,2026-08-27,assnat_fiche,verified
+17879,Adjoint parlementaire du ministre responsable de la Francophonie canadienne,AP,adjoint_parlementaire,20,2025-01-29,2026-08-27,assnat_fiche,verified
+17879,Membre de la Commission de la culture et de l’éducation,,,0,2025-04-17,2026-08-27,assnat_fiche,verified
+17881,Adjoint parlementaire du ministre de la Santé,AP,adjoint_parlementaire,20,2022-11-09,2024-09-12,assnat_fiche,verified
+17881,Membre de la Commission de la santé et des services sociaux,,,0,2022-12-02,2024-09-06,assnat_fiche,verified
+17881,Représentant du Secrétariat du Québec au sein du Comité exécutif de la Confédération parlementaire des Amériques,,,0,2023-02-20,2024-02-06,assnat_fiche,verified
+17881,Vice-président de la Section du Québec de la Confédération parlementaire des Amériques,,,0,2023-02-20,2024-02-06,assnat_fiche,verified
+17881,Membre de la Commission des finances publiques,,,0,2024-09-06,2024-09-12,assnat_fiche,verified
+17883,Porte-parole de l’opposition officielle en matière d’éducation et d’enseignement supérieur,PP,,0,2022-10-27,2024-03-21,assnat_fiche,verified
+17883,Porte-parole de l’opposition officielle en matière de paradis fiscaux,PP,,0,2022-11-15,2024-03-21,assnat_fiche,verified
+17883,Porte-parole de l’opposition officielle en matière d’administration gouvernementale et pour le Conseil du trésor,PP,,0,2022-11-15,2024-03-21,assnat_fiche,verified
+17883,Porte-parole de l’opposition officielle en matière d’infrastructures,PP,,0,2022-11-15,2024-03-21,assnat_fiche,verified
+17883,Porte-parole de l’opposition officielle pour la protection des consommateurs,PP,,0,2022-11-15,2024-03-21,assnat_fiche,verified
+17883,Membre de la Commission de la culture et de l’éducation,,,0,2022-12-02,2025-01-28,assnat_fiche,verified
+17883,Membre de la Commission des finances publiques,,,0,2022-12-02,2025-01-28,assnat_fiche,verified
+17883,Membre de la Commission de l’Assemblée nationale,,,0,2022-12-06,2025-07-07,assnat_fiche,verified
+17883,Présidente de la Commission de l’administration publique,PC,presidence_commission_permanente,25,2022-12-06,2025-07-07,assnat_fiche,verified
+17883,"Rapporteure de la Commission de l’éducation, de la culture, de la science et de la technologie de la Section du Québec de la Confédération parlementaire des Amériques",,,0,2023-02-20,2025-12-02,assnat_fiche,verified
+17883,Représentante de la 1re Assemblée hôte au Comité exécutif de la Confédération parlementaire des Amériques,,,0,2023-02-20,2025-12-02,assnat_fiche,verified
+17883,Vice-présidente de la Section du Québec de la Confédération parlementaire des Amériques,,,0,2023-02-20,2025-12-02,assnat_fiche,verified
+17883,Porte-parole de l’opposition officielle en matière de paradis fiscaux,PP,,0,2024-08-10,2025-06-26,assnat_fiche,verified
+17883,Porte-parole de l’opposition officielle en matière de ressources naturelles,PP,,0,2024-08-10,2024-09-21,assnat_fiche,verified
+17883,Porte-parole de l’opposition officielle en matière d’administration gouvernementale et pour le Conseil du trésor,PP,,0,2024-08-10,2025-01-25,assnat_fiche,verified
+17883,Porte-parole de l’opposition officielle en matière d’infrastructures,PP,,0,2024-08-10,2025-01-25,assnat_fiche,verified
+17883,Porte-parole de l’opposition officielle en matière d’éducation,PP,,0,2024-08-10,2025-01-27,assnat_fiche,verified
+17883,Porte-parole de l’opposition officielle en matière d’énergie,PP,,0,2024-08-10,2025-01-25,assnat_fiche,verified
+17883,Porte-parole de l’opposition officielle pour la protection des consommateurs,PP,,0,2024-08-10,2025-06-26,assnat_fiche,verified
+17883,"Membre de la Commission de l’agriculture, des pêcheries, de l’énergie et des ressources naturelles",,,0,2024-09-09,2025-01-28,assnat_fiche,verified
+17883,Cheffe de l’opposition officielle,CO,chef_opposition_officielle,75,2025-06-19,2025-11-18,assnat_fiche,verified
+17889,Porte-parole du deuxième groupe d’opposition en matière de justice,PP,,0,2022-10-27,2023-03-28,assnat_fiche,verified
+17889,Porte-parole du deuxième groupe d’opposition en matière de services sociaux,PP,,0,2022-10-27,2023-03-28,assnat_fiche,verified
+17889,Porte-parole du deuxième groupe d’opposition en matière d’administration gouvernementale et pour le Conseil du trésor,PP,,0,2022-10-27,2024-08-29,assnat_fiche,verified
+17889,Porte-parole du deuxième groupe d’opposition pour les aînés,PP,,0,2022-10-27,2026-08-27,assnat_fiche,verified
+17889,Vice-présidente de la Commission de l’administration publique,VC,vice_presidence_commission_permanente,20,2022-12-06,2024-08-21,assnat_fiche,verified
+17889,Porte-parole du deuxième groupe d’opposition en matière de services sociaux et de santé mentale,PP,,0,2023-03-28,2024-01-25,assnat_fiche,verified
+17889,Porte-parole du deuxième groupe d’opposition en matière de solidarité sociale et d’action communautaire,PP,,0,2024-01-25,2025-01-23,assnat_fiche,verified
+17889,Porte-parole du deuxième groupe d’opposition responsable de la région de l’Estrie,PP,,0,2024-01-25,2026-08-27,assnat_fiche,verified
+17889,Porte-parole du deuxième groupe d’opposition en matière d’affaires municipales,PP,,0,2025-01-23,2026-08-27,assnat_fiche,verified
+17889,Membre de la Commission de l’aménagement du territoire,,,0,2025-01-29,2026-08-27,assnat_fiche,verified
+17891,Adjointe parlementaire de la ministre déléguée à la Santé et aux Aînés (volet soutien à domicile),AP,adjoint_parlementaire,20,2022-11-09,2023-05-17,assnat_fiche,verified
+17891,Membre de la Commission des relations avec les citoyens,,,0,2022-12-02,2024-09-06,assnat_fiche,verified
+17891,"Vice-présidente de la Section du Québec, Région canadienne de l’Association parlementaire du Commonwealth",,,0,2023-02-20,2024-04-17,assnat_fiche,verified
+17891,Adjointe parlementaire de la ministre déléguée à la Santé (volet soutien à domicile),AP,adjoint_parlementaire,20,2023-05-17,2023-06-14,assnat_fiche,verified
+17891,Adjointe parlementaire de la ministre responsable des Aînés (volet proches aidants),AP,adjoint_parlementaire,20,2023-06-14,2025-09-17,assnat_fiche,verified
+17891,Présidente déléguée de la Section du Québec de l’Assemblée parlementaire de la Francophonie,,,0,2024-04-17,2026-08-27,assnat_fiche,verified
+17891,Vice-présidente et rapporteure de la Commission politique de l’Assemblée parlementaire de la Francophonie,,,0,2024-04-17,2026-08-27,assnat_fiche,verified
+17891,Membre de la Commission de la santé et des services sociaux,,,0,2024-09-06,2026-08-27,assnat_fiche,verified
+17891,Adjointe parlementaire de la ministre de la Famille,AP,adjoint_parlementaire,20,2025-09-17,2026-04-29,assnat_fiche,verified
+17891,Membre de la Commission des relations avec les citoyens,,,0,2025-09-22,2026-08-27,assnat_fiche,verified
+17891,Adjointe parlementaire du ministre responsable des Services sociaux et de la Lutte contre l’itinérance (volet protection de la jeunesse),AP,adjoint_parlementaire,20,2026-04-29,2026-08-27,assnat_fiche,verified
+17893,Ministre délégué à la Santé et aux Services sociaux,M,ministre,75,2018-10-18,2022-10-20,assnat_fiche,verified
+17893,Membre du Comité ministériel des services aux citoyens,,,0,2018-10-31,2022-10-20,assnat_fiche,verified
+17893,Membre du Comité ministériel des services aux citoyens,,,0,2022-10-20,2025-10-30,assnat_fiche,verified
+17893,Ministre responsable des Services sociaux,M,ministre,75,2022-10-20,2025-10-30,assnat_fiche,verified
+17893,Ministre responsable de la région de la Montérégie,M,ministre,75,2025-09-10,2025-10-30,assnat_fiche,verified
+17893,Membre du Comité ministériel des services aux citoyens,,,0,2026-04-21,,assnat_fiche,verified
+17893,Ministre responsable des Services sociaux et de la Lutte contre l’itinérance,M,ministre,75,2026-04-21,,assnat_fiche,verified
+17897,Ministre de l’Économie et de l’Innovation,M,ministre,75,2021-09-01,2024-07-17,assnat_biographie,transcribed
+17897,"Ministre de l’Économie, de l’Innovation et de l’Énergie",M,ministre,75,2024-07-17,2024-09-05,assnat_biographie,transcribed
+17899,Membre du Comité de législation,,,0,2018-10-18,2022-10-20,assnat_fiche,verified
+17899,"Ministre du Travail, de l’Emploi et de la Solidarité sociale",M,ministre,75,2018-10-18,2022-10-20,assnat_fiche,verified
+17899,Ministre responsable de la région de la Mauricie,M,ministre,75,2018-10-18,2022-10-20,assnat_fiche,verified
+17899,Membre du Comité ministériel de l’économie et de l’environnement,,,0,2018-10-31,2022-10-20,assnat_fiche,verified
+17899,"Ministre de l’Immigration, de la Francisation et de l’Intégration",M,ministre,75,2021-11-24,2022-10-20,assnat_fiche,verified
+17899,Membre du Comité de législation,,,0,2022-10-20,2025-09-10,assnat_fiche,verified
+17899,Membre du Comité ministériel de l’économie et de l’environnement,,,0,2022-10-20,2025-09-10,assnat_fiche,verified
+17899,Membre du Conseil du trésor,,,0,2022-10-20,2025-09-10,assnat_fiche,verified
+17899,Ministre du Travail,M,ministre,75,2022-10-20,,assnat_fiche,verified
+17899,Ministre responsable de la région de la Mauricie et de la région du Nord-du-Québec,M,ministre,75,2022-10-20,2023-10-19,assnat_fiche,verified
+17899,"Ministre responsable de la région de la Mauricie, de la région de l’Abitibi-Témiscamingue et de la région du Nord-du-Québec",M,ministre,75,2023-10-19,2025-09-10,assnat_fiche,verified
+17899,Ministre responsable de la région de la Mauricie,M,ministre,75,2025-09-10,2026-04-21,assnat_fiche,verified
+17899,Vice-président du Comité de législation,,,0,2025-09-10,,assnat_fiche,verified
+17899,Vice-président du Comité ministériel de l’économie et de l’environnement,,,0,2025-09-10,2025-11-05,assnat_fiche,verified
+17899,Vice-président du Conseil du trésor,,,0,2025-09-10,2026-01-28,assnat_fiche,verified
+17899,Président du Comité ministériel de l’économie et de l’environnement,,,0,2025-11-05,2026-01-28,assnat_fiche,verified
+17899,"Ministre de l’Économie, de l’Innovation et de l’Énergie",M,ministre,75,2026-01-26,2026-04-21,assnat_fiche,verified
+17899,Ministre responsable de la Stratégie maritime,M,ministre,75,2026-01-26,2026-04-21,assnat_fiche,verified
+17899,Membre du Comité ministériel de l’économie et de l’environnement,,,0,2026-01-28,2026-04-21,assnat_fiche,verified
+17899,Ministre responsable des Relations canadiennes,M,ministre,75,2026-04-21,,assnat_fiche,verified
+17899,Président du Comité ministériel de l’économie et de l’environnement,,,0,2026-04-21,,assnat_fiche,verified
+17901,Adjoint parlementaire du ministre de la Sécurité publique,AP,adjoint_parlementaire,20,2022-11-09,2025-09-17,assnat_fiche,verified
+17901,Membre de la Commission de l’administration publique,,,0,2022-12-02,2026-08-27,assnat_fiche,verified
+17901,Vice-président de la Délégation de l’Assemblée nationale pour les relations avec Terre-Neuve-et-Labrador,,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+17901,Adjoint parlementaire du ministre des Ressources naturelles et des Forêts (volet ressources naturelles),AP,adjoint_parlementaire,20,2025-09-17,2026-04-29,assnat_fiche,verified
+17901,Adjoint parlementaire du ministre des Transports et de la Mobilité durable,AP,adjoint_parlementaire,20,2026-04-29,2026-08-27,assnat_fiche,verified
+17901,Membre de la Commission des transports et de l’environnement,,,0,2026-05-05,2026-08-27,assnat_fiche,verified
+17903,Ministre responsable des Affaires autochtones,M,ministre,75,2020-10-09,2022-10-20,assnat_fiche,verified
+17903,Membre du Comité ministériel de l’économie et de l’environnement,,,0,2021-02-24,2022-10-20,assnat_fiche,verified
+17903,Membre du Comité ministériel des services aux citoyens,,,0,2022-10-20,2024-09-11,assnat_fiche,verified
+17903,Ministre responsable des Relations avec les Premières Nations et les Inuit,M,ministre,75,2022-10-20,,assnat_fiche,verified
+17903,Membre du Comité ministériel de l’économie et de l’environnement,,,0,2024-09-11,2025-09-10,assnat_fiche,verified
+17903,Membre du Comité ministériel des services aux citoyens,,,0,2025-09-10,2026-04-21,assnat_fiche,verified
+17903,Ministre de la Sécurité publique,M,ministre,75,2025-09-10,2026-04-21,assnat_fiche,verified
+17903,Ministre responsable de la région du Nord-du-Québec,M,ministre,75,2025-09-10,2026-04-21,assnat_fiche,verified
+17903,Ministre de la Sécurité intérieure,M,ministre,75,2026-04-21,,assnat_fiche,verified
+17903,Vice-premier ministre,,,0,2026-04-21,,assnat_fiche,verified
+17903,Vice-président du Comité ministériel des services aux citoyens,,,0,2026-04-21,,assnat_fiche,verified
+17905,Membre de la Commission des institutions,,,0,2022-12-02,2025-06-25,assnat_fiche,verified
+17905,Adjoint parlementaire de la ministre de l’Enseignement supérieur,AP,adjoint_parlementaire,20,2022-12-07,2026-08-27,assnat_fiche,verified
+17905,Membre de la Commission de la culture et de l’éducation,,,0,2023-01-30,2026-08-27,assnat_fiche,verified
+17905,"Membre de la Commission de l’agriculture, des pêcheries, de l’énergie et des ressources naturelles",,,0,2026-05-05,2026-08-27,assnat_fiche,verified
+17909,Membre de la Commission de l’Assemblée nationale,,,0,2022-11-29,2026-08-27,assnat_fiche,verified
+17909,Membre de la Sous-commission de la réforme parlementaire,,,0,2022-11-29,2026-08-27,assnat_fiche,verified
+17909,Troisième vice-président de l’Assemblée nationale,VP,vice_presidence_assemblee,35,2022-11-29,,assnat_fiche,verified
+17911,Porte-parole de l’opposition officielle en matière de sécurité publique,PP,,0,2022-10-27,2026-08-27,assnat_fiche,verified
+17911,Porte-parole de l’opposition officielle pour la communauté 2SLGBTQIA+,PP,,0,2022-10-27,2026-08-27,assnat_fiche,verified
+17911,Porte-parole de l’opposition officielle en matière de lutte contre le racisme,PP,,0,2022-11-24,2026-02-14,assnat_fiche,verified
+17911,Membre de la Commission des institutions,,,0,2022-12-02,2026-08-27,assnat_fiche,verified
+17911,Membre de la Commission de l’Assemblée nationale,,,0,2022-12-06,2025-07-07,assnat_fiche,verified
+17911,Présidente de la Commission des transports et de l’environnement,PC,presidence_commission_permanente,25,2022-12-06,2025-07-07,assnat_fiche,verified
+17911,"Rapporteure de la Commission de l’éducation, de la culture et de la communication (et Réseau parlementaire de lutte contre le VIH/SIDA) de l’Assemblée parlementaire de la Francophonie",,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+17911,Porte-parole de l’opposition officielle pour la famille,PP,,0,2023-08-10,2026-02-14,assnat_fiche,verified
+17911,Porte-parole de l’opposition officielle responsable de la région de la Mauricie,PP,,0,2024-01-16,2026-08-27,assnat_fiche,verified
+17911,Porte-parole de l’opposition officielle en matière de solidarité sociale et d’action communautaire,PP,,0,2025-06-26,2026-02-14,assnat_fiche,verified
+17911,Membre de la Commission des relations avec les citoyens,,,0,2025-07-07,2026-02-16,assnat_fiche,verified
+17911,Présidente de séance,PS,presidence_seance,15,2025-07-07,2026-02-25,assnat_fiche,verified
+17911,Membre du Bureau de l’Assemblée nationale,B,membre_bureau,15,2025-10-01,2026-08-27,assnat_fiche,verified
+17911,Vice-présidente de la Commission de l’économie et du travail,VC,vice_presidence_commission_permanente,20,2025-12-05,2026-01-02,assnat_fiche,verified
+17911,Membre de la Commission de l’Assemblée nationale,,,0,2026-01-02,2026-08-27,assnat_fiche,verified
+17911,Présidente de la Commission de la culture et de l’éducation,PC,presidence_commission_permanente,25,2026-01-02,2026-02-16,assnat_fiche,verified
+17911,Porte-parole de l’opposition officielle responsable de la région de Laval,PP,,0,2026-01-05,2026-08-27,assnat_fiche,verified
+17911,Membre de la Sous-commission de la réforme parlementaire,,,0,2026-02-14,2026-08-27,assnat_fiche,verified
+17911,Membre du comité consultatif de la diplomatie parlementaire,,,0,2026-02-14,2026-08-27,assnat_fiche,verified
+17911,Whip en chef de l’opposition officielle,W,whip_chef_opposition_officielle,30,2026-02-14,2026-08-27,assnat_fiche,verified
+17913,Ministre des Affaires municipales et de l’Habitation,M,ministre,75,2018-10-18,2022-10-20,assnat_biographie,transcribed
+17913,Ministre des Relations internationales et de la Francophonie,M,ministre,75,2022-07-11,2022-10-20,assnat_biographie,transcribed
+17913,Ministre des Affaires municipales,M,ministre,75,2022-10-20,2025-09-04,assnat_biographie,transcribed
+17917,Adjoint parlementaire de la ministre du Tourisme,AP,adjoint_parlementaire,20,2022-11-09,2025-09-17,assnat_fiche,verified
+17917,Membre de la Commission de l’économie et du travail,,,0,2022-12-02,2024-09-06,assnat_fiche,verified
+17917,"Membre de la Commission de l’agriculture, des pêcheries, de l’énergie et des ressources naturelles",,,0,2024-09-06,2025-09-22,assnat_fiche,verified
+17917,Adjoint parlementaire du ministre responsable des Infrastructures,AP,adjoint_parlementaire,20,2025-09-17,2026-01-09,assnat_fiche,verified
+17917,Membre de la Commission des finances publiques,,,0,2025-09-22,2026-01-09,assnat_fiche,verified
+17921,Membre du Bureau de l’Assemblée nationale,B,membre_bureau,15,2022-12-01,2026-08-27,assnat_fiche,verified
+17921,Membre de la Commission de l’administration publique,,,0,2022-12-02,2025-09-22,assnat_fiche,verified
+17921,"Membre de la Commission de l’agriculture, des pêcheries, de l’énergie et des ressources naturelles",,,0,2024-09-06,2026-08-27,assnat_fiche,verified
+17921,Membre de la Commission de la santé et des services sociaux,,,0,2025-09-22,2026-08-27,assnat_fiche,verified
+17921,Président de séance,PS,presidence_seance,15,2025-09-22,2026-08-27,assnat_fiche,verified
+17923,Leader parlementaire adjoint de l’opposition officielle,LP,leader_adjoint_opposition_officielle,20,2022-10-12,2022-11-14,assnat_fiche,verified
+17923,Porte-parole de l’opposition officielle en matière de santé,PP,,0,2022-10-27,2022-11-15,assnat_fiche,verified
+17923,Leader parlementaire de l’opposition officielle,LP,leader_opposition_officielle,35,2022-11-14,2025-06-26,assnat_fiche,verified
+17923,Porte-parole de l’opposition officielle en matière d’institutions démocratiques,PP,,0,2022-11-15,2025-06-26,assnat_fiche,verified
+17923,Porte-parole de l’opposition officielle en matière d’éthique,PP,,0,2022-11-15,2025-06-26,assnat_fiche,verified
+17923,Porte-parole de l’opposition officielle pour la Loi électorale,PP,,0,2022-11-15,2025-06-26,assnat_fiche,verified
+17923,Membre de la Commission de l’Assemblée nationale,,,0,2022-11-29,2025-06-26,assnat_fiche,verified
+17923,Membre de la Sous-commission de la réforme parlementaire,,,0,2022-11-29,2025-06-26,assnat_fiche,verified
+17923,Membre de la Commission de l’administration publique,,,0,2022-12-02,2025-07-07,assnat_fiche,verified
+17923,"Porte-parole de l’opposition officielle en matière d’immigration, de francisation et d’intégration",PP,,0,2023-01-23,2024-01-16,assnat_fiche,verified
+17923,Porte-parole de l’opposition officielle en matière de finances,PP,,0,2023-10-16,2023-12-15,assnat_fiche,verified
+17923,Membre de la Commission des finances publiques,,,0,2023-10-17,2023-12-18,assnat_fiche,verified
+17923,Porte-parole de l’opposition officielle en matière de transports et de mobilité durable,PP,,0,2024-01-16,2026-08-27,assnat_fiche,verified
+17923,Membre de la Commission des transports et de l’environnement,,,0,2024-01-24,2026-08-27,assnat_fiche,verified
+17923,Porte-parole de l’opposition officielle en matière d’infrastructures,PP,,0,2024-03-21,2024-08-10,assnat_fiche,verified
+17923,Porte-parole de l’opposition officielle en matière d’énergie,PP,,0,2025-06-26,2026-02-14,assnat_fiche,verified
+17923,Membre de la Commission de l’Assemblée nationale,,,0,2025-07-07,2026-08-27,assnat_fiche,verified
+17923,Président de la Commission de l’administration publique,PC,presidence_commission_permanente,25,2025-07-07,2026-01-02,assnat_fiche,verified
+17923,Porte-parole de l’opposition officielle en matière d’enseignement supérieur,PP,,0,2025-11-27,2026-01-05,assnat_fiche,verified
+17923,Membre de la Commission de la culture et de l’éducation,,,0,2025-12-03,2026-02-16,assnat_fiche,verified
+17923,Leader parlementaire de l’opposition officielle,LP,leader_opposition_officielle,35,2025-12-22,2026-02-14,assnat_fiche,verified
+17923,Membre de la Sous-commission de la réforme parlementaire,,,0,2025-12-22,2026-02-14,assnat_fiche,verified
+17923,Porte-parole de l’opposition officielle en matière de santé,PP,,0,2026-02-14,2026-08-27,assnat_fiche,verified
+17923,Membre de la Commission de la santé et des services sociaux,,,0,2026-02-16,2026-08-27,assnat_fiche,verified
+17923,Président de la Commission de l’administration publique,PC,presidence_commission_permanente,25,2026-02-16,2026-08-27,assnat_fiche,verified
+17925,Adjoint parlementaire du ministre des Finances (volet Internet haute vitesse et projets spéciaux de connectivité),AP,adjoint_parlementaire,20,2022-11-09,2025-02-28,assnat_fiche,verified
+17925,Membre de la Commission des finances publiques,,,0,2022-12-02,2025-02-28,assnat_fiche,verified
+17925,Ministre de la Cybersécurité et du Numérique,M,ministre,75,2025-02-28,2026-04-21,assnat_fiche,verified
+17925,Membre du Comité ministériel des services aux citoyens,,,0,2025-09-10,2026-04-21,assnat_fiche,verified
+17927,Ministre de la Famille,M,ministre,75,2018-10-18,2022-10-20,assnat_fiche,verified
+17927,Ministre responsable de la région de l’Outaouais,M,ministre,75,2018-10-18,2022-10-20,assnat_fiche,verified
+17927,Membre du Comité ministériel des services aux citoyens,,,0,2018-10-31,2022-10-20,assnat_fiche,verified
+17927,Membre du Comité ministériel des services aux citoyens,,,0,2022-10-20,,assnat_fiche,verified
+17927,Ministre de la Culture et des Communications,M,ministre,75,2022-10-20,,assnat_fiche,verified
+17927,Ministre responsable de la Jeunesse,M,ministre,75,2022-10-20,2025-09-10,assnat_fiche,verified
+17927,Ministre responsable de la région de l’Abitibi-Témiscamingue et de la région de l’Outaouais,M,ministre,75,2022-10-20,2023-10-19,assnat_fiche,verified
+17927,Ministre responsable de la région de l’Outaouais,M,ministre,75,2023-10-19,2026-04-21,assnat_fiche,verified
+17929,Ministre des Finances,M,ministre,75,2018-10-18,2022-10-20,assnat_fiche,verified
+17929,Membre du Comité ministériel de l’économie et de l’environnement,,,0,2018-10-31,2022-10-20,assnat_fiche,verified
+17929,Membre du Comité ministériel de l’économie et de l’environnement,,,0,2022-10-20,2026-01-28,assnat_fiche,verified
+17929,Ministre des Finances,M,ministre,75,2022-10-20,,assnat_fiche,verified
+17929,Ministre responsable des Relations avec les Québécois d’expression anglaise,M,ministre,75,2022-10-20,2025-09-10,assnat_fiche,verified
+17929,Président du Comité ministériel de l’économie et de l’environnement,,,0,2026-01-28,2026-04-21,assnat_fiche,verified
+17929,Membre du Comité ministériel de l’économie et de l’environnement,,,0,2026-04-21,,assnat_fiche,verified
+17929,Ministre responsable des Infrastructures,M,ministre,75,2026-04-21,,assnat_fiche,verified
+17931,Ministre déléguée aux Transports,M,ministre,75,2018-10-18,2022-10-20,assnat_fiche,verified
+17931,Ministre responsable de la Métropole et de la région de Montréal,M,ministre,75,2018-10-18,2022-10-20,assnat_fiche,verified
+17931,Membre du Comité ministériel de l’économie et de l’environnement,,,0,2018-10-31,2022-10-20,assnat_fiche,verified
+17931,Membre du Comité ministériel des services aux citoyens,,,0,2022-10-20,,assnat_fiche,verified
+17931,Ministre responsable de la Solidarité sociale et de l’Action communautaire,M,ministre,75,2022-10-20,,assnat_fiche,verified
+17931,Ministre responsable de la Métropole et de la région de Montréal,M,ministre,75,2025-09-10,,assnat_fiche,verified
+17933,Whip du deuxième groupe d’opposition,W,whip_deuxieme_groupe,20,2022-10-12,2023-05-26,assnat_fiche,verified
+17933,Porte-parole du deuxième groupe d’opposition en matière de condition féminine,PP,,0,2022-10-27,2025-01-23,assnat_fiche,verified
+17933,Porte-parole du deuxième groupe d’opposition en matière de culture et de communications,PP,,0,2022-10-27,2024-01-25,assnat_fiche,verified
+17933,Porte-parole du deuxième groupe d’opposition en matière de langue française,PP,,0,2022-10-27,2025-01-23,assnat_fiche,verified
+17933,Porte-parole du deuxième groupe d’opposition en matière d’éducation,PP,,0,2022-10-27,2025-01-23,assnat_fiche,verified
+17933,Membre de la Commission de l’Assemblée nationale,,,0,2022-11-29,2023-05-26,assnat_fiche,verified
+17933,Membre de la Sous-commission de la réforme parlementaire,,,0,2022-11-29,2023-05-26,assnat_fiche,verified
+17933,Membre du Bureau de l’Assemblée nationale,B,membre_bureau,15,2022-12-01,2023-05-26,assnat_fiche,verified
+17933,Membre de la Commission de la culture et de l’éducation,,,0,2022-12-02,2025-01-29,assnat_fiche,verified
+17933,Membre du comité consultatif de la diplomatie parlementaire,,,0,2023-02-20,2023-05-26,assnat_fiche,verified
+17933,Vice-présidente et rapporteure de la Commission de la coopération et du développement de la Section du Québec de l’Assemblée parlementaire de la Francophonie,,,0,2023-02-20,2024-02-19,assnat_fiche,verified
+17933,Porte-parole du deuxième groupe d’opposition en matière de relations intergouvernementales canadiennes,PP,,0,2024-01-25,2025-12-09,assnat_fiche,verified
+17933,Porte-parole du deuxième groupe d’opposition en matière de souveraineté,PP,,0,2024-01-25,2025-01-23,assnat_fiche,verified
+17933,Porte-parole du deuxième groupe d’opposition responsable de la région de la Mauricie,PP,,0,2024-01-25,2026-08-27,assnat_fiche,verified
+17933,Porte-parole du deuxième groupe d’opposition responsable de la région du Saguenay–Lac-Saint-Jean,PP,,0,2024-01-25,2026-08-27,assnat_fiche,verified
+17933,Vice-présidente de la Délégation de l’Assemblée nationale pour les relations avec le Sénégal,,,0,2024-02-19,2026-08-27,assnat_fiche,verified
+17933,Porte-parole du deuxième groupe d’opposition en matière de féminisme,PP,,0,2025-01-23,2026-08-27,assnat_fiche,verified
+17933,Porte-parole du deuxième groupe d’opposition en matière de nationalisme inclusif,PP,,0,2025-01-23,2026-08-27,assnat_fiche,verified
+17933,Porte-parole du deuxième groupe d’opposition en matière d’indépendance,PP,,0,2025-01-23,2025-12-09,assnat_fiche,verified
+17933,Cheffe du deuxième groupe d’opposition,CO,chef_autre_groupe_opposition,35,2025-03-24,2026-08-27,assnat_fiche,verified
+17935,Leader parlementaire du deuxième groupe d’opposition,LP,leader_deuxieme_groupe,25,2022-10-12,2025-01-28,assnat_fiche,verified
+17935,Porte-parole du deuxième groupe d’opposition en matière de laïcité,PP,,0,2022-10-27,2024-08-29,assnat_fiche,verified
+17935,Porte-parole du deuxième groupe d’opposition en matière de travail,PP,,0,2022-10-27,2026-08-27,assnat_fiche,verified
+17935,Porte-parole du deuxième groupe d’opposition en matière d’emploi,PP,,0,2022-10-27,2026-08-27,assnat_fiche,verified
+17935,Porte-parole du deuxième groupe d’opposition en matière d’enseignement supérieur,PP,,0,2022-10-27,2024-01-25,assnat_fiche,verified
+17935,Membre de la Commission de l’Assemblée nationale,,,0,2022-11-29,2025-01-28,assnat_fiche,verified
+17935,Membre de la Sous-commission de la réforme parlementaire,,,0,2022-11-29,2025-01-28,assnat_fiche,verified
+17935,Membre suppléant du Bureau de l’Assemblée nationale,,,0,2022-12-01,2025-01-28,assnat_fiche,verified
+17935,Membre de la Commission de l’économie et du travail,,,0,2022-12-02,2025-01-29,assnat_fiche,verified
+17935,Porte-parole du deuxième groupe d’opposition responsable de la région de la Montérégie,PP,,0,2024-01-25,2026-08-27,assnat_fiche,verified
+17935,Membre de la Commission spéciale sur les impacts des écrans et des réseaux sociaux sur la santé et le développement des jeunes,,,0,2024-06-06,2025-05-29,assnat_fiche,verified
+17935,Porte-parole du deuxième groupe d’opposition en matière de langue française,PP,,0,2025-01-23,2026-08-27,assnat_fiche,verified
+17935,"Porte-parole du deuxième groupe d’opposition en matière d’environnement, de faune et de parcs",PP,,0,2025-01-23,2025-12-09,assnat_fiche,verified
+17935,Porte-parole du deuxième groupe d’opposition en matière d’institutions démocratiques,PP,,0,2025-01-23,2026-08-27,assnat_fiche,verified
+17935,Porte-parole du deuxième groupe d’opposition pour la famille,PP,,0,2025-01-23,2026-08-27,assnat_fiche,verified
+17935,Vice-président de la Commission des relations avec les citoyens,VC,vice_presidence_commission_permanente,20,2025-01-29,2025-11-26,assnat_fiche,verified
+17935,Porte-parole du deuxième groupe d’opposition en matière de lutte contre les changements climatiques,PP,,0,2025-08-25,2025-12-09,assnat_fiche,verified
+17935,Vice-président de la Commission de l’administration publique,VC,vice_presidence_commission_permanente,20,2025-11-26,2026-08-27,assnat_fiche,verified
+17935,Porte-parole du deuxième groupe d’opposition en matière d’administration gouvernementale et pour le Conseil du trésor,PP,,0,2025-12-09,2026-08-27,assnat_fiche,verified
+17937,Membre suppléant du Bureau de l’Assemblée nationale,,,0,2022-12-01,2024-05-07,assnat_fiche,verified
+17937,Président de séance,PS,presidence_seance,15,2022-12-02,2024-11-26,assnat_fiche,verified
+17937,Vice-président de la Commission des transports et de l’environnement,VC,vice_presidence_commission_permanente,20,2022-12-06,2024-04-22,assnat_fiche,verified
+17937,Président du caucus du gouvernement,PCA,presidence_caucus_gouvernement,25,2024-04-17,2025-09-10,assnat_fiche,verified
+17937,Membre du Bureau de l’Assemblée nationale,B,membre_bureau,15,2024-05-07,2026-08-27,assnat_fiche,verified
+17937,Membre de la Commission de l’Assemblée nationale,,,0,2025-09-10,2026-08-27,assnat_fiche,verified
+17937,Membre de la Sous-commission de la réforme parlementaire,,,0,2025-09-10,2026-08-27,assnat_fiche,verified
+17937,Membre du comité consultatif de la diplomatie parlementaire,,,0,2025-09-10,2026-08-27,assnat_fiche,verified
+17937,Whip en chef du gouvernement,W,whip_chef_gouvernement,35,2025-09-10,2026-08-27,assnat_fiche,verified
+17941,Adjoint parlementaire de la ministre responsable de l’Administration gouvernementale et présidente du Conseil du trésor (volets marchés publics et ordres professionnels),AP,adjoint_parlementaire,20,2022-11-09,2024-11-13,assnat_fiche,verified
+17941,Membre de la Commission des finances publiques,,,0,2022-12-02,2025-02-18,assnat_fiche,verified
+17941,Représentant de l’Assemblée nationale à la Commission de l’agriculture du Council of State Governments East (CSG East),,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+17941,Représentant de l’Assemblée nationale à la Commission de l’Énergie et de l’environnement du Council of State Governments East (CSG East),,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+17941,Membre de la Commission de l’Assemblée nationale,,,0,2024-11-13,2026-08-27,assnat_fiche,verified
+17941,Président de la Commission de l’économie et du travail,PC,presidence_commission_permanente,25,2024-11-13,2026-08-27,assnat_fiche,verified
+17943,Président du caucus de l’opposition officielle,PCA,presidence_caucus_opposition_officielle,22.5,2022-10-12,2022-12-01,assnat_fiche,verified
+17943,"Porte-parole de l’opposition officielle en matière de sports, de loisirs, de plein air et de saines habitudes de vie",PP,,0,2022-10-27,2026-08-27,assnat_fiche,verified
+17943,Porte-parole de l’opposition officielle responsable de la région de la Gaspésie–Îles-de-la-Madeleine,PP,,0,2022-10-27,2026-08-27,assnat_fiche,verified
+17943,Porte-parole de l’opposition officielle responsable de la région du Bas-Saint-Laurent,PP,,0,2022-10-27,2026-08-27,assnat_fiche,verified
+17943,Porte-parole de l’opposition officielle en matière de lutte contre l’intimidation,PP,,0,2022-11-24,2026-08-27,assnat_fiche,verified
+17943,Membre suppléant du Bureau de l’Assemblée nationale,,,0,2022-12-01,2026-02-24,assnat_fiche,verified
+17943,Membre de la Commission de l’aménagement du territoire,,,0,2022-12-02,2026-08-27,assnat_fiche,verified
+17943,Membre de la Commission de l’Assemblée nationale,,,0,2022-12-06,2026-08-27,assnat_fiche,verified
+17943,"Président de la Commission de l’agriculture, des pêcheries, de l’énergie et des ressources naturelles",PC,presidence_commission_permanente,25,2022-12-06,2026-08-27,assnat_fiche,verified
+17943,Porte-parole de l’opposition officielle responsable de la région du Saguenay–Lac-Saint-Jean,PP,,0,2023-10-16,2024-01-16,assnat_fiche,verified
+17943,Vice-président de la Commission spéciale sur les impacts des écrans et des réseaux sociaux sur la santé et le développement des jeunes,,,0,2024-06-06,2025-05-29,assnat_fiche,verified
+17943,Président de séance,PS,presidence_seance,15,2025-07-07,2026-08-27,assnat_fiche,verified
+17943,Porte-parole de l’opposition officielle en matière de solidarité sociale et d’action communautaire,PP,,0,2026-02-14,2026-08-27,assnat_fiche,verified
+17945,Adjointe parlementaire du ministre de l’Éducation (volet lutte contre la violence et l’intimidation chez les jeunes et dans les écoles),AP,adjoint_parlementaire,20,2022-11-09,2025-09-17,assnat_fiche,verified
+17945,Membre de la Commission de la culture et de l’éducation,,,0,2022-12-02,2023-06-12,assnat_fiche,verified
+17945,Vice-présidente de la Délégation de l’Assemblée nationale pour les relations avec le Shandong,,,0,2023-02-20,2025-09-16,assnat_fiche,verified
+17945,Membre de la Commission des relations avec les citoyens,,,0,2023-06-12,2025-09-22,assnat_fiche,verified
+17945,Adjointe parlementaire du ministre de la Sécurité publique,AP,adjoint_parlementaire,20,2025-09-17,2026-04-29,assnat_fiche,verified
+17945,Membre de la Commission des institutions,,,0,2025-09-22,2026-08-27,assnat_fiche,verified
+17945,Membre de la Commission des relations avec les citoyens,,,0,2025-11-06,2026-08-27,assnat_fiche,verified
+17945,Adjointe parlementaire du ministre de la Sécurité intérieure (volet sécurité publique),AP,adjoint_parlementaire,20,2026-04-29,2026-08-27,assnat_fiche,verified
+17947,Porte-parole du troisième groupe d’opposition en matière de cybersécurité et du numérique,PP,,0,2022-11-29,2025-09-17,assnat_fiche,verified
+17947,Porte-parole du troisième groupe d’opposition en matière de faune et de parcs,PP,,0,2022-11-29,2024-09-10,assnat_fiche,verified
+17947,Porte-parole du troisième groupe d’opposition en matière de pêcheries,PP,,0,2022-11-29,2026-08-27,assnat_fiche,verified
+17947,Porte-parole du troisième groupe d’opposition en matière de relations internationales et de francophonie,PP,,0,2022-11-29,2023-10-17,assnat_fiche,verified
+17947,"Porte-parole du troisième groupe d’opposition en matière de santé, de services sociaux et de soins à domicile",PP,,0,2022-11-29,2026-08-27,assnat_fiche,verified
+17947,Porte-parole du troisième groupe d’opposition en matière de solidarité sociale et d’action communautaire,PP,,0,2022-11-29,2023-10-17,assnat_fiche,verified
+17947,Porte-parole du troisième groupe d’opposition en matière de sécurité publique,PP,,0,2022-11-29,2023-10-17,assnat_fiche,verified
+17947,Porte-parole du troisième groupe d’opposition en matière de transports et de mobilité durable,PP,,0,2022-11-29,2026-08-27,assnat_fiche,verified
+17947,Porte-parole du troisième groupe d’opposition en matière de travail et d’emploi,PP,,0,2022-11-29,2023-10-17,assnat_fiche,verified
+17947,Porte-parole du troisième groupe d’opposition en matière d’affaires municipales,PP,,0,2022-11-29,2025-09-17,assnat_fiche,verified
+17947,Porte-parole du troisième groupe d’opposition en matière d’environnement et de lutte contre les changements climatiques,PP,,0,2022-11-29,2026-08-27,assnat_fiche,verified
+17947,Porte-parole du troisième groupe d’opposition en matière d’habitation,PP,,0,2022-11-29,2025-03-24,assnat_fiche,verified
+17947,Porte-parole du troisième groupe d’opposition en matière d’infrastructures,PP,,0,2022-11-29,2024-09-10,assnat_fiche,verified
+17947,Porte-parole du troisième groupe d’opposition pour la famille et en matière de CPE,PP,,0,2022-11-29,2025-09-17,assnat_fiche,verified
+17947,Porte-parole du troisième groupe d’opposition pour les aînés,PP,,0,2022-11-29,2026-03-03,assnat_fiche,verified
+17947,Membre de la Commission de la santé et des services sociaux,,,0,2023-01-30,2026-08-27,assnat_fiche,verified
+17947,Membre du comité consultatif de la diplomatie parlementaire,,,0,2023-02-20,2025-09-29,assnat_fiche,verified
+17947,Porte-parole du troisième groupe d’opposition en matière de soins de fin de vie,PP,,0,2025-03-24,2026-08-27,assnat_fiche,verified
+17947,Porte-parole du troisième groupe d’opposition en matière de stratégie maritime,PP,,0,2025-03-24,2026-08-27,assnat_fiche,verified
+17947,Porte-parole du troisième groupe d’opposition en matière de solidarité sociale et d’action communautaire,PP,,0,2025-09-17,2026-03-03,assnat_fiche,verified
+17947,Porte-parole du troisième groupe d’opposition en matière de sécurité publique,PP,,0,2025-09-17,2026-08-27,assnat_fiche,verified
+17947,Porte-parole du troisième groupe d’opposition en matière d’itinérance,PP,,0,2025-09-17,2026-08-27,assnat_fiche,verified
+17949,Membre du Comité ministériel de l’économie et de l’environnement,,,0,2021-02-24,2022-10-20,assnat_fiche,verified
+17949,Ministre déléguée à l’Économie,M,ministre,75,2021-02-24,2022-10-20,assnat_fiche,verified
+17949,Membre du Conseil du trésor,,,0,2021-05-05,2022-10-20,assnat_fiche,verified
+17949,Membre de la Commission de l’Assemblée nationale,,,0,2022-12-06,2026-08-27,assnat_fiche,verified
+17949,Présidente de la Commission des relations avec les citoyens,PC,presidence_commission_permanente,25,2022-12-06,2026-08-27,assnat_fiche,verified
+17949,Représentante de la Section du Québec au Réseau des femmes parlementaires du Commonwealth,,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+17949,Membre suppléante du Bureau de l’Assemblée nationale,,,0,2024-05-07,2026-08-27,assnat_fiche,verified
+17951,Porte-parole de l’opposition officielle en matière de ressources naturelles,PP,,0,2022-10-27,2024-08-10,assnat_fiche,verified
+17951,Porte-parole de l’opposition officielle en matière de solidarité sociale et d’action communautaire,PP,,0,2022-10-27,2024-01-16,assnat_fiche,verified
+17951,Porte-parole de l’opposition officielle responsable de la région de la Côte-Nord,PP,,0,2022-10-27,2026-08-27,assnat_fiche,verified
+17951,Porte-parole de l’opposition officielle en matière d’énergie,PP,,0,2022-11-15,2024-08-10,assnat_fiche,verified
+17951,Vice-président de la Commission de l’aménagement du territoire,VC,vice_presidence_commission_permanente,20,2022-12-02,2026-08-27,assnat_fiche,verified
+17951,"Membre de la Commission de l’agriculture, des pêcheries, de l’énergie et des ressources naturelles",,,0,2022-12-06,2024-09-09,assnat_fiche,verified
+17951,Porte-parole de l’opposition officielle en matière de relations avec les Québécois d’expression anglaise,PP,,0,2023-01-23,2025-06-26,assnat_fiche,verified
+17951,"Vice-président de la section québécoise, Région canadienne de l’Association parlementaire du Commonwealth",,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+17951,Porte-parole de l’opposition officielle en matière de ressources naturelles,PP,,0,2025-01-25,2026-08-27,assnat_fiche,verified
+17951,Porte-parole de l’opposition officielle en matière d’énergie,PP,,0,2025-01-25,2025-06-26,assnat_fiche,verified
+17951,"Membre de la Commission de l’agriculture, des pêcheries, de l’énergie et des ressources naturelles",,,0,2025-01-28,2026-08-27,assnat_fiche,verified
+17951,Porte-parole de l’opposition officielle pour la jeunesse,PP,,0,2025-06-26,2026-08-27,assnat_fiche,verified
+17951,Porte-parole de l’opposition officielle en matière d’énergie,PP,,0,2026-02-14,2026-08-27,assnat_fiche,verified
+17953,Porte-parole du deuxième groupe d’opposition en matière de logement et d’habitation,PP,,0,2022-10-27,2026-08-27,assnat_fiche,verified
+17953,Porte-parole du deuxième groupe d’opposition en matière de lutte contre le racisme,PP,,0,2022-10-27,2026-08-27,assnat_fiche,verified
+17953,Porte-parole du deuxième groupe d’opposition en matière de sécurité publique,PP,,0,2022-10-27,2026-08-27,assnat_fiche,verified
+17953,"Porte-parole du deuxième groupe d’opposition en matière d’immigration, de francisation et d’intégration",PP,,0,2022-10-27,2023-03-28,assnat_fiche,verified
+17953,Membre de la Commission de l’aménagement du territoire,,,0,2022-12-02,2025-01-29,assnat_fiche,verified
+17953,Vice-président de la Délégation de l’Assemblée nationale pour les relations avec Terre-Neuve-et-Labrador,,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+17953,Porte-parole du deuxième groupe d’opposition en matière de solidarité sociale et d’action communautaire,PP,,0,2023-03-28,2024-01-25,assnat_fiche,verified
+17953,Porte-parole du deuxième groupe d’opposition responsable de la région du Centre-du-Québec,PP,,0,2024-01-25,2026-08-27,assnat_fiche,verified
+17953,Porte-parole du deuxième groupe d’opposition en matière de tourisme,PP,,0,2025-01-23,2026-08-27,assnat_fiche,verified
+17953,Membre de la Commission de l’économie et du travail,,,0,2025-01-29,2026-08-27,assnat_fiche,verified
+17953,Vice-président de la Commission des relations avec les citoyens,VC,vice_presidence_commission_permanente,20,2025-11-26,2026-08-27,assnat_fiche,verified
+17953,Porte-parole du deuxième groupe d’opposition en matière de relations avec les citoyens,PP,,0,2025-12-09,2026-08-27,assnat_fiche,verified
+17953,Porte-parole du deuxième groupe d’opposition en matière de relations internationales et de francophonie,PP,,0,2025-12-09,2026-08-27,assnat_fiche,verified
+17953,"Porte-parole du deuxième groupe d’opposition en matière d’immigration, de francisation et d’intégration",PP,,0,2025-12-09,2026-08-27,assnat_fiche,verified
+17955,Porte-parole du deuxième groupe d’opposition en matière de souveraineté et de relations intergouvernementales canadiennes,PP,,0,2022-10-27,2024-01-25,assnat_fiche,verified
+17955,Porte-parole du deuxième groupe d’opposition en matière d’accès à l’information et de protection des renseignements personnels,PP,,0,2022-10-27,2025-12-09,assnat_fiche,verified
+17955,Porte-parole du deuxième groupe d’opposition en matière d’institutions démocratiques,PP,,0,2022-10-27,2025-01-23,assnat_fiche,verified
+17955,Porte-parole du deuxième groupe d’opposition pour la famille,PP,,0,2022-10-27,2024-01-25,assnat_fiche,verified
+17955,Porte-parole du deuxième groupe d’opposition responsable de la région de la Capitale-Nationale,PP,,0,2022-10-27,2025-12-09,assnat_fiche,verified
+17955,Membre de la Commission des institutions,,,0,2022-12-02,2025-01-29,assnat_fiche,verified
+17955,Vice-président de la Délégation de l’Assemblée nationale pour les relations avec la Catalogne,,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+17955,Porte-parole du deuxième groupe d’opposition en matière de culture et de communications,PP,,0,2024-01-25,2026-08-27,assnat_fiche,verified
+17955,Porte-parole du deuxième groupe d’opposition en matière d’enseignement supérieur,PP,,0,2024-01-25,2025-12-09,assnat_fiche,verified
+17955,Porte-parole du deuxième groupe d’opposition responsable de la région du Bas-Saint-Laurent,PP,,0,2024-01-25,2026-08-27,assnat_fiche,verified
+17955,Porte-parole du deuxième groupe d’opposition en matière d’éducation,PP,,0,2025-01-23,2025-08-25,assnat_fiche,verified
+17955,Membre de la Commission de la culture et de l’éducation,,,0,2025-01-29,2026-08-27,assnat_fiche,verified
+17955,Porte-parole du deuxième groupe d’opposition en matière de laïcité,PP,,0,2025-12-09,2026-08-27,assnat_fiche,verified
+17955,Porte-parole du deuxième groupe d’opposition en matière de relations avec les Premières Nations et les Inuit,PP,,0,2025-12-09,2026-08-27,assnat_fiche,verified
+17955,Porte-parole du deuxième groupe d’opposition en matière de relations canadiennes,PP,,0,2025-12-09,2026-08-27,assnat_fiche,verified
+17955,Porte-parole du deuxième groupe d’opposition en matière d’indépendance,PP,,0,2025-12-09,2026-08-27,assnat_fiche,verified
+17957,Adjoint parlementaire de la ministre des Affaires municipales,AP,adjoint_parlementaire,20,2022-11-09,2025-09-10,assnat_fiche,verified
+17957,Membre de la Commission de l’aménagement du territoire,,,0,2022-12-02,2025-09-10,assnat_fiche,verified
+17957,Membre du Comité ministériel de l’économie et de l’environnement,,,0,2025-09-10,,assnat_fiche,verified
+17957,Ministre délégué au Développement économique régional,M,ministre,75,2025-09-10,,assnat_fiche,verified
+17957,Ministre responsable de la région du Saguenay–Lac-Saint-Jean,M,ministre,75,2025-09-10,2026-04-21,assnat_fiche,verified
+17959,Adjointe parlementaire de la ministre responsable de l’Habitation,AP,adjoint_parlementaire,20,2022-11-09,2025-09-17,assnat_fiche,verified
+17959,Membre de la Commission de l’aménagement du territoire,,,0,2022-12-02,2025-09-22,assnat_fiche,verified
+17959,Vice-présidente de la Délégation de l’Assemblée nationale pour les relations avec la Catalogne,,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+17959,Adjointe parlementaire du ministre délégué au Développement économique régional,AP,adjoint_parlementaire,20,2025-09-17,2026-04-29,assnat_fiche,verified
+17959,Membre de la Commission de l’économie et du travail,,,0,2025-09-22,2026-08-27,assnat_fiche,verified
+17959,"Adjointe parlementaire du ministre de l’Immigration, de la Francisation et de l’Intégration (volet immigration)",AP,adjoint_parlementaire,20,2026-04-29,2026-08-27,assnat_fiche,verified
+17959,Membre de la Commission des relations avec les citoyens,,,0,2026-05-05,2026-08-27,assnat_fiche,verified
+18071,Adjointe parlementaire de la ministre responsable de la Solidarité sociale et de l’Action communautaire (volet action communautaire),AP,adjoint_parlementaire,20,2022-11-09,2023-03-07,assnat_fiche,verified
+18071,Membre de la Commission des relations avec les citoyens,,,0,2022-12-02,2023-03-07,assnat_fiche,verified
+18071,Membre de la Commission des relations avec les citoyens,,,0,2023-03-09,2023-03-28,assnat_fiche,verified
+18071,Adjointe parlementaire de la ministre responsable de la Solidarité sociale et de l’Action communautaire (volet action communautaire),AP,adjoint_parlementaire,20,2023-03-28,2025-05-07,assnat_fiche,verified
+18071,Membre de la Commission des relations avec les citoyens,,,0,2023-03-29,2025-09-22,assnat_fiche,verified
+18071,"Vice-présidente de la section québécoise, Région canadienne de l’Association parlementaire du Commonwealth",,,0,2024-04-17,2026-08-27,assnat_fiche,verified
+18071,Membre de la Commission des transports et de l’environnement,,,0,2024-09-06,2026-08-27,assnat_fiche,verified
+18071,Adjointe parlementaire de la ministre des Ressources naturelles et des Forêts,AP,adjoint_parlementaire,20,2025-05-07,2025-09-17,assnat_fiche,verified
+18071,Adjointe parlementaire du ministre des Ressources naturelles et des Forêts (volet forêts),AP,adjoint_parlementaire,20,2025-09-17,2026-04-29,assnat_fiche,verified
+18071,"Membre de la Commission de l’agriculture, des pêcheries, de l’énergie et des ressources naturelles",,,0,2025-09-22,2026-08-27,assnat_fiche,verified
+18071,Adjointe parlementaire de la ministre des Ressources naturelles et des Forêts,AP,adjoint_parlementaire,20,2026-04-29,2026-08-27,assnat_fiche,verified
+18073,Adjoint parlementaire du ministre responsable des Infrastructures,AP,adjoint_parlementaire,20,2022-11-09,2025-09-17,assnat_fiche,verified
+18073,Membre de la Commission de l’administration publique,,,0,2022-12-02,2026-08-27,assnat_fiche,verified
+18073,Représentant du Secrétariat du Québec au sein du Comité exécutif de la Confédération parlementaire des Amériques,,,0,2024-02-06,2026-08-27,assnat_fiche,verified
+18073,Membre de la Commission des finances publiques,,,0,2024-08-21,2025-09-22,assnat_fiche,verified
+18073,"Adjoint parlementaire du ministre de l’Économie, de l’Innovation et de l’Énergie",AP,adjoint_parlementaire,20,2025-09-17,2026-04-29,assnat_fiche,verified
+18073,Membre de la Commission de l’économie et du travail,,,0,2025-09-22,2026-08-27,assnat_fiche,verified
+18073,Adjoint parlementaire de la première ministre (volet projets prioritaires et innovants),AP,adjoint_parlementaire,20,2026-04-29,2026-08-27,assnat_fiche,verified
+18247,Whip adjointe du gouvernement,W,whip_adjoint_gouvernement,20,2022-10-20,2026-01-09,assnat_fiche,verified
+18247,Membre suppléante du Bureau de l’Assemblée nationale,,,0,2022-12-01,2026-08-27,assnat_fiche,verified
+18247,Vice-présidente de la Délégation de l’Assemblée nationale pour les relations avec la Louisiane,,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+18247,Membre de la Commission des relations avec les citoyens,,,0,2023-03-09,2023-03-29,assnat_fiche,verified
+18247,Présidente de séance,PS,presidence_seance,15,2025-09-22,2026-05-05,assnat_fiche,verified
+18247,Adjointe parlementaire de la ministre responsable des Aînés et des Proches aidants,AP,adjoint_parlementaire,20,2026-02-04,2026-04-29,assnat_fiche,verified
+18247,Vice-présidente de la Commission de la culture et de l’éducation,VC,vice_presidence_commission_permanente,20,2026-05-05,2026-08-27,assnat_fiche,verified
+18561,Adjointe parlementaire du ministre de l’Économie et de l’Innovation,AP,adjoint_parlementaire,20,2022-11-09,2023-07-31,assnat_biographie,transcribed
+19063,Membre de la Commission de la santé et des services sociaux,,,0,2022-12-02,2025-09-22,assnat_fiche,verified
+19063,Adjointe parlementaire de la ministre responsable des Services sociaux,AP,adjoint_parlementaire,20,2022-12-07,2026-04-29,assnat_fiche,verified
+19063,Membre de la Commission de l’administration publique,,,0,2025-09-22,2026-08-27,assnat_fiche,verified
+19063,Membre de la Commission de l’économie et du travail,,,0,2025-09-22,2026-08-27,assnat_fiche,verified
+19063,"Adjointe parlementaire du ministre de l’Économie, de l’Innovation et de l’Énergie (volet sciences de la vie)",AP,adjoint_parlementaire,20,2026-04-29,2026-08-27,assnat_fiche,verified
+19251,Membre de la Commission de la santé et des services sociaux,,,0,2022-12-02,2026-04-21,assnat_fiche,verified
+19251,Membre de la Commission de l’aménagement du territoire,,,0,2022-12-02,2023-05-02,assnat_fiche,verified
+19251,Présidente de séance,PS,presidence_seance,15,2022-12-02,2025-09-22,assnat_fiche,verified
+19251,Membre de la Commission des transports et de l’environnement,,,0,2023-05-02,2025-09-22,assnat_fiche,verified
+19251,Adjointe parlementaire de la ministre de la Santé,AP,adjoint_parlementaire,20,2024-10-02,2026-04-21,assnat_fiche,verified
+19251,Membre du Comité ministériel des services aux citoyens,,,0,2026-04-21,,assnat_fiche,verified
+19251,Ministre de la Famille,M,ministre,75,2026-04-21,,assnat_fiche,verified
+19253,Porte-parole de l’opposition officielle en matière de justice,PP,,0,2022-10-27,2026-08-27,assnat_fiche,verified
+19253,Porte-parole de l’opposition officielle pour les Relations avec les Premières Nations et les Inuit,PP,,0,2022-10-27,2026-08-27,assnat_fiche,verified
+19253,Porte-parole de l’opposition officielle responsable de la région du Nord-du-Québec,PP,,0,2022-10-27,2026-08-27,assnat_fiche,verified
+19253,Porte-parole de l’opposition officielle en matière de transports et de mobilité durable,PP,,0,2022-11-15,2024-01-16,assnat_fiche,verified
+19253,Porte-parole de l’opposition officielle pour les ordres professionnels,PP,,0,2022-11-24,2026-08-27,assnat_fiche,verified
+19253,Membre de la Commission des institutions,,,0,2022-12-02,2026-08-27,assnat_fiche,verified
+19253,Membre de la Commission des transports et de l’environnement,,,0,2022-12-02,2024-01-24,assnat_fiche,verified
+19253,Vice-président de la Commission de la santé et des services sociaux,VC,vice_presidence_commission_permanente,20,2022-12-06,2025-07-07,assnat_fiche,verified
+19253,Vice-président de la Délégation de l’Assemblée nationale pour les relations avec la Bavière,,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+19253,Porte-parole de l’opposition officielle en matière de relations internationales et de francophonie,PP,,0,2024-01-16,2025-06-26,assnat_fiche,verified
+19253,"Porte-parole de l’opposition officielle en matière d’immigration, de francisation et d’intégration",PP,,0,2024-01-16,2026-08-27,assnat_fiche,verified
+19253,Porte-parole de l’opposition officielle en matière de paradis fiscaux,PP,,0,2024-03-21,2024-08-10,assnat_fiche,verified
+19253,Porte-parole de l’opposition officielle en matière d’administration gouvernementale et pour le Conseil du trésor,PP,,0,2024-03-21,2024-08-10,assnat_fiche,verified
+19253,Porte-parole de l’opposition officielle en matière d’administration gouvernementale et pour le Conseil du trésor,PP,,0,2025-01-25,2025-06-26,assnat_fiche,verified
+19253,Membre de la Commission des finances publiques,,,0,2025-01-28,2025-07-07,assnat_fiche,verified
+19253,Porte-parole de l’opposition officielle en matière de laïcité,PP,,0,2025-06-26,2026-02-14,assnat_fiche,verified
+19253,Porte-parole de l’opposition officielle en matière de paradis fiscaux,PP,,0,2025-06-26,2026-08-27,assnat_fiche,verified
+19253,Porte-parole de l’opposition officielle en matière d’accès à l’information et de protection des renseignements personnels,PP,,0,2025-06-26,2026-08-27,assnat_fiche,verified
+19253,Vice-président de la Commission des relations avec les citoyens,VC,vice_presidence_commission_permanente,20,2025-07-07,2026-08-27,assnat_fiche,verified
+19255,Membre de la Commission de l’économie et du travail,,,0,2022-12-02,2025-09-22,assnat_fiche,verified
+19255,Membre de la Commission des institutions,,,0,2022-12-02,2026-04-21,assnat_fiche,verified
+19255,Présidente de séance,PS,presidence_seance,15,2022-12-02,2025-09-22,assnat_fiche,verified
+19255,Adjointe parlementaire de la ministre responsable de la Condition féminine,AP,adjoint_parlementaire,20,2025-09-17,2026-04-21,assnat_fiche,verified
+19255,Membre de la Commission des relations avec les citoyens,,,0,2025-09-22,2026-04-21,assnat_fiche,verified
+19255,Membre du Comité ministériel de l’économie et de l’environnement,,,0,2026-04-21,,assnat_fiche,verified
+19255,Ministre responsable de l’Habitation,M,ministre,75,2026-04-21,,assnat_fiche,verified
+19257,Membre du Comité ministériel des services aux citoyens,,,0,2022-10-20,2024-09-11,assnat_fiche,verified
+19257,Membre du Conseil du trésor,,,0,2022-10-20,2025-09-10,assnat_fiche,verified
+19257,Ministre responsable de l’Habitation,M,ministre,75,2022-10-20,2025-09-10,assnat_fiche,verified
+19257,Membre du Comité ministériel de l’économie et de l’environnement,,,0,2024-09-11,2025-09-10,assnat_fiche,verified
+19257,Ministre des Affaires municipales,M,ministre,75,2025-09-04,2025-09-10,assnat_fiche,verified
+19257,Membre du Comité ministériel des services aux citoyens,,,0,2025-09-10,,assnat_fiche,verified
+19257,Ministre responsable de l’Administration gouvernementale et de l’Efficacité de l’État,M,ministre,75,2025-09-10,2026-04-21,assnat_fiche,verified
+19257,Présidente du Conseil du trésor,,,0,2025-09-10,,assnat_fiche,verified
+19257,Ministre de la Cybersécurité et du Numérique,M,ministre,75,2026-04-21,,assnat_fiche,verified
+19257,Ministre responsable de l’Administration gouvernementale,M,ministre,75,2026-04-21,2026-04-29,assnat_fiche,verified
+19257,Ministre responsable de l’Administration gouvernementale et de l’Efficacité de l’État,M,ministre,75,2026-04-29,,assnat_fiche,verified
+19259,Membre de la Commission des institutions,,,0,2022-12-02,2026-05-05,assnat_fiche,verified
+19259,Membre de la Commission des relations avec les citoyens,,,0,2022-12-02,2026-08-27,assnat_fiche,verified
+19259,Présidente de séance,PS,presidence_seance,15,2022-12-02,2026-05-05,assnat_fiche,verified
+19259,Représentante de la Section du Québec au Réseau des femmes parlementaires de la Confédération parlementaire des Amériques,,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+19259,Membre de la Commission de la santé et des services sociaux,,,0,2026-05-05,2026-08-27,assnat_fiche,verified
+19259,Vice-présidente de la Commission des transports et de l’environnement,VC,vice_presidence_commission_permanente,20,2026-05-05,2026-08-27,assnat_fiche,verified
+19261,Porte-parole de l’opposition officielle en matière de langue française,PP,,0,2022-10-27,2026-08-27,assnat_fiche,verified
+19261,Porte-parole de l’opposition officielle en matière de travail,PP,,0,2022-10-27,2026-08-27,assnat_fiche,verified
+19261,Porte-parole de l’opposition officielle en matière d’emploi,PP,,0,2022-10-27,2026-02-14,assnat_fiche,verified
+19261,Porte-parole de l’opposition officielle pour la Métropole,PP,,0,2022-10-27,2023-01-23,assnat_fiche,verified
+19261,Porte-parole de l’opposition officielle pour la jeunesse,PP,,0,2022-10-27,2025-06-26,assnat_fiche,verified
+19261,Membre suppléante du Bureau de l’Assemblée nationale,,,0,2022-12-01,2025-10-01,assnat_fiche,verified
+19261,Membre de la Commission de l’économie et du travail,,,0,2022-12-02,2025-07-07,assnat_fiche,verified
+19261,Vice-présidente de la Commission des finances publiques,VC,vice_presidence_commission_permanente,20,2022-12-06,2026-08-27,assnat_fiche,verified
+19261,Représentante de la Section du Québec au Réseau des jeunes parlementaires de l’Assemblée parlementaire de la Francophonie,,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+19261,Porte-parole de l’opposition officielle en matière de développement économique régional,PP,,0,2023-08-10,2024-01-16,assnat_fiche,verified
+19261,Porte-parole de l’opposition officielle en matière d’économie et d’innovation,PP,,0,2023-10-16,2023-12-15,assnat_fiche,verified
+19261,Membre de la Commission de l’administration publique,,,0,2023-10-17,2026-08-27,assnat_fiche,verified
+19261,Porte-parole de l’opposition officielle en matière d’éducation,PP,,0,2024-03-21,2024-08-10,assnat_fiche,verified
+19261,Membre de la Commission spéciale sur les impacts des écrans et des réseaux sociaux sur la santé et le développement des jeunes,,,0,2024-06-06,2025-05-29,assnat_fiche,verified
+19261,Porte-parole de l’opposition officielle en matière d’éducation,PP,,0,2025-01-27,2026-08-27,assnat_fiche,verified
+19261,Membre de la Commission de la culture et de l’éducation,,,0,2025-01-28,2026-08-27,assnat_fiche,verified
+19261,Porte-parole de l’opposition officielle en matière de culture et de communications,PP,,0,2025-06-26,2026-08-27,assnat_fiche,verified
+19261,Porte-parole de l’opposition officielle en matière de francophonie,PP,,0,2025-06-26,2026-08-27,assnat_fiche,verified
+19261,Porte-parole de l’opposition officielle en matière de lutte contre le racisme,PP,,0,2026-02-14,2026-08-27,assnat_fiche,verified
+19263,Porte-parole du deuxième groupe d’opposition en matière de faune et de parcs,PP,,0,2022-10-27,2025-01-23,assnat_fiche,verified
+19263,Porte-parole du deuxième groupe d’opposition en matière de relations avec les Québécois d’expression anglaise,PP,,0,2022-10-27,2026-08-27,assnat_fiche,verified
+19263,Porte-parole du deuxième groupe d’opposition en matière de ressources naturelles et de forêts,PP,,0,2022-10-27,2025-01-23,assnat_fiche,verified
+19263,"Porte-parole du deuxième groupe d’opposition en matière d’agriculture, de pêcheries et d’alimentation",PP,,0,2022-10-27,2026-08-27,assnat_fiche,verified
+19263,Porte-parole du deuxième groupe d’opposition en matière d’environnement,PP,,0,2022-10-27,2025-01-23,assnat_fiche,verified
+19263,Porte-parole du deuxième groupe d’opposition pour la jeunesse,PP,,0,2022-10-27,2025-12-09,assnat_fiche,verified
+19263,"Membre de la Commission de l’agriculture, des pêcheries, de l’énergie et des ressources naturelles",,,0,2022-12-02,2025-01-29,assnat_fiche,verified
+19263,Représentante de l’Assemblée nationale au Groupe de travail sur l’approvisionnement énergétique de la National Conference of State Legislatures (NCSL),,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+19263,Représentante de l’Assemblée nationale à la Commission des ressources naturelles et des infrastructures de la National Conference of State Legislatures (NCSL),,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+19263,Représentante de l’Assemblée nationale à l’Institut de la coopération internationale de la National Conference of State Legislatures (NCSL),,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+19263,Membre de la Commission de l’Assemblée nationale,,,0,2023-05-25,2026-08-27,assnat_fiche,verified
+19263,Membre de la Sous-commission de la réforme parlementaire,,,0,2023-05-26,2026-08-27,assnat_fiche,verified
+19263,Membre du Bureau de l’Assemblée nationale,B,membre_bureau,15,2023-05-26,2026-08-27,assnat_fiche,verified
+19263,Membre du comité consultatif de la diplomatie parlementaire,,,0,2023-05-26,2026-08-27,assnat_fiche,verified
+19263,Whip du deuxième groupe d’opposition,W,whip_deuxieme_groupe,20,2023-05-26,2026-08-27,assnat_fiche,verified
+19263,Porte-parole du deuxième groupe d’opposition responsable de la région de l’Outaouais,PP,,0,2024-01-25,2026-08-27,assnat_fiche,verified
+19263,Porte-parole du deuxième groupe d’opposition responsable de la région de l’Abitibi-Témiscamingue,PP,,0,2024-08-29,2026-08-27,assnat_fiche,verified
+19263,Porte-parole du deuxième groupe d’opposition en matière de finances,PP,,0,2025-01-23,2026-08-27,assnat_fiche,verified
+19263,Porte-parole du deuxième groupe d’opposition en matière d’économie et d’innovation,PP,,0,2025-01-23,2026-08-27,assnat_fiche,verified
+19263,Membre de la Commission des finances publiques,,,0,2025-01-29,2026-08-27,assnat_fiche,verified
+19263,Porte-parole du deuxième groupe d’opposition en matière de ressources naturelles et de forêts,PP,,0,2025-12-09,2026-08-27,assnat_fiche,verified
+19263,Porte-parole du deuxième groupe d’opposition en matière d’enseignement supérieur,PP,,0,2025-12-09,2026-08-27,assnat_fiche,verified
+19263,Porte-parole du deuxième groupe d’opposition pour la Métropole,PP,,0,2025-12-09,2026-08-27,assnat_fiche,verified
+19265,Membre du Conseil du trésor,,,0,2022-10-20,2024-09-11,assnat_fiche,verified
+19265,Ministre de la Famille,M,ministre,75,2022-10-20,2025-09-10,assnat_fiche,verified
+19265,Ministre responsable de la région de la Montérégie,M,ministre,75,2022-10-20,2025-09-10,assnat_fiche,verified
+19265,Vice-présidente du Comité ministériel des services aux citoyens,,,0,2022-10-20,2024-09-11,assnat_fiche,verified
+19265,Présidente du Comité ministériel des services aux citoyens,,,0,2024-09-11,2025-09-10,assnat_fiche,verified
+19265,Membre de la Commission des transports et de l’environnement,,,0,2025-09-22,2026-08-27,assnat_fiche,verified
+19265,Vice-présidente de la Commission de l’administration publique,VC,vice_presidence_commission_permanente,20,2025-09-22,2026-08-27,assnat_fiche,verified
+19265,Membre du Bureau de l’Assemblée nationale,B,membre_bureau,15,2025-10-01,2026-08-27,assnat_fiche,verified
+19267,Porte-parole du deuxième groupe d’opposition en matière de développement économique régional,PP,,0,2022-10-27,2026-08-27,assnat_fiche,verified
+19267,Porte-parole du deuxième groupe d’opposition en matière de tourisme,PP,,0,2022-10-27,2025-01-23,assnat_fiche,verified
+19267,Porte-parole du deuxième groupe d’opposition en matière de transports et de mobilité durable,PP,,0,2022-10-27,2026-08-27,assnat_fiche,verified
+19267,Porte-parole du deuxième groupe d’opposition en matière d’affaires municipales,PP,,0,2022-10-27,2025-01-23,assnat_fiche,verified
+19267,Porte-parole du deuxième groupe d’opposition en matière d’infrastructures,PP,,0,2022-10-27,2025-01-23,assnat_fiche,verified
+19267,Membre de la Commission des transports et de l’environnement,,,0,2022-12-02,2026-08-27,assnat_fiche,verified
+19267,Vice-président de la Délégation de l’Assemblée nationale pour les relations avec l’Assemblée nationale française,,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+19267,Porte-parole du deuxième groupe d’opposition responsable de la région de Lanaudière,PP,,0,2024-01-25,2026-08-27,assnat_fiche,verified
+19267,Porte-parole du deuxième groupe d’opposition en matière de solidarité sociale et d’action communautaire,PP,,0,2025-01-23,2026-08-27,assnat_fiche,verified
+19267,Porte-parole du deuxième groupe d’opposition en matière de lutte contre les changements climatiques,PP,,0,2025-12-09,2026-08-27,assnat_fiche,verified
+19267,"Porte-parole du deuxième groupe d’opposition en matière d’environnement, de faune et de parcs",PP,,0,2025-12-09,2026-08-27,assnat_fiche,verified
+19267,Porte-parole du deuxième groupe d’opposition en matière d’éthique,PP,,0,2025-12-09,2026-08-27,assnat_fiche,verified
+19267,Porte-parole du deuxième groupe d’opposition responsable de la région de la Capitale-Nationale,PP,,0,2025-12-09,2026-08-27,assnat_fiche,verified
+19267,Membre suppléant du Bureau de l’Assemblée nationale,,,0,2026-05-06,2026-08-27,assnat_fiche,verified
+19269,Membre du Comité ministériel de l’économie et de l’environnement,,,0,2022-10-20,2026-01-26,assnat_fiche,verified
+19269,"Ministre de l’Immigration, de la Francisation et de l’Intégration",M,ministre,75,2022-10-20,2024-09-05,assnat_fiche,verified
+19269,"Ministre de l’Économie, de l’Innovation et de l’Énergie",M,ministre,75,2024-09-05,2026-01-26,assnat_fiche,verified
+19269,Ministre responsable de la Métropole et de la région de Montréal,M,ministre,75,2024-09-05,2025-09-10,assnat_fiche,verified
+19269,Ministre responsable du Développement économique régional,M,ministre,75,2024-09-05,2025-09-10,assnat_fiche,verified
+19269,Ministre responsable de la région de la Montérégie,M,ministre,75,2025-11-05,2026-01-26,assnat_fiche,verified
+19269,Première ministre,PM,premier_ministre,105,2026-04-15,,assnat_fiche,verified
+19271,Porte-parole de l’opposition officielle en matière de condition féminine,PP,,0,2022-10-27,2026-08-27,assnat_fiche,verified
+19271,Porte-parole de l’opposition officielle pour la famille,PP,,0,2022-10-27,2023-08-10,assnat_fiche,verified
+19271,Porte-parole de l’opposition officielle pour la protection de la jeunesse,PP,,0,2022-10-27,2026-08-27,assnat_fiche,verified
+19271,Porte-parole de l’opposition officielle pour le suivi du rapport Rebâtir la confiance,PP,,0,2022-10-27,2026-08-27,assnat_fiche,verified
+19271,Porte-parole de l’opposition officielle responsable de la région de la Mauricie,PP,,0,2022-11-15,2024-01-16,assnat_fiche,verified
+19271,Membre de la Commission des relations avec les citoyens,,,0,2022-12-02,2024-01-24,assnat_fiche,verified
+19271,Vice-présidente de la Commission des institutions,VC,vice_presidence_commission_permanente,20,2022-12-06,2025-07-07,assnat_fiche,verified
+19271,Vice-présidente de la Délégation de l’Assemblée nationale pour les relations avec la Louisiane,,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+19271,Porte-parole de l’opposition officielle en matière de relations internationales et de francophonie,PP,,0,2023-08-10,2024-01-16,assnat_fiche,verified
+19271,Porte-parole de l’opposition officielle en matière de culture et de communications,PP,,0,2024-01-16,2025-06-26,assnat_fiche,verified
+19271,Porte-parole de l’opposition officielle responsable de la région du Centre-du-Québec,PP,,0,2024-01-16,2026-08-27,assnat_fiche,verified
+19271,Membre de la Commission de la culture et de l’éducation,,,0,2024-01-24,2025-07-07,assnat_fiche,verified
+19271,Vice-présidente de la Commission de l’économie et du travail,VC,vice_presidence_commission_permanente,20,2025-07-07,2025-12-05,assnat_fiche,verified
+19271,Vice-présidente de la Commission des institutions,VC,vice_presidence_commission_permanente,20,2025-12-05,2026-08-27,assnat_fiche,verified
+19273,Membre de la Commission de l’aménagement du territoire,,,0,2022-12-02,2024-09-06,assnat_fiche,verified
+19273,Vice-présidente de la Commission de la culture et de l’éducation,VC,vice_presidence_commission_permanente,20,2022-12-06,2025-09-10,assnat_fiche,verified
+19273,Vice-présidente de la Délégation de l’Assemblée nationale pour les relations avec le Massachusetts,,,0,2024-03-13,2025-09-10,assnat_fiche,verified
+19273,Présidente de la Commission spéciale sur les impacts des écrans et des réseaux sociaux sur la santé et le développement des jeunes,,,0,2024-06-06,2025-05-29,assnat_fiche,verified
+19273,Membre du Comité ministériel de l’économie et de l’environnement,,,0,2025-09-10,2026-01-28,assnat_fiche,verified
+19273,Ministre du Tourisme,M,ministre,75,2025-09-10,,assnat_fiche,verified
+19273,Ministre responsable de la région du Bas-Saint-Laurent et de la région de la Gaspésie–Îles-de-la-Madeleine,M,ministre,75,2025-09-10,2026-04-21,assnat_fiche,verified
+19273,Membre du Comité ministériel des services aux citoyens,,,0,2026-01-28,2026-04-21,assnat_fiche,verified
+19273,Membre du Comité ministériel de l’économie et de l’environnement,,,0,2026-04-21,,assnat_fiche,verified
+19275,Membre du Comité de législation,,,0,2022-10-20,2025-09-10,assnat_fiche,verified
+19275,Membre du Comité ministériel de l’économie et de l’environnement,,,0,2022-10-20,2025-09-10,assnat_fiche,verified
+19275,Ministre des Ressources naturelles et des Forêts,M,ministre,75,2022-10-20,2025-09-10,assnat_fiche,verified
+19275,Ministre responsable de la région du Bas-Saint-Laurent et de la région de la Gaspésie–Îles-de-la-Madeleine,M,ministre,75,2022-10-20,2025-09-10,assnat_fiche,verified
+19277,Membre du Comité ministériel de l’économie et de l’environnement,,,0,2022-10-20,,assnat_fiche,verified
+19277,Ministre de l’Enseignement supérieur,M,ministre,75,2022-10-20,2025-09-10,assnat_fiche,verified
+19277,Membre du Conseil du trésor,,,0,2025-09-10,2026-01-28,assnat_fiche,verified
+19277,Ministre de l’Emploi,M,ministre,75,2025-09-10,2026-04-21,assnat_fiche,verified
+19277,Ministre responsable de la région de Lanaudière,M,ministre,75,2025-09-10,2026-04-21,assnat_fiche,verified
+19277,Vice-présidente du Conseil du trésor,,,0,2026-01-28,,assnat_fiche,verified
+19277,"Ministre de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs",M,ministre,75,2026-04-21,,assnat_fiche,verified
+19279,Membre du Bureau de l’Assemblée nationale,B,membre_bureau,15,2022-12-01,2026-08-27,assnat_fiche,verified
+19279,Membre de la Commission des finances publiques,,,0,2022-12-02,2024-09-06,assnat_fiche,verified
+19279,Membre de la Commission des transports et de l’environnement,,,0,2022-12-02,2025-09-22,assnat_fiche,verified
+19279,"Vice-président de la Commission de l’agriculture, des pêcheries, de l’énergie et des ressources naturelles",VC,vice_presidence_commission_permanente,20,2024-04-22,2025-09-22,assnat_fiche,verified
+19279,Président du caucus du gouvernement,PCA,presidence_caucus_gouvernement,25,2025-09-10,2026-04-07,assnat_fiche,verified
+19279,Président du caucus du gouvernement,PCA,presidence_caucus_gouvernement,25,2026-04-21,2026-08-27,assnat_fiche,verified
+19281,Membre du Comité ministériel des services aux citoyens,,,0,2022-10-20,2025-09-10,assnat_fiche,verified
+19281,Ministre déléguée à la Santé et aux Aînés,M,ministre,75,2022-10-20,2023-05-10,assnat_fiche,verified
+19281,Ministre déléguée à la Santé,M,ministre,75,2023-05-10,2025-09-10,assnat_fiche,verified
+19281,Ministre responsable des Aînés,M,ministre,75,2023-05-10,2025-09-10,assnat_fiche,verified
+19281,Ministre responsable de la région des Laurentides,M,ministre,75,2025-01-28,2026-04-21,assnat_fiche,verified
+19281,Membre du Conseil du trésor,,,0,2025-09-10,2025-11-05,assnat_fiche,verified
+19281,Ministre responsable de l’Habitation,M,ministre,75,2025-09-10,2025-10-30,assnat_fiche,verified
+19281,Présidente du Comité ministériel de l’économie et de l’environnement,,,0,2025-09-10,2025-11-05,assnat_fiche,verified
+19281,Ministre déléguée à la Santé,M,ministre,75,2025-10-30,2025-12-19,assnat_fiche,verified
+19281,Ministre responsable des Aînés et des Proches aidants,M,ministre,75,2025-10-30,,assnat_fiche,verified
+19281,Ministre responsable des Services sociaux,M,ministre,75,2025-10-30,2026-04-21,assnat_fiche,verified
+19281,Vice-présidente du Comité ministériel des services aux citoyens,,,0,2025-11-05,2026-01-14,assnat_fiche,verified
+19281,Ministre de la Santé,M,ministre,75,2025-12-19,,assnat_fiche,verified
+19281,Membre du Comité ministériel des services aux citoyens,,,0,2026-01-14,,assnat_fiche,verified
+19283,Porte-parole de l’opposition officielle en matière de faune et de parcs,PP,,0,2022-10-27,2024-01-16,assnat_fiche,verified
+19283,Porte-parole de l’opposition officielle en matière de relations avec les Québécois d’expression anglaise,PP,,0,2022-10-27,2023-01-23,assnat_fiche,verified
+19283,Porte-parole de l’opposition officielle en matière d’environnement et de lutte contre les changements climatiques,PP,,0,2022-10-27,2024-01-16,assnat_fiche,verified
+19283,Porte-parole de l’opposition officielle en matière de relations canadiennes et de la francophonie canadienne,PP,,0,2022-11-15,2023-08-10,assnat_fiche,verified
+19283,Membre du Bureau de l’Assemblée nationale,B,membre_bureau,15,2022-12-01,2025-01-28,assnat_fiche,verified
+19283,Membre de la Commission des transports et de l’environnement,,,0,2022-12-02,2024-01-24,assnat_fiche,verified
+19283,Présidente de séance,PS,presidence_seance,15,2022-12-02,2026-08-27,assnat_fiche,verified
+19283,Vice-présidente de la Délégation de l’Assemblée nationale pour les relations avec le Massachusetts,,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+19283,Porte-parole de l’opposition officielle responsable de la région de l’Estrie,PP,,0,2023-10-16,2026-04-30,assnat_fiche,verified
+19283,Porte-parole de l’opposition officielle en matière de solidarité sociale et d’action communautaire,PP,,0,2024-01-16,2025-06-26,assnat_fiche,verified
+19283,Porte-parole de l’opposition officielle en matière d’économie sociale,PP,,0,2024-01-16,2026-08-27,assnat_fiche,verified
+19283,Membre de la Commission des relations avec les citoyens,,,0,2024-01-24,2025-07-07,assnat_fiche,verified
+19283,Représentante de l’Assemblée nationale au Comité exécutif du Council of State Governments East (CSG East),,,0,2025-03-27,2026-08-27,assnat_fiche,verified
+19283,Représentante de l’Assemblée nationale à la Commission des relations Canada-États-Unis du Council of State Governments East (CSG East),,,0,2025-03-27,2026-08-27,assnat_fiche,verified
+19283,Porte-parole de l’opposition officielle en matière de commerce international et interprovincial,PP,,0,2025-06-26,2026-02-14,assnat_fiche,verified
+19283,Porte-parole de l’opposition officielle en matière de lutte contre les changements climatiques,PP,,0,2025-06-26,2026-08-27,assnat_fiche,verified
+19283,Porte-parole de l’opposition officielle en matière de relations internationales,PP,,0,2025-06-26,2026-02-14,assnat_fiche,verified
+19283,Membre de la Commission de l’économie et du travail,,,0,2025-07-07,2026-08-27,assnat_fiche,verified
+19283,Membre suppléante du Bureau de l’Assemblée nationale,,,0,2025-10-01,2026-08-27,assnat_fiche,verified
+19283,Vice-présidente de la Délégation de l’Assemblée nationale pour les relations avec les États-Unis,,,0,2025-12-10,2026-08-27,assnat_fiche,verified
+19283,Porte-parole de l’opposition officielle en matière de commerce et relations internationales,PP,,0,2026-02-14,2026-08-27,assnat_fiche,verified
+19285,Porte-parole de l’opposition officielle en matière de culture et de communications,PP,,0,2022-10-27,2024-01-16,assnat_fiche,verified
+19285,Porte-parole de l’opposition officielle en matière de relations internationales et de francophonie,PP,,0,2022-10-27,2023-08-10,assnat_fiche,verified
+19285,Porte-parole de l’opposition officielle responsable de la région de la Chaudière-Appalaches,PP,,0,2022-10-27,2026-08-27,assnat_fiche,verified
+19285,Porte-parole de l’opposition officielle responsable de la région du Centre-du-Québec,PP,,0,2022-10-27,2024-01-16,assnat_fiche,verified
+19285,Porte-parole de l’opposition officielle en matière de cybersécurité et du numérique,PP,,0,2022-11-15,2026-08-27,assnat_fiche,verified
+19285,Porte-parole de l’opposition officielle en matière d’accès à l’information et de protection des renseignements personnels,PP,,0,2022-11-15,2025-06-26,assnat_fiche,verified
+19285,Membre du Bureau de l’Assemblée nationale,B,membre_bureau,15,2022-12-01,2023-09-12,assnat_fiche,verified
+19285,Membre de la Commission de la culture et de l’éducation,,,0,2022-12-02,2024-01-24,assnat_fiche,verified
+19285,Présidente de séance,PS,presidence_seance,15,2022-12-02,2023-08-25,assnat_fiche,verified
+19285,Vice-présidente de la Délégation de l’Assemblée nationale pour les relations avec Haïti,,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+19285,Leader parlementaire adjointe de l’opposition officielle,LP,leader_adjoint_opposition_officielle,20,2023-08-10,2024-12-08,assnat_fiche,verified
+19285,Porte-parole de l’opposition officielle en matière d’affaires municipales,PP,,0,2024-01-16,2025-06-26,assnat_fiche,verified
+19285,Membre de la Commission de l’aménagement du territoire,,,0,2024-01-24,2025-07-07,assnat_fiche,verified
+19285,Porte-parole de l’opposition officielle en matière d’enseignement supérieur,PP,,0,2024-03-21,2025-06-26,assnat_fiche,verified
+19285,Porte-parole de l’opposition officielle pour la protection des consommateurs,PP,,0,2024-03-21,2024-08-10,assnat_fiche,verified
+19285,Membre du Bureau de l’Assemblée nationale,B,membre_bureau,15,2025-01-28,2025-10-01,assnat_fiche,verified
+19285,Leader parlementaire de l’opposition officielle,LP,leader_opposition_officielle,35,2025-06-26,2025-12-22,assnat_fiche,verified
+19285,Membre de la Commission de l’Assemblée nationale,,,0,2025-06-26,2025-12-22,assnat_fiche,verified
+19285,Membre de la Sous-commission de la réforme parlementaire,,,0,2025-06-26,2025-12-22,assnat_fiche,verified
+19285,Porte-parole de l’opposition officielle en matière d’institutions démocratiques,PP,,0,2025-06-26,2026-02-14,assnat_fiche,verified
+19285,Porte-parole de l’opposition officielle en matière d’éthique,PP,,0,2025-06-26,2026-02-14,assnat_fiche,verified
+19285,Porte-parole de l’opposition officielle pour la Loi électorale,PP,,0,2025-06-26,2026-02-14,assnat_fiche,verified
+19285,Membre de la Commission des finances publiques,,,0,2025-07-07,2026-08-27,assnat_fiche,verified
+19285,Vice-présidente de la Commission de l’économie et du travail,VC,vice_presidence_commission_permanente,20,2026-01-02,2026-08-27,assnat_fiche,verified
+19285,Porte-parole de l’opposition officielle en matière d’enseignement supérieur,PP,,0,2026-01-05,2026-08-27,assnat_fiche,verified
+19285,Membre de la Commission de la culture et de l’éducation,,,0,2026-02-16,2026-08-27,assnat_fiche,verified
+19287,Porte-parole de l’opposition officielle en matière d’affaires municipales et d’habitation,PP,,0,2022-10-27,2024-01-16,assnat_fiche,verified
+19287,Porte-parole de l’opposition officielle responsable de la région de Laval,PP,,0,2022-10-27,2025-08-14,assnat_fiche,verified
+19287,Leader parlementaire adjointe de l’opposition officielle,LP,leader_adjoint_opposition_officielle,20,2022-11-14,2023-08-10,assnat_fiche,verified
+19287,Membre de la Commission de l’aménagement du territoire,,,0,2022-12-02,2024-01-24,assnat_fiche,verified
+19287,Vice-présidente de la Délégation de l’Assemblée nationale pour les relations avec le Sénégal,,,0,2023-02-20,2024-02-19,assnat_fiche,verified
+19287,Présidente de séance,PS,presidence_seance,15,2023-08-25,2023-12-18,assnat_fiche,verified
+19287,Membre du Bureau de l’Assemblée nationale,B,membre_bureau,15,2023-09-12,2026-08-27,assnat_fiche,verified
+19287,Membre de la Commission de l’économie et du travail,,,0,2023-10-17,2025-07-07,assnat_fiche,verified
+19287,Vice-présidente de la Commission de l’économie et du travail,VC,vice_presidence_commission_permanente,20,2023-10-18,2025-07-07,assnat_fiche,verified
+19287,Porte-parole de l’opposition officielle en matière de faune et de parcs,PP,,0,2024-01-16,2026-08-27,assnat_fiche,verified
+19287,Porte-parole de l’opposition officielle en matière d’environnement et de lutte contre les changements climatiques,PP,,0,2024-01-16,2025-06-26,assnat_fiche,verified
+19287,Porte-parole de l’opposition officielle en matière d’habitation,PP,,0,2024-01-16,2026-08-27,assnat_fiche,verified
+19287,Membre de la Commission des transports et de l’environnement,,,0,2024-01-24,2026-08-27,assnat_fiche,verified
+19287,"Vice-présidente et rapporteure de la Commission des affaires économiques, sociales et environnementales de l’Assemblée parlementaire de la Francophonie",,,0,2024-02-19,2026-08-27,assnat_fiche,verified
+19287,Porte-parole de l’opposition officielle en matière d’environnement,PP,,0,2025-06-26,2026-08-27,assnat_fiche,verified
+19287,Membre de la Commission de l’administration publique,,,0,2025-07-07,2026-08-27,assnat_fiche,verified
+19287,Porte-parole de l’opposition officielle responsable de la région de Lanaudière,PP,,0,2026-01-05,2026-08-27,assnat_fiche,verified
+19287,Porte-parole de l’opposition officielle responsable de la région des Laurentides,PP,,0,2026-01-05,2026-08-27,assnat_fiche,verified
+19287,Présidente de séance,PS,presidence_seance,15,2026-02-25,2026-08-27,assnat_fiche,verified
+19289,Chef du troisième groupe d’opposition,CO,chef_autre_groupe_opposition,35,2022-11-29,2026-08-27,assnat_fiche,verified
+19289,Porte-parole du troisième groupe d’opposition en matière de condition féminine,PP,,0,2022-11-29,2025-03-24,assnat_fiche,verified
+19289,Porte-parole du troisième groupe d’opposition en matière de finances,PP,,0,2022-11-29,2026-08-27,assnat_fiche,verified
+19289,Porte-parole du troisième groupe d’opposition en matière de justice,PP,,0,2022-11-29,2023-10-17,assnat_fiche,verified
+19289,Porte-parole du troisième groupe d’opposition en matière de lutte contre le racisme,PP,,0,2022-11-29,2023-10-17,assnat_fiche,verified
+19289,Porte-parole du troisième groupe d’opposition en matière de relations canadiennes et de la francophonie canadienne,PP,,0,2022-11-29,2025-03-24,assnat_fiche,verified
+19289,Porte-parole du troisième groupe d’opposition en matière d’administration gouvernementale et pour le Conseil du trésor,PP,,0,2022-11-29,2025-09-17,assnat_fiche,verified
+19289,"Porte-parole du troisième groupe d’opposition en matière d’économie, d’innovation et d’énergie",PP,,0,2022-11-29,2023-11-22,assnat_fiche,verified
+19289,Porte-parole du troisième groupe d’opposition pour les Relations avec les Premières Nations et les Inuit,PP,,0,2022-11-29,2024-09-10,assnat_fiche,verified
+19289,Membre de la Commission des transports et de l’environnement,,,0,2023-01-30,2026-08-27,assnat_fiche,verified
+19289,Porte-parole du troisième groupe d’opposition en matière d’économie et d’innovation,PP,,0,2023-11-22,2025-03-24,assnat_fiche,verified
+19289,Porte-parole du troisième groupe d’opposition en matière d’immigration et d’intégration,PP,,0,2024-09-10,2025-09-17,assnat_fiche,verified
+19289,Porte-parole du troisième groupe d’opposition en matière d’indépendance du Québec,PP,,0,2024-10-22,2026-08-27,assnat_fiche,verified
+19289,Porte-parole du troisième groupe d’opposition en matière de relations canadiennes,PP,,0,2025-03-24,2025-09-17,assnat_fiche,verified
+19289,Porte-parole du troisième groupe d’opposition en matière d’éthique,PP,,0,2025-03-24,2025-09-17,assnat_fiche,verified
+19289,Porte-parole du troisième groupe d’opposition pour la Métropole,PP,,0,2025-03-24,2025-09-17,assnat_fiche,verified
+19291,Membre de la Commission des institutions,,,0,2022-12-02,2025-09-22,assnat_fiche,verified
+19291,Adjointe parlementaire du ministre de la Justice,AP,adjoint_parlementaire,20,2022-12-07,2025-05-07,assnat_fiche,verified
+19291,Adjointe parlementaire du ministre des Finances,AP,adjoint_parlementaire,20,2025-05-07,2026-04-21,assnat_fiche,verified
+19291,Membre de la Commission des finances publiques,,,0,2025-09-22,2026-04-21,assnat_fiche,verified
+19291,Membre de la Commission des transports et de l’environnement,,,0,2025-09-22,2026-04-21,assnat_fiche,verified
+19291,Membre du Comité ministériel des services aux citoyens,,,0,2026-04-21,,assnat_fiche,verified
+19291,"Ministre responsable du Sport, du Loisir et du Plein air",M,ministre,75,2026-04-21,,assnat_fiche,verified
+19293,Membre du Bureau de l’Assemblée nationale,B,membre_bureau,15,2022-12-01,2025-10-01,assnat_fiche,verified
+19293,Membre de la Commission des relations avec les citoyens,,,0,2022-12-02,2025-09-22,assnat_fiche,verified
+19293,Membre de la Commission des transports et de l’environnement,,,0,2023-01-30,2024-09-06,assnat_fiche,verified
+19293,Représentante de l’Assemblée nationale au Comité exécutif du Caucus Legislatif des Grand Lacs (CSG),,,0,2023-08-01,2026-08-27,assnat_fiche,verified
+19293,Représentante de l’Assemblée nationale au Comité exécutif du Council of State Governments (CGS),,,0,2023-08-01,2026-08-27,assnat_fiche,verified
+19293,Représentante de l’Assemblée nationale au Comité exécutif du Council of State Governments East (CSG East),,,0,2023-08-01,2026-08-27,assnat_fiche,verified
+19293,Représentante de l’Assemblée nationale à la Commission des relations Canada-États-Unis du Council of State Governments East (CSG East),,,0,2023-08-01,2026-08-27,assnat_fiche,verified
+19293,Représentante de l’Assemblée nationale à la Commission des relations internationales du Council of State Governments (CGS),,,0,2023-08-01,2026-08-27,assnat_fiche,verified
+19293,Adjointe parlementaire de la ministre de la Famille,AP,adjoint_parlementaire,20,2023-10-18,2025-09-17,assnat_fiche,verified
+19293,Membre de la Commission spéciale sur les impacts des écrans et des réseaux sociaux sur la santé et le développement des jeunes,,,0,2024-06-06,2025-05-29,assnat_fiche,verified
+19293,Whip adjointe du gouvernement,W,whip_adjoint_gouvernement,20,2025-09-17,2026-08-27,assnat_fiche,verified
+19293,Présidente de séance,PS,presidence_seance,15,2025-09-22,2026-08-27,assnat_fiche,verified
+19293,Membre suppléante du Bureau de l’Assemblée nationale,,,0,2025-10-01,2026-08-27,assnat_fiche,verified
+19295,Porte-parole de l’opposition officielle en matière de tourisme,PP,,0,2022-10-27,2025-12-04,assnat_fiche,verified
+19295,Porte-parole de l’opposition officielle responsable de la région de Lanaudière,PP,,0,2022-10-27,2025-12-04,assnat_fiche,verified
+19295,Porte-parole de l’opposition officielle responsable de la région des Laurentides,PP,,0,2022-10-27,2025-12-04,assnat_fiche,verified
+19295,Membre du Bureau de l’Assemblée nationale,B,membre_bureau,15,2022-12-01,2025-10-01,assnat_fiche,verified
+19295,Membre de la Commission de l’économie et du travail,,,0,2022-12-02,2025-07-07,assnat_fiche,verified
+19295,Vice-présidente de la Délégation de l’Assemblée nationale pour les relations avec Kyoto,,,0,2023-02-20,2025-12-04,assnat_fiche,verified
+19295,Vice-présidente de la Délégation de l’Assemblée nationale pour les relations avec le Shandong,,,0,2023-02-20,2025-09-16,assnat_fiche,verified
+19295,Vice-présidente de la Commission des institutions,VC,vice_presidence_commission_permanente,20,2025-07-07,2025-12-04,assnat_fiche,verified
+19295,Porte-parole de l’opposition officielle responsable de la région de Laval,PP,,0,2025-08-19,2025-12-04,assnat_fiche,verified
+19297,Membre du Comité ministériel de l’économie et de l’environnement,,,0,2022-10-20,2026-04-21,assnat_fiche,verified
+19297,Ministre des Relations internationales et de la Francophonie,M,ministre,75,2022-10-20,2025-09-10,assnat_fiche,verified
+19297,Ministre responsable de la Condition féminine,M,ministre,75,2022-10-20,2025-09-10,assnat_fiche,verified
+19297,Membre du Comité de législation,,,0,2025-09-10,2026-04-21,assnat_fiche,verified
+19297,Ministre de l’Enseignement supérieur,M,ministre,75,2025-09-10,,assnat_fiche,verified
+19297,Membre du Conseil du trésor,,,0,2025-11-05,,assnat_fiche,verified
+19297,Membre du Comité ministériel des services aux citoyens,,,0,2026-04-21,,assnat_fiche,verified
+19297,Ministre responsable de la Condition féminine,M,ministre,75,2026-04-21,,assnat_fiche,verified
+19299,Membre de la Commission de la culture et de l’éducation,,,0,2022-12-02,2026-08-27,assnat_fiche,verified
+19299,Membre de la Commission des transports et de l’environnement,,,0,2022-12-02,2023-05-02,assnat_fiche,verified
+19299,Président de séance,PS,presidence_seance,15,2022-12-02,2026-08-27,assnat_fiche,verified
+19299,Membre de la Commission de l’aménagement du territoire,,,0,2023-05-02,2024-09-06,assnat_fiche,verified
+19299,"Membre de la Commission de l’agriculture, des pêcheries, de l’énergie et des ressources naturelles",,,0,2024-09-06,2025-09-22,assnat_fiche,verified
+19299,Membre de la Commission de l’aménagement du territoire,,,0,2025-09-22,2026-08-27,assnat_fiche,verified
+19301,Porte-parole de l’opposition officielle en matière de lutte contre le racisme,PP,,0,2022-10-27,2022-11-24,assnat_fiche,verified
+19301,Porte-parole de l’opposition officielle en matière de santé mentale,PP,,0,2022-10-27,2026-08-27,assnat_fiche,verified
+19301,Porte-parole de l’opposition officielle en matière de services sociaux,PP,,0,2022-10-27,2026-08-27,assnat_fiche,verified
+19301,Porte-parole de l’opposition officielle pour les personnes vivant avec un handicap ou avec le spectre de l’autisme,PP,,0,2022-10-27,2026-08-27,assnat_fiche,verified
+19301,Porte-parole de l’opposition officielle en matière de lutte contre l’itinérance,PP,,0,2022-11-24,2026-08-27,assnat_fiche,verified
+19301,Membre de la Commission des relations avec les citoyens,,,0,2022-12-02,2026-08-27,assnat_fiche,verified
+19301,Présidente de séance,PS,presidence_seance,15,2022-12-02,2025-07-07,assnat_fiche,verified
+19301,Vice-présidente de la Délégation de l’Assemblée nationale pour les relations avec le Maroc,,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+19301,Membre de la Commission spéciale sur les impacts des écrans et des réseaux sociaux sur la santé et le développement des jeunes,,,0,2024-06-06,2025-05-29,assnat_fiche,verified
+19301,Porte-parole de l’opposition officielle en matière de relations avec les Québécois d’expression anglaise,PP,,0,2025-06-26,2026-08-27,assnat_fiche,verified
+19301,Membre de la Commission de la santé et des services sociaux,,,0,2025-07-07,2026-08-27,assnat_fiche,verified
+19301,Membre du Bureau de l’Assemblée nationale,B,membre_bureau,15,2025-10-01,2026-08-27,assnat_fiche,verified
+19303,Membre du Comité ministériel de l’économie et de l’environnement,,,0,2022-10-20,2025-09-10,assnat_fiche,verified
+19303,Ministre de l’Emploi,M,ministre,75,2022-10-20,2025-09-10,assnat_fiche,verified
+19303,Ministre responsable de la région de la Côte-Nord,M,ministre,75,2022-10-20,2026-04-21,assnat_fiche,verified
+19303,Membre du Comité ministériel des services aux citoyens,,,0,2025-09-10,2026-04-21,assnat_fiche,verified
+19303,Ministre de la Famille,M,ministre,75,2025-09-10,2026-04-21,assnat_fiche,verified
+19303,Membre du Conseil du trésor,,,0,2026-02-04,2026-04-29,assnat_fiche,verified
+19303,Ministre des Ressources naturelles et des Forêts,M,ministre,75,2026-04-21,,assnat_fiche,verified
+19303,Vice-présidente du Comité ministériel de l’économie et de l’environnement,,,0,2026-04-21,,assnat_fiche,verified
+19305,Porte-parole du deuxième groupe d’opposition en matière de cybersécurité et du numérique,PP,,0,2022-10-27,2026-08-27,assnat_fiche,verified
+19305,Porte-parole du deuxième groupe d’opposition en matière de finances,PP,,0,2022-10-27,2025-01-23,assnat_fiche,verified
+19305,Porte-parole du deuxième groupe d’opposition en matière de relations internationales et de francophonie,PP,,0,2022-10-27,2023-03-28,assnat_fiche,verified
+19305,Porte-parole du deuxième groupe d’opposition en matière d’économie et d’innovation,PP,,0,2022-10-27,2025-01-23,assnat_fiche,verified
+19305,Porte-parole du deuxième groupe d’opposition en matière d’énergie,PP,,0,2022-10-27,2026-08-27,assnat_fiche,verified
+19305,Membre de la Commission des finances publiques,,,0,2022-12-02,2025-01-29,assnat_fiche,verified
+19305,Vice-président de la Délégation de l’Assemblée nationale pour les relations avec l’Ontario,,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+19305,Porte-parole du deuxième groupe d’opposition responsable de la région de Laval,PP,,0,2024-01-25,2026-08-27,assnat_fiche,verified
+19305,Porte-parole du deuxième groupe d’opposition responsable de la région de la Chaudière-Appalaches,PP,,0,2024-01-25,2026-08-27,assnat_fiche,verified
+19305,Porte-parole du deuxième groupe d’opposition en matière de ressources naturelles et de forêts,PP,,0,2025-01-23,2025-12-09,assnat_fiche,verified
+19305,Porte-parole du deuxième groupe d’opposition en matière d’infrastructures,PP,,0,2025-01-23,2026-08-27,assnat_fiche,verified
+19305,"Membre de la Commission de l’agriculture, des pêcheries, de l’énergie et des ressources naturelles",,,0,2025-01-29,2026-08-27,assnat_fiche,verified
+19305,Porte-parole du deuxième groupe d’opposition en matière de justice,PP,,0,2025-12-09,2026-08-27,assnat_fiche,verified
+19307,Porte-parole de l’opposition officielle en matière de cybersécurité et du numérique,PP,,0,2022-10-27,2022-11-15,assnat_fiche,verified
+19307,Porte-parole de l’opposition officielle en matière de finances,PP,,0,2022-10-27,2023-10-07,assnat_fiche,verified
+19307,Porte-parole de l’opposition officielle en matière d’administration gouvernementale et pour le Conseil du trésor,PP,,0,2022-10-27,2022-11-15,assnat_fiche,verified
+19307,Porte-parole de l’opposition officielle en matière d’infrastructures,PP,,0,2022-10-27,2022-11-15,assnat_fiche,verified
+19307,Porte-parole de l’opposition officielle responsable de la région de l’Estrie,PP,,0,2022-10-27,2023-10-07,assnat_fiche,verified
+19307,Porte-parole de l’opposition officielle responsable de la région du Saguenay–Lac-Saint-Jean,PP,,0,2022-10-27,2023-10-07,assnat_fiche,verified
+19307,Porte-parole de l’opposition officielle en matière d’innovation,PP,,0,2022-11-15,2023-10-07,assnat_fiche,verified
+19307,Porte-parole de l’opposition officielle en matière d’économie,PP,,0,2022-11-15,2023-10-07,assnat_fiche,verified
+19307,Membre de la Commission de l’administration publique,,,0,2022-12-02,2023-10-07,assnat_fiche,verified
+19307,Membre de la Commission des finances publiques,,,0,2022-12-02,2023-10-07,assnat_fiche,verified
+19307,Vice-président de la Commission de l’économie et du travail,VC,vice_presidence_commission_permanente,20,2022-12-06,2023-10-07,assnat_fiche,verified
+19307,Porte-parole de l’opposition officielle en matière de finances,PP,,0,2023-12-15,2026-08-27,assnat_fiche,verified
+19307,Porte-parole de l’opposition officielle en matière d’économie et d’innovation,PP,,0,2023-12-15,2026-08-27,assnat_fiche,verified
+19307,Membre de la Commission des finances publiques,,,0,2023-12-18,2026-08-27,assnat_fiche,verified
+19307,Président de séance,PS,presidence_seance,15,2023-12-18,2025-07-07,assnat_fiche,verified
+19307,Porte-parole de l’opposition officielle responsable de la région du Saguenay–Lac-Saint-Jean,PP,,0,2024-01-16,2026-08-27,assnat_fiche,verified
+19307,Leader parlementaire adjoint de l’opposition officielle,LP,leader_adjoint_opposition_officielle,20,2025-06-26,2026-01-13,assnat_fiche,verified
+19307,Porte-parole de l’opposition officielle en matière de défense et d’aéronautique,PP,,0,2025-06-26,2026-08-27,assnat_fiche,verified
+19307,Porte-parole de l’opposition officielle en matière d’administration gouvernementale et pour le Conseil du trésor,PP,,0,2025-06-26,2026-08-27,assnat_fiche,verified
+19307,Leader parlementaire adjoint de l’opposition officielle,LP,leader_adjoint_opposition_officielle,20,2026-02-14,2026-08-27,assnat_fiche,verified
+19307,Porte-parole de l’opposition officielle responsable de la région de l’Estrie,PP,,0,2026-04-30,2026-08-27,assnat_fiche,verified
+19309,Membre de la Commission de l’administration publique,,,0,2022-12-02,2026-08-27,assnat_fiche,verified
+19309,Membre de la Commission des institutions,,,0,2022-12-02,2026-08-27,assnat_fiche,verified
+19309,Présidente de séance,PS,presidence_seance,15,2022-12-02,2026-08-27,assnat_fiche,verified
+19309,"Adjointe parlementaire du ministre de l’Économie, de l’Innovation et de l’Énergie (volets intelligence artificielle, quantique, sciences et innovation)",AP,adjoint_parlementaire,20,2025-09-24,2026-04-29,assnat_fiche,verified
+19309,"Adjointe parlementaire du ministre de l’Économie, de l’Innovation et de l’Énergie (volets intelligence artificielle, quantique, sciences, innovation et défense)",AP,adjoint_parlementaire,20,2026-04-29,2026-08-27,assnat_fiche,verified
+19311,Membre de la Commission de la santé et des services sociaux,,,0,2022-12-02,2025-11-04,assnat_fiche,verified
+19311,Présidente de séance,PS,presidence_seance,15,2022-12-02,2025-11-04,assnat_fiche,verified
+19311,Membre de la Commission des relations avec les citoyens,,,0,2023-03-09,2023-03-29,assnat_fiche,verified
+19311,Membre de la Commission de l’aménagement du territoire,,,0,2024-09-06,2025-09-22,assnat_fiche,verified
+19311,Membre de la Commission des relations avec les citoyens,,,0,2025-09-22,2025-11-04,assnat_fiche,verified
+19313,"Porte-parole de l’opposition officielle pour les aînés et les proches aidants, et en matière de soins à domicile",PP,,0,2022-10-27,2026-08-27,assnat_fiche,verified
+19313,Porte-parole de l’opposition officielle responsable de la région de la Montérégie,PP,,0,2022-10-27,2026-08-27,assnat_fiche,verified
+19313,Membre de la Commission de la santé et des services sociaux,,,0,2022-12-02,2026-08-27,assnat_fiche,verified
+19313,Vice-présidente de la Commission des relations avec les citoyens,VC,vice_presidence_commission_permanente,20,2022-12-06,2025-07-07,assnat_fiche,verified
+19313,Vice-présidente de la Délégation de l’Assemblée nationale pour les relations avec la Région wallonne,,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+19313,Vice-présidente de la Délégation de l’Assemblée nationale pour les relations avec la Fédération Wallonie-Bruxelles,,,0,2023-03-20,2026-08-27,assnat_fiche,verified
+19313,Porte-parole de l’opposition officielle pour la protection des consommateurs,PP,,0,2025-06-26,2026-08-27,assnat_fiche,verified
+19313,Vice-présidente de la Commission de la santé et des services sociaux,VC,vice_presidence_commission_permanente,20,2025-07-07,2026-08-27,assnat_fiche,verified
+19313,Porte-parole de l’opposition officielle en matière de tourisme,PP,,0,2026-01-05,2026-08-27,assnat_fiche,verified
+19313,Membre suppléante du Bureau de l’Assemblée nationale,,,0,2026-02-24,2026-08-27,assnat_fiche,verified
+19315,Membre de la Commission des finances publiques,,,0,2022-12-02,2026-08-27,assnat_fiche,verified
+19315,Adjointe parlementaire du ministre de la Cybersécurité et du Numérique,AP,adjoint_parlementaire,20,2022-12-07,2025-09-24,assnat_fiche,verified
+19315,Membre de la Commission de la santé et des services sociaux,,,0,2023-01-30,2026-08-27,assnat_fiche,verified
+19315,Vice-présidente de la Délégation de l’Assemblée nationale pour les relations avec le Sénégal,,,0,2024-11-21,2026-08-27,assnat_fiche,verified
+19315,Adjointe parlementaire du ministre de la Cybersécurité et du Numérique (volet cybersécurité),AP,adjoint_parlementaire,20,2025-09-24,2026-04-29,assnat_fiche,verified
+19315,Adjointe parlementaire de la ministre de la Cybersécurité et du Numérique,AP,adjoint_parlementaire,20,2026-04-29,2026-08-27,assnat_fiche,verified
+19317,"Membre de la Commission de l’agriculture, des pêcheries, de l’énergie et des ressources naturelles",,,0,2022-12-02,2024-09-06,assnat_fiche,verified
+19317,Membre de la Commission de l’aménagement du territoire,,,0,2022-12-02,2026-08-27,assnat_fiche,verified
+19317,Président de séance,PS,presidence_seance,15,2022-12-02,2026-08-27,assnat_fiche,verified
+19317,Membre de la Commission spéciale sur les impacts des écrans et des réseaux sociaux sur la santé et le développement des jeunes,,,0,2024-06-06,2025-05-29,assnat_fiche,verified
+19317,Membre de la Commission des relations avec les citoyens,,,0,2025-09-22,2026-08-27,assnat_fiche,verified
+19317,Membre de la Commission de la santé et des services sociaux,,,0,2026-05-05,2026-08-27,assnat_fiche,verified
+19319,"Membre de la Commission de l’agriculture, des pêcheries, de l’énergie et des ressources naturelles",,,0,2022-12-02,2026-08-27,assnat_fiche,verified
+19319,Président de séance,PS,presidence_seance,15,2022-12-02,2026-08-27,assnat_fiche,verified
+19319,Vice-président de la Délégation de l’Assemblée nationale pour les relations avec le Nouveau-Brunswick,,,0,2024-03-13,2026-08-27,assnat_fiche,verified
+19319,Membre de la Commission spéciale sur les impacts des écrans et des réseaux sociaux sur la santé et le développement des jeunes,,,0,2024-06-06,2025-05-29,assnat_fiche,verified
+19319,Membre de la Commission des transports et de l’environnement,,,0,2025-09-22,2026-08-27,assnat_fiche,verified
+19319,Membre de la Commission des institutions,,,0,2026-03-25,2026-08-27,assnat_fiche,verified
+19321,"Membre de la Commission de l’agriculture, des pêcheries, de l’énergie et des ressources naturelles",,,0,2022-12-06,2024-09-06,assnat_fiche,verified
+19321,"Vice-président de la Commission de l’agriculture, des pêcheries, de l’énergie et des ressources naturelles",VC,vice_presidence_commission_permanente,20,2022-12-06,2024-04-22,assnat_fiche,verified
+19321,Vice-président de la Commission des transports et de l’environnement,VC,vice_presidence_commission_permanente,20,2024-04-22,2026-05-05,assnat_fiche,verified
+19321,Membre de la Commission spéciale sur les impacts des écrans et des réseaux sociaux sur la santé et le développement des jeunes,,,0,2024-06-06,2025-05-29,assnat_fiche,verified
+19321,Membre de la Commission des finances publiques,,,0,2026-01-29,2026-08-27,assnat_fiche,verified
+19321,Adjoint parlementaire du ministre responsable des Relations avec les Premières Nations et les Inuit,AP,adjoint_parlementaire,20,2026-04-29,2026-08-27,assnat_fiche,verified
+19321,"Membre de la Commission de l’agriculture, des pêcheries, de l’énergie et des ressources naturelles",,,0,2026-05-05,2026-08-27,assnat_fiche,verified
+19321,Président de séance,PS,presidence_seance,15,2026-05-27,2026-08-27,assnat_fiche,verified
+19323,Membre de la Commission de la culture et de l’éducation,,,0,2022-12-02,2026-08-27,assnat_fiche,verified
+19323,Présidente de séance,PS,presidence_seance,15,2022-12-02,2026-08-27,assnat_fiche,verified
+19323,Vice-présidente de la Délégation de l’Assemblée nationale pour les relations avec l’Ontario,,,0,2023-02-20,2026-08-27,assnat_fiche,verified
+19323,Membre de la Commission de l’économie et du travail,,,0,2023-08-31,2026-08-27,assnat_fiche,verified
+19323,Membre de la Commission spéciale sur les impacts des écrans et des réseaux sociaux sur la santé et le développement des jeunes,,,0,2024-06-06,2025-05-29,assnat_fiche,verified
+19323,Adjointe parlementaire de la ministre de l’Éducation,AP,adjoint_parlementaire,20,2026-04-29,2026-08-27,assnat_fiche,verified
+19325,"Membre de la Commission de l’agriculture, des pêcheries, de l’énergie et des ressources naturelles",,,0,2022-12-02,2024-09-06,assnat_fiche,verified
+19325,Membre de la Commission des transports et de l’environnement,,,0,2022-12-02,2024-09-06,assnat_fiche,verified
+19325,Présidente de séance,PS,presidence_seance,15,2022-12-02,2025-09-22,assnat_fiche,verified
+19325,Membre de la Commission des relations avec les citoyens,,,0,2024-06-06,2025-09-22,assnat_fiche,verified
+19325,Membre de la Commission spéciale sur les impacts des écrans et des réseaux sociaux sur la santé et le développement des jeunes,,,0,2024-06-06,2025-05-29,assnat_fiche,verified
+19325,"Adjointe parlementaire du ministre de l’Agriculture, des Pêcheries et de l’Alimentation",AP,adjoint_parlementaire,20,2025-09-17,2025-09-24,assnat_fiche,verified
+19325,Vice-présidente de la Commission de la culture et de l’éducation,VC,vice_presidence_commission_permanente,20,2025-09-22,2026-05-05,assnat_fiche,verified
+19325,Adjointe parlementaire de la première ministre (volet approvisionnement de produits et de services québécois),AP,adjoint_parlementaire,20,2026-04-29,2026-08-27,assnat_fiche,verified
+19325,Membre de la Commission de la santé et des services sociaux,,,0,2026-05-05,2026-08-27,assnat_fiche,verified
+19325,Membre de la Commission des institutions,,,0,2026-05-05,2026-08-27,assnat_fiche,verified
+19351,Membre de la Commission de l’administration publique,,,0,2022-12-02,2024-09-06,assnat_fiche,verified
+19351,Membre de la Commission des finances publiques,,,0,2022-12-02,2026-08-27,assnat_fiche,verified
+19351,Présidente de séance,PS,presidence_seance,15,2022-12-02,2025-09-22,assnat_fiche,verified
+19351,Membre de la Commission de l’économie et du travail,,,0,2024-09-06,2026-08-27,assnat_fiche,verified
+19351,Adjointe parlementaire du ministre du Travail,AP,adjoint_parlementaire,20,2025-09-17,2026-04-29,assnat_fiche,verified
+19351,Adjointe parlementaire du ministre responsable des Infrastructures,AP,adjoint_parlementaire,20,2026-04-29,2026-08-27,assnat_fiche,verified
+19593,Porte-parole du deuxième groupe d’opposition en matière de justice,PP,,0,2023-03-28,2025-12-09,assnat_fiche,verified
+19593,Porte-parole du deuxième groupe d’opposition en matière de relations internationales et de francophonie,PP,,0,2023-03-28,2025-12-09,assnat_fiche,verified
+19593,"Porte-parole du deuxième groupe d’opposition en matière d’immigration, de francisation et d’intégration",PP,,0,2023-03-28,2025-12-09,assnat_fiche,verified
+19593,Vice-président de la Commission des relations avec les citoyens,VC,vice_presidence_commission_permanente,20,2024-01-24,2025-01-29,assnat_fiche,verified
+19593,Porte-parole du deuxième groupe d’opposition en matière de services sociaux,PP,,0,2024-01-25,2026-08-27,assnat_fiche,verified
+19593,Porte-parole du deuxième groupe d’opposition pour la famille,PP,,0,2024-01-25,2025-01-23,assnat_fiche,verified
+19593,Porte-parole du deuxième groupe d’opposition responsable de la région des Laurentides,PP,,0,2024-01-25,2026-08-27,assnat_fiche,verified
+19593,Porte-parole du deuxième groupe d’opposition en matière de laïcité,PP,,0,2024-08-29,2025-12-09,assnat_fiche,verified
+19593,Leader parlementaire du deuxième groupe d’opposition,LP,leader_deuxieme_groupe,25,2025-01-28,2026-08-27,assnat_fiche,verified
+19593,Membre de la Commission de l’Assemblée nationale,,,0,2025-01-28,2026-08-27,assnat_fiche,verified
+19593,Membre de la Sous-commission de la réforme parlementaire,,,0,2025-01-28,2026-08-27,assnat_fiche,verified
+19593,Membre suppléant du Bureau de l’Assemblée nationale,,,0,2025-01-28,2026-05-06,assnat_fiche,verified
+19593,Membre de la Commission de la santé et des services sociaux,,,0,2025-02-13,2026-08-27,assnat_fiche,verified
+19593,Porte-parole du deuxième groupe d’opposition en matière de santé,PP,,0,2025-12-09,2026-08-27,assnat_fiche,verified
+19593,Porte-parole du deuxième groupe d’opposition en matière d’accès à l’information et de protection des renseignements personnels,PP,,0,2025-12-09,2026-08-27,assnat_fiche,verified
+19999,Porte-parole du troisième groupe d’opposition en matière de justice,PP,,0,2023-10-17,2026-08-27,assnat_fiche,verified
+19999,Porte-parole du troisième groupe d’opposition en matière de lutte contre le racisme,PP,,0,2023-10-17,2025-09-17,assnat_fiche,verified
+19999,Porte-parole du troisième groupe d’opposition en matière de relations avec les Québécois d’expression anglaise,PP,,0,2023-10-17,2025-03-24,assnat_fiche,verified
+19999,Porte-parole du troisième groupe d’opposition en matière de relations internationales et de francophonie,PP,,0,2023-10-17,2025-09-17,assnat_fiche,verified
+19999,Porte-parole du troisième groupe d’opposition en matière de solidarité sociale et d’action communautaire,PP,,0,2023-10-17,2025-03-24,assnat_fiche,verified
+19999,Porte-parole du troisième groupe d’opposition en matière de sécurité publique,PP,,0,2023-10-17,2025-09-17,assnat_fiche,verified
+19999,Porte-parole du troisième groupe d’opposition en matière de travail et d’emploi,PP,,0,2023-10-17,2026-08-27,assnat_fiche,verified
+19999,Porte-parole du troisième groupe d’opposition pour la Capitale-Nationale,PP,,0,2023-10-17,2026-08-27,assnat_fiche,verified
+19999,Porte-parole du troisième groupe d’opposition pour les communautés LGBTQ+,PP,,0,2023-10-17,2025-09-17,assnat_fiche,verified
+19999,Porte-parole du troisième groupe d’opposition en matière d’énergie,PP,,0,2023-11-22,2026-08-27,assnat_fiche,verified
+19999,Porte-parole du troisième groupe d’opposition en matière d’infrastructures,PP,,0,2024-09-10,2026-03-03,assnat_fiche,verified
+19999,Porte-parole du troisième groupe d’opposition pour les relations avec les Premières Nations et les Inuit,PP,,0,2024-09-10,2026-08-27,assnat_fiche,verified
+19999,Porte-parole du troisième groupe d’opposition en matière de PME et d’allègement réglementaire,PP,,0,2025-03-24,2025-09-17,assnat_fiche,verified
+19999,Porte-parole du troisième groupe d’opposition en matière de commerce extérieur,PP,,0,2025-03-24,2025-09-17,assnat_fiche,verified
+19999,Porte-parole du troisième groupe d’opposition en matière de francisation,PP,,0,2025-03-24,2025-09-17,assnat_fiche,verified
+19999,Porte-parole du troisième groupe d’opposition en matière de relations avec les Québécois d’expression anglaise et les néo-Québécois,PP,,0,2025-03-24,2025-09-17,assnat_fiche,verified
+19999,Porte-parole du troisième groupe d’opposition en matière d’ingérence étrangère,PP,,0,2025-03-24,2025-09-17,assnat_fiche,verified
+19999,Membre de la Commission de l’économie et du travail,,,0,2025-04-17,2026-08-27,assnat_fiche,verified
+19999,Porte-parole du troisième groupe d’opposition en matière de cybersécurité et du numérique,PP,,0,2025-09-17,2026-08-27,assnat_fiche,verified
+19999,"Porte-parole du troisième groupe d’opposition en matière de relations internationales, de francophonie, d’ingérence étrangère et de commerce extérieur",PP,,0,2025-09-17,2026-08-27,assnat_fiche,verified
+19999,Porte-parole du troisième groupe d’opposition en matière de ressources naturelles et de forêts,PP,,0,2025-09-17,2026-03-03,assnat_fiche,verified
+19999,Porte-parole du troisième groupe d’opposition en matière de réforme des institutions démocratiques,PP,,0,2025-09-17,2026-08-27,assnat_fiche,verified
+19999,Porte-parole du troisième groupe d’opposition en matière d’accès à l’information et de protection des renseignements personnels,PP,,0,2025-09-17,2026-08-27,assnat_fiche,verified
+19999,Porte-parole du troisième groupe d’opposition en matière d’allègement réglementaire,PP,,0,2025-09-17,2026-08-27,assnat_fiche,verified
+19999,Porte-parole du troisième groupe d’opposition pour le Conseil du trésor et l’efficacité gouvernementale,PP,,0,2025-09-17,2026-08-27,assnat_fiche,verified
+20131,Porte-parole du troisième groupe d’opposition en matière de condition féminine,PP,,0,2025-03-24,2026-08-27,assnat_fiche,verified
+20131,Porte-parole du troisième groupe d’opposition en matière de culture et de communications,PP,,0,2025-03-24,2026-08-27,assnat_fiche,verified
+20131,Porte-parole du troisième groupe d’opposition en matière de jeunesse,PP,,0,2025-03-24,2026-08-27,assnat_fiche,verified
+20131,Porte-parole du troisième groupe d’opposition en matière de solidarité sociale et d’action communautaire,PP,,0,2025-03-24,2025-09-17,assnat_fiche,verified
+20131,"Porte-parole du troisième groupe d’opposition en matière de sports, de loisirs et de plein air",PP,,0,2025-03-24,2025-09-17,assnat_fiche,verified
+20131,Porte-parole du troisième groupe d’opposition en matière d’enseignement supérieur,PP,,0,2025-03-24,2026-03-03,assnat_fiche,verified
+20131,Porte-parole du troisième groupe d’opposition en matière d’habitation et d’accès à la propriété,PP,,0,2025-03-24,2026-08-27,assnat_fiche,verified
+20131,Porte-parole du troisième groupe d’opposition en matière d’itinérance,PP,,0,2025-03-24,2025-09-17,assnat_fiche,verified
+20131,Porte-parole du troisième groupe d’opposition en matière d’économie et d’innovation,PP,,0,2025-03-24,2025-09-17,assnat_fiche,verified
+20131,Membre de la Commission de la culture et de l’éducation,,,0,2025-04-17,2026-08-27,assnat_fiche,verified
+20131,Porte-parole du troisième groupe d’opposition en matière de tourisme,PP,,0,2025-09-17,2026-08-27,assnat_fiche,verified
+20131,"Porte-parole du troisième groupe d’opposition en matière d’économie, d’innovation, de développement économique régional et de PME",PP,,0,2025-09-17,2026-08-27,assnat_fiche,verified
+20131,Porte-parole du troisième groupe d’opposition pour la Métropole,PP,,0,2025-09-17,2026-08-27,assnat_fiche,verified
+20131,Porte-parole du troisième groupe d’opposition pour la famille et en matière de CPE,PP,,0,2025-09-17,2026-03-03,assnat_fiche,verified
+20131,Porte-parole du troisième groupe d’opposition pour les communautés LGBTQ+,PP,,0,2025-09-17,2026-08-27,assnat_fiche,verified
+20131,Membre du comité consultatif de la diplomatie parlementaire,,,0,2025-09-29,2026-08-27,assnat_fiche,verified
+20141,Porte-parole du troisième groupe d’opposition en matière de lutte contre le racisme,PP,,0,2025-09-17,2026-08-27,assnat_fiche,verified
+20141,Porte-parole du troisième groupe d’opposition en matière de relations avec les Québécois d’expression anglaise et les néo-Québécois,PP,,0,2025-09-17,2026-08-27,assnat_fiche,verified
+20141,Porte-parole du troisième groupe d’opposition en matière de relations canadiennes,PP,,0,2025-09-17,2026-08-27,assnat_fiche,verified
+20141,Porte-parole du troisième groupe d’opposition en matière d’affaires municipales,PP,,0,2025-09-17,2026-08-27,assnat_fiche,verified
+20141,Porte-parole du troisième groupe d’opposition en matière d’agriculture et d’alimentation,PP,,0,2025-09-17,2026-08-27,assnat_fiche,verified
+20141,"Porte-parole du troisième groupe d’opposition en matière d’immigration, d’intégration et de francisation",PP,,0,2025-09-17,2026-08-27,assnat_fiche,verified
+20141,Porte-parole du troisième groupe d’opposition en matière d’éthique,PP,,0,2025-09-17,2026-08-27,assnat_fiche,verified
+20141,Porte-parole du troisième groupe d’opposition pour la famille et en matière de CPE,PP,,0,2026-03-03,2026-08-27,assnat_fiche,verified
+20141,"Membre de la Commission de l’agriculture, des pêcheries, de l’énergie et des ressources naturelles",,,0,2026-04-23,2026-08-27,assnat_fiche,verified
+20193,Porte-parole du troisième groupe d’opposition en matière de ressources naturelles et de forêts,PP,,0,2026-03-03,2026-08-27,assnat_fiche,verified
+20193,Porte-parole du troisième groupe d’opposition en matière de solidarité sociale et d’action communautaire,PP,,0,2026-03-03,2026-08-27,assnat_fiche,verified
+20193,Porte-parole du troisième groupe d’opposition en matière d’enseignement supérieur,PP,,0,2026-03-03,2026-08-27,assnat_fiche,verified
+20193,Porte-parole du troisième groupe d’opposition en matière d’infrastructures,PP,,0,2026-03-03,2026-08-27,assnat_fiche,verified
+20193,Porte-parole du troisième groupe d’opposition pour les aînés,PP,,0,2026-03-03,2026-08-27,assnat_fiche,verified
+20193,Membre de la Commission des institutions,,,0,2026-03-25,2026-08-27,assnat_fiche,verified
