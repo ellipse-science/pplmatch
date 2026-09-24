@@ -1,0 +1,22 @@
+scale_category,label_fr,pct,valid_from,source
+premier_ministre,Première ou premier ministre,105,2022-04-01,assnat_indemnites
+ministre,Ministre (incluant la ou le leader parlementaire du gouvernement),75,2022-04-01,assnat_indemnites
+presidence_assemblee,Présidente ou président de l’Assemblée nationale,75,2022-04-01,assnat_indemnites
+vice_presidence_assemblee,Vice-présidente ou vice-président de l’Assemblée nationale,35,2022-04-01,assnat_indemnites
+chef_opposition_officielle,Cheffe ou chef de l’opposition officielle,75,2022-04-01,assnat_indemnites
+chef_autre_groupe_opposition,Cheffe ou chef du deuxième ou du troisième groupe d’opposition,35,2022-04-01,assnat_indemnites
+leader_opposition_officielle,Leader parlementaire de l’opposition officielle,35,2022-04-01,assnat_indemnites
+leader_deuxieme_groupe,Leader parlementaire du deuxième groupe d’opposition,25,2022-04-01,assnat_indemnites
+whip_chef_gouvernement,Whip en chef du gouvernement,35,2022-04-01,assnat_indemnites
+whip_chef_opposition_officielle,Whip en chef de l’opposition officielle,30,2022-04-01,assnat_indemnites
+whip_deuxieme_groupe,Whip du deuxième groupe d’opposition,20,2022-04-01,assnat_indemnites
+leader_adjoint_gouvernement,Leader parlementaire adjoint du gouvernement,25,2022-04-01,assnat_indemnites
+leader_adjoint_opposition_officielle,Leader parlementaire adjoint de l’opposition officielle,20,2022-04-01,assnat_indemnites
+whip_adjoint_gouvernement,Whip adjoint du gouvernement,20,2022-04-01,assnat_indemnites
+presidence_caucus_gouvernement,Présidente ou président de caucus du gouvernement,25,2022-04-01,assnat_indemnites
+presidence_caucus_opposition_officielle,Présidente ou président de caucus de l’opposition officielle,22.5,2022-04-01,assnat_indemnites
+adjoint_parlementaire,Adjointe ou adjoint parlementaire,20,2022-04-01,assnat_indemnites
+presidence_commission_permanente,Présidente ou président d’une commission permanente,25,2022-04-01,assnat_indemnites
+vice_presidence_commission_permanente,Vice-présidente ou vice-président d’une commission permanente,20,2022-04-01,assnat_indemnites
+presidence_seance,Présidente ou président de séance d’une commission permanente,15,2022-04-01,assnat_indemnites
+membre_bureau,Membre du Bureau de l’Assemblée nationale,15,2022-04-01,assnat_indemnites

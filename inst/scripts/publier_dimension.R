@@ -43,7 +43,11 @@ go <- "--go" %in% args
 DATAMART <- "dim_qc_parliament"
 TABLES <- c(mandates = "Mandats dates : une personne x un siege x un intervalle ferme (SCD-2).",
             persons  = "Identites des parlementaires quebecois et variantes de graphie.",
-            seats    = "Circonscriptions et leurs noms successifs dans le temps.")
+            seats    = "Circonscriptions et leurs noms successifs dans le temps.",
+            functions = "Fonctions datees (43e legislature) : une personne x une fonction x un intervalle, code et taux au bareme.",
+            election_results = "Resultats par circonscription des scrutins de la 43e legislature : tous les candidats, l'elu relie a sa personne.",
+            indemnities = "Indemnite annuelle de base des deputes, par date d'entree en vigueur.",
+            indemnity_scale = "Bareme des indemnites additionnelles : pourcentage de l'indemnite de base par fonction.")
 
 msg <- function(...) cat(..., "\n", sep = "")
 
@@ -64,8 +68,14 @@ lire <- function(f) utils::read.csv(file.path(racine, "inst", "extdata", f),
 mandats <- lire("mandates_qc.csv")
 personnes <- lire("persons_qc.csv")
 sieges <- lire("seats_qc.csv")
+fonctions <- lire("functions_qc.csv")
+resultats <- lire("election_results_qc.csv")
+indemnites <- lire("indemnities_qc.csv")
+bareme <- lire("indemnity_scale_qc.csv")
 msg("mandats ", nrow(mandats), " | personnes ", nrow(personnes),
-    " | sieges ", nrow(sieges))
+    " | sieges ", nrow(sieges), " | fonctions ", nrow(fonctions),
+    " | candidatures ", nrow(resultats), " | bases ", nrow(indemnites),
+    " | bareme ", nrow(bareme))
 
 # ── 2. Les gardes ───────────────────────────────────────────────────────────
 # On ne fait pas confiance a une verification faite ailleurs, il y a peut-etre
@@ -100,6 +110,34 @@ for (s in unique(mandats$seat_id)) {
 }
 if (ch > 0) fautes <- c(fautes, sprintf("%d chevauchement(s) de mandats", ch))
 
+# ── Fonctions : les memes regles que les mandats, et le lien au bareme.
+f0 <- as.Date(fonctions$date_start)
+f1 <- as.Date(ifelse(fonctions$date_end == "", "9999-12-31", fonctions$date_end))
+if (any(is.na(f0))) fautes <- c(fautes, "des fonctions sans date de debut lisible")
+if (any(f1 < f0, na.rm = TRUE)) fautes <- c(fautes, "des fonctions finissent avant de commencer")
+orph_f <- setdiff(fonctions$person_id, personnes$person_id)
+if (length(orph_f)) fautes <- c(fautes, sprintf("%d fonction(s) pointent vers une personne inexistante", length(orph_f)))
+cat_f <- setdiff(fonctions$scale_category[nzchar(fonctions$scale_category)], bareme$scale_category)
+if (length(cat_f)) fautes <- c(fautes, paste("categories hors bareme :", paste(cat_f, collapse = ", ")))
+
+# ── Resultats : un elu et un seul par circonscription et par scrutin, relie
+# a une personne connue, dans un siege connu.
+elus <- resultats[resultats$elected == "true", ]
+cles <- paste(resultats$election_code, resultats$seat_id)
+n_elus <- tapply(resultats$elected == "true", cles, sum)
+if (any(n_elus != 1)) fautes <- c(fautes, sprintf("%d circonscription(s) sans exactement un elu", sum(n_elus != 1)))
+if (any(!nzchar(elus$person_id))) fautes <- c(fautes, "des elus sans person_id")
+orph_r <- setdiff(elus$person_id, personnes$person_id)
+if (length(orph_r)) fautes <- c(fautes, sprintf("%d elu(s) inconnus de persons", length(orph_r)))
+sieges_r <- setdiff(resultats$seat_id, sieges$seat_id)
+if (length(sieges_r)) fautes <- c(fautes, paste("sieges inconnus :", paste(sieges_r, collapse = ", ")))
+
+# ── Indemnites : dates strictement croissantes, montants positifs.
+b0 <- as.Date(indemnites$date_start)
+if (is.unsorted(b0, strictly = TRUE)) fautes <- c(fautes, "indemnites : dates non strictement croissantes")
+if (any(as.numeric(indemnites$base_annual) <= 0)) fautes <- c(fautes, "indemnites : montant nul ou negatif")
+if (anyDuplicated(bareme$scale_category)) fautes <- c(fautes, "bareme : categorie en double")
+
 conf <- table(mandats$confidence)
 msg("confiance : ", paste(sprintf("%s=%d", names(conf), conf), collapse = " | "))
 
@@ -128,7 +166,9 @@ on.exit(try(tube::ellipse_disconnect(con), silent = TRUE), add = TRUE)
 
 for (nom in names(TABLES)) {
   df <- get(switch(nom, mandates = "mandats", persons = "personnes",
-                   seats = "sieges"))
+                   seats = "sieges", functions = "fonctions",
+                   election_results = "resultats", indemnities = "indemnites",
+                   indemnity_scale = "bareme"))
   msg("publication de ", nom, " (", nrow(df), " lignes) vers ", env, "...")
   tube::ellipse_publish(
     con = con,
