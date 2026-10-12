@@ -11,7 +11,7 @@ test_that("Python matcher performs deterministic matching", {
          legislature_id = "42")
   )
 
-  leg_path <- file.path(.find_extdata_dir(), "legislatures_qc.json")
+  leg_path <- chemins_annuaire_test()$legislatures
 
   # Exact full name match
   corpus <- list(
@@ -48,7 +48,7 @@ test_that("Python matcher handles roles and crowds", {
          legislature_id = "42")
   )
 
-  leg_path <- file.path(.find_extdata_dir(), "legislatures_qc.json")
+  leg_path <- chemins_annuaire_test()$legislatures
 
   corpus <- list(
     list(speaker = "Le Président", event_date = "2020-06-15"),
@@ -77,7 +77,7 @@ test_that("Python matcher detects ambiguous last names", {
          legislature_id = "42")
   )
 
-  leg_path <- file.path(.find_extdata_dir(), "legislatures_qc.json")
+  leg_path <- chemins_annuaire_test()$legislatures
 
   corpus <- list(
     list(speaker = "Proulx", event_date = "2020-06-15")
@@ -95,7 +95,7 @@ test_that("Python matcher performs fuzzy matching", {
          legislature_id = "42")
   )
 
-  leg_path <- file.path(.find_extdata_dir(), "legislatures_qc.json")
+  leg_path <- chemins_annuaire_test()$legislatures
 
   # Slightly misspelled name should fuzzy match
   corpus <- list(
@@ -115,7 +115,7 @@ test_that("Python matcher handles honorifics", {
          legislature_id = "42")
   )
 
-  leg_path <- file.path(.find_extdata_dir(), "legislatures_qc.json")
+  leg_path <- chemins_annuaire_test()$legislatures
 
   corpus <- list(
     list(speaker = "M. Bérubé", event_date = "2020-06-15")
@@ -146,7 +146,7 @@ test_that("un alias en collision n'ecrase pas silencieusement un homonyme", {
     list(full_name = "Gaston Blackburn", party_id = "PLQ", gender = "m",
          legislature_id = "34", other_names = "Blackburn")
   )
-  leg_path <- file.path(.find_extdata_dir(), "legislatures_qc.json")
+  leg_path <- chemins_annuaire_test()$legislatures
   corpus <- list(list(speaker = "Blackburn", event_date = "1990-01-01"))
   res <- matcher$match_corpus(corpus, members, 85L, leg_path, FALSE)
 

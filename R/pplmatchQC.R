@@ -15,7 +15,7 @@
 #'   Toutes les autres colonnes sont conservees dans le resultat.
 #'
 #' @param members Un data frame de la table des deputes, ou \code{NULL}
-#'   (defaut) pour utiliser automatiquement \code{\link{qc_members}()}.
+#'   (defaut) pour le construire depuis \code{annuaire} (mandats et personnes).
 #'   Colonnes requises :
 #'   \describe{
 #'     \item{full_name}{Nom complet du depute (ex: "Francois Legault").}
@@ -31,14 +31,21 @@
 #'     \item{district_id}{Identifiant de la circonscription.}
 #'   }
 #'
+#' @param annuaire L'annuaire des deputes : une liste de tables \code{mandates},
+#'   \code{persons}, \code{functions} et \code{periods} (les tables
+#'   \code{dim-qc-parliament-*} de l'entrepot, lues par tube, ou un dossier de
+#'   CSV lu par \code{\link{qc_annuaire_csv}}). pplmatch ne contient aucune
+#'   donnee : sans annuaire, pas d'appariement.
+#'
 #' @param fuzzy_threshold Score minimum (0 a 100) pour accepter un match fuzzy.
 #'   Defaut : 85. Un seuil plus eleve = plus precis mais moins de matchs.
 #'   Un seuil plus bas = plus de matchs mais plus de faux positifs.
 #'
 #' @param legislatures Vecteur d'entiers des numeros de legislatures a traiter.
-#'   Defaut : 35:43 (1994 a aujourd'hui). Les lignes du corpus dont la date
-#'   tombe hors de ces legislatures recoivent un \code{match_level} de
-#'   \code{"unmatched"} et un \code{legislature} de \code{NA}.
+#'   Defaut : toutes celles de \code{annuaire$periods}. Les lignes du corpus
+#'   dont la date tombe hors de ces legislatures recoivent un
+#'   \code{match_level} de \code{"unmatched"} et un \code{legislature} de
+#'   \code{NA}.
 #'
 #' @param web_lookup Logique. Si \code{TRUE}, tente de resoudre les cas
 #'   \code{"ambiguous"} restants apres la resolution contextuelle en
@@ -54,7 +61,7 @@
 #' @return Un tibble contenant toutes les colonnes du corpus original, plus
 #'   les colonnes suivantes :
 #'   \describe{
-#'     \item{legislature}{Numero de la legislature (entier, 35 a 43) determine
+#'     \item{legislature}{Numero de la legislature (entier) determine
 #'       automatiquement a partir de \code{event_date}. \code{NA} si la date
 #'       est hors des legislatures couvertes.}
 #'     \item{speaker_category}{Classification de l'intervenant :
@@ -126,7 +133,7 @@
 #'   legislature_id = c("43", "43")
 #' )
 #'
-#' # Lancer l'appariement (utilise qc_members() par defaut)
+#' # Lancer l'appariement (le repertoire est construit depuis l'annuaire)
 #' result <- pplmatchQC(corpus, verbose = TRUE)
 #'
 #' # Ou avec une table de deputes custom
@@ -147,7 +154,7 @@
 #' }
 #'
 #' @seealso \code{\link{ensure_python_deps}} pour l'installation des dependances,
-#'   \code{\link{qc_members}} pour charger la table des deputes integree,
+#'   \code{\link{qc_annuaire_csv}} pour lire l'annuaire depuis un dossier,
 #'   \code{\link{generate_gold_sample}} et \code{\link{evaluate_matches_qc}} pour
 #'   l'evaluation de la qualite.
 #'
@@ -157,33 +164,22 @@
 #' @importFrom reticulate import_from_path
 #'
 #' @export
-pplmatchQC <- function(corpus, members = NULL,
+pplmatchQC <- function(corpus, annuaire, members = NULL,
                        fuzzy_threshold = 85,
-                       legislatures = 35:43,
+                       legislatures = NULL,
                        web_lookup = FALSE,
                        verbose = FALSE) {
 
-  # Load bundled members if not provided
+  annuaire <- .verifier_annuaire(annuaire)
+  bornes <- .bornes_legislatures(annuaire$periods)
+  if (is.null(legislatures)) legislatures <- bornes$legislature
 
+  # Sans `members`, le repertoire est construit depuis les mandats et les
+  # personnes de l'annuaire : une ligne par (personne x legislature). Un
+  # appelant qui fournit son propre `members` decrit exactement la population
+  # qu'il veut apparier ; on n'y injecte rien.
   if (is.null(members)) {
-    members <- qc_members()
-
-    # Le repertoire historique s'arrete au 2025-03-17 et ignore 4 des 125
-    # sieges de la 43e legislature. Un siege absent n'est pas mal apparie : il
-    # est `unmatched`, donc jete en aval, et sa parole disparait. On le
-    # complete depuis les mandats, sans jamais ecraser une ligne existante.
-    #
-    # UNIQUEMENT sur le repertoire livre. Un appelant qui fournit son propre
-    # `members` decrit exactement la population qu'il veut apparier : y
-    # injecter des centaines de personnes changerait ses resultats sous lui —
-    # et le faisait, en rendant nos graphies normalisees la ou il attendait les
-    # siennes.
-    legs <- jsonlite::fromJSON(file.path(.find_extdata_dir(), "legislatures_qc.json"))
-    bornes <- data.frame(legislature = legs$legislature,
-                         start_date = as.Date(legs$start_date),
-                         end_date = as.Date(legs$end_date),
-                         stringsAsFactors = FALSE)
-    members <- .completer_membres(members, bornes)
+    members <- .membres_depuis_annuaire(annuaire, bornes)
   }
 
   # Load Python matcher
@@ -200,7 +196,6 @@ pplmatchQC <- function(corpus, members = NULL,
   # Prepare member records as list of dicts for Python
   # Filter to requested legislatures
   members_filtered <- members[members$legislature_id %in% as.character(legislatures), ]
-
   members_list <- purrr::map(seq_len(nrow(members_filtered)), function(i) {
     row <- members_filtered[i, ]
     m <- list(
@@ -218,27 +213,32 @@ pplmatchQC <- function(corpus, members = NULL,
     m
   })
 
-  # Get data file paths
-  leg_path            <- file.path(.find_extdata_dir(), "legislatures_qc.json")
-  session_path        <- file.path(.find_extdata_dir(), "sessions_qc.json")
-  # Le modele DATE est la seule source d'allegeance : un mandat est un
-  # intervalle FERME, donc une defection ne peut plus etre heritee par le
-  # successeur du transfuge. L'ancien party_changes_qc.csv (par circonscription)
-  # n'est plus transmis : il vit dans extdata/sources/ comme sortie de scraping.
-  mandates_path       <- file.path(.find_extdata_dir(), "mandates_qc.csv")
-  # Fonctions datees : la presidence de l'Assemblee (PAN) sert a attribuer
-  # l'etiquette nue « La Presidente » a la personne au fauteuil ce jour-la.
-  functions_path      <- file.path(.find_extdata_dir(), "functions_qc.csv")
+  # Le matcher lit des fichiers : on lui ecrit l'annuaire dans un dossier
+  # temporaire, efface a la sortie.
+  fichiers <- .fichiers_temporaires_annuaire(annuaire)
+  on.exit(unlink(fichiers$dossier, recursive = TRUE), add = TRUE)
+
+  # La desambiguation par le web cherche la fiche ANQ de chaque candidat :
+  # son identifiant et son URL sont dans `persons`.
+  persons_list <- NULL
+  if (isTRUE(web_lookup)) {
+    pp <- annuaire$persons
+    persons_list <- purrr::map(seq_len(nrow(pp)), function(i) {
+      list(person_id = pp$person_id[i], full_name = pp$full_name[i],
+           assnat_url = if ("assnat_url" %in% names(pp)) pp$assnat_url[i] else "")
+    })
+  }
 
   # Call Python matcher
   results <- matcher$match_corpus(
     corpus_rows         = corpus_list,
     members             = members_list,
     fuzzy_threshold     = as.integer(fuzzy_threshold),
-    legislatures_path   = leg_path,
-    sessions_path       = session_path,
-    mandates_path       = if (file.exists(mandates_path)) mandates_path else NULL,
-    functions_path      = if (file.exists(functions_path)) functions_path else NULL,
+    legislatures_path   = fichiers$legislatures,
+    sessions_path       = fichiers$sessions,
+    mandates_path       = fichiers$mandates,
+    functions_path      = fichiers$functions,
+    persons             = persons_list,
     web_lookup          = isTRUE(web_lookup),
     verbose             = verbose
   )
@@ -258,53 +258,39 @@ pplmatchQC <- function(corpus, members = NULL,
   )
 
   # --- Add Government/Opposition Status & Minister Inference ---
-  elections_file <- file.path(.find_extdata_dir(), "elections_qc.csv")
-  
-  if (file.exists(elections_file)) {
-    elections <- utils::read.csv(elections_file, stringsAsFactors = FALSE)
-    elections$election_date <- as.Date(elections$election_date)
-    elections <- elections[order(elections$election_date), ]
-    
+  # Le parti au pouvoir a chaque generale vient des legislatures de `periods`.
+  elections <- .elections_depuis_periods(bornes)
+  if (nrow(elections)) {
     # 1. Determine Government Party for each event
     evt_dates <- as.Date(corpus$event_date)
     idx <- findInterval(evt_dates, elections$election_date)
-    
     gov_parties <- rep(NA_character_, n)
     valid_idx <- idx > 0
     gov_parties[valid_idx] <- elections$gov_party_id[idx[valid_idx]]
-    
+
     # 2. Infer Party for Unidentified Ministers
     # If we didn't match a name, but the speaker title is clearly a Minister,
     # they belong to the government party.
-    
-    # Regex: Starts with optional Honorific/Article, contains "ministre"
     minister_regex <- "^(M\\.|Mme|Le|La)?\\s*(le|la)?\\s*(premier|première)?\\s*ministre\\b"
-    
     is_unmatched <- out$match_level %in% c("unmatched", "role", "empty")
     is_minister_title <- grepl(minister_regex, corpus$speaker, ignore.case = TRUE)
-    
-    # Rows to update: Unmatched + Minister Title + Known Government
     to_infer <- is_unmatched & is_minister_title & !is.na(gov_parties)
-    
     if (any(to_infer)) {
       out$party_id[to_infer] <- gov_parties[to_infer]
       out$match_level[to_infer] <- "role_inferred"
       out$speaker_category[to_infer] <- "role"
-      # We don't set matched_name because we don't know the person, just the party.
     }
-    
+
     # 3. Determine Role Status (Government vs Opposition)
     out$role_status <- dplyr::case_when(
-      # If category is not person OR role_inferred, status is irrelevant/unknown
       !out$speaker_category %in% c("person", "role") ~ NA_character_,
       is.na(out$party_id) ~ NA_character_,
       is.na(gov_parties) ~ NA_character_,
       out$party_id == gov_parties ~ "Government",
       TRUE ~ "Opposition"
     )
-    
   } else {
-    warning("Elections data not found. 'role_status' and minister inference will be skipped.")
+    warning("Aucun parti au pouvoir dans `annuaire$periods` : role_status et l'inference des ministres sont ignores.")
     out$role_status <- NA_character_
   }
 

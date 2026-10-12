@@ -185,8 +185,23 @@ def _resolve_party(district_id, event_date, mandates):
 _PRESIDENCE_RE = _re.compile(r"^(la presidente|le president)\s*(:[\s\d]*)?$")
 
 
+def _genre_du_titre(titre):
+    """'f' / 'm' selon l'intitule officiel (« Presidente de ... » / « President de ... »), sinon None."""
+    t = strip_accents(str(titre or "").strip().lower())
+    if t.startswith("presidente"):
+        return "f"
+    if t.startswith("president"):
+        return "m"
+    return None
+
+
 def _load_presidences(path):
-    """[(person_id, debut, fin)] de la fonction PAN, ou [] sans fichier."""
+    """[(person_id, debut, fin, genre)] de la fonction PAN, ou [] sans fichier.
+
+    Le genre vient de l'intitule de la fonction tel que la fiche l'ecrit
+    (« Presidente de l'Assemblee nationale ») : l'annuaire ne porte pas le
+    genre des personnes, et on ne le devine pas.
+    """
     if not path or not _os.path.exists(path):
         return []
     out = []
@@ -196,7 +211,8 @@ def _load_presidences(path):
                 continue
             fin = row.get("date_end") or ""
             out.append((row["person_id"], _date.fromisoformat(row["date_start"]),
-                        _date.fromisoformat(fin) if fin else _FIN_OUVERTE))
+                        _date.fromisoformat(fin) if fin else _FIN_OUVERTE,
+                        _genre_du_titre(row.get("title"))))
     return out
 
 
@@ -218,10 +234,13 @@ def _resoudre_presidence(speaker_raw, event_date, leg, presidences, mandates, me
         jour = _date.fromisoformat(str(event_date)[:10])
     except (ValueError, TypeError):
         return None
-    en_fonction = {pid for pid, debut, fin in presidences if debut <= jour <= fin}
+    en_fonction = {(pid, g) for pid, debut, fin, g in presidences if debut <= jour <= fin}
     if len(en_fonction) != 1:
         return None
-    pid = en_fonction.pop()
+    pid, genre_fonction = en_fonction.pop()
+    # « Le President » un jour ou la presidence est une femme : non attribue.
+    if genre_fonction != genre:
+        return None
     sieges = [s for s, ms in mandates.items()
               if any(m["person_id"] == pid and m["date_start"] <= jour <= m["date_end"] for m in ms)]
     if len(sieges) != 1:
@@ -229,10 +248,10 @@ def _resoudre_presidence(speaker_raw, event_date, leg, presidences, mandates, me
     siege = sieges[0]
     fiches = [m for m in members
               if str(m.get("legislature_id")) == str(leg) and m.get("district_id") == siege]
-    if len(fiches) != 1 or fiches[0].get("gender") != genre:
+    if len(fiches) != 1:
         return None
     fiche = fiches[0]
-    return {"matched_name": fiche["full_name"], "gender": fiche["gender"], "district_id": siege,
+    return {"matched_name": fiche["full_name"], "gender": genre, "district_id": siege,
             "party_id": _resolve_party(siege, jour, mandates) or fiche.get("party_id"),
             "match_level": "presiding_officer", "match_score": 100.0}
 
@@ -433,7 +452,7 @@ def match_speaker_atomic(speaker_norm, lookup, fuzzy_threshold=85, speaker_distr
 def match_corpus(corpus_rows, members, fuzzy_threshold=85,
                  legislatures_path=None, sessions_path=None,
                  party_changes_path=None, mandates_path=None,
-                 functions_path=None, web_lookup=False, verbose=False):
+                 functions_path=None, persons=None, web_lookup=False, verbose=False):
     legislatures = load_legislatures(legislatures_path)
     # Le modele DATE remplace party_changes_qc.csv des qu'il est fourni ; on
     # garde l'ancien chemin en repli pour ne pas casser un appelant qui ne le
@@ -511,7 +530,10 @@ def match_corpus(corpus_rows, members, fuzzy_threshold=85,
 
     # --- Level 4: Web-based disambiguation (optional, requires network) ---
     if web_lookup:
-        from web_lookup import web_disambiguate
+        from web_lookup import web_disambiguate, set_id_entries
+        # Les fiches ANQ (identifiant, URL) viennent de la table persons.
+        if persons:
+            set_id_entries(persons)
         n_web = 0
         for item in (i for date_items in grouped_results.values() for i in date_items):
             res = item["result"]

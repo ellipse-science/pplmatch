@@ -69,31 +69,6 @@ ensure_python_deps <- function(envname = "pplmatch") {
        "are you in the package source directory?", call. = FALSE)
 }
 
-#' Trouver le repertoire extdata
-#'
-#' Cherche le repertoire \code{inst/extdata} dans le package installe ou dans
-#' l'arborescence source (mode developpement).
-#'
-#' @return Chemin vers le repertoire extdata.
-#' @keywords internal
-.find_extdata_dir <- function() {
-  d <- system.file("extdata", package = "pplmatch")
-  if (d != "") return(d)
-
-  dir <- getwd()
-  for (i in seq_len(10)) {
-    if (file.exists(file.path(dir, "DESCRIPTION"))) {
-      candidate <- file.path(dir, "inst", "extdata")
-      if (dir.exists(candidate)) return(candidate)
-    }
-    parent <- dirname(dir)
-    if (parent == dir) break
-    dir <- parent
-  }
-
-  stop("Cannot find pplmatch extdata directory.", call. = FALSE)
-}
-
 #' @keywords internal
 .load_matcher <- function() {
   py_dir <- .find_python_dir()

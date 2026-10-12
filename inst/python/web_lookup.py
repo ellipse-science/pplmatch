@@ -121,40 +121,38 @@ _id_map = None    # full_name_norm -> (assnat_id, url_path)
 _id_map_path_used = None
 
 
-def _load_id_map(assnat_ids_path=None):
-    """Load the assnat_ids_qc.json mapping built by build_assnat_ids.py.
+def set_id_entries(entries):
+    """Construit la table nom -> (identifiant ANQ, URL de la fiche) depuis la
+    table `persons` de l'annuaire (person_id, full_name, assnat_url).
 
-    Indexes by both the normalized name with spaces ('jean francois lisee')
-    and without spaces ('jeanfrancoislee') to handle compound first names
-    that appear differently in the members CSV vs assnat.
+    Indexee par le nom normalise avec et sans espaces, pour que les prenoms
+    composes se retrouvent quelle que soit la graphie du corpus.
     """
-    global _id_map, _id_map_path_used
-    if _id_map is not None:
-        return _id_map
-
-    if assnat_ids_path is None:
-        assnat_ids_path = os.path.join(
-            os.path.dirname(__file__), "..", "extdata", "sources", "assnat_ids_qc.json"
-        )
-
-    if not os.path.exists(assnat_ids_path):
-        _id_map = {}
-        return _id_map
-
-    with open(assnat_ids_path, "r", encoding="utf-8") as f:
-        entries = json.load(f)
-
+    global _id_map
     _id_map = {}
-    for entry in entries:
-        norm_name = _norm(entry["full_name"])
-        val = (entry["assnat_id"], entry["assnat_url"])
+    for entry in entries or []:
+        url = entry.get("assnat_url") or ""
+        pid = entry.get("person_id")
+        if not pid or not url:
+            continue
+        norm_name = _norm(entry.get("full_name", ""))
+        val = (int(pid) if str(pid).isdigit() else pid, url)
         _id_map[norm_name] = val
-        # Also index without spaces (handles "jeanfrancois" == "jean francois")
         nospace = norm_name.replace(" ", "")
         if nospace not in _id_map:
             _id_map[nospace] = val
+    return _id_map
 
-    _id_map_path_used = assnat_ids_path
+
+def _load_id_map(assnat_ids_path=None):
+    """La table des identifiants, telle que posee par set_id_entries(); vide sinon.
+
+    L'ancien fichier assnat_ids_qc.json n'est plus embarque : l'annuaire
+    (table persons) porte l'identifiant et l'URL de chaque fiche.
+    """
+    global _id_map
+    if _id_map is None:
+        _id_map = {}
     return _id_map
 
 

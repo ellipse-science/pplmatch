@@ -39,7 +39,7 @@ test_that("le parti depend de la DATE, pas seulement de la legislature", {
                    "2020-06-01", "2021-06-01"),    # PQ  -> IND le 2020-12-15
     stringsAsFactors = FALSE)
 
-  r <- pplmatchQC(corpus)
+  r <- pplmatchQC(corpus, annuaire_test())
   expect_equal(r$party_id, c("PLQ", "IND", "PQ", "IND"))
   expect_equal(r$district_id, c("laurierdorion", "laurierdorion",
                                 "rimouski", "rimouski"))
@@ -55,7 +55,7 @@ test_that("le successeur n'herite PAS de la defection de son predecesseur", {
   # sortait « IND ». Un depute correctement apparie, avec le mauvais parti.
   r <- pplmatchQC(data.frame(
     speaker = c("Harold LeBel", "Maite Blanchette Vezina"),
-    event_date = c("2021-06-01", "2023-05-01"), stringsAsFactors = FALSE))
+    event_date = c("2021-06-01", "2023-05-01"), stringsAsFactors = FALSE), annuaire_test())
 
   expect_equal(r$district_id, c("rimouski", "rimouski"))
   expect_equal(r$party_id, c("IND", "CAQ"))
@@ -70,7 +70,7 @@ test_that("les sieges absents du referentiel sont desormais apparies", {
   # comptee. Arthabaska rendait litteralement zero ligne.
   r <- pplmatchQC(data.frame(
     speaker = c("Alex Boissonneault", "Francois St-Louis"),
-    event_date = c("2025-09-15", "2024-02-01"), stringsAsFactors = FALSE))
+    event_date = c("2025-09-15", "2024-02-01"), stringsAsFactors = FALSE), annuaire_test())
 
   expect_equal(r$district_id, c("arthabaska", "joliette"))
   expect_equal(r$party_id, c("PQ", "CAQ"))
@@ -96,7 +96,7 @@ test_that("un depute absent du referentiel traverse sa propre defection", {
     speaker = c("Eric Lefebvre", "Eric Lefebvre", "Eric Lefebvre",
                 "Alex Boissonneault"),
     event_date = c("2023-05-10", "2024-06-01", "2025-01-15", "2025-09-15"),
-    stringsAsFactors = FALSE))
+    stringsAsFactors = FALSE), annuaire_test())
 
   expect_equal(r$district_id, rep("arthabaska", 4))
   expect_equal(r$party_id, c("CAQ", "IND", "IND", "PQ"))
@@ -104,9 +104,7 @@ test_that("un depute absent du referentiel traverse sa propre defection", {
 })
 
 test_that("aucun identifiant de circonscription n'est mal forme", {
-  chemin <- system.file("extdata", "mandates_qc.csv", package = "pplmatch")
-  if (!nzchar(chemin)) chemin <- file.path("..", "..", "inst", "extdata", "mandates_qc.csv")
-  m <- utils::read.csv(chemin, stringsAsFactors = FALSE, colClasses = "character")
+  m <- lire_fixture("mandates_qc.csv")
 
   # Un identifiant doit etre alphanumerique : le referentiel en portait deux
   # avec un ESPACE (« bourassa sauve », « la piniere ») qui ne s'appariaient a
@@ -117,8 +115,7 @@ test_that("aucun identifiant de circonscription n'est mal forme", {
 
 test_that("le resolveur ne rend rien plutot qu'un parti approximatif", {
   skip_if_not(reticulate::py_available(), "Python not available")
-  chemin <- system.file("extdata", "mandates_qc.csv", package = "pplmatch")
-  if (!nzchar(chemin)) chemin <- file.path("..", "..", "inst", "extdata", "mandates_qc.csv")
+  chemin <- chemins_annuaire_test()$mandates
   py <- file.path("..", "..", "inst", "python")
   if (!dir.exists(py)) py <- system.file("python", package = "pplmatch")
   m <- reticulate::import_from_path("matcher", path = py)
@@ -149,28 +146,15 @@ test_that("un mandat mal date ne disparait jamais en silence", {
   expect_error(m$`_load_mandates`(mauvais), "date_start illisible")
 })
 
-test_that("le repli Wikipedia exige une reference exploitable", {
-  skip_if_not(reticulate::py_available(), "Python not available")
-  py <- file.path("..", "..", "inst", "python")
-  if (!dir.exists(py)) py <- system.file("python", package = "pplmatch")
-  wiki <- reticulate::import_from_path("wikipedia_fallback", path = py)
-  expect_true(wiki$`_a_une_reference_verifiable`("Texte <ref>Source primaire</ref>"))
-  expect_false(wiki$`_a_une_reference_verifiable`("Texte sans reference"))
-})
-
 test_that("aucun mandat Wikipedia n'est livre sans la provenance promise", {
-  chemin <- system.file("extdata", "mandates_qc.csv", package = "pplmatch")
-  if (!nzchar(chemin)) chemin <- file.path("..", "..", "inst", "extdata", "mandates_qc.csv")
-  m <- utils::read.csv(chemin, stringsAsFactors = FALSE, colClasses = "character")
+  m <- lire_fixture("mandates_qc.csv")
   wiki <- m[grepl("wikipedia:|wp\\+ref:", m$source), ]
   expect_false(any(grepl("^wikipedia:", wiki$source)))
   expect_true(all(grepl("^wp\\+ref:", wiki$source)))
 })
 
 test_that("deux deputes homonymes restent deux personnes", {
-  chemin <- system.file("extdata", "mandates_qc.csv", package = "pplmatch")
-  if (!nzchar(chemin)) chemin <- file.path("..", "..", "inst", "extdata", "mandates_qc.csv")
-  m <- utils::read.csv(chemin, stringsAsFactors = FALSE, colClasses = "character")
+  m <- lire_fixture("mandates_qc.csv")
 
   # `assnat_ids_qc.json` est indexe par NOM : il donnait donc 17957 aux DEUX
   # Eric Girard, et une seule personne semblait occuper Groulx ET
@@ -183,11 +167,7 @@ test_that("deux deputes homonymes restent deux personnes", {
 })
 
 test_that("aucun mandat ne pointe vers une personne inexistante", {
-  lire <- function(f) {
-    p <- system.file("extdata", f, package = "pplmatch")
-    if (!nzchar(p)) p <- file.path("..", "..", "inst", "extdata", f)
-    utils::read.csv(p, stringsAsFactors = FALSE, colClasses = "character")
-  }
+  lire <- lire_fixture
   m <- lire("mandates_qc.csv"); p <- lire("persons_qc.csv")
 
   # Un mandat sans personne est un depute SANS NOM : pplmatch apparie des noms,
@@ -197,11 +177,7 @@ test_that("aucun mandat ne pointe vers une personne inexistante", {
 })
 
 test_that("les mandats de Bourassa et Setlakwe pointent vers les fiches ANQ stables", {
-  lire <- function(f) {
-    p <- system.file("extdata", f, package = "pplmatch")
-    if (!nzchar(p)) p <- file.path("..", "..", "inst", "extdata", f)
-    utils::read.csv(p, stringsAsFactors = FALSE, colClasses = "character")
-  }
+  lire <- lire_fixture
   m <- lire("mandates_qc.csv")
   p <- lire("persons_qc.csv")
 
@@ -222,7 +198,7 @@ test_that("les alias historiques retrouvent les fiches stables en 43e législatu
     speaker = c("Mme Bourassa", "Mme Setlakwe"),
     event_date = as.Date(c("2026-05-12", "2026-05-12")),
     stringsAsFactors = FALSE
-  ))
+  ), annuaire_test())
 
   expect_equal(r$matched_name, c("kariane bourassa", "michelle setlakwe"))
   expect_equal(r$district_id, c("charlevoixcotedebeaupre", "montroyaloutremont"))
@@ -230,9 +206,7 @@ test_that("les alias historiques retrouvent les fiches stables en 43e législatu
 })
 
 test_that("Parizeau quitte son siege quand l'ANQ le dit, pas a l'annonce", {
-  chemin <- system.file("extdata", "mandates_qc.csv", package = "pplmatch")
-  if (!nzchar(chemin)) chemin <- file.path("..", "..", "inst", "extdata", "mandates_qc.csv")
-  m <- utils::read.csv(chemin, stringsAsFactors = FALSE, colClasses = "character")
+  m <- lire_fixture("mandates_qc.csv")
 
   # Il annonce sa demission le 1995-10-31, au lendemain du referendum, et
   # quitte le siege le 1996-01-29 — le jour ou Lucien Bouchard est assermente.
@@ -255,7 +229,7 @@ test_that("un faux titulaire est corrige par le nom que porte la chronologie", {
   # de depute de Terrebonne » — et c'est cette mention qui tranche.
   r <- pplmatchQC(data.frame(
     speaker = c("Pierre Fitzgibbon", "Catherine Gentilcore"),
-    event_date = c("2023-05-01", "2025-06-01"), stringsAsFactors = FALSE))
+    event_date = c("2023-05-01", "2025-06-01"), stringsAsFactors = FALSE), annuaire_test())
 
   expect_equal(r$district_id, c("terrebonne", "terrebonne"))
   expect_equal(r$party_id, c("CAQ", "PQ"))
@@ -263,9 +237,7 @@ test_that("un faux titulaire est corrige par le nom que porte la chronologie", {
 })
 
 test_that("personne ne gagne sa propre partielle", {
-  chemin <- system.file("extdata", "mandates_qc.csv", package = "pplmatch")
-  if (!nzchar(chemin)) chemin <- file.path("..", "..", "inst", "extdata", "mandates_qc.csv")
-  m <- utils::read.csv(chemin, stringsAsFactors = FALSE, colClasses = "character")
+  m <- lire_fixture("mandates_qc.csv")
 
   # Si une personne ouvre un mandat par PARTIELLE sur un siege, elle ne peut
   # pas etre aussi la gagnante de la generale du meme siege dans la meme

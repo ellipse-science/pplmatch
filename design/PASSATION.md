@@ -1,3 +1,5 @@
+> **Note du 12 octobre 2026.** Les donnees et les scripts de fabrication decrits ici ont quitte pplmatch pour le depot `dim-qc-parliament` ; pplmatch ne contient plus que l'appariement et recoit l'annuaire en argument de `pplmatchQC()`. Ce document est conserve pour l'histoire des choix.
+
 # Passation — modèle de mandats daté pour `pplmatch`
 
 **Pour la personne (ou l'agent) qui reprend.** Rédigé le 2026-08-17, à la fin

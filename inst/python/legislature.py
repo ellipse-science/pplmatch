@@ -28,7 +28,8 @@ def load_legislatures(json_path=None):
             {
                 "legislature": entry["legislature"],
                 "start_date": date.fromisoformat(entry["start_date"]),
-                "end_date": date.fromisoformat(entry["end_date"]),
+                # Une fin absente = legislature en cours.
+                "end_date": date.fromisoformat(entry["end_date"]) if entry.get("end_date") else date.max,
             }
         )
     return legislatures

@@ -1,73 +1,19 @@
-#' Charger la table des mandats dates du Quebec
-#'
-#' Lit \code{mandates_qc.csv} : un mandat par personne, par siege et par
-#' intervalle de dates. C'est la table qui remplace \code{party_changes_qc.csv}
-#' pour resoudre l'appartenance politique.
-#'
-#' La difference tient a la borne de fin. Un changement de parti sans date de
-#' fin s'applique indefiniment, donc au SUCCESSEUR du transfuge : la defection
-#' d'Eric Lefebvre (Arthabaska, 2024-04-16) etait heritee par Alex
-#' Boissonneault, elu peequiste a la partielle du 2025-08-11. Un intervalle
-#' ferme ne peut pas deborder sur le suivant.
-#'
-#' @return Un tibble : \code{person_id}, \code{seat_id}, \code{party_id},
-#'   \code{parliamentary_status}, \code{date_start}, \code{date_end},
-#'   \code{start_reason}, \code{end_reason}, \code{source}, \code{confidence}.
-#'
-#' @seealso \code{\link{qc_members}}, \code{\link{pplmatchQC}}
-#' @export
-qc_mandates <- function() {
-  chemin <- .fichier_extdata("mandates_qc.csv")
-  d <- utils::read.csv(chemin, stringsAsFactors = FALSE, colClasses = "character")
-  d$date_start <- as.Date(d$date_start)
-  # Une fin vide = mandat en cours. On la borne au futur lointain pour que les
-  # comparaisons restent des comparaisons de dates, jamais des NA silencieux.
-  d$date_end <- ifelse(is.na(d$date_end) | d$date_end == "", "9999-12-31", d$date_end)
-  d$date_end <- as.Date(d$date_end)
-  tibble::as_tibble(d)
-}
-
-
-#' Charger la table des personnes
-#'
-#' @return Un tibble : \code{person_id}, \code{full_name}, \code{other_names},
-#'   \code{assnat_url}.
-#' @export
-qc_persons <- function() {
-  tibble::as_tibble(utils::read.csv(
-    .fichier_extdata("persons_qc.csv"),
-    stringsAsFactors = FALSE, colClasses = "character"))
-}
-
-
-# Trouve un fichier de donnees, que le package soit installe ou charge par
-# devtools::load_all() depuis la racine du depot.
-.fichier_extdata <- function(nom) {
-  chemin <- system.file("extdata", nom, package = "pplmatch")
-  if (!nzchar(chemin)) chemin <- file.path("inst", "extdata", nom)
-  if (!file.exists(chemin)) {
-    stop(sprintf("Fichier de donnees introuvable : %s. Le package est-il installe ?", nom),
-         call. = FALSE)
-  }
-  chemin
-}
-
-
 # Complete le repertoire des deputes avec les personnes que SEULS les mandats
 # connaissent.
 #
-# POURQUOI. `members_historic_qc.csv` s'arrete au 2025-03-17 et ne couvre que
-# 121 des 125 sieges de la 43e legislature. Un depute absent du repertoire n'est
+# POURQUOI. Le repertoire historique d'origine s'arretait au 2025-03-17 et ne
+# couvrait que 121 des 125 sieges de la 43e legislature. Un depute absent du repertoire n'est
 # pas mal apparie : il est `unmatched`, donc JETE par le raffineur en aval. Sa
 # parole disparait au lieu d'etre comptee — Arthabaska rendait zero ligne.
 #
 # CE QU'ON N'INVENTE PAS. `gender` n'existe pas dans les tables de mandats : il
 # reste NA plutot que d'etre devine. On n'ajoute que ce qui manque, et jamais
 # on ne remplace une ligne existante du repertoire.
-.completer_membres <- function(members, legislatures_bornes) {
-  mandats <- tryCatch(qc_mandates(), error = function(e) NULL)
-  personnes <- tryCatch(qc_persons(), error = function(e) NULL)
+.completer_membres <- function(members, legislatures_bornes, mandats, personnes) {
   if (is.null(mandats) || is.null(personnes) || !nrow(mandats)) return(members)
+  mandats <- as.data.frame(mandats, stringsAsFactors = FALSE)
+  personnes <- as.data.frame(personnes, stringsAsFactors = FALSE)
+  mandats$date_start <- as.Date(mandats$date_start)
 
   # Deux noms fautifs sont inscrits dans le repertoire historique de la 43e
   # legislature. Les corriger avant de completer le repertoire evite de garder

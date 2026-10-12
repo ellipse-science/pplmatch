@@ -2,7 +2,7 @@ test_that("Python legislature module maps dates correctly", {
   skip_if_not(reticulate::py_available(), "Python not available")
   leg_mod <- .load_legislature()
 
-  leg_path <- file.path(.find_extdata_dir(), "legislatures_qc.json")
+  leg_path <- chemins_annuaire_test()$legislatures
   legislatures <- leg_mod$load_legislatures(leg_path)
 
   # Legislature 42: 2018-10-01 to 2022-08-28
