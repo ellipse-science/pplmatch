@@ -128,7 +128,7 @@ def main():
         return
 
     ici = os.path.dirname(os.path.abspath(__file__))
-    sortie = os.path.normpath(os.path.join(ici, "..", "extdata", "deputes_courants_qc.csv"))
+    sortie = os.path.normpath(os.path.join(ici, "..", "extdata", "sources", "deputes_courants_qc.csv"))
     champs = ["person_id", "full_name", "circonscription", "seat_id", "party_id", "assnat_url"]
     with open(sortie, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=champs)

@@ -189,7 +189,7 @@ def main():
         print("\n--dry-run : rien n'a ete ecrit.")
         return
 
-    sortie = os.path.join(extdata, "demissions_fiches_qc.csv")
+    sortie = os.path.join(extdata, "sources", "demissions_fiches_qc.csv")
     with open(sortie, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=["person_id", "seat_id", "full_name",
                                           "date_demission", "phrase", "assnat_url"])

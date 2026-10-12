@@ -5,7 +5,7 @@
 Fetches all deputies (former and current) from www.assnat.qc.ca and matches
 them against the deputies in members_historic_qc.csv using normalized names.
 
-Output: inst/extdata/assnat_ids_qc.json
+Output: inst/extdata/sources/assnat_ids_qc.json
   [{"full_name": "francois legault", "assnat_id": 4131, "assnat_url": "/fr/deputes/legault-francois-4131/index.html"}, ...]
 
 Run once (or when members_historic_qc.csv is updated):
@@ -162,7 +162,7 @@ def main():
     script_dir = os.path.dirname(os.path.abspath(__file__))
     pkg_root = os.path.dirname(script_dir)
     members_csv = os.path.join(pkg_root, "extdata", "members_historic_qc.csv")
-    output_json = os.path.join(pkg_root, "extdata", "assnat_ids_qc.json")
+    output_json = os.path.join(pkg_root, "extdata", "sources", "assnat_ids_qc.json")
 
     # Load member names from CSV
     print("Loading members from CSV...")

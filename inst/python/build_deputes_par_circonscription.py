@@ -217,7 +217,7 @@ def main():
 
     ici = os.path.dirname(os.path.abspath(__file__))
     sortie = os.path.normpath(os.path.join(
-        ici, "..", "extdata", "deputes_par_circonscription_qc.csv"))
+        ici, "..", "extdata", "sources", "deputes_par_circonscription_qc.csv"))
     champs = ["seat_id", "seat", "annee", "partielle", "full_name",
               "party_id", "person_id", "remarque"]
     with open(sortie, "w", newline="", encoding="utf-8") as f:

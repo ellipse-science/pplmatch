@@ -154,7 +154,7 @@ def main():
     if a.cache:
         os.makedirs(a.cache, exist_ok=True)
 
-    with open(os.path.join(extdata, "deputes_courants_qc.csv"), encoding="utf-8") as f:
+    with open(os.path.join(extdata, "sources", "deputes_courants_qc.csv"), encoding="utf-8") as f:
         courants = list(csv.DictReader(f))
     if len(courants) != DEPUTES_ATTENDUS:
         sys.exit(f"ECHEC : {len(courants)} deputes courants, {DEPUTES_ATTENDUS} attendus.")
@@ -182,7 +182,7 @@ def main():
     print(file=sys.stderr)
 
     # Anciens deputes : transcription a la main depuis leur biographie.
-    with open(os.path.join(extdata, "functions_transcribed_qc.csv"), encoding="utf-8") as f:
+    with open(os.path.join(extdata, "sources", "functions_transcribed_qc.csv"), encoding="utf-8") as f:
         transcrites = list(csv.DictReader(f))
     # Chaque depute de la 43e qui n'est plus au releve courant doit etre
     # transcrit : sinon il sortirait « sans fonction » alors qu'on ne l'a pas lu.

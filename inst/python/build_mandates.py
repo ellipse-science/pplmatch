@@ -324,7 +324,7 @@ def charger_deputes_courants(extdata):
     des 125 sieges de la 43e), et il sert d'ancrage de reconciliation pour la
     date du jour. Il ne DATE rien : c'est un instantane, pas un historique.
     """
-    chemin = os.path.join(extdata, "deputes_courants_qc.csv")
+    chemin = os.path.join(extdata, "sources", "deputes_courants_qc.csv")
     if not os.path.exists(chemin):
         return {}
     with open(chemin, encoding="utf-8") as f:
@@ -375,7 +375,7 @@ def charger_depcir(extdata):
     de l'ANQ est elle-meme figee pour 14 des 125 circonscriptions, qui en
     restent a 2018.
     """
-    chemin = os.path.join(extdata, "deputes_par_circonscription_qc.csv")
+    chemin = os.path.join(extdata, "sources", "deputes_par_circonscription_qc.csv")
     if not os.path.exists(chemin):
         return []
     with open(chemin, encoding="utf-8") as f:
@@ -482,7 +482,7 @@ PERSON_RECONCILIATIONS = {
 }
 
 def build_persons(extdata):
-    idx = json.load(open(os.path.join(extdata, "assnat_ids_qc.json"), encoding="utf-8"))
+    idx = json.load(open(os.path.join(extdata, "sources", "assnat_ids_qc.json"), encoding="utf-8"))
     par_nom = {e["full_name"]: e for e in idx}
     autres = {}
     with open(os.path.join(extdata, "members_historic_qc.csv"), encoding="utf-8") as f:
@@ -919,7 +919,7 @@ def build_mandates(extdata, evenements, legislatures, persons):
     # partielle, donc des MOIS trop tard. Catherine Fournier quitte
     # Marie-Victorin le 2021-11-13 pour la mairie de Longueuil ; nous la
     # faisions sieger jusqu'au 2022-04-10.
-    chemin_fiches = os.path.join(extdata, "demissions_fiches_qc.csv")
+    chemin_fiches = os.path.join(extdata, "sources", "demissions_fiches_qc.csv")
     if os.path.exists(chemin_fiches):
         stat = {"accord": 0, "corrigees": 0, "conflit": 0}
         with open(chemin_fiches, encoding="utf-8") as f:

@@ -221,10 +221,10 @@ pplmatchQC <- function(corpus, members = NULL,
   # Get data file paths
   leg_path            <- file.path(.find_extdata_dir(), "legislatures_qc.json")
   session_path        <- file.path(.find_extdata_dir(), "sessions_qc.json")
-  party_changes_path  <- file.path(.find_extdata_dir(), "party_changes_qc.csv")
-  # Le modele DATE prend la main des qu'il est present : un mandat est un
+  # Le modele DATE est la seule source d'allegeance : un mandat est un
   # intervalle FERME, donc une defection ne peut plus etre heritee par le
-  # successeur du transfuge.
+  # successeur du transfuge. L'ancien party_changes_qc.csv (par circonscription)
+  # n'est plus transmis : il vit dans extdata/sources/ comme sortie de scraping.
   mandates_path       <- file.path(.find_extdata_dir(), "mandates_qc.csv")
   # Fonctions datees : la presidence de l'Assemblee (PAN) sert a attribuer
   # l'etiquette nue « La Presidente » a la personne au fauteuil ce jour-la.
@@ -237,7 +237,6 @@ pplmatchQC <- function(corpus, members = NULL,
     fuzzy_threshold     = as.integer(fuzzy_threshold),
     legislatures_path   = leg_path,
     sessions_path       = session_path,
-    party_changes_path  = party_changes_path,
     mandates_path       = if (file.exists(mandates_path)) mandates_path else NULL,
     functions_path      = if (file.exists(functions_path)) functions_path else NULL,
     web_lookup          = isTRUE(web_lookup),

@@ -6,7 +6,7 @@ deputy has any recorded interventions on the target date. If exactly
 one candidate spoke that day, the ambiguity is resolved.
 
 Prerequisites:
-    Run inst/python/build_assnat_ids.py once to create inst/extdata/assnat_ids_qc.json.
+    Run inst/python/build_assnat_ids.py once to create inst/extdata/sources/assnat_ids_qc.json.
     Without this file, web_lookup will skip all ambiguous cases silently.
 
 Usage flow (called from matcher.py when web_lookup=True):
@@ -134,7 +134,7 @@ def _load_id_map(assnat_ids_path=None):
 
     if assnat_ids_path is None:
         assnat_ids_path = os.path.join(
-            os.path.dirname(__file__), "..", "extdata", "assnat_ids_qc.json"
+            os.path.dirname(__file__), "..", "extdata", "sources", "assnat_ids_qc.json"
         )
 
     if not os.path.exists(assnat_ids_path):
