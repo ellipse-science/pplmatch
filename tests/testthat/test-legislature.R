@@ -47,3 +47,14 @@ test_that("les législatures viennent de legislatures_qc.json, plus d'une liste 
   expect_true(44L %in% legs$legislature)
   expect_null(formals(pplmatchQC)$legislatures)
 })
+
+test_that("deux homonymes de la 44e sont départagés par leur circonscription (pplmatch#11)", {
+  skip_if_not(reticulate::py_available(), "Python not available")
+  corpus <- data.frame(
+    speaker = c("Caron, La Pinière", "Caron, Ungava", "Poulin, Côte-du-Sud", "Poulin, Beauce-Sud",
+                "Simard, Dubuc", "Simard, Charlevoix–Côte-de-Beaupré"),
+    event_date = as.Date("2026-12-01"), stringsAsFactors = FALSE)
+  result <- pplmatchQC(corpus)
+  expect_equal(result$party_id, c("PLQ", "PQ", "PCQ", "PCQ", "PQ", "PCQ"))
+  expect_false(any(result$match_level == "unmatched"))
+})

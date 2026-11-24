@@ -19,6 +19,7 @@ from normalizer import (
     extract_last_name,
     strip_accents,
     LEADING_NUMS_RE,
+    district_key,
 )
 from legislature import load_legislatures, date_to_legislature
 
@@ -254,7 +255,7 @@ def _build_lookup(members, legislature):
 
         full_norm = normalize_member_name(m["full_name"])
         last = extract_last_name(full_norm)
-        dist_norm = normalize_member_name(m.get("district_id", ""))
+        dist_norm = district_key(m.get("district_id", ""))
 
         info = {
             "full_name": m["full_name"],
