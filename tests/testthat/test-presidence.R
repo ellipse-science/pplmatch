@@ -12,7 +12,7 @@ test_that("La Presidente est attribuee a Nathalie Roy pendant sa presidence", {
                            "2025-02-27")),
     stringsAsFactors = FALSE
   )
-  r <- pplmatchQC(corpus)
+  r <- pplmatchQC(corpus, annuaire_test())
 
   # Les trois graphies de l'etiquette, pendant la presidence
   expect_equal(r$match_level[1:3], rep("presiding_officer", 3))

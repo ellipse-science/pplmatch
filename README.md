@@ -61,7 +61,7 @@ resultats <- pplmatchQC(corpus, web_lookup = TRUE, verbose = TRUE)
 resultats <- pplmatchQC(corpus, fuzzy_threshold = 90, verbose = TRUE)
 
 # Fournir votre propre table de deputes (colonnes: full_name, party_id, gender, legislature_id)
-members <- qc_members()  # table integree, modifiable
+annuaire <- qc_annuaire_csv("chemin/vers/dim-qc-parliament/data")  # ou les tables dim-qc-parliament-* lues par tube
 resultats <- pplmatchQC(corpus, members = mes_deputes, verbose = TRUE)
 ```
 
@@ -104,7 +104,7 @@ R: C'est normal si vous avez un corpus tres long (plusieurs annees de debats). E
 R: Ce sont souvent des gens qui ne sont pas deputes (ex: un invite), ou des erreurs dans les vieux documents numerises (annees 90). Pour une analyse scientifique, vous pouvez souvent ignorer ces lignes.
 
 **Q: Puis-je utiliser mes propres donnees de deputes ?**
-R: Oui. `qc_members()` est un raccourci pour la table integree, mais vous pouvez passer n'importe quel data frame avec les colonnes `full_name`, `party_id`, `gender` et `legislature_id`.
+R: Oui. Par defaut le repertoire est construit depuis `annuaire` (mandats et personnes), mais vous pouvez passer n'importe quel data frame `members` avec les colonnes `full_name`, `party_id`, `gender` et `legislature_id`. pplmatch ne contient aucune donnee : l'annuaire vient de l'entrepot (tables `dim-qc-parliament-*`, depot `ellipse-science/dim-qc-parliament`).
 
 ---
 

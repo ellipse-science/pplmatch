@@ -6,9 +6,10 @@
 \usage{
 pplmatchQC(
   corpus,
+  annuaire,
   members = NULL,
   fuzzy_threshold = 85,
-  legislatures = 35:43,
+  legislatures = NULL,
   web_lookup = FALSE,
   verbose = FALSE
 )
@@ -23,8 +24,14 @@ minimum les colonnes :
 }
 Toutes les autres colonnes sont conservees dans le resultat.}
 
+\item{annuaire}{L'annuaire des deputes : une liste de tables \code{mandates},
+\code{persons}, \code{functions} et \code{periods} (les tables
+\code{dim-qc-parliament-*} de l'entrepot, lues par tube, ou un dossier de
+CSV lu par \code{\link{qc_annuaire_csv}}). pplmatch ne contient aucune
+donnee : sans annuaire, pas d'appariement.}
+
 \item{members}{Un data frame de la table des deputes, ou \code{NULL}
-(defaut) pour utiliser automatiquement \code{\link{qc_members}()}.
+(defaut) pour le construire depuis \code{annuaire} (mandats et personnes).
 Colonnes requises :
 \describe{
   \item{full_name}{Nom complet du depute (ex: "Francois Legault").}
@@ -45,9 +52,10 @@ Defaut : 85. Un seuil plus eleve = plus precis mais moins de matchs.
 Un seuil plus bas = plus de matchs mais plus de faux positifs.}
 
 \item{legislatures}{Vecteur d'entiers des numeros de legislatures a traiter.
-Defaut : 35:43 (1994 a aujourd'hui). Les lignes du corpus dont la date
-tombe hors de ces legislatures recoivent un \code{match_level} de
-\code{"unmatched"} et un \code{legislature} de \code{NA}.}
+Defaut : toutes celles de \code{annuaire$periods}. Les lignes du corpus
+dont la date tombe hors de ces legislatures recoivent un
+\code{match_level} de \code{"unmatched"} et un \code{legislature} de
+\code{NA}.}
 
 \item{web_lookup}{Logique. Si \code{TRUE}, tente de resoudre les cas
 \code{"ambiguous"} restants apres la resolution contextuelle en
@@ -64,7 +72,7 @@ des resultats a la fin. Defaut : \code{FALSE}.}
 Un tibble contenant toutes les colonnes du corpus original, plus
   les colonnes suivantes :
   \describe{
-    \item{legislature}{Numero de la legislature (entier, 35 a 43) determine
+    \item{legislature}{Numero de la legislature (entier) determine
       automatiquement a partir de \code{event_date}. \code{NA} si la date
       est hors des legislatures couvertes.}
     \item{speaker_category}{Classification de l'intervenant :
@@ -84,6 +92,9 @@ Un tibble contenant toutes les colonnes du corpus original, plus
       \code{"contextual"} (resolu par le roster journalier),
       \code{"web_contextual"} (resolu via assnat.qc.ca, uniquement si
         \code{web_lookup = TRUE}),
+      \code{"presiding_officer"} (etiquette nue « La Presidente » /
+        « Le President » attribuee a la personne qui detient la
+        presidence de l'Assemblee ce jour-la, d'apres functions_qc.csv),
       \code{"ambiguous"} (plusieurs deputes possibles),
       \code{"unmatched"} (aucune correspondance),
       \code{"role"}, \code{"crowd"}, \code{"empty"}.}
@@ -143,7 +154,7 @@ members <- data.frame(
   legislature_id = c("43", "43")
 )
 
-# Lancer l'appariement (utilise qc_members() par defaut)
+# Lancer l'appariement (le repertoire est construit depuis l'annuaire)
 result <- pplmatchQC(corpus, verbose = TRUE)
 
 # Ou avec une table de deputes custom
@@ -166,7 +177,7 @@ table(ambiguous$speaker)
 }
 \seealso{
 \code{\link{ensure_python_deps}} pour l'installation des dependances,
-  \code{\link{qc_members}} pour charger la table des deputes integree,
+  \code{\link{qc_annuaire_csv}} pour lire l'annuaire depuis un dossier,
   \code{\link{generate_gold_sample}} et \code{\link{evaluate_matches_qc}} pour
   l'evaluation de la qualite.
 }

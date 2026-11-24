@@ -11,7 +11,7 @@ test_that("« Mme Roy » n'est plus attribuee d'office a Suzanne Roy", {
     event_date = as.Date(rep("2024-11-28", 3)),
     stringsAsFactors = FALSE
   )
-  r <- pplmatchQC(corpus)
+  r <- pplmatchQC(corpus, annuaire_test())
   expect_false(identical(r$match_level[1], "deterministic") && identical(r$matched_name[1], "suzanne roy"))
   expect_equal(r$matched_name[2], "suzanne roy")
   expect_equal(r$matched_name[3], "karine boivin roy")

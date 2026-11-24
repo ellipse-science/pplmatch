@@ -17,7 +17,7 @@ test_that("pplmatchQC returns expected columns", {
     stringsAsFactors = FALSE
   )
 
-  result <- pplmatchQC(corpus, members, fuzzy_threshold = 85)
+  result <- pplmatchQC(corpus, annuaire_test(), members, fuzzy_threshold = 85)
 
   # Same number of rows
 
@@ -68,7 +68,7 @@ test_that("pplmatchQC filters by legislature", {
     stringsAsFactors = FALSE
   )
 
-  result <- pplmatchQC(corpus, members)
+  result <- pplmatchQC(corpus, annuaire_test(), members)
 
   # Both should match
   expect_equal(result$legislature[1], 42L)

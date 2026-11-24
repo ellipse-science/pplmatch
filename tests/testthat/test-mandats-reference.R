@@ -15,8 +15,8 @@
 # Spec : docs/spec-mandats-qc.md
 
 lire_ref <- function(f) {
-  chemin <- system.file("extdata", f, package = "pplmatch")
-  if (!nzchar(chemin)) chemin <- file.path("..", "..", "inst", "extdata", f)
+  # Fixture de test, pas une table du paquet : elle vit sous tests/testthat/.
+  chemin <- testthat::test_path("fixtures", f)
   d <- utils::read.csv(chemin, stringsAsFactors = FALSE, colClasses = "character")
   d$date_start <- as.Date(d$date_start)
   # une fin vide = mandat toujours en cours ; on la borne au futur lointain

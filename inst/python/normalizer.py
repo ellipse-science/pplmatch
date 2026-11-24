@@ -42,8 +42,22 @@ HONORIFIC_GLUED_RE = re.compile(
 # Leading numeric garbage (e.g. "15 725 M. Marissal")
 LEADING_NUMS_RE = re.compile(r"^[\d\s]+")
 
-# Trailing district after comma (e.g. ", Chauveau")
-TRAILING_DISTRICT_RE = re.compile(r",\s*([A-ZÀ-ÖØ-Ý][^(\-]*)$", re.IGNORECASE)
+# Trailing district after comma (e.g. ", Chauveau", ", Côte-du-Sud").
+# Traits d'union et tirets ADMIS : la 44e départage vingt homonymes par leur
+# circonscription, et « Poulin, Côte-du-Sud » n'était pas lue (pplmatch#11).
+TRAILING_DISTRICT_RE = re.compile(r",\s*([A-ZÀ-ÖØ-Ý][^(]*)$", re.IGNORECASE)
+
+
+def district_key(name):
+    """Clé compacte d'une circonscription : sans accent, espace ni ponctuation.
+
+    « La Pinière » et le siège `lapiniere` doivent se reconnaître : la
+    comparaison sur le nom normalisé (« la piniere ») échouait dès que la
+    circonscription avait plus d'un mot (pplmatch#11).
+    """
+    if not name:
+        return ""
+    return re.sub(r"[^a-z0-9]", "", strip_accents(str(name)).lower())
 
 # Trailing action keywords (e.g. "Legault (réplique)" or "Legault réplique")
 TRAILING_ACTION_RE = re.compile(
@@ -115,7 +129,7 @@ def normalize_speaker(raw_speaker):
     district_match = TRAILING_DISTRICT_RE.search(name)
     if district_match:
         district_raw = district_match.group(1)
-        district = normalize_member_name(district_raw) # Use same norm as members
+        district = district_key(district_raw)
         name = TRAILING_DISTRICT_RE.sub("", name).strip()
 
     # 2. Remove leading numeric garbage

@@ -5,15 +5,17 @@ export(evaluate_matches_qc)
 export(generate_gold_sample)
 export(pplmatchCA)
 export(pplmatchQC)
-export(qc_mandates)
-export(qc_members)
-export(qc_persons)
+export(qc_annuaire_csv)
 import(dplyr)
 import(fuzzyjoin)
 import(stringr)
-importFrom(purrr,map_chr)
-importFrom(purrr,map_dbl)
+importFrom(purrr,
+  map_chr,
+  map_dbl
+)
 importFrom(reticulate,import_from_path)
-importFrom(tibble,as_tibble)
-importFrom(tibble,tibble)
+importFrom(tibble,
+  as_tibble,
+  tibble
+)
 importFrom(tidyr,separate_rows)
