@@ -59,3 +59,14 @@ test_that("une intervention de la 44e est rattachée à la 44e, sans liste écri
   result <- pplmatchQC(corpus, avec_44e(), members)
   expect_equal(result$legislature[1], 44L)
 })
+
+test_that("deux homonymes sont départagés par une circonscription à trait d'union (pplmatch#11)", {
+  skip_if_not(reticulate::py_available(), "Python not available")
+  # Les deux Eric Girard de la 43e : « Lac-Saint-Jean » n'était pas lue, et
+  # l'intervention sortait unmatched. La 44e compte vingt homonymes.
+  corpus <- data.frame(speaker = c("Girard, Lac-Saint-Jean", "Girard, Groulx"),
+                       event_date = as.Date("2023-06-15"), stringsAsFactors = FALSE)
+  result <- pplmatchQC(corpus, annuaire_test())
+  expect_false(any(result$match_level == "unmatched"))
+  expect_equal(result$district_id, c("lacsaintjean", "groulx"))
+})
