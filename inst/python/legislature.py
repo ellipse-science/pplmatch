@@ -28,7 +28,8 @@ def load_legislatures(json_path=None):
             {
                 "legislature": entry["legislature"],
                 "start_date": date.fromisoformat(entry["start_date"]),
-                "end_date": date.fromisoformat(entry["end_date"]),
+                # Fin vide : la législature siège encore (la 44e, depuis le 2026-10-05).
+                "end_date": date.fromisoformat(entry["end_date"]) if entry.get("end_date") else date.max,
             }
         )
     return legislatures

@@ -13,5 +13,6 @@
   {"session_id": 1579, "legislature": 42, "session": 1, "start_date": "2018-11-27", "end_date": "2021-10-13"},
   {"session_id": 1607, "legislature": 42, "session": 2, "start_date": "2021-10-19", "end_date": "2022-08-28"},
   {"session_id": 1611, "legislature": 43, "session": 1, "start_date": "2022-11-29", "end_date": "2025-09-10"},
-  {"session_id": 1617, "legislature": 43, "session": 2, "start_date": "2025-09-30", "end_date": "2026-10-05"}
+  {"session_id": 1617, "legislature": 43, "session": 2, "start_date": "2025-09-30", "end_date": "2026-04-08"},
+  {"session_id": 1621, "legislature": 43, "session": 3, "start_date": "2026-05-05", "end_date": "2026-08-27"}
 ]

@@ -36,7 +36,8 @@
 #'   Un seuil plus bas = plus de matchs mais plus de faux positifs.
 #'
 #' @param legislatures Vecteur d'entiers des numeros de legislatures a traiter.
-#'   Defaut : 35:43 (1994 a aujourd'hui). Les lignes du corpus dont la date
+#'   Defaut : toutes celles de legislatures_qc.json depuis la 35e (1994 a
+#'   aujourd'hui, 44e comprise). Les lignes du corpus dont la date
 #'   tombe hors de ces legislatures recoivent un \code{match_level} de
 #'   \code{"unmatched"} et un \code{legislature} de \code{NA}.
 #'
@@ -159,7 +160,7 @@
 #' @export
 pplmatchQC <- function(corpus, members = NULL,
                        fuzzy_threshold = 85,
-                       legislatures = 35:43,
+                       legislatures = NULL,
                        web_lookup = FALSE,
                        verbose = FALSE) {
 
@@ -179,9 +180,11 @@ pplmatchQC <- function(corpus, members = NULL,
     # et le faisait, en rendant nos graphies normalisees la ou il attendait les
     # siennes.
     legs <- jsonlite::fromJSON(file.path(.find_extdata_dir(), "legislatures_qc.json"))
+    # Fin vide : la législature siège encore (la 44e, depuis le 2026-10-05).
+    fin <- ifelse(is.na(legs$end_date) | legs$end_date == "", "9999-12-31", legs$end_date)
     bornes <- data.frame(legislature = legs$legislature,
                          start_date = as.Date(legs$start_date),
-                         end_date = as.Date(legs$end_date),
+                         end_date = as.Date(fin),
                          stringsAsFactors = FALSE)
     members <- .completer_membres(members, bornes)
   }
@@ -198,6 +201,13 @@ pplmatchQC <- function(corpus, members = NULL,
   })
 
   # Prepare member records as list of dicts for Python
+  # Par défaut, toutes les législatures du calendrier depuis la 35e (1994) :
+  # la liste était écrite en dur (35:43), et la 44e en restait exclue (#11).
+  if (is.null(legislatures)) {
+    legs_toutes <- jsonlite::fromJSON(file.path(.find_extdata_dir(), "legislatures_qc.json"))$legislature
+    legislatures <- legs_toutes[legs_toutes >= 35]
+  }
+
   # Filter to requested legislatures
   members_filtered <- members[members$legislature_id %in% as.character(legislatures), ]
 

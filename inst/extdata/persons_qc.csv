@@ -274,6 +274,7 @@ person_id,full_name,other_names,assnat_url
 5841,jonathan valois,valois,/fr/deputes/valois-jonathan-5841/index.html
 3119,joseph facal,facal,/fr/deputes/facal-joseph-3119/index.html
 649,julie boulet,boulet,/fr/deputes/boulet-julie-649/index.html
+19291,kariane bourassa,bourassa ; mme bourassa,
 19255,karine boivin roy,boivin roy mme boivin roy,/fr/deputes/boivin-roy-karine-19255/index.html
 12173,karine vallieres,vallieres,/fr/deputes/vallieres-karine-12173/index.html
 5801,karl blackburn,blackburn,/fr/deputes/blackburn-karl-5801/index.html
@@ -509,6 +510,7 @@ person_id,full_name,other_names,assnat_url
 900020,thomas mulcair,mulcair,
 1317,tony tomassi,tomassi,/fr/deputes/tomassi-tony-1317/index.html
 19259,valerie schmaltz,schmaltz ; mme schmaltz,/fr/deputes/schmaltz-valerie-19259/index.html
+19285,michelle setlakwe,setlakwe ; mme setlakwe,
 27,veronique hivon,hivon,/fr/deputes/hivon-veronique-27/index.html
 16403,veronyque tremblay,tremblay,/fr/deputes/tremblay-veronyque-16403/index.html
 471,vincent auclair,auclair,/fr/deputes/auclair-vincent-471/index.html
@@ -574,7 +576,7 @@ person_id,full_name,other_names,assnat_url
 3341,roch gardner,gardner,
 4381,jean-gilles masse,masse,
 3339,laurier gardner,gardner,
-20141,alex boissonneault,boissonneault,
+20141,alex boissonneault,boissonneault,/fr/deputes/boissonneault-alex-20141/index.html
 3397,pierre-samuel gendron,gendron,
 3061,flavien dupont,dupont,
 2123,narcisse blais,blais,
@@ -750,7 +752,6 @@ person_id,full_name,other_names,assnat_url
 4085,arthur leclerc,leclerc,
 4291,raymond mailloux,mailloux,
 2269,daniel bradet,bradet,
-19291,kariane bourassa,bourassa ; mme bourassa,
 2995,philippe dufour,dufour,
 5157,edgar rochette,rochette,
 3827,edouard laberge,laberge,
@@ -996,7 +997,7 @@ person_id,full_name,other_names,assnat_url
 5221,pierre roy,roy,
 5011,robert quenneville,quenneville,
 ,(voir joliette-montcalm ),),
-19321,francois st-louis,st-louis,
+19321,francois st-louis,st-louis,/fr/deputes/st-louis-francois-19321/index.html
 3605,gerald harvey,harvey,
 5669,claude vaillancourt,vaillancourt,
 5241,aline saint-amand,saint-amand,
@@ -1381,7 +1382,6 @@ person_id,full_name,other_names,assnat_url
 5187,lionel-alfred ross,ross,
 4671,george o'reilly,o'reilly,
 5729,claude wagner,wagner,
-19285,michelle setlakwe,setlakwe ; mme setlakwe,
 1999,pierre benoit,benoit,
 3881,laurent-david lafontaine,lafontaine,
 4755,francois-xavier paradis,paradis,
@@ -1866,4 +1866,97 @@ person_id,full_name,other_names,assnat_url
 3967,david laperriere,laperriere,
 3103,antonio elie,elie,
 5357,paul shooner,shooner,
-20193,marie-karlynn laflamme,laflamme,/fr/deputes/laflamme-marie-karlynn-20193/
+20193,marie-karlynn laflamme,laflamme,/fr/deputes/laflamme-marie-karlynn-20193/index.html
+20319,stephane tremblay,tremblay,/fr/deputes/tremblay-stephane-20319/index.html
+20497,sebastien d'astous,d'astous,/fr/deputes/d-astous-sebastien-20497/index.html
+20325,nicolas plourde,plourde,/fr/deputes/plourde-nicolas-20325/index.html
+20327,pierre nantel,nantel,/fr/deputes/nantel-pierre-20327/index.html
+20331,tarek henoud,henoud,/fr/deputes/henoud-tarek-20331/index.html
+20335,patricia drouin,drouin,/fr/deputes/drouin-patricia-20335/index.html
+20339,jonathan poulin,poulin,/fr/deputes/poulin-jonathan-20339/index.html
+20341,alexandre daneau,daneau,/fr/deputes/daneau-alexandre-20341/index.html
+20345,eric duhaime,duhaime,/fr/deputes/duhaime-eric-20345/index.html
+20349,audrey bujold,bujold,/fr/deputes/bujold-audrey-20349/index.html
+20353,alexandre girard-duchaine,girard-duchaine,/fr/deputes/girard-duchaine-alexandre-20353/index.html
+20357,nadine le gal,gal,/fr/deputes/le-gal-nadine-20357/index.html
+20363,pier-luc bujold,bujold,/fr/deputes/bujold-pier-luc-20363/index.html
+20361,cedric gagnon-ducharme,gagnon-ducharme,/fr/deputes/gagnon-ducharme-cedric-20361/index.html
+20367,julie guyot,guyot,/fr/deputes/guyot-julie-20367/index.html
+20513,adriana szalontai,szalontai,/fr/deputes/szalontai-adriana-20513/index.html
+20369,michel langevin,langevin,/fr/deputes/langevin-michel-20369/index.html
+20371,eloise coulombe,coulombe,/fr/deputes/coulombe-eloise-20371/index.html
+20375,felix rheaume,rheaume,/fr/deputes/rheaume-felix-20375/index.html
+20379,karim elayoubi,elayoubi,/fr/deputes/elayoubi-karim-20379/index.html
+20383,madeleine fequiere,fequiere,/fr/deputes/fequiere-madeleine-20383/index.html
+20387,dominique dumas,dumas,/fr/deputes/dumas-dominique-20387/index.html
+20389,frederic poulin,poulin,/fr/deputes/poulin-frederic-20389/index.html
+20393,nathalie boisclair,boisclair,/fr/deputes/boisclair-nathalie-20393/index.html
+20397,linda vaillant,vaillant,/fr/deputes/vaillant-linda-20397/index.html
+20523,charles page,page,/fr/deputes/page-charles-20523/index.html
+20401,emile simard,simard,/fr/deputes/simard-emile-20401/index.html
+20403,meggie richard,richard,/fr/deputes/richard-meggie-20403/index.html
+20405,marie claude fournier,fournier,/fr/deputes/fournier-marie-claude-20405/index.html
+20411,david logue,logue,/fr/deputes/logue-david-20411/index.html
+20413,alexandre boulerice,boulerice,/fr/deputes/boulerice-alexandre-20413/index.html
+20417,jean-francois arsenault,arsenault,/fr/deputes/arsenault-jean-francois-20417/index.html
+20419,marie-claude sarrazin,sarrazin,/fr/deputes/sarrazin-marie-claude-20419/index.html
+20421,sacha cannon,cannon,/fr/deputes/cannon-sacha-20421/index.html
+20425,frederic laplante,laplante,/fr/deputes/laplante-frederic-20425/index.html
+20429,camille pellerin-forget,pellerin-forget,/fr/deputes/pellerin-forget-camille-20429/index.html
+20433,julie white,white,/fr/deputes/white-julie-20433/index.html
+20435,veronique venne,venne,/fr/deputes/venne-veronique-20435/index.html
+20439,jimmy bouchard,bouchard,/fr/deputes/bouchard-jimmy-20439/index.html
+20451,catherine drouin,drouin,/fr/deputes/drouin-catherine-20451/index.html
+20453,william fradette,fradette,/fr/deputes/fradette-william-20453/index.html
+20447,sonia ziade,ziade,/fr/deputes/ziade-sonia-20447/index.html
+20445,maxime laporte,laporte,/fr/deputes/laporte-maxime-20445/index.html
+20455,caroline de guire,guire,/fr/deputes/de-guire-caroline-20455/index.html
+20459,elodie murphy-gauthier,murphy-gauthier,/fr/deputes/murphy-gauthier-elodie-20459/index.html
+20461,dieudonne ella oyono,oyono,/fr/deputes/ella-oyono-dieudonne-20461/index.html
+20465,karine laflamme,laflamme,/fr/deputes/laflamme-karine-20465/index.html
+20467,renaud labrecque,labrecque,/fr/deputes/labrecque-renaud-20467/index.html
+20471,marcos archambault,archambault,/fr/deputes/archambault-marcos-20471/index.html
+20473,michel leblanc,leblanc,/fr/deputes/leblanc-michel-20473/index.html
+20477,natalie bisaillon,bisaillon,/fr/deputes/bisaillon-natalie-20477/index.html
+20479,isabelle blais,blais,/fr/deputes/blais-isabelle-20479/index.html
+20483,stephane handfield,handfield,/fr/deputes/handfield-stephane-20483/index.html
+20515,nada boumeftah,boumeftah,/fr/deputes/boumeftah-nada-20515/index.html
+20475,jimmy gagnon,gagnon,/fr/deputes/gagnon-jimmy-20475/index.html
+20481,genevieve couture,couture,/fr/deputes/couture-genevieve-20481/index.html
+20517,mathieu lavoie,lavoie,/fr/deputes/lavoie-mathieu-20517/index.html
+20469,marie-josee helie,helie,/fr/deputes/helie-marie-josee-20469/index.html
+20463,guillaume langlois,langlois,/fr/deputes/langlois-guillaume-20463/index.html
+20449,charles milliard,milliard,/fr/deputes/milliard-charles-20449/index.html
+20457,isabelle millette,millette,/fr/deputes/millette-isabelle-20457/index.html
+20443,david bowles,bowles,/fr/deputes/bowles-david-20443/index.html
+20441,stephane paquet,paquet,/fr/deputes/paquet-stephane-20441/index.html
+20437,marcel bouchard,bouchard,/fr/deputes/bouchard-marcel-20437/index.html
+20431,anne nguyen,nguyen,/fr/deputes/nguyen-anne-20431/index.html
+20427,odette lavigne,lavigne,/fr/deputes/lavigne-odette-20427/index.html
+20423,jocelyn desjardins,desjardins,/fr/deputes/desjardins-jocelyn-20423/index.html
+20529,bernard sevigny,sevigny,/fr/deputes/sevigny-bernard-20529/index.html
+20415,yohann st-pierre,st-pierre,/fr/deputes/st-pierre-yohann-20415/index.html
+20409,ariane boyer,boyer,/fr/deputes/boyer-ariane-20409/index.html
+20407,isabelle thibeault,thibeault,/fr/deputes/thibeault-isabelle-20407/index.html
+20391,gisele pouhe njall,njall,/fr/deputes/pouhe-njall-gisele-20391/index.html
+20395,mathieu lebrun,lebrun,/fr/deputes/lebrun-mathieu-20395/index.html
+20399,diane dallaire,dallaire,/fr/deputes/dallaire-diane-20399/index.html
+20385,roxane milot,milot,/fr/deputes/milot-roxane-20385/index.html
+20381,cecile tremblay,tremblay,/fr/deputes/tremblay-cecile-20381/index.html
+20351,sylvie tanguay,tanguay,/fr/deputes/tanguay-sylvie-20351/index.html
+20521,benoit clermont,clermont,/fr/deputes/clermont-benoit-20521/index.html
+20355,simon-pierre savard-tremblay,savard-tremblay,/fr/deputes/savard-tremblay-simon-pierre-20355/index.html
+20359,gaetan bedard,bedard,/fr/deputes/bedard-gaetan-20359/index.html
+20365,sandrine michon,michon,/fr/deputes/michon-sandrine-20365/index.html
+20373,valerie assouline,assouline,/fr/deputes/assouline-valerie-20373/index.html
+20519,stephanie vachon,vachon,/fr/deputes/vachon-stephanie-20519/index.html
+20377,olivier bertin-mahieux,bertin-mahieux,/fr/deputes/bertin-mahieux-olivier-20377/index.html
+20347,sandra hernandez,hernandez,/fr/deputes/hernandez-sandra-20347/index.html
+20343,jean pellerin,pellerin,/fr/deputes/pellerin-jean-20343/index.html
+20337,sonia caron,caron,/fr/deputes/caron-sonia-20337/index.html
+20599,stephan fogaing,fogaing,/fr/deputes/fogaing-stephan-20599/index.html
+20527,patrick paquet,paquet,/fr/deputes/paquet-patrick-20527/index.html
+20333,james hughes,hughes,/fr/deputes/hughes-james-20333/index.html
+20329,guy jr lapointe,lapointe,/fr/deputes/lapointe-guy-jr-20329/index.html
+20323,antoine dionne charest,charest,/fr/deputes/dionne-charest-antoine-20323/index.html
+20321,louis ialenti,ialenti,/fr/deputes/ialenti-louis-20321/index.html
