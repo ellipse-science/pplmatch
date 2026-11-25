@@ -91,3 +91,18 @@ test_that("Python normalizer extracts last names", {
   expect_equal(norm$extract_last_name("legault"), "legault")
   expect_equal(norm$extract_last_name(""), "")
 })
+
+# La 44e compte vingt homonymes, contre deux dans la 43e. Le Journal des débats
+# les départage par la circonscription (« Simard, Dubuc »). Celles à trait
+# d'union ou à tiret n'étaient pas lues : l'intervention sortait unmatched,
+# donc jetée en aval.
+test_that("une circonscription à trait d'union ou à tiret est lue", {
+  skip_if_not(reticulate::py_available(), "Python not available")
+  norm <- reticulate::import_from_path("normalizer", path = file.path("..", "..", "inst", "python"))
+  res <- norm$normalize_speaker("Poulin, Côte-du-Sud")
+  expect_equal(res[[2]], "poulin")
+  expect_equal(res[[3]], "cotedusud")
+  res <- norm$normalize_speaker("Simard, Charlevoix–Côte-de-Beaupré")
+  expect_equal(res[[2]], "simard")
+  expect_equal(res[[3]], "charlevoixcotedebeaupre")
+})

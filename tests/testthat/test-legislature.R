@@ -28,3 +28,33 @@ test_that("Python legislature module maps dates correctly", {
   res <- leg_mod$date_to_legislature("1998-11-28", legislatures)
   expect_null(res)
 })
+
+# La 44e (élue le 2026-10-05, première séance le 2026-12-01). Sans elle, toute
+# intervention de la nouvelle Assemblée tombait hors des législatures
+# couvertes : `unmatched`, donc jetée en aval par le raffineur (pplmatch#11).
+test_that("une intervention de la 44e est rattachée à la 44e (pplmatch#11)", {
+  skip_if_not(reticulate::py_available(), "Python not available")
+  corpus <- data.frame(speaker = "St-Pierre Plamondon", event_date = as.Date("2026-12-01"),
+                       stringsAsFactors = FALSE)
+  result <- pplmatchQC(corpus)
+  expect_equal(result$legislature[1], 44L)
+  expect_false(result$match_level[1] == "unmatched")
+  expect_equal(result$party_id[1], "PQ")
+})
+
+test_that("les législatures viennent de legislatures_qc.json, plus d'une liste écrite en dur", {
+  legs <- jsonlite::fromJSON(file.path(pplmatch:::.find_extdata_dir(), "legislatures_qc.json"))
+  expect_true(44L %in% legs$legislature)
+  expect_null(formals(pplmatchQC)$legislatures)
+})
+
+test_that("deux homonymes de la 44e sont départagés par leur circonscription (pplmatch#11)", {
+  skip_if_not(reticulate::py_available(), "Python not available")
+  corpus <- data.frame(
+    speaker = c("Caron, La Pinière", "Caron, Ungava", "Poulin, Côte-du-Sud", "Poulin, Beauce-Sud",
+                "Simard, Dubuc", "Simard, Charlevoix–Côte-de-Beaupré"),
+    event_date = as.Date("2026-12-01"), stringsAsFactors = FALSE)
+  result <- pplmatchQC(corpus)
+  expect_equal(result$party_id, c("PLQ", "PQ", "PCQ", "PCQ", "PQ", "PCQ"))
+  expect_false(any(result$match_level == "unmatched"))
+})

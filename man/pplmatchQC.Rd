@@ -8,7 +8,7 @@ pplmatchQC(
   corpus,
   members = NULL,
   fuzzy_threshold = 85,
-  legislatures = 35:43,
+  legislatures = NULL,
   web_lookup = FALSE,
   verbose = FALSE
 )
@@ -45,7 +45,8 @@ Defaut : 85. Un seuil plus eleve = plus precis mais moins de matchs.
 Un seuil plus bas = plus de matchs mais plus de faux positifs.}
 
 \item{legislatures}{Vecteur d'entiers des numeros de legislatures a traiter.
-Defaut : 35:43 (1994 a aujourd'hui). Les lignes du corpus dont la date
+Defaut : toutes celles de legislatures_qc.json depuis la 35e (1994 a
+aujourd'hui, 44e comprise). Les lignes du corpus dont la date
 tombe hors de ces legislatures recoivent un \code{match_level} de
 \code{"unmatched"} et un \code{legislature} de \code{NA}.}
 

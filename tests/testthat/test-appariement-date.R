@@ -132,7 +132,12 @@ test_that("le resolveur ne rend rien plutot qu'un parti approximatif", {
   expect_null(m$`_resolve_party`("rimouski", "pas-une-date", mand))
   expect_equal(m$`_statut_referentiel_mandat`("rimouski", "2021-06-01", mand),
                "couvert")
+  # Avec la 44e dans les données, Rimouski est couverte au 2026-10-06. Le
+  # référentiel n'est « périmé » qu'au-delà de la dernière fin connue : entre
+  # la dissolution (2026-08-27) et l'élection (2026-10-05).
   expect_equal(m$`_statut_referentiel_mandat`("rimouski", "2026-10-06", mand),
+               "couvert")
+  expect_equal(m$`_statut_referentiel_mandat`("rimouski", "2026-09-15", mand),
                "referentiel_perime")
   expect_equal(m$`_statut_referentiel_mandat`("siege-inexistant", "2026-10-06", mand),
                "siege_inconnu")
@@ -270,11 +275,20 @@ test_that("personne ne gagne sa propre partielle", {
   # Si une personne ouvre un mandat par PARTIELLE sur un siege, elle ne peut
   # pas etre aussi la gagnante de la generale du meme siege dans la meme
   # legislature : la partielle n'aurait pas eu lieu.
+  # Dans la MÊME législature : gagner une partielle de la 43e puis être
+  # réélue à la générale de la 44e est normal (Laflamme, Gentilcore).
+  legs <- jsonlite::fromJSON(file.path(dirname(chemin), "legislatures_qc.json"))
+  leg_de <- function(d) vapply(d, function(x) {
+    k <- which(legs$start_date <= x & (legs$end_date == "" | x <= legs$end_date))
+    if (length(k)) as.character(legs$legislature[k[1]]) else NA_character_
+  }, character(1))
+  m$leg <- leg_de(m$date_start)
   faute <- character(0)
   for (s in unique(m$seat_id)) {
     ms <- m[m$seat_id == s, ]
-    part <- ms$person_id[ms$start_reason == "byelection" & nzchar(ms$person_id)]
-    gen  <- ms$person_id[ms$start_reason == "election" & nzchar(ms$person_id)]
+    cle <- paste(ms$person_id, ms$leg)
+    part <- cle[ms$start_reason == "byelection" & nzchar(ms$person_id)]
+    gen  <- cle[ms$start_reason == "election" & nzchar(ms$person_id)]
     faute <- c(faute, intersect(part, gen))
   }
   expect_equal(faute, character(0))
